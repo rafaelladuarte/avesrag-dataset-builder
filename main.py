@@ -21,7 +21,8 @@ def scraper_wikiaves(url):
         context = browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-            locale="pt-BR"
+            locale="pt-BR",
+            proxy={"server": "http://exyon.flow2go.com.br:8888"}
         )
 
         page = context.new_page()
@@ -72,8 +73,10 @@ if __name__ == "__main__":
         data = list(reader)
 
     dataset = []
-    for d in data:
+    n = len(data)
+    for i, d in enumerate(data):
         url = d["url_wikiaves"]
+        tax = d["taxonomia"]
 
         increment_dataset = scraper_wikiaves(url)
 
@@ -90,10 +93,11 @@ if __name__ == "__main__":
 
         sleep(random.uniform(1, 5))
 
-    
-        with open(
-            r"data\treat_data\result_scraper_wikiaves_udi.json", 
-            "w", 
-            encoding="utf-8"
-        ) as jsonfile:
-            json.dump(dataset, jsonfile, ensure_ascii=False, indent=2)
+        print(f"{i}/{n} - {tax}")
+
+    with open(
+        r"data\treat_data\result_scraper_wikiaves_udi.json", 
+        "w", 
+        encoding="utf-8"
+    ) as jsonfile:
+        json.dump(dataset, jsonfile, ensure_ascii=False, indent=2)
