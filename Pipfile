@@ -9,6 +9,7 @@ requests = "*"
 beautifulsoup4 = "*"
 playwright = "*"
 pytest-playwright = "*"
+groq = "*"
 
 [dev-packages]
 ipykernel = "*"
