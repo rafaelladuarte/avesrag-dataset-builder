@@ -6,6 +6,14 @@ import json
 import os
 
 
+def save_resut(path_json, data):
+    with open(
+        path_json,
+        "w", 
+        encoding="utf-8"
+    ) as jsonfile:
+        json.dump(data, jsonfile, ensure_ascii=False, indent=2)
+
 def formatted_prompt(
         order: str = None, family: str = None,
         genre: str = None, specie: str = None,
@@ -90,12 +98,13 @@ def formatted_prompt(
 
 
 RPM = 30
-RPD = 1000
-TPM = 30000
+RPD = 14400
+TPM = 15000
+TPD = 500000
 
 if __name__ == "__main__":
-    path_json = "data/treat_data/result_oficial_scraper_wikiaves_udi.json"
-    model = "meta-llama/Meta-Llama-3-8B-Instruct"
+    path_json = "result_llm_wikiaves_udi.json"
+    model = "gemma2-9b-it"
 
     with open(path_json) as file:
         list_birds = json.load(file)
@@ -113,17 +122,13 @@ if __name__ == "__main__":
                 family=bird.get("familia"),
                 genre=bird.get("genero"),
                 specie=bird.get("especie"),
-                feature=bird.get("caracteristica"),
+                feature=bird.get("caracteristicas"),
                 food= bird.get("alimentacao")
             )
-            tokenizer = AutoTokenizer.from_pretrained(model)
-
-            tokens = tokenizer.encode(prompt)
-            print("Tokens estimados:", len(tokens))
 
             url = "https://api.groq.com/openai/v1/chat/completions"
             headers = {
-                "Authorization": "Bearer SEU_TOKEN_AQUI",
+                "Authorization": f"Bearer {os.getenv("GROQ_API_KEY")}",
                 "Content-Type": "application/json"
             }
             data = {
@@ -138,21 +143,35 @@ if __name__ == "__main__":
             else:
                 raise 
 
-            tk_r = response.headers.get("x-ratelimit-remaining-tokens")
-            rq_r = response.headers.get("x-ratelimit-remaining-requests")
-            rt_a = response.headers.get("retry-after")
-
             j += 1
-            print("Information for bird is exists")
-        else:
             print("Get information for bird")
-
-    if j == 30:
-        with open(
-            path_json,
-            "w", 
-            encoding="utf-8"
-        ) as jsonfile:
-            json.dump(data, jsonfile, ensure_ascii=False, indent=2)
+        else:
+            print("Information for bird is exists")
         
-        j = 0
+        rate_token = response.headers.get("x-ratelimit-remaining-tokens") # TPM
+        print(rate_token)
+        rate_requests = response.headers.get("x-ratelimit-remaining-requests") # RPD
+        print(rate_requests)
+        rate_reset_requests = response.headers.get("x-ratelimit-reset-requests") # RPD
+        print(rate_reset_requests)
+        rate_reset_tokens = response.headers.get("x-ratelimit-reset-tokens") # TPM
+        print(rate_reset_tokens)
+        retry_after = response.headers.get("retry-after")
+        print(retry_after)
+        
+        if j == 30:
+            with open(
+                path_json,
+                "w", 
+                encoding="utf-8"
+            ) as jsonfile:
+                json.dump(list_birds, jsonfile, ensure_ascii=False, indent=2)
+            
+            j = 0
+
+    with open(
+        path_json,
+        "w", 
+        encoding="utf-8"
+    ) as jsonfile:
+        json.dump(list_birds, jsonfile, ensure_ascii=False, indent=2)
