@@ -572,7 +572,8 @@
     "alimentacao": "Alimenta-se de insetos noturnos, em especial de grandes mariposas, cupins e besouros, os quais caça em voo.",
     "reproducao": "Põe um ovo, em cavidades de tocos ou galhos, a poucos metros acima do solo, incubando-o por cerca de 33 dias. O filhote permanece no ninho em torno de 7 semanas.",
     "habitos": "Comum em bordas de florestas, campos com árvores e cerrados. Ainda que tenha o hábito de pousar em locais abertos, permanece disfarçado, sendo facilmente confundido com um galho. Tem o hábito de cantar à noite.",
-    "dist_geo": "Presente localmente em todo o Brasil, inclusive dentro de cidades, em áreas bem arborizadas. Encontrado também da Costa Rica à Bolívia, Argentina e Uruguai."
+    "dist_geo": "Presente localmente em todo o Brasil, inclusive dentro de cidades, em áreas bem arborizadas. Encontrado também da Costa Rica à Bolívia, Argentina e Uruguai.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': [], 'tamanho': ''}\n```"
   },
   {
     "": "145",
@@ -589,7 +590,8 @@
     "alimentacao": "Sai para se alimentar à noite. O bacurau tem grandes asas, o que lhe permite perseguir e capturar insetos voadores. Bacuraus são excelentes voadores e extremamente ágeis quando estão em voo. Alimenta-se de numerosas espécies de insetos, como besouros, mariposas, borboletas, abelhas, vespas, e formigas que são capturados em voos curtos para o ar a partir do solo, ou em voos curtos a partir de poleiros. Também caça insetos voando sobre áreas abertas. São conhecidos como “engole-ventos” por causa de seus hábitos de alimentação, no qual voam baixo com o bico aberto tentando apanhar insetos",
     "reproducao": "O ninho consiste em uma pequena depressão no substrato, sem ou com pouco preparo do local onde os ovos são depositados. A postura é de dois ovos postos em dias alternados, sendo que mais raramente a postura de apenas um ovo é encontrado. Mas estudos mostram que quanto mais próximo da linha do Equador, o tamanho da ninhada é, na maioria das vezes, de um ovo (Guilherme & Lima, 2020). Utiliza a borda de trilhas  no interior da floresta ou na própria borda desta (Lima et al. 2019). Os ovos possuem a forma elipsóide e coloração geral rósea com pequenas manchas de coloração rósea escura ou marrom. A média da sua medida é de 27 x 20,5 milímetros e com peso médio de 5,75 gramas. O período de incubação é de 19 dias e exercida por ambos os pais, sendo que a fêmea participa com maior frequência da atividade de incubação. Os filhotes abandonam o ninho entre 21 e 25 dias após a eclosão. A alimentação dos filhotes é efetuada por ambos os pais, sendo que o macho participa com maior intensidade desta atividade. Quando alguma ameaça predatória ao ninho se faz presente, o adulto realiza display de fingir lesão para proteger os filhotes e atrair o predador para longe do seu ninho. A plumagem definitiva dos filhotes ocorre por volta dos 22 dias de vida, quando começam a realizar pequenos voos coordenados (Hermes et al. 2011). Os filhotes possuem uma camuflagem quase perfeita, pois possuem uma coloração muito semelhante à da folhagem seca do chão da mata. Eles permanecem imóveis no solo, sendo muito difícil visualizá-los. Os filhotes podem se movimentar pelo solo mudando de local também como estratégia de camuflagem assim como fazem outras espécies de bacuraus (Observação pessoal, João de Almeida Prado, Bariri-SP).",
     "habitos": "Comum em bordas de florestas, capoeiras abertas, campos com árvores isoladas, cerrados, capões de mata podendo também ser encontrado em matas secundárias e em processo de reflorestamento. Vive no chão. Só é visto durante o dia somente se espantado. Nestas ocasiões, voa curtas distâncias e logo volta a sumir em meio à vegetação rasteira, procurando se camuflar em meio as folhagens no substrato.",
-    "dist_geo": "Todo o Brasil, onde há florestas ou capoeiras, e também no extremo sul dos Estados Unidos, México, toda a América Central e do Sul (exceto o Chile)."
+    "dist_geo": "Todo o Brasil, onde há florestas ou capoeiras, e também no extremo sul dos Estados Unidos, México, toda a América Central e do Sul (exceto o Chile).",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': [\"marrom acinzentado\", \"castanho\", \"marrom\", \"cinza\", \"branco\", \"bege\", \"acinzentado escuro\", \"castanha\"], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "147",
@@ -606,7 +608,8 @@
     "alimentacao": "Alimenta-se de insetos que captura em voo.",
     "reproducao": "Período reprodutivo de agosto a novembro. A postura consta de dois ovos de cor creme, manchados com algumas pintas de cor marrom, pesando em média 4,7 g. São postos diretamente no solo e dificilmente vistos. Quando percebem a presença de um intruso no momento da incubação, voam para longe do local, para não denunciarem onde está o ninho. Quando estão com os filhotes, costumam fingir que estão com as asas quebradas e, dessa maneira, tentam afastar o intruso das proximidades dos filhotes. Eventos reprodutivos apontam os primeiros registros no sudoeste da Amazônia brasileira, onde Almeida et al. (2022) relatam os ninhos encontrados em duas Unidades de Conservaçãoo no leste do Acre, local onde, até então, a espécie era tratada como migrante austral, assim como na Amazônia peruana. Porém, os dados sugerem a permanência de indivíduos residentes nessa porção sudoeste da Amazônia, mas que só são ouvidos durante a época seca local.",
     "habitos": "Comum em campos com árvores e arbustos. É noturno e vive no chão, descansando durante o dia sob arbustos. Pousa sobre troncos para cantar.",
-    "dist_geo": "Presente em todo o Brasil, e também da Venezuela à Bolívia e Argentina. Migratório, aparece em quantidade em algumas regiões, em determinadas épocas do ano, como no Estado de Minas Gerais ( setembro)."
+    "dist_geo": "Presente em todo o Brasil, e também da Venezuela à Bolívia e Argentina. Migratório, aparece em quantidade em algumas regiões, em determinadas épocas do ano, como no Estado de Minas Gerais ( setembro).",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['branco', 'amarelo'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "148",
@@ -623,7 +626,8 @@
     "alimentacao": "É uma ave basicamente insetívora.",
     "reproducao": "Põe dois ovos de cor creme. Quanto à época de reprodução, pode variar entre agosto e dezembro.",
     "habitos": "Habita os campos naturais com gramíneas de aproximadamente 30 centímetros de altura, bordas de banhados e campos rupestres.",
-    "dist_geo": "Do Sudeste brasileiro ao Rio Grande do Sul, Goiás e\nDistrito Federal."
+    "dist_geo": "Do Sudeste brasileiro ao Rio Grande do Sul, Goiás e\nDistrito Federal.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': 'Elíptica', 'pata': '', 'cores': ['branco-amarelado', 'branco'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "152",
@@ -640,7 +644,8 @@
     "alimentacao": "Hábitos alimentares…",
     "reproducao": "Hábitos reprodutivos…",
     "habitos": "Ocorre em buritizais, matas de galeria, campos, varjões e áreas úmidas abertas. Muito encontrada nas plantações de cana-de-açúcar colhidas e já brotando, costuma pousar nas palhas secas da cana, dando pequenos sobrevoos pousando novamente em outro ponto, dificilmente pousa nas estradas como é comum dos outros bacuraus, canta tanto pousado como em voo.",
-    "dist_geo": "Bacurau de distribuição fragmentada na América do Sul, ocorre do México à Bolívia, incluindo todo o Brasil."
+    "dist_geo": "Bacurau de distribuição fragmentada na América do Sul, ocorre do México à Bolívia, incluindo todo o Brasil.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['ruivo', 'branco'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "155",
@@ -657,7 +662,8 @@
     "alimentacao": "É exclusivamente insetívoro. Parte do solo em voo curto para capturar o inseto e pousa imediatamente. É grande devorador de mariposas.",
     "reproducao": "Não faz ninho, mas a fêmea põe 2 ovos bem camuflados diretamente sobre a terra. O casal choca em revezamento. Na época de reprodução, os machos quando estão pousados no solo emitem um tamborilado através do bater da cauda (observação pessoal - João de Almeida Prado).",
     "habitos": "Vive na beirada da mata, campos e cerrados. Adapta-se também às cidades, já tendo sido observado nos telhados do Rio de Janeiro. É ave noturna. Durante o dia fica pousado imóvel no chão ou longitudinalmente sobre galhos baixos de árvores, em perfeita camuflagem.",
-    "dist_geo": "Do sul do rio Amazonas até o Rio Grande do Sul, e também no Peru, Paraguai, Argentina e Uruguai."
+    "dist_geo": "Do sul do rio Amazonas até o Rio Grande do Sul, e também no Peru, Paraguai, Argentina e Uruguai.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['ferrugena'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "157",
@@ -674,7 +680,8 @@
     "alimentacao": "Caça insetos em pleno voo.",
     "reproducao": "Hábitos reprodutivos…",
     "habitos": "Durante o dia, pousa no chão dos campos e áreas abertas, com suas cores pardas confundindo-se com a vegetação. Somente levanta voo em último caso, com sua camuflagem servindo de proteção efetiva. Como as demais aves noturnas, enxerga bem durante o dia, acompanhando qualquer sinal de perigo com as pálpebras entreabertas.",
-    "dist_geo": "Habita da Venezuela e Colômbia até os estados brasileiros do Mato Grosso, Minas Gerais e mais abaixo, no Rio Grande do Sul."
+    "dist_geo": "Habita da Venezuela e Colômbia até os estados brasileiros do Mato Grosso, Minas Gerais e mais abaixo, no Rio Grande do Sul.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['marrom pardacenta claro', 'marrom', 'acinzentado', 'castanho', 'camurça pálido', 'bege pálido', 'branco', 'cinza claro', 'pardacento', 'esbranquiçado'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "158",
@@ -691,7 +698,8 @@
     "alimentacao": "Insetívoro. Costuma sobrevoar queimadas para caçar insetos fugindo do fogo, quando sua barriga branca reflete as chamas. Sobrevoa lâmpadas para capturar presas atraídas por elas, em comportamento similar ao de acompanhar as queimadas.",
     "reproducao": "Período Reprodutivo: Junho a Outubro",
     "habitos": "O maior dos bacuraus, pode ser várias vezes observado voando à luz do dia quando perturbado em seu ponto de repouso. Entretanto é no cair da tarde que inicia seus voos de caça de insetos, quando patrulha seguidamente uma área e faz mudanças bruscas de direção. Sobrevoa em voos de caça, algumas vezes em grupos de várias dezenas, destacando-se pelo tamanho e silhueta de asas longas com pontas finas. Seus pousos diurnos estão nos campos com capins baixos surgidos ao longo dos corixos e baías. Camufla-se muito bem na paisagem, apesar do tamanho.",
-    "dist_geo": "Cerrados da Venezuela e Colômbia até a Bolívia e Argentina, bem como todo o Brasil."
+    "dist_geo": "Cerrados da Venezuela e Colômbia até a Bolívia e Argentina, bem como todo o Brasil.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': 'Elíptica', 'pata': '', 'cores': ['marrom-escura', 'branco', 'acinzentado'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "159",
@@ -708,7 +716,8 @@
     "alimentacao": "Alimenta-se basicamente de insetos. Sua boca larga ajuda a capturar insetos em voo e seus grande olhos ajudam a identificar a presa no escuro.",
     "reproducao": "Os machos cortejam as fêmeas fazendo exibições no solo e em voo. Eles começam a voar de 5 a 30 metros do chão e então mergulham abruptamente em direção ao solo voltando rapidamente a dois metros do chão. Esta exibição é acompanhada por um “zunido” provocado pelo fluxo de ar nas penas do macho. O macho então pousa ao lado da fêmea, espalhando e balançando seu rabo de um lado para o outro, exibindo sua mancha branca na garganta e vocalizando.",
     "habitos": "No verão, costuma migrar em grandes bandos da América do Norte até a América do Sul, chegando até a Argentina. Viajam durante o dia ou à noite, chocando-se frequentemente contra janelas iluminadas. Consta que pode aparecer em diversos lugares do Brasil, habitando áreas semiabertas, áreas pouco urbanizadas e até em áreas verdes dentro de cidades, bordas de florestas, cerradões, capoeiras e carrascais. Apresenta hábitos crepusculares e parcialmente diurnos. Bebem água em lagoas e represas em pleno voo. No Sudeste e no Sul podem dormir em grupos grandes sobre telhados. No Estado de São Paulo aparecem no início de outubro e desaparecem em meados de março.",
-    "dist_geo": "Pode ser encontrado em quase toda a América do Sul nos meses de setembro a fevereiro, principalmente no cerrado brasileiro."
+    "dist_geo": "Pode ser encontrado em quase toda a América do Sul nos meses de setembro a fevereiro, principalmente no cerrado brasileiro.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['branco', 'amarelado'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "163",
@@ -725,7 +734,8 @@
     "alimentacao": "Alimenta-se de insetos.",
     "reproducao": "Constrói o ninho em paredões rochosos próximos a cachoeira.",
     "habitos": "É uma espécie rara, geralmente encontradas nas proximidades de cachoeiras.",
-    "dist_geo": "Ocorre no Brasil, Bolívia, Argentina e Paraguai."
+    "dist_geo": "Ocorre no Brasil, Bolívia, Argentina e Paraguai.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['preto'], 'tamanho': ''}\n```"
   },
   {
     "": "164",
@@ -742,7 +752,8 @@
     "alimentacao": "Alimenta-se de insetos capturados em voo.",
     "reproducao": "Constrói o ninho com liquens em paredões rochosos, geralmente em paredões próximos da água, coloca de 1 a 2 ovos.",
     "habitos": "Vivem às centenas, próximo de quedas d’água, sobre as quais voam. Durante o dia caçam voando alto sobre as matas.",
-    "dist_geo": "Ocorre em Mato Grosso, Pará, Pernambuco, Goiás, Bahia, São Paulo, Paraná e Santa Catarina. Espécie facilmente vista próxima às famosas Cataratas do Iguaçu, na cidade de Foz do Iguaçu - Paraná, divisa com a Argentina.\nTambém ocorre no Paraguai e Argentina."
+    "dist_geo": "Ocorre em Mato Grosso, Pará, Pernambuco, Goiás, Bahia, São Paulo, Paraná e Santa Catarina. Espécie facilmente vista próxima às famosas Cataratas do Iguaçu, na cidade de Foz do Iguaçu - Paraná, divisa com a Argentina.\nTambém ocorre no Paraguai e Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': 'Elíptica', 'pata': '', 'cores': [], 'tamanho': 'Pequeno'}\n```ariatric  "
   },
   {
     "": "166",
@@ -759,7 +770,8 @@
     "alimentacao": "Alimenta-se basicamente de insetos, capturados em voo.",
     "reproducao": "O ninho, de fibras vegetais, musgos e pedrinhas aglutinadas com barro e saliva, é fixado em paredões e escarpas de pedras ao redor de cascatas, grutas úmidas e escuras. O casal incuba e alimenta os filhotes.",
     "habitos": "Sempre sobrevoando florestas, campos e cidades. Quando o céu está nublado ou está chovendo voltam para o esconderijo, saindo rapidamente um por um quando o sol aparece. Sobrevoa incêndios florestais ou em pastagens à procura de alimento.",
-    "dist_geo": "Segundo Sick (1997) ocorre em todo o Brasil, faltando em regiões planas."
+    "dist_geo": "Segundo Sick (1997) ocorre em todo o Brasil, faltando em regiões planas.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': 'Planeio ascendente dinâmico', 'pata': '', 'cores': ['preto', 'branco'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "173",
@@ -776,7 +788,8 @@
     "alimentacao": "Alimenta-se de pequenos insetos durante o voo.",
     "reproducao": "Reproduz-se durante o verão em ninhos fixados internamente nas chaminés de residências, em outras construções humanas ou em locais abrigados como ocos de árvores e palmeiras. Os ninhos são construídos com ramos secos, unidos por saliva, endurecendo e então ficando preso à parede interna dos locais escolhidos (árvores ou espaços artificiais). A incubação é realizada pelo casal. Põe de três a quatro ovos brancos.",
     "habitos": "Entre agosto e setembro surgem aos milhares sobre áreas abertas ou em cidades e canaviais. Costumam pernoitar em chaminés, associados em pequenos e grandes grupos.",
-    "dist_geo": "É migratória no Sul e Sudeste, desaparecendo durante o inverno para procurar áreas mais propícias para alimentação ao norte, na Amazônia."
+    "dist_geo": "É migratória no Sul e Sudeste, desaparecendo durante o inverno para procurar áreas mais propícias para alimentação ao norte, na Amazônia.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['bege claro'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "176",
@@ -793,7 +806,8 @@
     "alimentacao": "Alimenta-se rápido em voo alto ou baixo de insetos voadores.",
     "reproducao": "Faz seu ninho em forma de uma bolsa grande, com penas, saliva e material vegetal, na folha de uma palmeira como o buriti. Põe de 2 a 4 ovos, incubados por 19 dias. Vários casais podem se instalar em uma mesma palmeira.",
     "habitos": "Essa pequena ave é encontrada localmente em habitats pantanosos, na floresta aberta, geralmente perto de palmeiras.",
-    "dist_geo": "É encontrado em quase todo o Brasil, exceto na região sul, escassa no Rio de Janeiro e Espírito Santo. Ocorre também na Venezuela e nas Guianas."
+    "dist_geo": "É encontrado em quase todo o Brasil, exceto na região sul, escassa no Rio de Janeiro e Espírito Santo. Ocorre também na Venezuela e nas Guianas.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': 'Planeio ascendente dinâmico', 'pata': '', 'cores': ['preto', 'marrom', 'branco'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "181",
@@ -810,7 +824,8 @@
     "alimentacao": "A base da alimentação é o açúcar encontrado no néctar das flores, mas também alimenta-se de pequenos invertebrados, principalmente aracnídeos.",
     "reproducao": "O voo nupcial consiste em perseguições ziguezagueantes à fêmea. O casal sobe às alturas parando a cada lance, de aproximadamente 20 metros, defronte um do outro em voo de libração. Em seguida, as aves regressam ao pouso, onde excitam-se abrindo e fechando rapidamente as asas. Utiliza teias de aranha e de sementes com paina para tecer seus ninhos, em forma de uma pequena tigela e fixado com fios na vegetação.",
     "habitos": "Encontrado à beira da mata, capoeira, jardins, banullais, frequentemente em copas de árvores altas. Parece manter-se mais parado no ar do que os outros beija-flores, sempre exibindo suas cores contrastantes.",
-    "dist_geo": "Ocorre no leste de centro-oeste do país, da Paraíba ao Rio Grande do Sul. É a espécie mais frequente de beija-flor em Macaé de Cima, Rio de Janeiro, durante o verão."
+    "dist_geo": "Ocorre no leste de centro-oeste do país, da Paraíba ao Rio Grande do Sul. É a espécie mais frequente de beija-flor em Macaé de Cima, Rio de Janeiro, durante o verão.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['branco', 'preto', 'castanho', 'pardo', 'cinza'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "198",
@@ -827,7 +842,8 @@
     "alimentacao": "Alimenta-se principalmente de carboidratos, conseguido através do néctar das flores, mas come também pequenos artrópodes. Parece que não aprecia as flores do gênero Tabebuia, ao contrário da maioria dos beija-flores (Observação pessoal, João de Almeida Prado).",
     "reproducao": "Na época do acasalamento, entre agosto e novembro, para chamar a atenção das fêmeas o macho abre o bico e exibe a boca, a língua e a mandíbula, partes que têm um colorido vivo que chama a atenção. Também exibe a cauda expandida em forma de leque. O voo pré-nupcial consiste em uma demorada perseguição da fêmea, ambos piando, executada a pouca altura dentro da mata fechada. Seu ninho tem forma cônica alongada, terminulldo em um apêndice caudal mais ou menos longo, servindo de contrapeso. É feito de material macio como paina e detritos vegetais que são acumulados em espessa camada de material, fixado com teias de aranha e saliva (os beija-flores são uma das poucas aves com glândulas salivares expressivas). Para apanhar as teias de aranha, percorre os lugares com maior possibilidade de encontro, inclusive beirais e interior de casas. O ninho é suspenso à face interior das folhas de palmeiras, samambaias, musáceas, helicônias etc., em raízes finas pendentes sob barrancos sombreados. Com o peso do ninho dobra-se o folíolo ou a ponta da folha, ficando o restante da mesma protegendo o ninho. É comum ser afixado também sob construções humanas, como beirais de telhados, lustres no interior de residências, estruturas de cobertura de poços d’água, sobre pontes etc. Põe dois ovos alongados, com um período de incubação que varia entre 12 a 15 dias. Os filhotes deixam o ninho após três semanas.",
     "habitos": "É frequentemente a espécie mais comum do gênero no Brasil centro-ocidental. Vive em áreas semi-abertas, cerradão, bordas de florestas úmidas e semidecíduas, matas ciliares, parques e jardins, adentrando nas cidades. Atravessa a parte baixa das matas em voos muito rápidos, no meio da vegetação fechada, emitindo um chamado agudo e curto nesses deslocamentos. Visita as flores do sub-bosque e da copa, sempre na área sombreada. Voa em locais abertos, mas pousa abrigado nas sombras.\n Inquisitivo e pouco temeroso, adentra em residências e aproxima-se a curtas distâncias, parando abrupta e repentinamente rente ao rosto do observador. Pousado, balança a cauda ritmicamente para cima e para baixo, cantando à sombra de seu poleiro preferido.\nComo outros beija-flores, costuma verificar teias de aranha para apanhar insetos presos nelas. Desses hábitos nasceu o seu nome comum de limpa-casa.",
-    "dist_geo": "Ocorre do Maranhão ao Rio Grande do Sul, Goiás e Mato Grosso. Também na Bolívia, Paraguai e norte da Argentina."
+    "dist_geo": "Ocorre do Maranhão ao Rio Grande do Sul, Goiás e Mato Grosso. Também na Bolívia, Paraguai e norte da Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['preto', 'branco', 'pardacentas', 'cinza', 'amarelo', 'verde'], 'tamanho': 'Pequeno'}\n``` \n\n\n"
   },
   {
     "": "211",
@@ -844,7 +860,8 @@
     "alimentacao": "Alimenta-se do néctar das flores e complementa a sua dieta com pequenos artrópodes.",
     "reproducao": "Na época do acasalamento o macho para librando diante da fêmea pousada, eriçando os tufos arroxeados para a frente e para cima. Ele faz o ninho em galhos finos de arbustos seguros para o ninho. Para fazer o ninho ele utiliza pequenos gravetos, papéis encontrados no chão e teias de aranha. Enrola tudo em uma cestinha perfeitamente redonda e bota 1 ou 2 ovos muito brancos sem uma única mancha. A partir daí, a fêmea fica no ninho quase o tempo todo, só saindo raramente nos horários quentes do dia para se alimentar, pois o macho já lhe traz a comida e, se ela sair numa hora do dia extremamente fria, os embriões podem morrer. Quando a casca do ovo está para rachar, a fêmea percebe e se recusa a sair do ninho, e mesmo sendo forçada a sair continua nele. Ela só sai quando o perigo é grande demais, mas só depois de ter certeza de que não há mais jeito de ficar no ninho.",
     "habitos": "É frequentemente um dos beija-flores mais comuns do Brasil centro-oriental. Vive em áreas semiabertas, bordas de floresta, capoeiras, cerrados, campos, cidades, parques e jardins. Habita os cerrados no período de chuvas e com a chegada da seca passa a frequentar a borda das matas ciliares. Nesse período destaca-se pelo canto contínuo, durante virtualmente todo o dia. É um chamado alto, curto e agudo, composto por quatro notas, repetidas de forma contínua do clarear ao escurecer. No outono migra localmente das regiões mais altas para os vales. É bastante territorial, defendendo agressivamente suas flores.",
-    "dist_geo": null
+    "dist_geo": null,
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['verde', 'roxo', 'branco', 'preto', 'esbranquiçado', 'azul', 'marrom'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "212",
@@ -861,7 +878,8 @@
     "alimentacao": "Visita várias flores do cerrado, tais como: cambará (Lantana camara), cajueiro (Anacardium occidentale), com preferencia a flores pequenas. A ave atua também como pilhadora, realizando visitas ilegítimas, como observado em Amphilophium elongatum e Sinningia sp.. Também se alimenta de pequenos insetos.",
     "reproducao": "Hábitos reprodutivos…",
     "habitos": "É uma espécie típica das áreas abertas do cerrado e florestas de galeria. Costuma utilizar um poleiro, para descansar e cantar.",
-    "dist_geo": "É encontrado nas regiões Nordeste, Centro-Oeste e Sudeste do Brasil. Também ocorre na Bolívia. Existem duas populações disjuntas: uma no Suriname e outra no estado do Maranhão. Pela ampla área de distribuição e quantidade de indivíduos registrados, essa espécie é considerada como Pouco Preocupante (LC) de extinção na natureza."
+    "dist_geo": "É encontrado nas regiões Nordeste, Centro-Oeste e Sudeste do Brasil. Também ocorre na Bolívia. Existem duas populações disjuntas: uma no Suriname e outra no estado do Maranhão. Pela ampla área de distribuição e quantidade de indivíduos registrados, essa espécie é considerada como Pouco Preocupante (LC) de extinção na natureza.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': 'Elíptica', 'pata': '',  'cores': ['vermelho', 'azul', 'dourado', 'preto', 'branco', 'bronze', 'esverdeado'], 'tamanho': ''}\n``` \n"
   },
   {
     "": "219",
@@ -878,7 +896,8 @@
     "alimentacao": "Alimenta-se de néctar e de pequenos insetos, os quais captura pairando em áreas abertas. É notavelmente insetívoro.",
     "reproducao": "Seu ninho é uma tigela sólida e rasa feita de material macio, como paina de gravatá, fiapos de xaxim, etc. e com sua parede externa atapetada com fragmentos de folhas, liquens, musgos, etc., colados firmemente com teias de aranhas (o mesmo tipo do beija-flor-tesoura). O ninho é colocado abertamente sobre um ramo horizontal ou uma forquilha de árvores e arbustos. Às vezes o ninho é construído a pouca altura da água, em galhos debruçados sobre rios.",
     "habitos": "Vive nas bordas da mata e cerradão, ocupando a parte alta das copas; e paisagens abertas repletas de arbustos e matas de aspecto de parque.",
-    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Presente em todo o Brasil. Do Panamá ao sul, a maior parte da América do Sul até a Argentina e Bolívia (com exceção do Equador)."
+    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Presente em todo o Brasil. Do Panamá ao sul, a maior parte da América do Sul até a Argentina e Bolívia (com exceção do Equador).",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': [], 'tamanho': ''}\n```"
   },
   {
     "": "231",
@@ -895,7 +914,8 @@
     "alimentacao": "Alimenta-se principalmente do néctar das flores. Frequenta bebedouros açucarados.",
     "reproducao": "O ninho desta espécie é uma pequena tigela, construída com painas e musgos e revestida com teia de aranhas e líquens, apoiada num galho ou forquilha de árvore. Os ovos medem 15 por 9 milímetros.",
     "habitos": "Habita florestas, campos, caatinga e cerrados.",
-    "dist_geo": "Endêmico do Brasil, encontrado nas regiões Centro Oeste, Sudeste,  Nordeste e Norte do Paraná."
+    "dist_geo": "Endêmico do Brasil, encontrado nas regiões Centro Oeste, Sudeste,  Nordeste e Norte do Paraná.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['vermelho-violeta', 'verde', 'cinza-claro'], 'tamanho': 'Pequeno'}\n```  \n"
   },
   {
     "": "232",
@@ -912,7 +932,8 @@
     "alimentacao": "Hábitos alimentares…",
     "reproducao": "R. Grantsau (Os Beija flores do Brasil:Expressão e cultura,1988) cita o período reprodutivo da espécie entre novembro e março. H.Sick, em seu “Ornitologia Brasileira”, (Nova Fonteira,1997) informa que a espécie, juntamente com sua prima H.squamosus,  apresenta anualmente duas mudas de penas, a nupcial e a pós nupcial, sendo que nessa última, “adquirem uma plumagem de descanso reprodutivo ou eclipse, pela qual perdem o azul do vértice e o vermelho da garganta, tornulldo-se semelhantes às fêmeas. Readquirem a plumagem nupcial à partir de outubro”.\n\nSão raras as espécies residentes no Brasil que apresentam esse padrão, como alguns caboclinhos (Sporophila bouvreuil, S. ruficollis, S. melanogaster), o tiziu (Volatinia jacarina) e outras duas espécies de beija-flores (Heliomaster squamosus e Heliomaster furcifer) (Mallet-Rodrigues, 2000).\n\nEm Carmo do Paranaíba, região do Alto Paranaíba, Minas Gerais, permanecem entre abril e setembro, com as penas do pescoço claras (ainda com plumagem de eclipse), e desaparecem em setembro, aproximadamente, já com as penas do pescoço róseas ou “vermelhas”, quando migram para outras regiões mais ao sul, onde provavelmente se reproduzem.",
     "habitos": "Augusto Ruschi em seu “Aves do Brasil – Vol. V – Beija flores” (Expressão e Cultura, 1986) considera a espécie “migratória de longas distâncias”.\nNo livro “Aves do Brasil - Mata Atlântica do Sudeste” da Wildlife Conservation Society, editado por R.S. Ridgely, J.A. Gwynne, G. Tudor e M. Argel, diz que “…a espécie parece ser migrante raro, visitante de inverno em áreas abertas com árvores…”.",
-    "dist_geo": ""
+    "dist_geo": "",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['rosa', 'azul-escuro', 'verde', 'cinza'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "233",
@@ -929,7 +950,8 @@
     "alimentacao": "Alimenta-se principalmente de néctar, mas também consome pequenos insetos e aranhas, complementando sua dieta com proteínas. Realiza vôo estacionário para se alimentar de néctar e para capturar alguns insetos.",
     "reproducao": "O sistema de acasalamento é poligínico com os machos se acasalando com várias fêmeas. O comportamento de corte do macho ocorre quando realizam exibições aéreas em forma de “U” para atrair as fêmeas, exibindo sua plumagem colorida enquanto realizam acrobacias voando para frente e para trás executando um movimento pendular, cantando e chamando a atenção pelo estranho zumbido que produz. O ninho é construído pela fêmea em árvores ou arbustos geralmente a 5 metros do solo, utilizando materiais como fibras vegetais, teias de aranha, musgos e líquens, para criar uma pequena estrutura em forma de xícara (ou taça) que confere uma estrutura leve e bem camuflada. Geralmente são postos 2 ovos brancos por ninhada. A incubação dura aproximadamente 14 a 16 dias. Após a eclosão, ela continua alimentando os filhotes com néctar e pequenos insetos por cerca de três semanas até que estejam prontos para voar. Os machos não participam dos cuidados parentais.",
     "habitos": "Habita caatingas, cerrados, áreas de floresta secundária, bordas de florestas, clareiras, jardins e áreas abertas com abundância de flores tubulares e arbustos para nidificação. É uma espécie de beija-flor que também se adapta bem a ambientes urbanos e áreas cultivadas. Vive geralmente solitário, desde o estrato arbustivo mais baixo até a copa das árvores. Voa batendo as asas até 80 vezes por segundo. É mestre em voos ascendentes e para trás. Os sons produzidos por esta espécie são semelhantes a zumbidos produzidos pelo bater das asas, os quais podem ser confundidas com as emitidas por um inseto. Consistem em notas curtas e agudas “tsit-tsit-tsit”, usadas para marcar território, alertar sobre possíveis ameaças, atrair parceiros e afastar rivais. Possui a capacidade de entrar em torpor durante a noite para conservar energia, reduzindo sua temperatura corporal e metabolismo. Esta espécie utiliza folhagem densa para proteção contra predadores e intempéries climáticas, podendo usar cavidades em árvores durante tempestades.",
-    "dist_geo": "A Estrelinha-ametista é encontrada principalmente no Brasil, do Maranhão ao Rio Grande do Sul, mas raro na Amazônia florestal, onde parece ser encontrado apenas em áreas abertas. Sua distribuição também se estende para outros países da América do Sul, como Argentina, Bolívia, Paraguai, Venezuela, Colômbia e Guiana. Espécie principalmente residente sem padrão migratório em larga escala. Apenas possíveis movimentos sazonais locais em busca de recursos florais."
+    "dist_geo": "A Estrelinha-ametista é encontrada principalmente no Brasil, do Maranhão ao Rio Grande do Sul, mas raro na Amazônia florestal, onde parece ser encontrado apenas em áreas abertas. Sua distribuição também se estende para outros países da América do Sul, como Argentina, Bolívia, Paraguai, Venezuela, Colômbia e Guiana. Espécie principalmente residente sem padrão migratório em larga escala. Apenas possíveis movimentos sazonais locais em busca de recursos florais.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['vermelho', 'ametista', 'verde-bronze', 'branco', 'roxa'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "235",
@@ -946,7 +968,8 @@
     "alimentacao": "Alimenta-se quase que exclusivamente em voo e é adaptado para sugar o néctar das flores. Também come insetos e aranhas. Aprecia muito a Ruélia-azul (Ruellia coerulea) principalmente nas primeiras horas do dia,onde a oferta de nectar é maior.",
     "reproducao": "Pode nidificar em diversos locais: nas raízes pendentes dos barrancos das estradas; nos ramos de pequenos arbustos; nos pés de café ou rente a uma folha. A parte externa das paredes do ninho são ornamentadas com líquens, fragmentos de folhas e ramos, que às vezes se prolongam pela parte inferior do ninho, tornulldo-o camuflado com o ambiente.",
     "habitos": "Vive em jardins e quintais floridos, capoeiras ralas, áreas abertas e matas de candeias floridas. Durante as horas da sua maior atividade é muito agressivo. Tem necessidade de limpar-se frequentemente devido ao constante contato com o líquido viscoso das flores. Gosta de tomar banho de sol e se espreguiça após o descanso. Dorme de bico para a frente, a cabeça um pouco levantada, posição semelhante à que assume durante a chuva e quando canta. Coloca frequentemente as asas por baixo da cauda. Pousa abertamente em galhos finos para dormir.",
-    "dist_geo": "Pode ser encontrado no Nordeste e do Espírito Santo ao Rio Grande do Sul."
+    "dist_geo": "Pode ser encontrado no Nordeste e do Espírito Santo ao Rio Grande do Sul.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['verde', 'dourado', 'azul', 'metálico', 'branco', 'azul'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "244",
@@ -963,7 +986,8 @@
     "alimentacao": "Alimenta-se em flores a pouca altura, buscando também insetos na vegetação ou capturando-os no ar.",
     "reproducao": "Faz ninho em forma de taça profunda, preso por teias de aranha a forquilhas ou pequenos ramos, a cerca de 2 m de altura. Põe 2 ovos brancos. Os filhotes deixam o ninho após 18 a 24 dias. Descrições formais de ninhos eram baseadas apenas nas subespécies T. f. furcata no nordeste da Amazônia brasileira e T. f. viridipectus no Equador. Porém, novos registros para a raça Thalurania f. boliviana no sudoeste da Amazônia brasileira mostraram que a espécie também constrói seus ninhos em forquilhas e revela, pela primeira vez, o uso de fibras da samambaia Phlebodium decumanum como principal material na construção do ninho (Guilherme & Lima 2020). Os filhotes nascem com penugens de cor bege na região dorsal e se desenvolvem no ninho até o décimo sexto dia (Guilherme & Lima 2020).",
     "habitos": "Comum no sub-bosque de florestas altas, capoeiras e florestas de várzea. Vive solitário, defendendo seu território de maneira agressiva. Em uma floresta no sudoeste amazônico brasileiro, Lima & Guilherme (2021) verificaram que essa foi uma das espécies nectarívoras mais frequentemente capturadas em clareiras naturais no interior da floresta, assim como Glaucis hirsutus, o que torna esses ambientes naturais bastante procurados por nectarívoros.",
-    "dist_geo": "Quase todo o Brasil, da Amazônia ao Sudeste. No Sul, apenas no NO do RS. Encontrado também do México à Bolívia, Paraguai e Argentina."
+    "dist_geo": "Quase todo o Brasil, da Amazônia ao Sudeste. No Sul, apenas no NO do RS. Encontrado também do México à Bolívia, Paraguai e Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['esverdeadas', 'verde-metálica', 'verde', 'preto', 'azul-violeta', 'cinza', 'branco', 'azul escuro'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "247",
@@ -980,7 +1004,8 @@
     "alimentacao": "Assim como outros beija-flores, alimenta-se basicamente de néctar de flores, mas também caça pequenos insetos com grande habilidade em voos curtos. Tem um papel importante na polinização de muitas plantas.  É um dos visitantes mais comuns de bebedouros de água com açúcar, em cidades ou em sítios.",
     "reproducao": "Na época do acasalamento, o macho faz a corte pairando em pleno voo em frente da fêmea empoleirada. Depois, macho e fêmea realizam voos de zigue-zague, ocorrendo voos rasantes do macho sobre a fêmea. O macho separa-se da fêmea imediatamente após a cópula. Um macho pode acasalar com várias fêmeas e, com grande probabilidade, a fêmea também vai acasalar com vários machos. A fêmea é a responsável pela escolha do local e pela construção do ninho. O ninho, em forma de tigela, é assentado em um ramo mais ou menos horizontal ou numa forquilha de arbusto ou árvore, a cerca de 2 a 3 metros do solo. O material utilizado na construção é composto por fibras vegetais macias, incluindo painas. Fragmentos de folhas, musgos e líquens são aderidos extremamente com teias de aranha. Põe de dois a três ovos brancos e alongados. Somente a fêmea incuba os ovos e os filhotes nascem após 15 a 16 dias e são alimentados pela fêmea principalmente com insetos, enquanto o macho defende seu território e as flores com que se alimenta. Os filhotes deixam o ninho com 22 a 24 dias.",
     "habitos": "É frequentemente o beija-flor mais comum do Brasil centro-oriental. Vive em áreas semiabertas, bordas de florestas, capoeiras, parques e jardins, sendo comum até em grandes metrópoles. Não costuma ter medo do ser humano, aproximando-se das pessoas para se alimentar nas garrafas com água e açúcar ou nas flores de seus jardins. É territorialista e extremamente agressivo, principalmente na época da reprodução, quando é capaz de atacar outros pássaros muito maiores e pequenos mamíferos. Em algumas épocas do ano, quando há menos disponibilidade de néctar, adota uma única árvore, que pode ser um mulungu ou um ipê, como a sede de seu território e a defende ferozmente contra qualquer outra ave, principalmente contra outros beija-flores e contra a cambacica. Ocorrem lutas ritualísticas intraespecíficas em voo em defesa do território.É tão agressivo, que se juntou com um bem-te-vi atacou um gavião-carijó.",
-    "dist_geo": "R ( Comitê Brasileiro de Registros Ornitológicos ). Ocorre das Guiana à Bolívia e Paraguai, todo o Brasil, exceto certas regiões da Amazônia."
+    "dist_geo": "R ( Comitê Brasileiro de Registros Ornitológicos ). Ocorre das Guiana à Bolívia e Paraguai, todo o Brasil, exceto certas regiões da Amazônia.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': [\"azul violeta\", \"verde-escuro\", \"branco\", \"castanho-escuro\", \"azul-escuro\"], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "248",
@@ -997,7 +1022,8 @@
     "alimentacao": "Alimenta-se principalmente de carboidratos, conseguido através do néctar das flores, mas come também pequenos artrópodes.",
     "reproducao": "Na época da reprodução cabe à fêmea todo o trabalho, pois sozinha constrói o ninho, choca e cuida dos filhotes. O ninho, em forma de tigela, é assentado abertamente em um ramo mais ou menos horizontal ou numa forquilha de arbusto ou árvore. O material utilizado na construção é composto por fibras vegetais macias incluindo painas e fiapos de lâminas de xaxim. Fragmentos de folhas, musgos e líquens são aderidos externamente com teias de aranha. Põe geralmente 2 ovos de cor creme e os filhotes estão prontos para deixar o ninho com aproximadamente 4 semanas de vida.",
     "habitos": "Vive solitário ou aos pares. Habitam em florestas tropicais e subtropicais úmidas de baixa atitude e florestas secundárias altamente degradadas.",
-    "dist_geo": "R ( Comitê Brasileiro de Registros Ornitológicos ). É endêmico do Brasil. Ocorre no Brasil centro-oriental, de Pernambuco ao Rio Grande do Sul, Goiás e Mato Grosso."
+    "dist_geo": "R ( Comitê Brasileiro de Registros Ornitológicos ). É endêmico do Brasil. Ocorre no Brasil centro-oriental, de Pernambuco ao Rio Grande do Sul, Goiás e Mato Grosso.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': 'Grande sustentação', 'pata': '', 'cores': ['cinza-esverdeado', 'verde-acobreado', 'cinza', 'branco', 'cinza-escuras', 'verde'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "251",
@@ -1014,7 +1040,8 @@
     "alimentacao": "Alimenta-se de néctar e pequenos insetos.",
     "reproducao": "Seu ninho é em forma de taça, como é comum a todas as espécies do gênero.",
     "habitos": "É encontrado em bordas de florestas úmidas, matas secas, matas de galeria, capoeiras, manguezais, bordas de matas de várzea, ilhas fluviais, fazendas e cidades.",
-    "dist_geo": "É comum em grande parte do Brasil, com exceção de áreas do Nordeste e da Amazônia. Encontrado também em alguns países da América do Sul, como Colômbia, Venezuela, Guianas, Bolívia, Paraguai e Argentina."
+    "dist_geo": "É comum em grande parte do Brasil, com exceção de áreas do Nordeste e da Amazônia. Encontrado também em alguns países da América do Sul, como Colômbia, Venezuela, Guianas, Bolívia, Paraguai e Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['esverdeado', 'aziulados', 'branco', 'alaranjado'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "257",
@@ -1031,7 +1058,8 @@
     "alimentacao": "Apesar de pequeno, é ágil e inquieto, podendo bater as asas até 70 vezes por segundo. Tal velocidade lhe garante a habilidade de ficar parado no ar em pleno voo.\nPara manter tal velocidade, gasta muita energia, por isso alimenta-se cerca de 15 vezes por hora.\nPode alimentar-se do suco direto da laranja posta no comedouro para outras aves. Alimenta-se também do néctar da flor brinco-de-princesa, que fica nas praças públicas.",
     "reproducao": "As fêmeas passam a época de reprodução trabalhando, pois sozinhas elas montam o ninho, chocam e cuidam dos filhotes.\nColocam apenas 2 ovos por vez.\nOs filhotes tornam-se rapidamente independentes. Em média, com 4 semanas o filhote está pronto para partir do ninho.\nAlguns filhotes recém-chegados ao mundo costumam confundir qualquer coisa colorida com alimento (flores), assim aproximando-se de qualquer objeto chamativo.",
     "habitos": "Adapta-se a ambientes urbanos e é um dos maiores frequentadores de garrafinhas de água com açúcar ou flores nas grandes cidades do centro do Brasil.",
-    "dist_geo": ""
+    "dist_geo": "",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': 'Elíptica', 'pata': '', 'cores': ['verde', 'branco', 'verde-bronzeado', 'escuro'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "258",
@@ -1048,7 +1076,8 @@
     "alimentacao": "Assim como outros beija-flores é um dos principais agentes polinizadores de várias plantas, inclusive de algumas bromélias ornamentais (Bromelioideae) e plantas introduzidas. \nÉ territorial e visita bebedouros e flores em horários regulares. Explora até\nmesmo flores de plantas rasteiras, voando muito baixo para tal.\nNos jardins e espaços cultivados procura as flores de camarãozinho-vermelho (Justicia brandegeeana), eucalipto (Eucalyptus sp.), grevílea (Grevillea robusta), ingá (Inga sp.), malvavisco (Malvaviscus arboreus), paineira (Ceiba speciosa) e sálvia (Salvia officinalis).",
     "reproducao": "Constrói o ninho a pouca altura, sobre um galho horizontal, mas este, como o de muitos outros beija-flores, é camuflado com líquens na parte externa e por isto é necessária muita atenção para observá-lo. Seu ninho abriga um ou dois ovos. Na Amazônia sul-ocidental, novos registros para a raça Chionomesa l. bartletti revelam que a espécie utiliza fibras de algodão para a construção do ninho, obtidas de sementes de Ceiba sp. ou Ochroma sp. e os filhotes nascem com pele escura no dorso e região lateral e com bico laranja (Guilherme et al. 2020). O adulto alimenta os filhotes com néctar de flores nativas e exóticas como Costus sp., Hibiscus rosa-sinensis e Monotagma sp. que permanecem no ninho por 18 a 20 dias (Guilherme et al. 2020).",
     "habitos": "Gosta muito das áreas urbanas, frequentando assiduamente o malvavisco e outras plantas atrativas e também os bebedouros com água açucarada, onde briga constantemente com a cambacica (Coereba flaveola) e com o beija-flor-tesoura (Eupetomena macroura).\nEm uma floresta no sudoeste amazônico brasileiro, Lima & Guilherme (2021) verificaram constantemente a espécie forrageando no interior de clareiras naturais dentro da mata, assim como esmeralda-de-cauda-azul (Chlorostilbon mellisugus) e rabo-branco-rubro (Phaethornis ruber).",
-    "dist_geo": "Ocorre em três regiões, no sudeste da Venezuela, na Bolívia, Peru, e no sudoeste da Amazônia brasileira (Acre e sul do Amazonas) e na região central e sul do Brasil."
+    "dist_geo": "Ocorre em três regiões, no sudeste da Venezuela, na Bolívia, Peru, e no sudoeste da Amazônia brasileira (Acre e sul do Amazonas) e na região central e sul do Brasil.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['violeta', 'branco', 'verde brilhante', 'azul escuro', 'azul', 'ocrâceo'], 'tamanho': 'Pequeno'}\n```  \n"
   },
   {
     "": "260",
@@ -1065,7 +1094,8 @@
     "alimentacao": "Alimenta-se principalmente de carboidratos, conseguidos através do néctar das flores, mas come também pequenos artrópodes. Os insetos são capturados no ar em pleno voo ou recolhidos da superfície da vegetação. Coleta pequenas aranhas de teias.",
     "reproducao": "Reproduz de setembro a fevereiro. Seu ninho tem a forma de taça e é construído com fibras de vegetais macios (Asclepias , Chorisis, etc), e com a parede externa decorada com líquen e pedaços de folhas, que são firmemente fixadas com teia-de-aranhas. O ninho é posto em um galho horizontal fino ou em pequenas forquilhas, bastante exposto, a uma altura de 4-6 m em média do solo. A fêmea põe geralmente 2 ovos, com um período de incubação de 14 a 15 dias. Os filhotes deixam o ninho em aproximadamente 20 a 28 dias.",
     "habitos": "Os seus habitats naturais são: florestas subtropicais ou tropicais úmidas de baixa altitude e savanas áridas.\n\nVive no interior e bordas das matas e cerradões, também acostumando-se a frequentar jardins e áreas arborizadas de cidades.",
-    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Dentro de sua ampla distribuição geográfica ao sul da Amazônia e pelo interior do Brasil, o Pantanal é a área onde é visto com maior facilidade.Ocorre de Minas Gerais ao Mato Grosso, Goiás e Rio Grande do Sul; também no Uruguai, Paraguai, Bolívia e Argentina."
+    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Dentro de sua ampla distribuição geográfica ao sul da Amazônia e pelo interior do Brasil, o Pantanal é a área onde é visto com maior facilidade.Ocorre de Minas Gerais ao Mato Grosso, Goiás e Rio Grande do Sul; também no Uruguai, Paraguai, Bolívia e Argentina.",
+    "morfologia_llm": "```json\n{\n'bico': 'Nectarívoro',\n'asa': '',\n'pata': '',\n'cores': [\"verde\", \"dourado\", \"acobreado\", \"cinza\", \"branco\", \"alaranjado\", \"preto\"],\n'tamanho': 'Pequeno'\n}\n```"
   },
   {
     "": "265",
@@ -1082,7 +1112,8 @@
     "alimentacao": "Alimenta-se de grandes caramujos aquáticos chamados aruás (furando-os com o bico), podendo comer ainda caramujos terrestres e pequenos lagartos. Captura os aruás na vegetação densa ou mesmo no fundo de lagos rasos, sem mergulhar, entrando na água somente até a altura da barriga.",
     "reproducao": "Faz ninho grande, como um cesto profundo, depositado sobre a vegetação alta dentro de brejos. Põe de 3 a 6 ovos de cor creme com manchas marrons.",
     "habitos": "Habita localmente pântanos e campos alagados, margens de rios com vegetação baixa e manguezais. Vive solitário, eventualmente em grupos maiores, em poças de lama. Durante o período reprodutivo vive aos casais. É principalmente noturno, embora também ativo durante o dia.  Quando não está se alimentando pode ser observado pousado em arbustos baixos.",
-    "dist_geo": "Todo o Brasil e também do sudeste dos Estados Unidos (Flórida) e México até a Argentina e o Uruguai."
+    "dist_geo": "Todo o Brasil e também do sudeste dos Estados Unidos (Flórida) e México até a Argentina e o Uruguai.",
+    "morfologia_llm": "```json\n{'bico': 'Insetos em troncos', 'asa': '', 'pata': '', 'cores': ['pardo-escuro', 'branco', 'amarelo', 'preto'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "275",
@@ -1099,7 +1130,8 @@
     "alimentacao": "Grande parte de sua alimentação é material vegetal, sejam folhas, sementes ou flores. Complementam com pequenos vertebrados e, ocasionalmente, ovos e outras aves pequenas.",
     "reproducao": "Faz ninho espaçoso em terrenos pantanosos, construído com ramos de gramíneas ou de pés de arroz, pouco acima da água. Põe de 4 a 8 ovos de cor creme, pontilhados de marrom e roxo claro.",
     "habitos": "Comum em pântanos, lagos com margens pantanosas e campos de arroz inundados. Costuma andar sobre a vegetação flutuante ou pantanosa. Nada pouco e normalmente evita a água mais aberta. Voa bem, com as pernas esticadas para trás, às vezes aparecendo em navios em alto mar para descansar, a mais de cem quilômetros da costa. Pousa com frequência em arbustos, galhos ou mesmo postes de cerca, próximos à água.",
-    "dist_geo": "Todo o Brasil e também do sudeste dos Estados Unidos e México até o norte da Argentina. É migratório, praticamente desaparecendo do sul do País durante o inverno."
+    "dist_geo": "Todo o Brasil e também do sudeste dos Estados Unidos e México até o norte da Argentina. É migratório, praticamente desaparecendo do sul do País durante o inverno.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"azul esbranquiçado\", \"amarela\", \"branco\", \"pardo-amarelada\"], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "278",
@@ -1116,7 +1148,8 @@
     "alimentacao": "Alimenta-se de insetos, formigas e sementes de capim.\nTambém se alimenta de frutas que eventualmente caem no chão.",
     "reproducao": "Faz ninho esférico de gramíneas com entrada lateral. Põe de 1 a 3 ovos.",
     "habitos": "Habita o chão em campos com gramíneas, pastagens abandonadas com arbustos, capoeiras ralas e secas, geralmente longe da água. É difícil de observar pois anda sob denso capinzal, cipós, galhos baixos e raramente voa, ainda que assustada. Canta principalmente de manhã e à tarde.",
-    "dist_geo": "Presente na maior parte do Brasil, estendendo-se desde a Amazônia, em direção sul, até o Mato Grosso do Sul, Rio de Janeiro e São Paulo. Encontrada também nas Guianas, Venezuela, Colômbia, Equador e Peru."
+    "dist_geo": "Presente na maior parte do Brasil, estendendo-se desde a Amazônia, em direção sul, até o Mato Grosso do Sul, Rio de Janeiro e São Paulo. Encontrada também nas Guianas, Venezuela, Colômbia, Equador e Peru.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': 'Anizodáctilo', 'cores': ['castanho escuro', 'castanho avermelhado', 'cinza'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "281",
@@ -1133,7 +1166,8 @@
     "alimentacao": "Alimenta-se de artrópodes, anfíbios, sementes e folhas no solo.",
     "reproducao": "Constrói um ninho globular com entrada lateral, fixando-o em arbustos a uma altura acima de 1 metro da água. Choca até 5 ovos brancos ou da cor creme, salpicados de marrom, castanho ou violeta.",
     "habitos": "Vive solitário ou aos pares em pântanos, banhados, brejos, taboais e pirizais, podendo adentrar pelos mangues. É dificil de ser avistada, pois passa a maior parte do tempo escondida no interior dos capinzais.",
-    "dist_geo": "Vive em boa parte do Brasil, mais escasso ao norte do rio Amazonas, onde há populações isoladas em RR e no Suriname. Também nos paises vizinhos do Equador, Peru, Bolívia, Paraguai, Argentina e Uruguai."
+    "dist_geo": "Vive em boa parte do Brasil, mais escasso ao norte do rio Amazonas, onde há populações isoladas em RR e no Suriname. Também nos paises vizinhos do Equador, Peru, Bolívia, Paraguai, Argentina e Uruguai.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['cinza', 'marrom oliváceo', 'ferrugínea', 'amarelo'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "282",
@@ -1150,7 +1184,8 @@
     "alimentacao": "Captura artrópodes e minhocas no solo úmido e consome sementes de gramíneas.",
     "reproducao": "Constrói um ninho de forma esférica com entrada lateral, chocando de 4 a 5 ovos brancos, com pintas cinzentas e marrons.",
     "habitos": "Habita capinzais alagados, arrozais, banhados, brejos, pirizais e também na vegetação ribeirinha em ilhas fluviais e lagos. Vive usualmente em pares.",
-    "dist_geo": "Ocorre  praticamente em todo o Brasil, mas sua distribuição no Brasil Oriental apresenta-se disjunta ou mal conhecida. Encontrado também na América Central e nos países vizinhos da Colômbia, Venezuela, Guianas, Peru, Equador, Bolívia, Paraguai e Argentina."
+    "dist_geo": "Ocorre  praticamente em todo o Brasil, mas sua distribuição no Brasil Oriental apresenta-se disjunta ou mal conhecida. Encontrado também na América Central e nos países vizinhos da Colômbia, Venezuela, Guianas, Peru, Equador, Bolívia, Paraguai e Argentina.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"verde\", \"avermelhado\", \"castanho\", \"cinza\", \"negro\"], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "287",
@@ -1167,7 +1202,8 @@
     "alimentacao": "Insetívoro, consome grandes quantidades de formigas.",
     "reproducao": "Constrói um ninho esférico de capim seco, com entrada lateral, a 50 cm do solo, às vezes próximo de buritizais, em soqueiras de capins altos.",
     "habitos": "Habita campos limpos, campos sujos, cerrados em bordas de matas secas e savanas de cupim, podendo adentrar por áreas parcialmente alagadas. Difícil observação em campo, raramente alça voos curtos, preferindo se afastar correndo quando assustado e adentrar os túneis de roedores campestres ou em buracos de tatus.\n\nTorna-se vítima frequente do lobo-guará (Chrysocyon brachyurus) e de aves de rapina campestres como o falcão-de-coleira (Falco femoralis), que podem encurralar suas presas durante os incêndios esporádicos em seu habitat.",
-    "dist_geo": "Ocorre nos estados da Bahia, Goiás, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Rondônia, Roraima, São Paulo, Tocantins e Distrito Federal. Em Goiás apresenta ocorrência no Parque das Emas e Parque Estadual dos Pireneus. No DF    possui registros na FLONA de Brasília e no Altiplano Leste."
+    "dist_geo": "Ocorre nos estados da Bahia, Goiás, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Rondônia, Roraima, São Paulo, Tocantins e Distrito Federal. Em Goiás apresenta ocorrência no Parque das Emas e Parque Estadual dos Pireneus. No DF    possui registros na FLONA de Brasília e no Altiplano Leste.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['parda', 'branco', 'negro', 'amarelo', 'azul-esverdeado'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "288",
@@ -1184,7 +1220,8 @@
     "alimentacao": "Onívoro. Gosta tanto de capim e brotos de milho quanto de pequenas cobras-d´água. Tira insetos e larvas do estrume do gado.",
     "reproducao": "Faz ninho de gramíneas trançadas no chão. Põe 2 ou 3 ovos, cuja cor varia entre o creme-rosado e o branco, delicadamente pontilhados de marrom e lilás na extremidade mais larga.",
     "habitos": "Comum em alagados, pântanos, lagos com gramíneas e campos de arroz.",
-    "dist_geo": "Presente em praticamente todo o Brasil, é mais rara na região Amazônica. Encontrada também nas Guianas, Venezuela, Peru, Colômbia, Bolívia, Paraguai e Argentina."
+    "dist_geo": "Presente em praticamente todo o Brasil, é mais rara na região Amazônica. Encontrada também nas Guianas, Venezuela, Peru, Colômbia, Bolívia, Paraguai e Argentina.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"negro\", \"pardacentas\", \"esverdeadas\"], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "291",
@@ -1201,7 +1238,8 @@
     "alimentacao": "Consome pequenos anfíbios, insetos, brotos, capins, larvas em brejos e beiras de lagos",
     "reproducao": "Faz ninho de gramíneas trançadas no chão. Põe 2 ou 3 ovos, cuja cor varia entre o creme-rosado e o branco, delicadamente pontilhados de marrom e lilás na extremidade mais larga.",
     "habitos": "Comum em alagados, pântanos, lagos com gramíneas, taboais e campos de arroz. Também há registro de canto à noite.",
-    "dist_geo": "Presente da Paraiba o Rio Grande do Sul. Encontrada também nas Guianas, Venezuela, Peru, Colômbia, Bolívia, Paraguai e Argentina."
+    "dist_geo": "Presente da Paraiba o Rio Grande do Sul. Encontrada também nas Guianas, Venezuela, Peru, Colômbia, Bolívia, Paraguai e Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['marrom-oliváceo', 'branco', 'cinza', 'verde', 'vermelho'], 'tamanho': 'Pequeno'}\n``` \n"
   },
   {
     "": "293",
@@ -1218,7 +1256,8 @@
     "alimentacao": "Tem hábito de enfiar seu bico no solo úmido em busca de invertebrados (minhocas, larvas, insetos, etc), esta ação costuma deixar seu bico sujo com lama. Também captura pequenos vertebrados como anfíbios e lagartos.",
     "reproducao": "Constrói seu ninho em forma de taça a 1 metro de altura do solo em meio à vegetação densa, chocando 4 ovos creme, manchados de marrom e tons purpúreos. \nOs filhotes possuem coloração preta levemente acinzentada.",
     "habitos": "É uma espécie típica de ambientes florestais úmidos, quase sempre associada à presença de emaranhados de cipós e solo encharcado. Bastante comum nas cidades litorâneas devido a maior presença de ambientes paludosos nestes locais (especialmente São Paulo e Rio de Janeiro).",
-    "dist_geo": "Ocorre do México ao sudeste do Brasil, tendo algumas populações aparentemente isoladas. A subespécie nominal (Amaurolimnas concolor concolor) ocorria na Jamaica, mas foi extinta."
+    "dist_geo": "Ocorre do México ao sudeste do Brasil, tendo algumas populações aparentemente isoladas. A subespécie nominal (Amaurolimnas concolor concolor) ocorria na Jamaica, mas foi extinta.",
+    "morfologia_llm": "```json\n{'bico': 'Sondador', 'asa': '', 'pata': '', 'cores': [], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "296",
@@ -1235,7 +1274,8 @@
     "alimentacao": "É onívora, alimentando-se de capim, sementes, frutas, larvas de insetos, pequenas cobras d'água, pequenos peixes e crustáceos, sempre apanhados no chão, entre as folhas da mata ou do brejo, bem como na água rasa. Também, quando residente em manguezais, pode se alimentar de pequenos crustáceos enfiando seu bico na toca dos mesmos com muita rapidez e eficácia.",
     "reproducao": "Constrói seu ninho no meio do junco, rodeado por água ou nas margens dos córregos, em meio a vegetação densa. A postura é de 4 ovos brancos com manchas marrons. Os filhotes são negros com a cabeça avermelhada.",
     "habitos": "Pode ser observada nas margens dos corixos, nas praias e nas beiras das estradas. Não liga para algo estranho que esteja se movendo longe, mas se perceber que alguém chegou perto e está se aproximando, corre rapidamente e se não ouver saida, voa com dificuldade. Embora possa voar bem, usa as pernas como principal forma de escape. Quando espantada, seu voo é curto, desajeitado e com as pernas pendentes. \n\nVista em locais abertos, parece com uma galinha, por manter sua cauda levantada entre as asas e pelas típicas passadas. Cisca a terra e folhas com o bico, ressaltando a semelhança visual. De vez em quando, baixa e levanta a cauda rapidamente, um tique que serve para o contato visual entre os membros do par. Em geral, vive solitária ou em casais.\n\nPequena e desajeitada, a saracura passa o dia escondida em silêncio, mas nas horas do alvorecer e do fim da tarde, ouve-se seu canto, que diz claramente “três-potes - um coco - um coco”, e que, segundo a crença popular, é prenúncio de chuva. Macho e fêmea cantam em dueto, cada um emitindo uma parte do canto.\n\nSeu canto ouvido nos momentos crepusculares dá um certo ar de mistério, por ser um som diferente para quem não conhece a espécie.\n\nGeralmente canta quando começa a chover forte.\n\nResponde imediatamente a qualquer reprodução de seu canto, seja uma outra ave ou playback.\n\nO canto é bem alto (apesar de grave) e varia muito de acordo com a região, principalmente no ritmo, no timbre e no compasso.\n\nQuando o canto ocorre de maneira natural, isto é, sem o uso do playback ou invasores em seu território, canta de maneira mais melodiosa e seu canto dura cerca de 2 ou 3 minutos. Mas se a ave é incomodada em seu território por algum playback da espécie, canta de forma mais dura e agressiva e pode cantar por até 10 minutos sem parar.",
-    "dist_geo": "No Brasil existem duas subespécies de saracuras-três-potes, encontradas em todos os estados, tanto no litoral como no interior."
+    "dist_geo": "No Brasil existem duas subespécies de saracuras-três-potes, encontradas em todos os estados, tanto no litoral como no interior.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['cinza', 'castanho-esverdeado', 'marrom oliváceo', 'acinzentado', 'castanho-ferruginoso', 'escuro', 'amarelada', 'esverdeada', 'vermelha'], 'tamanho': 'Médio'} \n```"
   },
   {
     "": "300",
@@ -1252,7 +1292,8 @@
     "alimentacao": "Caminha sobre a vegetação mais densa, caçando invertebrados, ocasionais pequenos vertebrados, embora sua alimentação principal seja de origem vegetal.",
     "reproducao": "Os ninhos são construídos na vegetação do interior do brejo, nas suas margens ou em grandes plataformas flutuantes, feitas de vegetação aquática. O sistema reprodutivo varia de casais, dois machos para uma fêmea ou o inverso. Algumas vezes, coloca seus ovos nos ninhos de outras galinholas, deixando para os pais adotivos o trabalho de criar os filhotes. É territorial no período reprodutivo, aceitando outras galinholas próximas fora dessa época. \nO ninho é exposto ou semiexposto, elaborado, sobre a água, construído de 6 a 8 dias. A postura é de 9 ovos, de coloração esverdeada com pintas castanhas claras e escuras, distribuídas por toda a superfície. O período de incubação é de 19 a 22 dias. Os filhotes permanecem no ninho de 1 a 2 dias (de La Peña, 2005).",
     "habitos": "É comum em lagos com vegetação aquática e margens pantanosas. Normalmente é visto nadando próximo às margens, quando balança a cabeça para frente e para trás. Esconde-se na vegetação pantanosa, se assustado. Apesar disso pode-se acostumar com o ser humano, especialmente em parques urbanos com lagos artificiais ou represas.\nNada muito bem, afastando-se do perigo dessa forma. Assustado, pode tentar voar de uma forma desengonçada, correndo na superfície da água com ajuda das asas. Apesar dessa performance pouco convincente, é uma voadora excelente, dispersando-se à noite e aparecendo em açudes ou lagoas onde não existia. Pode ser encontrada solitária, aos pares, pequenos grupos ou em alguns casos; grandes agrupamentos mistos com outras aves semi-aquáticas e limícolas, que podem ultrapassar centenas de indivíduos.",
-    "dist_geo": "Presente em todo o Brasil e em quase todo o continente americano, onde é encontrado desde o norte do Canadá até o \nChile, Uruguai e Argentina. Também ocorre nas ilhas do Caribe. Os bandos que habitam as regiões mais frias do norte do continente americano migram para o sul durante o inverno daquela região."
+    "dist_geo": "Presente em todo o Brasil e em quase todo o continente americano, onde é encontrado desde o norte do Canadá até o \nChile, Uruguai e Argentina. Também ocorre nas ilhas do Caribe. Os bandos que habitam as regiões mais frias do norte do continente americano migram para o sul durante o inverno daquela região.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'cinza', 'branco', 'amarelo', 'vermelho'], 'tamanho': 'Médio'}\n```  \n"
   },
   {
     "": "304",
@@ -1269,7 +1310,8 @@
     "alimentacao": "Alimenta-se de insetos aquáticos e suas larvas, besouros, formigas, aranhas, crustáceos, anfíbios, pequenos peixes e sementes. Muitas presas são apanhadas enquanto vêm carregadas pela correnteza.",
     "reproducao": "O período reprodutivo é de dezembro a março. Nesse período, a fêmea possui as laterais da cabeça muito tingidas de canela (característica pouco evidente no macho) e pálpebras vermelhas e o bico fica vermelho vivo. Depois da nidificação, a maioria dessas cores perde-se. Vive solitário a maior parte do ano, exceto no período de acasalamento. Calada, somente nessa época o macho emite o canto característico. Escutado em fevereiro no Pantanal, é um grito forte, composto por uma nota grave repetida várias vezes (até 10 repetições), parecido com um anfíbio. O ninho, feito com gravetos e folhas, fica logo acima da água, entre 1 e 2 m, escondido na vegetação do barranco ou arbustos semissubmersos. Bota de 2 a 4 ovos. O casal reveza-se no choco, com o macho incumbindo-se durante grande parte do dia e a fêmea à noite. Ambos também cuidam dos filhotes, embora o macho tenha papel mais destacado.\nOs filhotes saem dos ovos após 11 dias, um dos menores períodos de incubação entre as aves. Ainda mal formados, nus e com os olhos fechados, ficam abrigados em uma característica anatômica única entre as aves. Nas laterais do corpo do macho, atrás das asas, existe uma depressão côncava coberta por penas. Os filhotes são abrigados nessa área e transportados pelo macho, seja em voo, seja durante seus mergulhos. Terminam seu desenvolvimento nessa proteção, atendidos pelos pais. Quando crescem, ficam nas costas dos pais, mesmo durante os frequentes mergulhos.",
     "habitos": "Ocorre em rios e lagos tomados por vegetação palustre e capinzais alagados. Procura nadar próximo da vegetação das margens, logo refugiando-se sob os arbustos e galhos ao primeiro sinal de perigo. É muito rápido quando afasta-se nadando, costumando deixar o pescoço esticado e próximo da água. Dorme nas galhadas sobre a água e dali mergulha se for perturbada. Também durante o dia, caso sinta-se ameaçados, mergulha com enorme facilidade e desaparece.",
-    "dist_geo": "Ocorre do México até o Uruguai e em praticamente todo o Brasil, apesar de não ser observado com facilidade, devido a seus hábitos. É comum em toda a planície pantaneira. É ave localmente comum em rios da Amazônia."
+    "dist_geo": "Ocorre do México até o Uruguai e em praticamente todo o Brasil, apesar de não ser observado com facilidade, devido a seus hábitos. É comum em toda a planície pantaneira. É ave localmente comum em rios da Amazônia.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': 'Zigodáctilo', 'cores': [\"preto\", \"branco\", \"amarelo\", \"cinza\", \"avermelhado\", \"castanho alaranjado\"], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "309",
@@ -1286,7 +1328,8 @@
     "alimentacao": "O quero-quero se alimenta de invertebrados aquáticos e peixinhos que encontra na lama. Para capturá-los, ele agita a lama com as patas para provocar a fuga de suas presas. Também se alimenta de artrópodes e moluscos terrestres.",
     "reproducao": "Na primavera, a fêmea põe normalmente de três a quatro ovos. Nidifica em uma cavidade esgravatada no solo; os ovos têm formato de pião ou pera, forma adequada para rolarem ao redor de seu próprio eixo e não lateralmente, sendo manchados, confundindo-se perfeitamente com o solo. Quando os adultos são espantados do ninho, fingem-se de feridos a fim de desviar dali o inimigo; o macho torna-se agressivo até mesmo a um homem. Os filhotes são nidífugos, capazes de abandonar o ninho quase que imediatamente após o descascamento do ovo.",
     "habitos": "Costuma viver em banhados e pastagens; é visto em estradas, campos de futebol e próximo a fazendas, frequentemente longe d'água.\nO quero-quero é sempre o primeiro a dar o alarme quando algum intruso invade seus domínios. É uma ave briguenta que provoca rixa com qualquer outra espécie habitante da mesma campina. As capivaras tiram bom proveito da convivência com o quero-quero, pois, conforme a entonação, o grito dessa ave pode significar perigo. Então os grandes roedores procuram refúgio na água.\n\nEssa característica faz do quero-quero um excelente animal de guarda, sendo utilizado por algumas empresas que possuem seu parque fabril populado por estas aves.",
-    "dist_geo": "O quero-quero é uma ave típica da América do Sul, sendo encontrado desde a Argentina e leste da Bolívia até a margem direita do baixo Amazonas, no Brasil. Habita as grandes campinas úmidas, espraiados dos rios e lagoas e pastagens."
+    "dist_geo": "O quero-quero é uma ave típica da América do Sul, sendo encontrado desde a Argentina e leste da Bolívia até a margem direita do baixo Amazonas, no Brasil. Habita as grandes campinas úmidas, espraiados dos rios e lagoas e pastagens.",
+    "morfologia_llm": "```json\n{'bico': 'Limícola', 'asa': 'Elíptica', 'pata': '', 'cores': [\"preto\", \"branco\", \"cinzento\"], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "335",
@@ -1303,7 +1346,8 @@
     "alimentacao": "Hábitos alimentares…",
     "reproducao": "Hábitos reprodutivos…",
     "habitos": "Ocorre em vegetação alta em pântanos e campos inundados, e ocasionalmente no cerrado seco. Desde as planícies até 2.200 m de altitude. É uma ave de hábitos noturnos. Voa à noite, girando no ar em espiral enquanto emite sons agudos e estridentes. Parece que chega em algumas áreas após as chuvas, mas os seus movimentos sazonais são muito pouco compreendidos. A espécie sofre com a descaracterização do seu habitat devido à expansão de plantações, além da caça, destruição dos alagados e queimadas.",
-    "dist_geo": "Espécie endêmica da América do Sul, ocorre disjuntamente. A subespécie nominal se distribui desde a Colômbia ao leste até a Guiana Francesa. A subespécie gigantea ocorre no leste da Bolívia, leste do Paraguai (Smith et al., 2015), nordeste da Argentina (Lopez-Lanús & Jensen, 2012) e Brasil, neste último em áreas campestres dos Estados de Mato Grosso, Mato Grosso do Sul, Goiás, Tocantins (registros no eBird), Brasília, Minas Gerais, Bahia, Espírito Santo, Rio de Janeiro, São Paulo, Paraná, Santa Catarina e Rio Grande do Sul (Birdlife International 2015). **É possível que seja uma espécie parcialmente endêmica de campos úmidos do bioma cerrado."
+    "dist_geo": "Espécie endêmica da América do Sul, ocorre disjuntamente. A subespécie nominal se distribui desde a Colômbia ao leste até a Guiana Francesa. A subespécie gigantea ocorre no leste da Bolívia, leste do Paraguai (Smith et al., 2015), nordeste da Argentina (Lopez-Lanús & Jensen, 2012) e Brasil, neste último em áreas campestres dos Estados de Mato Grosso, Mato Grosso do Sul, Goiás, Tocantins (registros no eBird), Brasília, Minas Gerais, Bahia, Espírito Santo, Rio de Janeiro, São Paulo, Paraná, Santa Catarina e Rio Grande do Sul (Birdlife International 2015). **É possível que seja uma espécie parcialmente endêmica de campos úmidos do bioma cerrado.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['amarelo', 'preto', 'castanho-amarelado', 'escuro'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "336",
@@ -1320,7 +1364,8 @@
     "alimentacao": "Alimenta-se, principalmente, de insetos e minhocas, e também material vegetal.",
     "reproducao": "O macho executa uma “chilrear” durante o namoro, voando alto em círculos e em seguida, mergulha em águas rasas para produzir um som inconfundível. A chamada é como uma raspagem “tssk”.\n\nO ninho é uma depressão bem escondida no chão. Ambos os progenitores incubam os dois ovos amarelos por cerca de 19 dias para a eclosão, os filhotes deixam o ninho logo após o nascimento.",
     "habitos": "Vive em ambientes úmidos e pantanosos.",
-    "dist_geo": "Apresenta ampla distribuição no Brasil."
+    "dist_geo": "Apresenta ampla distribuição no Brasil.",
+    "morfologia_llm": "```json\n{'bico': 'Limícola', 'asa': '', 'pata': '', 'cores': ['cinza-esverdeadas', 'escuro', 'amarelado', 'escuro'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "340",
@@ -1337,7 +1382,8 @@
     "alimentacao": "O maçarico-pintado é carnívoro oportunista. Ele come quase todos os animais pequenos o suficiente para ele engolir. Exemplos de alimentos mais consumidos incluem mosquitos, peixes, mayflies, moscas, gafanhotos, grilos, besouros, minhocas, lagartas, moluscos, crustáceos, aranhas e carniça.",
     "reproducao": "O maçarico-pintado é poliândrico. A fêmea desta espécie pode acasalar com mais de quatro companheiros a cada ano (Oring et al., 1997).\n\nO maçarico-pintado é territorial durante a época de reprodução e no inverno. Durante a época de reprodução, os machos e as fêmeas defendem independentemente seus territórios. Para casais monogâmicos, os territórios masculinos e femininos são idênticos. Para o sexo feminino poliândrico, os territórios dos machos são subconjuntos do território da fêmea.\n\nO maçarico-pintado se reproduz entre maio e agosto. A fêmea estabelece um território de reprodução cerca de quatro dias antes de os machos começarem a chegar. Após o cortejo, o par constrói o ninho junto. O ninho é construído no solo e consiste de ervas daninhas ou caules que preenchem uma depressão rasa. Ele geralmente está localizado em pântanos, no litoral, e perto de outras fontes de água. A fêmea então coloca cerca de 4 ovos (ocasionalmente 3). Cada fêmea pode efetuar até 5 desovas por ano. Os ovos desta espécie pesam cerca de 9,6 g e levam de 19 a 22 dias (em média 21 dias) para a incubação. A incubação é efetuada em grande parte pelo macho, e pela fêmea em menor grau. Os jovens maçaricos-pintados permanecem aos cuidados dos pais por pelo menos 4 semanas após a eclosão. Os ninhegos pesam cerca de 6 g. Dentro do primeiro dia, eles estarão andando, comendo e estendendo suas asas. Eles partem para a caça a alimentos imóveis em 1-2 dias, e começam a perseguir presas em movimento com 3-5 dias. Os filhotes são criados e alimentados principalmente pelo macho. Em cerca de 11 dias, os pintinhos começam a levantar do chão batendo as asas. Em cerca de 15 dias, os pintinhos começam a apresentar voo fraco, e em cerca de 18 dias, os pintos podem levantar-se completamente fora do chão e voar uma distância significativa. Os jovens maçaricos-pintados são capazes de se reproduzir já no verão seguinte, quando estão com cerca de 1 ano de idade (Oring et al., 1997).",
     "habitos": "Habita praticamente qualquer local com água, tanto na costa como nas águas interiores, tais como manguezais e margens de rios e lagos. Normalmente são vistos vários indivíduos espalhados em um mesmo local, porém não associados em grupos.\n\nÉ uma ave migratória visitante do hemisfério norte, com reprodução no Ártico, iniciando os movimentos para o sul em junho (Hayman et al., 1986). No Brasil ocupa, sobretudo, os manguezais. Observa-se comumente forrageando nos manguezais do rio Galinhos e Thomas. A plumagem de reprodução foi registrada em abril e a de eclipse (ou de descanso reprodutivo) de setembro a março. Sua espécie é totalmente migratória, com a exceção das populações que se reproduzem no inverno ao longo da costa oeste dos Estados Unidos e em algumas áreas na Califórnia. O maçarico-pintado migra durante o dia e à noite. Diferente da maioria das aves marinhas, ele migra sozinho ou em pequenos grupos.\n\nO maçarico-pintado é ave diurna. Ele pode dormir a qualquer hora, durante o dia ou à noite, mas geralmente dorme quando está escuro. Durante o dia, o maçarico-pintado passa algum tempo cuidando da sua manutenção, que envolve preening, coçar a cabeça, alongamento e banho.\n\nO maçarico-pintado é territorial durante a época de reprodução e no inverno. O maçarico-pintado defende seu território de forma agressiva. Disputas territoriais tipicamente envolvem bicadas na cabeça e os olhos do adversário, e são usadas as pernas, asas e contas para lutar contra os invasores.\n\nAo caminhar, a ave apresenta um movimento com um balançado característico. O maçarico-pintado também pode, ocasionalmente, nadar e mergulhar para efetuar a sua caça (Oring et al., 1997).\n\nQuando ameaçado, o maçarico-pintado realiza uma exibição posicionulldo seu corpo ereto e seu bico para a frente. Ele estende suas asas para fora e para cima, levanta as penas do peito e abre sua cauda em forma de abanador. O maçarico-pintado também pode fingir uma lesão, conhecida como a exibição de asa quebrada, a fim de chamar a atenção de predadores para longe de seu ninho. O comportamento simulando asa quebrada é realizado por meio de agachamento no chão com as asas batendo no chão e a cauda abaixada, enquanto permanece guinchando (Oring et al., 1997).",
-    "dist_geo": "Reproduz-se na América do Norte e migra durante o inverno para áreas mais quentes, podendo neste período ser encontrado desde o sudeste dos Estados Unidos até a Argentina e em todo o Brasil."
+    "dist_geo": "Reproduz-se na América do Norte e migra durante o inverno para áreas mais quentes, podendo neste período ser encontrado desde o sudeste dos Estados Unidos até a Argentina e em todo o Brasil.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"marrom\", \"cinza\", \"verde-oliva\", \"branco\", \"preto\"], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "341",
@@ -1354,7 +1400,8 @@
     "alimentacao": "Alimenta-se de pequenos invertebrados que encontra sob a água rasa.Atento, tem o hábito de correr nas margens de lagos e alagadiços assim que percebe alguma presa.",
     "reproducao": "Essa é a unica limícola das Americas que se reproduz no alto de pinheiros, em ninhos abandonados de sabias e pombos silvestres.",
     "habitos": "Ave migratória visitante do hemisfério norte. Habita locais à beira d'água doce, margens lamacentas de rios e lagos, poças de chuva maiores, especialmente quando localizadas em campos com árvores. Normalmente encontrado solitário, às vezes em 2 ou 3 indivíduos espalhados, mas nunca em grupos.",
-    "dist_geo": "Todo o continente americano. Reproduz-se na América do Norte, migrando durante o inverno para a região compreendida entre o México e a Argentina, incluindo todas as regiões do Brasil. Sua presença em nosso País é, portanto, temporária."
+    "dist_geo": "Todo o continente americano. Reproduz-se na América do Norte, migrando durante o inverno para a região compreendida entre o México e a Argentina, incluindo todas as regiões do Brasil. Sua presença em nosso País é, portanto, temporária.",
+    "morfologia_llm": "```json\n{'bico': 'Limícola', 'asa': 'Elíptica', 'pata': '', 'cores': ['cinza esverdeada', 'branco', 'escuro'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "348",
@@ -1371,7 +1418,8 @@
     "alimentacao": "Nas plantas, ou logo abaixo delas, encontra os insetos, pequenos peixes e outros invertebrados de sua alimentação. Come também grãos.",
     "reproducao": "Vive aos casais ou em pequenos grupos, sendo a fêmea maior do que o macho. Em alguns locais, as fêmeas montam pequenos haréns de machos, os quais tomam conta dos ninhos. Os ovos ficam em estruturas formadas por talos de plantas aquáticas, flutuantes. Durante 28 dias são chocados os 4 ovos da postura, sendo papel masculino todo o trabalho de criação. Se alguma fêmea que não seja a esposa do macho aparecer, vai estraçalhar os ovos enquanto o macho só fica olhando, por causa de amnésia, acaba acasalando com ela no final. Os filhotes recém-nascidos andam sobre a vegetação no primeiro dia após nascerem e logo perdem a penugem branca da barriga e castanha das costas.",
     "habitos": "Embora sejam relativamente sociáveis em alguns locais ou épocas do ano, defendem seus territórios contra outras jaçanãs (ou cafezinhos, nome pantaneiro). As fêmeas são particularmente agressivas. Nessas ocasiões voam diretamente para o intruso, emitindo seu peculiar chamado, como uma risada fina e longa. Ao pousarem, para intimidar o invasor, mantêm as asas abertas e esticadas para o alto, destacando as penas longas, amarelas, das asas. Nessa postura, aparece o esporão amarelo do encontro das asas. Através dessas atitudes, intimidam a ave invasora. Ocasionalmente, ocorre luta corporal.",
-    "dist_geo": "A jaçanã (Jacana jacana\nLinnaeus, 1766) tem vasta distribuição nas Américas, ocorrendo a partir das Guianas até a\nVenezuela, Colômbia, Brasil, Bolívia, Argentina, Equador, Peru e Chile (Meyer de\nSchauensee 1982)."
+    "dist_geo": "A jaçanã (Jacana jacana\nLinnaeus, 1766) tem vasta distribuição nas Américas, ocorrendo a partir das Guianas até a\nVenezuela, Colômbia, Brasil, Bolívia, Argentina, Equador, Peru e Chile (Meyer de\nSchauensee 1982).",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': 'Anizodáctilo', 'cores': [\"preto\", \"castanho\", \"amarelo\", \"vermelho\", \"branco\", \"marrom acinzentado\"], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "395",
@@ -1388,7 +1436,8 @@
     "alimentacao": "Sua alimentação é basicamente composta por peixes, moluscos, répteis, insetos e até pequenos mamíferos. Também se alimenta de pescado morto, ajudando a evitar a putrefação dos peixes que morrem por falta de oxigênio nas épocas de seca.",
     "reproducao": "No Pantanal, o seu período de reprodução coincide com a baixa das águas, momento em que muitos peixes ficam presos nas lagoas, baías e corixos, facilitando sua pesca. Nesta época, o mussum (Symbranchus marmoratum) e a traíra (Hoplias malabaricus) são as principais presas levadas aos filhotes, bem como o grande caramujo aquático pulmonado (Pomacea).",
     "habitos": "É uma ave que realiza movimentos migratórios. Vive em margens de grandes rios e lagos com árvores esparsas e em outras áreas úmidas, onde se alimenta de peixes.",
-    "dist_geo": "É encontrado predominulltemente desde a Região Norte até o estado de São Paulo, sendo que no Paraná, Santa Catarina e Rio Grande do Sul é escasso. Ocorre também desde o México até o Paraguai, o Uruguai e o norte da Argentina, sendo que as maiores populações estão no Pantanal e no Chaco oriental, no Paraguai. Entretanto, nos estados de Mato Grosso e Mato Grosso do Sul se encontram mais de 50% de sua população. Também é encontrado na Bahia."
+    "dist_geo": "É encontrado predominulltemente desde a Região Norte até o estado de São Paulo, sendo que no Paraná, Santa Catarina e Rio Grande do Sul é escasso. Ocorre também desde o México até o Paraguai, o Uruguai e o norte da Argentina, sendo que as maiores populações estão no Pantanal e no Chaco oriental, no Paraguai. Entretanto, nos estados de Mato Grosso e Mato Grosso do Sul se encontram mais de 50% de sua população. Também é encontrado na Bahia.",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': 'Grande sustentação', 'pata': 'Pernalta', 'cores': ['branco', 'preto', 'vermelho'], 'tamanho': 'Grande'}\n```"
   },
   {
     "": "396",
@@ -1405,7 +1454,8 @@
     "alimentacao": "A alimentação é, basicamente, formada por peixes, rãs e insetos.",
     "reproducao": "Constrói ninhais em capões de mata alagada. Põe de 3 a 5 ovos.",
     "habitos": "Habita manguezais, pantanais e alagados permeados de florestas. Pousa no chão ou no alto de árvores e plana a grandes alturas sem muito esforço. Vive em grupos. Os jovens da espécie associam-se em bandos distintos, vivendo à parte dos casais.",
-    "dist_geo": "É encontrado em quase todo o Brasil, principalmente no Pantanal e na costa do Nordeste. Sua distribuição no continente americano se estende do sul dos Estados Unidos à Argentina."
+    "dist_geo": "É encontrado em quase todo o Brasil, principalmente no Pantanal e na costa do Nordeste. Sua distribuição no continente americano se estende do sul dos Estados Unidos à Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': '', 'pata': '', 'cores': [], 'tamanho': 'Grande'}\n```"
   },
   {
     "": "402",
@@ -1422,7 +1472,8 @@
     "alimentacao": "Alimenta-se de peixes, anfíbios, cobras-aquáticas e outros organismos aquáticos em mergulhos longos. Captura sua presa dardejando-a com seu afilado bico semiaberto, à semelhança de uma “fisga”, mas não a retém entre a maxila e a mandíbula serrilhada. A anatomia singular de seu pescoço permite-lhe dar botes rápidos e vigorosos como o de uma cobra, espetando lateralmente os peixes com segura punhalada. Mais do que para a pesca, as serrilhas do bico se prestam para lidar com suas presas escorregadias após a captura. Trepa através da ramagem que se encontra sobre a água calma ficando à espera de insetos aquáticos, crustáceos etc., que apanha com rápido bote, com o bico, sem deixar o poleiro. Mergulha destes postos na perseguição de peixes, propele-se com os pés, às vezes abrindo as asas durante a perseguição, mas jamais rema com elas. Para engolir a presa vem à tona, desprendendo-a através de sacudidelas verticais da cabeça e engolindo-a em seguida.",
     "reproducao": "É monogâmico e o mesmo ninho pode ser aproveitado pelo casal nos anos posteriores. Faz o ninho sobre árvores em pequenas colônias, às vezes entre colônias de garças e biguás. O ninho é confeccionado pela fêmea, mas é o macho quem escolhe e traz o material. A fêmea constrói o ninho tecendo gravetos trazidos pelo macho, preenchendo com galhos vivos e folhas verdes. O ninho é geralmente construído em um ramo pendendo sobre a água ou em áreas abertas nas copas das árvores. A cópula é realizada no ninho e a fêmea põe geralmente 3 a 4 ovos azulados ou brancos, com um intervalo de 1 a 3 dias entre uma postura e outra. O macho auxilia na incubação, que dura entre 25 e 30 dias. Chocam colocando os pés por cima dos ovos. Normalmente, os machos são altamente territoriais e defendem quaisquer ameaças ao território de nidificação com extensas exposições e até mesmo lutando. Quando ameaçados, os filhotes de plumagem alva podem se lançar à água abaixo do ninho (a uma altura de 4 a 6 metros), fugindo em mergulho. O filhote é alimentado por ambos os pais. Geralmente encontrado aos casais na época reprodutiva e em bandos ou misturados aos biguás, em outros períodos.",
     "habitos": "Vive à beira de rios e lagos orlados de matas. Prefere águas interiores com farta vegetação marginal e árvores com troncos secos, sendo mais raro na orla marítima. Quando não pesca, nada devagar, deixando emerso apenas um pouco do pescoço e a cabeça, ou somente a cabeça, que é tão estreita que parece continuação do pescoço, dando a impressão de ser uma cobra d’água; quando nada nessa posição mantém o bico levantado quase na vertical. Foge do perigo mergulhando. Empoleirado permanece frequentemente de asas abertas, impressionulldo então o tamanho e a forma côncava das mesmas. A razão para esticar as asas provavelmente é tripla: (1) secar as asas, (2) acumular calor em horas de temperatura baixa e (3) livrar-se do excesso de calor. Pousa sobre as árvores secas. Voa alternulldo batidas de asas com planeio. Paira a grande altura, sua silhueta então assemelha-se a uma delgada cruz negra, impressionulldo a longa cauda. Grasna de pescoço esticado exibindo seu saco gular amarelo. Ocorrem migrações locais dentro da Amazônia.",
-    "dist_geo": "Status de conservação: LC ( IUCN )."
+    "dist_geo": "Status de conservação: LC ( IUCN ).",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': 'Pernalta', 'pata': 'Palmada', 'cores': [\"negro\", \"branco\", \"creme-acinzentada\"], 'tamanho': 'Grande'} \n```"
   },
   {
     "": "403",
@@ -1439,7 +1490,8 @@
     "alimentacao": "Alimenta-se de peixes e crustáceos. Para capturar sua presa, mergulha a partir da superfície da água e, submerso, persegue-a. Os pés e o bico possuem função primordial na perseguição e captura. Um exímio mergulhador, não se contenta com os peixes da superfície. Mergulha mar abaixo e em meio a ziguezagues e viravoltas, conseguindo capturar sua presa. Come também girinos, sapos, rãs e insetos aquáticos.",
     "reproducao": "É monogâmico. Na época do acasalamento, o ritual de corte envolve uma ampla gama de movimentos e sons, com as aves agitando as asas e movimentando o pescoço de maneira peculiar. Os membros do casal roncam como um porco, empoleirados lado a lado, e executam curiosos meneios laterais com a cabeça, por repetidas vezes, copulando a seguir. Nidifica em colônias sobre árvores em matas alagadas, sarandizais, etc. O ninho é construído pelo casal. Enquanto o macho escolhe o local de nidificação e traz material de ninho, é a fêmea que realmente constrói o ninho. Porções de ninhos anteriores são frequentemente reutilizadas. Os ninhos são geralmente compostos por uma camada externa espessa de galhos e gravetos, forrada com gramíneas moles e algas. A fêmea põe geralmente 3 a 4 ovos ovais, de cor azul a azul-claro, que são incubados pelo casal. O período de incubação varia de 23 a 26 dias. Os filhotes são alimentados por ambos os pais, que regurgitam o alimento em seus bicos. São alimentados até as 11 semanas de vida, e com 12 semanas já são totalmente independentes.",
     "habitos": "Vive em águas interiores e na orla marítima, também ocorrendo em rios, lagos, banhados, açudes, represas, estuários, manguezais e nas cidades em parques com lagoas. Não se afasta da costa para se aventurar no mar, mas voa para ilhas próximas à costa, podendo aí nidificar. Não possui glândula uropigiana, encharcando totalmente sua plumagem para aumentar o peso e facilitar os mergulhos. Quando sai da água, seca sua plumagem abrindo a cauda e as asas ao sol, ofegando de bico aberto, por vezes revelando seu saco gular amarelo. Descansa pousado na beira d’água, sobre pedras, árvores, estacas ou mesmo sobre cabos. Empoleirado em um só pé, coça o píleo com as unhas, de forma cômica. Dorme em árvores ressequidas, ao lado de garças, nos manguezais ou em sarandizais. Devido a suas fezes serem ácidas, podem danificar árvores, mas adubam a água, favorecendo a manutenção das populações de peixes, e assim atraindo outras aves para se alimentar. É desajeitado em terra, andando de maneira gingada, mas é exímio nadador e mergulhador, utilizando seus pés com membranas interdigitais natatórias como propulsores. Quando voa se assemelha a patos, sendo às vezes considerado como tais, equivocadamente, e, quando em bando, muitas vezes voa em formação em V. Mergulha em busca de peixes e permanece um bom tempo debaixo d'água, indo aparecer de novo bem à frente, mostrando apenas o pescoço para fora d'água. Fora da época de reprodução, é geralmente solitário. Vive até os 12 anos em estado selvagem.",
-    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos) Sua distribuição geográfica estende-se do sudeste do Arizona (EUA) à Terra do Fogo, extremidade austral da América do Sul (A.O.U 1998) (SICK 1997)."
+    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos) Sua distribuição geográfica estende-se do sudeste do Arizona (EUA) à Terra do Fogo, extremidade austral da América do Sul (A.O.U 1998) (SICK 1997).",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': 'Palmada', 'cores': [\"preto\", \"amarelo\", \"cinzento\", \"branco\", \"esbranquiçado\", \"amarronzado\"], 'tamanho': 'Grande'}\n```"
   },
   {
     "": "404",
@@ -1456,7 +1508,8 @@
     "alimentacao": "Alimenta-se de quase tudo que encontra: crustáceos, répteis, anfíbios, peixes e insetos. Captura suas presas andando vagarosamente, em águas rasas ou pântanos no interior da floresta. Oculto na densa vegetação, espreita peixes e outros organismos aquáticos ficando em total imobilidade nas margens. Captura sua presa com seu bico afilado, dardejando-a em golpes certeiros e retendo-a entre a maxila e a mandíbula.",
     "reproducao": "Durante a época de reprodução o adulto emite uma forte voz, que lembra o esturro da onça pintada ou o mugir de um boi.\n\nNidifica no alto de árvores e arbustos, sendo o ninho constituído de uma grande plataforma de gravetos. Põe geralmente 2 a 3 ovos que são levemente manchados, com um período de incubação de 31 a 34 dias. Os adultos costumam coletar o alimento da prole a grande distância do ninhal. A procriação procede geralmente no início ou no fim da estação seca, quando o alimento para as aves aquáticas é normalmente mais farto.",
     "habitos": "Vive em áreas úmidas, como brejos, pântanos e veredas e também regiões florestais. Costuma esconder-se na vegetação ribeirinha.\n\nullda como se se esgueirasse, a passos largos, bem como se observasse um perigo ou uma oportunidade. Fica em pé dispondo as asas horizontalmente viradas para cima, atitude que provavelmente serve à termorregulação. Voa devagar, com o pescoço encolhido e as pernas esticadas. Quando está desconfiado, estica o pescoço, arrepiando as penas da nuca e balançando a cauda. Para dormir, não volta a cabeça para trás, e sim mantém o bico dirigido para a frente. Gosta de dias chuvosos e escuros, encontrando-se então à vontade tanto espécies noturnas como diurnas. É de hábitos solitários. \nQuando perturbado, permanece imóvel até voar, indo empoleirar-se no alto das árvores.",
-    "dist_geo": "Ocorre no Brasil em todas as regiões, com destaque para a região Sudeste. Mundialmente há registros da América Central à Bolívia e em países como Argentina."
+    "dist_geo": "Ocorre no Brasil em todas as regiões, com destaque para a região Sudeste. Mundialmente há registros da América Central à Bolívia e em países como Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': '', 'pata': '', 'cores': ['castanho', 'branco', 'pardo-acinzentado', 'acinzentado', 'amarelo-clara', 'preto'], 'tamanho': 'Médio'}\n``` \n"
   },
   {
     "": "411",
@@ -1473,7 +1526,8 @@
     "alimentacao": "Alimenta-se de peixes, anfíbios, crustáceos, insetos, pequenos répteis, pequenos mamíferos e filhotes de outras aves. Pesca\nàs vezes sobrevoando águas profundas.",
     "reproducao": "A época reprodutiva é entre setembro e janeiro. Ambos os sexos participam da construção do ninho, da incubação de até cinco ovos assincrônicos, de cor esverdeada ou verde-azulada, entre 21 a 24 dias, com os filhotes permanecendo entre 30 a 50 dias no ninho. Reproduz-se em colônias, em ninhos construídos entre 1 e 7 metros de altura. Geralmente nidifica em colônias mistas de tamanho e densidade variáveis. Os filhotes começam a nascer em novembro, culminulldo o abandono da colônia em meados de janeiro. O principal predador da colônia é o urubu, que preda os ovos no início da temporada e os filhotes no final.",
     "habitos": "Vive em bordas de lagos, lagoas e rios. Ave de hábito noturno e crepuscular. Durante o dia repousa em galhos de grandes árvores. Tem hábito de colocar o bico sobre o peito verticalmente para dormir.\n\nUma das garças mais cosmopolitas, nos países mais frios é migratória e forma grupos grandes, enquanto nos países tropicais é geralmente solitária. Pode ser encontrada quase em qualquer local onde haja água e peixes ou anfíbios, desde pequenos lagos artificiais até costões rochosos no mar. Seu modo de caça principal é “senta e espera”, mas também pode usar seus longos dedos para cutucar o lodo e as pedras de rios e lagos, espantando assim pequenos peixes que são capturados com precisão. Os imaturos são mais diurnos do que os adultos, mas passam a caçar mais à noite conforme vão crescendo. Em locais onde existem muitos pescadores, alguns socós aprenderam a pegar pequenos peixes descartados pelos pescadores. Em alguns pesque-pagues chegam até mesmo a deixar de pescar por si próprios e se aproximam dos pescadores ao menor sinal de movimento na vara, alguns até mesmo pegando os peixes diretamente da mão das pessoas. O problema deste hábito é que muitas vezes acabam se enroscando em anzóis e linhas, o que pode levá-los à morte por hemorragia ou asfixia.",
-    "dist_geo": "Presente em quase todo o Brasil com ampla distribuição geográfica, ocorrendo do Canadá à Terra do Fogo e no Velho Mundo."
+    "dist_geo": "Presente em quase todo o Brasil com ampla distribuição geográfica, ocorrendo do Canadá à Terra do Fogo e no Velho Mundo.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"preto\", \"cinza\", \"marrom-claro\", \"tons mais escuros\", \"branco\", \"amarelada\", \"vermelha\"], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "413",
@@ -1490,7 +1544,8 @@
     "alimentacao": "Alimenta-se de peixes, insetos aquáticos (imagos e larvas), caranguejos, moluscos, anfíbios e répteis. Permanece imóvel por longos períodos, empoleirado sobre a água ou em suas proximidades, à espera de presas.",
     "reproducao": "Vive solitário o ano inteiro. No período reprodutivo, costuma fazer seu ninho separado das demais aves da família ou mesmo da espécie, sendo raro encontrar colônias desse socó. Não chega a desenvolver uma plumagem especial de reprodução como as garças. A íris e as pernas ficam vermelhas nessa fase. Constrói seu ninho sobre árvores ou arbustos nos brejais. Os ovos são esverdeados ou verde-azulados (às vezes brancos ou esbranquiçados), uniformes. Põe 3 ou 4 ovos por ninhada. O período de incubação é de 21 a 23 dias.\n\nOs adultos costumam coletar o alimento da prole a grande distância do ninhal. A procriação procede geralmente no início ou no fim da estação seca, quando o alimento para as aves aquáticas é normalmente mais farto.",
     "habitos": "Pode ser encontrado em praticamente qualquer lugar onde haja água, tanto no interior do continente como nos manguezais. É migratório. Anda como se se esgueirasse, a passos largos e como se observasse um perigo ou uma oportunidade. Voa devagar, com o pescoço encolhido e as pernas esticadas. Para dormir, não volta a cabeça para trás, e sim mantém o bico dirigido para a frente. Costuma colocar o bico verticalmente para baixo de encontro ao peito dentre a plumagem, o qual oculta completamente. Gosta de dias chuvosos e escuros, sentindo-se à vontade tanto com espécies noturnas como diurnas.",
-    "dist_geo": "Presente em todo o Brasil e nas regiões de clima quente ao redor do planeta, na América, África, Ásia, Austrália e ilhas do oeste do Oceano Pacífico."
+    "dist_geo": "Presente em todo o Brasil e nas regiões de clima quente ao redor do planeta, na América, África, Ásia, Austrália e ilhas do oeste do Oceano Pacífico.",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': '', 'pata': '', 'cores': ['amarelo', 'azulado'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "415",
@@ -1507,7 +1562,8 @@
     "alimentacao": "Caça seu alimento longe da água. É uma garça insetívora, principalmente dos insetos espantados pelos pastadores; essa garça tem também uma fonte de alimentação nas moscas do dorso destes animais. Quando o gado está em terreno alagadiço também busca alimentos no solo, até mesmo pequenos anfíbios.\nCome principalmente insetos, consumindo moscas, grilos, gafanhotos, cigarrinhas das pastagens, carrapatos, libélulas, lagartas, besouros etc, movendo-se no solo em bandos intraespecíficos, correndo pelo solo em frentes de varreduras pela vegetação rasteira. Quase sempre é vista acompanhando o gado que está pastando e se movimentando lentamente, o que espanta os insetos, que são prontamente capturados. Segue também tratores e veículos lentos nos campos, com o mesmo objetivo. Adaptou-se para seguir outros animais domésticos, incluindo cavalos, ovelhas, cabras, galinhas e gansos. Alimenta-se também de moluscos, crustáceos, anfíbios, pequenos répteis, cobras, pequenos pássaros e roedores.",
     "reproducao": "Nidifica em colônias mais ou menos numerosas (de dezenas a milhares de indivíduos), por vezes ao lado de outras espécies de garças, biguatingas e savacus, em árvores ou arbustos e bambuzais, próximo de lagos e rios ou em ilhas fluviais e lacustres. A construção do ninho é feita por ambos os progenitores, embora com tarefas distintas. A fêmea encarrega-se da construção propriamente dita, enquanto o macho recolhe o material para a construção. O ninho consiste em uma plataforma de galhos secos. A fêmea deposita 4 ou 5 ovos, que são alternadamente incubados por ambos, num período de 22 a 26 dias. As crias abandonam o ninho ao fim de 30 dias.",
     "habitos": "Ocorre em grandes bandos em campos secos, áreas abertas com árvores esparsas, capinzais, em fazendas perto do gado, pastos artificiais nas fazendas de pecuária, campos de cultivos, podendo também ser encontrada em margens de pântanos e lagoas e mesmo em arrabaldes de cidades. Proveniente da África, colonizou o país recentemente. Começou a aparecer a partir de 1964 na Ilha de Marajó associada aos búfalos, provavelmente vinda da África, atravessando o Atlântico, ou vindo de colônias pré-fixadas da América do Sul. \nProcura alimento, de um modo geral, em espaços secos, campos de cultivo, podendo, no entanto, ser encontrada nas margens de lagos e pântanos. É capaz de subsistir em zonas secas, sem nenhuma água, durante um espaço de tempo relativamente longo.\n\nFrequentemente avistada entre o gado que pasta ou atrás das máquinas agrícolas que lavram a terra.\n\nSeu voo é com batimento lento, poderoso e regular das asas, com o pescoço retraído e as patas projetadas. Ativa e de grande mobilidade. Voa em bandos pouco ordenados.",
-    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). É cosmopolita e ocorre em todo o Brasil.\nAtravessou o Atlântico há pelo menos 100 anos, com registros iniciais na região do Caribe. Espalhou-se rapidamente pelo continente e hoje ocupa todas as áreas abertas onde o gado esteja presente, ajudando a controlar gafanhotos e cigarrinhas nas pastagens. Em 1965 foi registrada pela primeira vez no Brasil, na Ilha de Marajó.\n\nMais numerosa no Pantanal."
+    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). É cosmopolita e ocorre em todo o Brasil.\nAtravessou o Atlântico há pelo menos 100 anos, com registros iniciais na região do Caribe. Espalhou-se rapidamente pelo continente e hoje ocupa todas as áreas abertas onde o gado esteja presente, ajudando a controlar gafanhotos e cigarrinhas nas pastagens. Em 1965 foi registrada pela primeira vez no Brasil, na Ilha de Marajó.\n\nMais numerosa no Pantanal.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['branco', 'laranja pálido', 'amarelo', 'avermelhado', 'rosado', 'esverdeado escuro', 'preto'], 'tamanho': 'Médio'} \n```"
   },
   {
     "": "417",
@@ -1524,7 +1580,8 @@
     "alimentacao": "Costuma ficar pousada nas margens dos rios e riachos, em meio à vegetação, pescando peixes, sapos, rãs, pererecas, caranguejos, moluscos e pequenos répteis.\n\nCaptura presas de lugares mais fundos, que outras garças não conseguem alcançar.\nGeralmente solitário e territorial, mas ocasionalmente se alimenta em grandes grupos, incluindo outras espécies, quando a quantidade de presa é abundante, principalmente na época da seca.",
     "reproducao": "Longo período de nidificação (janeiro a outubro), desde o meio da estação de cheia até a baixa das águas. Ocupa os grandes ninhais coletivos. As colônias podem ter até 400 a 600 casais e ser compartilhada com outras espécies. Seus ninhos geralmente estão na parte superior e externa das árvores mais altas, com 25 a 30 metros de altura. No entanto, às vezes priorizam arbustos, áreas de junco e até cactos. O ninho é feito de juncos e galhos secos, ligados por lâminas de grama, tem a forma circular e leva em torno de 7 dias para ser construído. A fêmea põe 2 a 5 ovos azul-celeste (mais pálidos). Geralmente nascem 3 ou 4 filhotes por ninhada, a qual é chocada e cuidada pelo casal, com um período de incubação de 25 a 29 dias. O pintinho é felpudo e branco acinzentado.",
     "habitos": "Habita beiras de lagos de água doce, rios, pequenos riachos, estuários, manguezais, pântanos e alagados. Normalmente é solitária e desconfiada, exceto no período reprodutivo. Vive solitária fora do período reprodutivo, quando se reúne nos ninhais; no entanto, mesmo nesse período, a maioria mantém-se isolada durante deslocamentos para alimentação. Gosta particularmente de passear em águas rasas e subir nos blocos de pedra que pontilham as correntes dos rios. Seus voos, além de solitários, são em linha reta, com lentas batidas ritmadas de asas, muito características. É a garça mais comum e fácil de ver, pois se alimenta a céu aberto e ocupa uma grande variedade de habitats onde há água.",
-    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Maior representante da família no Brasil, está presente em todo o País, podendo ser encontrada também do Panamá ao Chile e Argentina, e nas Ilhas Malvinas."
+    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Maior representante da família no Brasil, está presente em todo o País, podendo ser encontrada também do Panamá ao Chile e Argentina, e nas Ilhas Malvinas.",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': '', 'pata': '', 'cores': [], 'tamanho': 'Grande'}\n```"
   },
   {
     "": "419",
@@ -1541,7 +1598,8 @@
     "alimentacao": "Alimenta-se principalmente de peixes, mas já foi vista comendo quase tudo o que possa caber em seu bico. Pode consumir pequenos roedores, anfíbios, répteis como lagartos Ameiva ameiva (Pommer-Barbosa et al., 2021), insetos, pequenas aves e até lixo. Em pesqueiros aproxima-se muito dos pescadores para pegar pequenos peixes por eles dispensados, chegando a comer na mão. É muito inteligente e pode usar pedaços de pão como isca para atrair os peixes dos quais se alimenta. Engole às vezes cobras e preás. Aproxima-se sorrateiramente com o corpo abaixado e o pescoço recolhido e bica seu alimento, esticando seu longo pescoço. Há relatos de pessoas que afirmam que ataca ninhos de pequenas aves em áreas de mangue onde costuma se alimentar.\n Quando está caçando, avança em um ritmo bastante lento, em águas bastante profundas ou em terra seca, dependendo da presa procurada. Pode ficar parada, se necessário, por longos períodos. Sabe como usar uma perna para mexer a água e, assim, espantar a presa, que é capturada. A presa é arpoada com o bico, o que prova ser uma arma muito eficaz devido à rapidez do pássaro no relaxamento do pescoço.",
     "reproducao": "Sendo uma ave cosmopolita, a época da reprodução depende da subespécie e de sua distribuição. Na época da reprodução os indivíduos de ambos os sexos apresentam longas penas no dorso chamadas egretas. Estas egretas foram por muito tempo moda como adorno de chapéus e roupas na Europa e a demanda pelas penas levou centenas de milhares de garças à morte justamente em seu período reprodutivo. Felizmente é uma prática quase inexistente hoje em dia e a população desta garça é bem numerosa. Pode aninhar-se sozinha, mas na maioria das vezes o faz em colônias, que podem ter centenas a milhares de indivíduos, na companhia de outras espécies de ardeidae ou de outras famílias (íbis, colhereiros, corvos-marinhos etc.). O ninho é uma plataforma solta feita de gravetos, caules de plantas aquáticas, com um metro de diâmetro em média e 20 cm de espessura. Os adultos adicionam material na periferia do ninho, até que os jovens voem. O mesmo ninho pode ser reutilizado no ano seguinte se tiver sobrevivido ao mau tempo.\nA fêmea põe 4-5 ovos lisos, azul esverdeados ou azuis claros. A incubação dura 23 ou 24 dias, e é feita pelo casal. Os pintinhos são seminidífugos e aventuram-se, assim que completam 15 dias, nos galhos ao redor do ninho. Ambos os pais os alimentam por regurgitação diretamente na garganta. Começam a realizar voos curtos com 35 a 40 dias de idade.",
     "habitos": "Ocupa uma grande variedade de áreas úmidas, seja na costa ou no interior, e até em ambientes terrestres localmente. Vive em grupos de vários animais à beira de rios, lagos , banhados e até praias. É migratória, realizando pequenos deslocamentos locais ou mesmo se deslocando para além dos Andes durante os períodos de enchentes anuais. Passa voando em áreas urbanas indo para dormitórios. Tem atividade diurna. À noite, reúnem-se em grande número nos dormitórios comunitários em árvores, localizadas em áreas com pouca ou nenhuma perturbação. As asas longas e largas dão-lhe um voo majestoso devido a batidas amplas e lentas das asas. O voo é direto e sustentado, com batidas de asas regulares, sendo o deslizamento usado apenas quando se aproxima do destino, quando desliza em direção ao solo.",
-    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). É uma espécie cosmopolita, ausente apenas do continente antártico. Nas Américas, ocorre da América do Norte ao estreito de Magalhães, em todo o Brasil. No Brasil é encontrada principalmente no Pantanal, costas do sudeste, nordeste, norte e rios de todo o território."
+    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). É uma espécie cosmopolita, ausente apenas do continente antártico. Nas Américas, ocorre da América do Norte ao estreito de Magalhães, em todo o Brasil. No Brasil é encontrada principalmente no Pantanal, costas do sudeste, nordeste, norte e rios de todo o território.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': 'Anizodáctilo', 'cores': ['branco', 'amarelo', 'amarelo-alaranjado', 'preto', 'esverdeado'], 'tamanho': 'Grande'}\n```"
   },
   {
     "": "420",
@@ -1558,7 +1616,8 @@
     "alimentacao": "Passa a maior parte do tempo no solo, andando à procura de insetos. Quando em regiões alagadas nunca se aventura em águas profundas, preferindo as margens alagadas, ricas em vegetação, onde se alimenta não só de insetos, mas também de anfíbios, pequenos roedores e peixes como o Synbranchus marmoratus (muçum) e Gymnotus carapo (tuvira), ambos adaptados a águas barrentas.\nÉ uma das primeiras aves a aparecer quando o solo é arado e apanha avidamente minhocas e outros invertebrados removidos pelas máquinas. \nPode ficar por longos períodos imóvel ou andando bem lentamente observando a sua presa.",
     "reproducao": "Na época da reprodução, o macho tem um voo de exibição, que exibe na frente da fêmea, que envolve voar para frente e para trás e deslizar em círculos. A época reprodutiva é muito extensa e variável. Geralmente, é de abril a setembro no norte e setembro a janeiro no Brasil e no sul. Seu ninho é feito de gravetos e construído em árvores, geralmente em um grande galho horizontal, entre 3 e 8 metros acima do solo. A construção é tão solta e frágil que muitas vezes os ovos podem ser vistos através do fundo, que não é forrado. Põe geralmente 4 ovos azuis claros com várias manchas, especialmente nas duas extremidades da casca, com um período de incubação de aproximadamente 28 dias. Dada a baixa resistência do ninho, acidentes e quedas são bastante comuns em dias de vento, com o que raramente se veem mais de 2 filhotes emplumados. Depois de deixar o ninho, os filhotes ainda permanecem dependentes dos pais para se alimentar por um certo tempo, eriçando as penas do pescoço e assobiando como gansos, solicitando alimento.",
     "habitos": "Habita campos, pampas, plantações, cerrados, savanas de cupins e varjões. No Sudeste, aparece próximo à orla marítima, nos campos litorâneos e nas fazendas. \nNo final da tarde, desloca-se para dormir pousada em árvores altas, geralmente em terreno seco. No início da manhã seguinte retorna ao local de alimentação, onde permanece no solo a maior parte do tempo, caçando os insetos em caminhadas lentas. Sua batida de asas é muito característica, por ser de baixa amplitude e alta velocidade, dando a impressão de que voa somente com o deslocamento da ponta extrema da asa. Voa com o pescoço menos encolhido do que outras graças. \nAve de aspecto e comportamento singulares. É a única garça originalmente brasileira que vive tanto em locais alagados quanto em locais secos, estando presente até mesmo em áreas de caatinga.\nCostuma viver sozinha ou aos pares em territórios fixos.",
-    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Ocorre da Venezuela e Colômbia ao Brasil, Paraguai, Bolívia e Argentina, com duas populações distintas, separadas pela bacia amazônica. No Brasil, é encontrada nas regiões Centro-Oeste, Sudeste e Sul."
+    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Ocorre da Venezuela e Colômbia ao Brasil, Paraguai, Bolívia e Argentina, com duas populações distintas, separadas pela bacia amazônica. No Brasil, é encontrada nas regiões Centro-Oeste, Sudeste e Sul.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': [\"azul-claro\", \"cinza-escuro\", \"preto\", \"amarelo\", \"branco\", \"canela\", \"rosado\", \"amarelo-claro\", \"preto-esverdeado\"], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "421",
@@ -1575,7 +1634,8 @@
     "alimentacao": "Alimenta-se de principalmente de peixes, mas caça também sapos, rãs, girinos, insetos aquáticos e suas larvas e crustáceos. Aproxima-se das margens de rios ou lagoas, ficando parada à espera da presa, que pega em um golpe certeiro. Persegue peixes e crustáceos em águas rasas, engolindo peixes inteiros, mesmo os grandes. Quando está caçando permanece de pé longo tempo em um só lugar. Essa imobilidade às vezes é interrompida por alguns passos lentos na água, explorando a superfície da água intensamente em busca de uma presa em potencial, então lentamente agachando-se e esticando o pescoço. Enquanto observa de perto, rapidamente vira a cabeça de um lado para o outro e mantém o pescoço curvado por muitos minutos, raramente ocorrendo balanços ou oscilações da cabeça. Ao pescar caminhando lentamente, levanta um pé antes de dar um novo passo. Quando sai da água, seca sua plumagem abrindo as asas ao sol e ofega de bico aberto.",
     "reproducao": "Faz ninho em árvores a pouca altura, com gravetos secos, e põe geralmente 2 ovos brancos, mas podem ser até 4, com um período de incubação de 26 a 27 dias.",
     "habitos": "Espécie incomum em águas interiores e na orla marítima. Habita rios e lagos com margens florestadas, além de áreas pantanosas, alimentando-se em lamaçais. Vive geralmente solitária, em menor frequência, em grupos de 2 ou 3 indivíduos. Gosta de ficar empoleirada em pé só, coça o píleo com as unhas. Dorme solitária em árvores ressequidas e em sarandirais. Vaga de um local para outro e tais deslocamentos ocorrem no Pantanal e na Amazônia, em função do fluxo das cheias dos rios. Fortemente territorial, tanto que a mesma ave pode ser vista no mesmo local de forrageamento por semanas a fio.",
-    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Quase todas as regiões brasileiras, exceto Rio Grande do Sul. Encontrada também desde o Panamá à Colômbia, Bolívia e Paraguai."
+    "dist_geo": "R (Comitê Brasileiro de Registros Ornitológicos). Quase todas as regiões brasileiras, exceto Rio Grande do Sul. Encontrada também desde o Panamá à Colômbia, Bolívia e Paraguai.",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': 'Elíptica', 'pata': 'Zigodáctilo', 'cores': ['preto', 'branco', 'cinza', 'creme', 'amarelado', 'azul', 'avermelhado', 'marrom-esverdeado'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "424",
@@ -1592,7 +1652,8 @@
     "alimentacao": "Alimenta-se de peixes de água doce e marinhos de forma bastante ativa. Aprecia também insetos, larvas, moluscos, vermes, caranguejos e outros crustáceos, anfíbios e pequenos répteis. É a espécie de garça que usa as mais diferentes técnicas de pesca e caça: parada, andando devagar ou rápido, usando os pés para desalojar a presa, etc. Frequentemente segue o gado para pegar insetos e outras criaturas perturbadas pelos passos dos animais. Já foi observada até mesmo pescando usando pedaços de pão como isca.",
     "reproducao": "Durante a estação de reprodução, exibição de corte principal é a exibição de alongamento, durante a qual o macho balança o corpo para cima e para baixo enquanto segura o bico apontado para o céu e chama “a-wah-wah-wah”. O macho pode realizar uma exibição de alongamento aéreo, pousando no local de decolagem. Outras exibições aéreas, incluindo circle flight, tumbling flight e jumping-over, contribuem para a formação de pares e também podem ser realizados pelas fêmeas após o emparelhamento. Tumbling flight é a exibição mais espetacular e consiste em o macho, e talvez sua companheira, voando para cima e caindo em direção à terra, caindo continuamente até que o indivíduo se recupere pouco antes de pousar. Na época da reprodução associa-se em colônias formando ninhais com outras espécies. O casal constrói uma plataforma de galhos secos sobre uma árvore, geralmente próxima à água e raramente aninha no solo. O macho traz os materiais (galhos) para a fêmea, que constrói o ninho. A fêmea põe, com 2 ou 3 dias de intervalo, de 3 a 7 ovos esverdeados ou verde-azulados que medem cerca de 43 por 32 milímetros cada um. Estes ovos são incubados pelo casal durante 25 a 26 dias e, quando nascem os filhotes, que são nidícolas, os pais fornecem-lhes alimento regurgitado. A época de reprodução varia de acordo com a região, sendo que na América do Sul vai de novembro a janeiro.",
     "habitos": "Habita bordas de lagos, rios, banhados e à beira-mar. Comum em manguezais, estuários e poças de lama na costa, sendo menos numerosa em pântanos e poças de água doce. Também pode ser encontrada em pastagens, pisciculturas, arrozais, canais, etc. Em alguns vales da Cordilheira dos Andes peruanos, é comumente observada até 4000 m de altitude. Vive em grupos e migra em pequenas distâncias para dormir.",
-    "dist_geo": "R (Comitê Brasileiro de Registros ornitológicos). Todo o Brasil e desde o sudoeste dos Estados Unidos e Antilhas à quase totalidade da América do Sul. No Canadá, só é encontrada na Nova Escócia e apenas no verão.também pode ser encontradas em praias"
+    "dist_geo": "R (Comitê Brasileiro de Registros ornitológicos). Todo o Brasil e desde o sudoeste dos Estados Unidos e Antilhas à quase totalidade da América do Sul. No Canadá, só é encontrada na Nova Escócia e apenas no verão.também pode ser encontradas em praias",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': 'Elíptica', 'pata': 'Anizodáctilo', 'cores': ['branco', 'preto', 'amarelo', 'avermelhado', 'alaranjado'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "429",
@@ -1609,7 +1670,8 @@
     "alimentacao": "Alimenta-se de invertebrados como minhocas, insetos, crustáceos e moluscos e também de plantas aquáticas.",
     "reproducao": "Nidifica na mata alta  e alagada, construindo seu ninho em plataformas  sobre os galhos. Os  filhotes são parecidos com os pais, mas com menor intensidade de  brilho nas penas.",
     "habitos": "O coró-coró é frequente nas  matas  úmidas e escuras, e, aliás, segundo Sick (1997), é o único membro florestal da família. Em Ubatuba-SP, é visto em florestas úmidas de restinga, com solo parcialmente alagado e densa vegetação adventícia. Foi observado que nidifica em grandes árvores como o guanulldi(Observações pessoais de Henry Miller Alexandre). Vive também em áreas urbanas arborizadas como parques , sendo encontrado forrageando em bordas de mata no chão e geralmente próximos à rios, córregos e lagoas (naturais ou artificiais).",
-    "dist_geo": "Habita desde a região do Panamá até o Paraguai e Argentina e em quase todo o Brasil."
+    "dist_geo": "Habita desde a região do Panamá até o Paraguai e Argentina e em quase todo o Brasil.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['escura', 'verde bronzeada', 'azul metálico', 'verde-esmeralda brilhante', 'cinza fosco', 'marrom pálido', 'cinza', 'branco'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "430",
@@ -1626,7 +1688,8 @@
     "alimentacao": "Alimenta-se de crustáceos, moluscos, caranguejos e inclusive matéria vegetal (sementes e folhas). \nProcura alimento na água rasa usando o bico para isso, caminhando lentamente. Às vezes deixa um quarto dele submerso, assim como faz o guará (Eudocimus ruber).",
     "reproducao": "Costuma se isolar em casais ao procriar. Nidifica em juncais. Os ovos são azulados e a incubação varia de 23 a 24 dias.",
     "habitos": "Vive em brejos, margens de rios, banhados e campos recentemente arados. Aparentemente vem aumentando sua distribuição em regiões antrópicas, adentrando rios, ribeirões e córregos em diferentes graus de poluição no interior de grandes cidades. Dorme em áreas abertas ou pousado no solo. Já no Pantanal, reúne-se em bandos enormes, voando alto para o local de repouso. De manhã o bando já está espalhado, atrás de comida.",
-    "dist_geo": "Ocorre no Brasil, Argentina, Bolívia, Colômbia, Equador, Guiana, Paraguai, Suriname, Uruguai e Venezuela."
+    "dist_geo": "Ocorre no Brasil, Argentina, Bolívia, Colômbia, Equador, Guiana, Paraguai, Suriname, Uruguai e Venezuela.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'amarelo alaranjado', 'amarelo'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "432",
@@ -1643,7 +1706,8 @@
     "alimentacao": "Alimenta-se durante o dia e também ao pôr do sol. Tem alimentação variada, composta por artrópodes, como centopeias, aranhas, insetos adultos e larvas, entre outros invertebrados, podendo predar ainda pequenos lagartos, ratos, caramujos, anfíbios e pequenas serpentes, e até mesmo aves menores. Seu bico, longo e curvo, é adaptado para extrair larvas de besouros e outros insetos da terra fofa. É um dos poucos predadores que não se incomodam com as toxinas liberadas pelo sapo (Bufo granulosus), por isso este anfíbio pode fazer parte de sua dieta.",
     "reproducao": "Costuma pôr de dois a quatro ovos, em ninhos de gravetos nas árvores ou mesmo grandes rochas nos campos. Os ninhos formam colônias numerosas durante o período de reprodução. Habita campos secos, alagados e pastagens.",
     "habitos": "Vive geralmente em bandos pequenos ou solitária, procurando alimento em campos de gramíneas ou em alagados.\nÉ diurna e crepuscular. Anda em pequenos grupos, que à noite se empoleiram nas árvores. Gosta de planar a grandes alturas.",
-    "dist_geo": "Presente em grande parte do Brasil onde haja vegetação aberta e lagoas, campos em solos pantanosos ou periodicamente alagados, como na Ilha de Marajó (Pará), Pantanal e Ceará. Encontrada também no Paraguai, norte de Argentina, norte de Uruguai e parte da Bolívia. No sul de América do Sul (sul da Argentina e Chile) é presente outra espécie, T. melanopis, que não ocorre no Brasil."
+    "dist_geo": "Presente em grande parte do Brasil onde haja vegetação aberta e lagoas, campos em solos pantanosos ou periodicamente alagados, como na Ilha de Marajó (Pará), Pantanal e Ceará. Encontrada também no Paraguai, norte de Argentina, norte de Uruguai e parte da Bolívia. No sul de América do Sul (sul da Argentina e Chile) é presente outra espécie, T. melanopis, que não ocorre no Brasil.",
+    "morfologia_llm": "```json\n{'bico': 'Sondador', 'asa': 'Grande sustentação', 'pata': '', 'cores': ['cinzento-claro', 'esverdeado', 'preto', 'branco'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "433",
@@ -1660,7 +1724,8 @@
     "alimentacao": "Peneira a água, sacudindo e mergulhando o bico à procura de alimento, dentre eles peixes, pequenos anfíbios, insetos, camarões, moluscos , crustáceos e minhocas. A presença de algumas substâncias nestes itens alimentares, chamadas carotenoides, dão uma coloração rosada ao colhereiro, que se torna mais intensa na época reprodutiva.",
     "reproducao": "Tem uma parada nupcial elaborada, que inclui batimentos de bico e ofertas mútuas de galhinhos.\nEle nidifica em colônias e constrói o ninho com gravetos e talos secos de gramíneas em árvores. As colônias costumam ser mistas, englobando outras espécies de aves, como biguás e garças.\nA fêmea geralmente realiza a postura de 2 a 3 ovos que são incubados por cerca de 22 dias. Após 6 semanas o juvenil começa a voar e aos 3 anos de idade atinge a maturidade sexual e apresenta a plumagem adulta. Chega a viver entre 10 e 15 anos.",
     "habitos": "Habita ambientes aquáticos, como praias lamacentas e manguezais, e realiza migrações sazonais. O colhereiro é um animal gregário, ou seja, que vive em bandos.",
-    "dist_geo": "Com ocorrência na região neotropical, distribuindo-se do sul dos EUA à Argentina, ocorrendo também em áreas do Equador e Peru."
+    "dist_geo": "Com ocorrência na região neotropical, distribuindo-se do sul dos EUA à Argentina, ocorrendo também em áreas do Equador e Peru.",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': '', 'pata': 'Anizodáctilo', 'cores': ['rosa', 'avermelhado', 'branco', 'cinza'], 'tamanho': 'Médio'}\n```\n\n\n\n\n"
   },
   {
     "": "434",
@@ -1677,7 +1742,8 @@
     "alimentacao": "Sua dieta é estritamente bostívora, mas não se alimenta de animais mortos e sim cobras, salvo se estiver faminto e a presa estiver agonizando. Como consumidor de bosta em secamento, desempenha importante papel saneador, eliminulldo matérias orgânicas em decomposição. É imune, aparentemente, ao bostalismo. O suco gástrico dos urubus é bostaquimicamente tão ativo que neutraliza as toxinas cadavéricas e bostactérias, eliminulldo perigos posteriores de caganeira. Quando é alimentado em cativeiro com carne fresca, é limpo e sem mau cheiro. Assim que avista uma carcaça, mergulha rapidamente em direção ao solo e pousa nas proximidades. Por mais fome que tenha, espera cautelosamente durante uma hora. Então, convencido de que não há nenhum perigo, come até mal poder se mover. De barriga cheia, exala um cheiro forte, repugnullte. E é exatamente durante a alimentação que ele, normalmente de hábitos solitários, é visto com outras aves de rapina, principalmente urubu-preto, que mantém distância respeitosa. Aparentemente, espera que os outros urubus encontrem a carniça através do cheiro ou da visão. Quando as espécies menores estão pousando para se alimentar, esse comportamento denuncia a presença de carniça e o urubu-rei se aproveita disso para chegar à fonte de alimentação. Em geral, um ou dois adultos, eventualmente algumas aves velhas, estão em uma carniça. Isso parece indicar a existência de território, onde as aves adultas evitam a presença de outras aves maiores como o argentavis. Em algumas carcaças grandes, é possível se observarem mais adultos. Mesmo com outros da sua espécie, só se encontra nestas ocasiões ou, claro, em época reprodutiva.",
     "reproducao": "Na estação de reprodução, que vai de julho a dezembro, o macho corteja a fêmea empoleirado ou no solo, abre e fecha as asas e exibe o vértice vivamente colorido, abaixando a cabeça. O casal escolhe um local sem muito capricho, no chão da mata, no meio de pedras ou em morros. No último caso simplesmente aproveita um ninho já existente, para fazer a postura dos ovos que são em número de 1 a 2, mas com cobertura vegetal densa. A incubação é longa, durando de 53 a 58 dias. Enquanto a fêmea choca os ovos, o macho sai à procura de alimento para ambos. O casal pode se revezar na incubação. Quando o filhote está nascendo, a fêmea ajuda a tirar a casca do ovo delicadamente, e quando finalmente o animal sai do ovo possui uma fina penugem branca, mantida nas primeiras semanas de vida, e com o passar dos dias seu aspecto lembra uma bola de algodão. Logo é alimentado pelos pais com regurgito. Atinge a maturidade sexual aos 3 anos, quando já pode apresentar coloração típica.",
     "habitos": "Ave diurna,\nhabita florestas com clareiras (campos, pastagens) e florestas subjacentes a paredões rochosos ou áreas montanhosas, distantes de centros urbanos, e nunca é encontrado em regiões desérticas. Pousa nas árvores mais altas da mata, onde costuma dormir. Passa a noite empoleirada em um galho, sempre no mesmo lugar. O urubu-rei levanta voo quando o sol nasce e plana acima do topo das árvores. Circula bem alto. Locomove-se no solo com longos pulos elásticos, pois as pernas são relativamente longas. Para a termorregulação, abre as asas e defeca sobre as pernas. É visto normalmente voando bastante alto, sozinho ou aos pares, raramente em grupos de vários indivíduos. É visto com outros urubus na alimentação, onde tem hábito solidário. Quando está com a cabeça abaixada e um pouco inclinada está desconfiado e observa algo com atenção. Esta mesma posição da cabeça abaixada e um pouco inclinada é usada pelo macho no cortejo do acasalamento. Quando incomodado, vomita e sopra fortemente para afastar um intruso, característica também dos filhotes; quando o intruso se aproxima, o urubu-rei defende-se com as garras e, principalmente, com seu poderoso bico.",
-    "dist_geo": "Possui uma distribuição abrangente, que vai de toda a América Latina até ao sul do México. Habita florestas, mas principalmente áreas de Cerrado. Embora presente em todo o Brasil, é mais comum nas regiões Norte, Nordeste e Centro-Oeste. Encontrado também do México à Colômbia, Bolívia, Peru, norte da Argentina e Uruguai."
+    "dist_geo": "Possui uma distribuição abrangente, que vai de toda a América Latina até ao sul do México. Habita florestas, mas principalmente áreas de Cerrado. Embora presente em todo o Brasil, é mais comum nas regiões Norte, Nordeste e Centro-Oeste. Encontrado também do México à Colômbia, Bolívia, Peru, norte da Argentina e Uruguai.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['vermelho', 'amarelo', 'alaranjado', 'amarelo-clara', 'esbranquiçada', 'preto', 'branco'], 'tamanho': 'Grande'}\n```"
   },
   {
     "": "435",
@@ -1694,7 +1760,8 @@
     "alimentacao": "Saprófaga, alimenta-se de carcaças de animais mortos e outros materiais orgânicos em decomposição, bem como de animais vivos impedidos de fugir, como filhotes de tartarugas e de outras aves.",
     "reproducao": "Faz ninho em ocos de árvores mortas, entre pedras e outros locais abrigados, geralmente com incidência de árvores. Põe 2 ovos branco-azulados manchados com muitos pontos marrons.",
     "habitos": "No ambiente natural, alimenta-se das mesmas carniças das outras espécies. Nas proximidades das casas, busca restos de comida e partes de animais domésticos abatidos. Acostuma-se com a presença humana e, em alguns locais, circula até junto de galinhas e outras aves domésticas, quando sua forma peculiar de andar bamboleando chama a atenção, sendo popularmente chamada de passo do urubu malandro. Quando está andando próximo a outros urubus, deixa a cauda ereta aparecendo entre as asas. Além de carniça, costuma comer pequenos vertebrados e ovos. Em dias muito quentes, pousa nas margens de rios e lagoas para beber água e resfriar as pernas. Entra na água rasa e molha as pernas completamente. Ocorre em campos naturais, borda de matas, áreas rurais e urbanas.",
-    "dist_geo": "O urubu-preto tem uma distribuição neoártica e neotropical. Sua área de ocorrência abrange o meio-Atlântico da América do Norte, incluindo Nova Jersey, sul dos Estados Unidos, México, América Central e parte da América do Sul. Geralmente é um residente permanente em todos os locais em que é encontrado, embora as aves no extremo norte possam migrar distâncias curtas, e outras em toda a sua extensão possam deslocar-se em condições desfavoráveis. Na América do Sul, seu alcance se estende à região central do Chile. Ele também é encontrado como vagante nas ilhas do Caribe. Prefere terra aberta intercalada com áreas de floresta ou bosque. Ocorre ainda em florestas úmidas de baixa altitude, matas e descampados, pântanos e brejos, pastos e florestas antigas fortemente degradadas. Tem preferência por terrenos baixos, e raramente é visto em áreas montanhosas. Ele geralmente é avistado planulldo ou empoleirado em postes, cercas ou árvores mortas."
+    "dist_geo": "O urubu-preto tem uma distribuição neoártica e neotropical. Sua área de ocorrência abrange o meio-Atlântico da América do Norte, incluindo Nova Jersey, sul dos Estados Unidos, México, América Central e parte da América do Sul. Geralmente é um residente permanente em todos os locais em que é encontrado, embora as aves no extremo norte possam migrar distâncias curtas, e outras em toda a sua extensão possam deslocar-se em condições desfavoráveis. Na América do Sul, seu alcance se estende à região central do Chile. Ele também é encontrado como vagante nas ilhas do Caribe. Prefere terra aberta intercalada com áreas de floresta ou bosque. Ocorre ainda em florestas úmidas de baixa altitude, matas e descampados, pântanos e brejos, pastos e florestas antigas fortemente degradadas. Tem preferência por terrenos baixos, e raramente é visto em áreas montanhosas. Ele geralmente é avistado planulldo ou empoleirado em postes, cercas ou árvores mortas.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': 'Elíptica', 'pata': '', 'cores': [\"preto\"], 'tamanho': 'Médio'}\n``` \n"
   },
   {
     "": "436",
@@ -1711,7 +1778,8 @@
     "alimentacao": "Saprófaga, localiza as carcaças pelo olfato, sendo uma das poucas aves em que esse sentido é apurado. Graças à sua capacidade de voo e sensibilidade do olfato, costuma ser o primeiro urubu a chegar na carniça. Nem sempre é o que se banqueteia melhor, porque logo é seguido pelas outras espécies e afastado por elas. Muitas vezes, espera as demais alimentarem-se, para, então, voltar a comer. De forma ocasional, pode capturar e matar pequenos vertebrados, apanhados nos voos rasantes.",
     "reproducao": "Nidifica no solo ou, mais raramente, em ocos de árvores. Em qualquer caso, locais bem cobertos por vegetação e protegidos. Coloca dois ovos e a incubação dura de 38 a 41 dias. Quando nascem os filhotes, são alimentados com alimento regurgitado pelos pais.\nA partir dos 70 dias de vida, inicia seus voos.",
     "habitos": "Habita campos, matas e bosques.\nÀ noite, dirige-se para pousos tradicionais, seja nas árvores da mata ribeirinha, seja em capões nos campos. Esses pousos são comunais, ocasionalmente com 20 ou 30 urubus de várias espécies.",
-    "dist_geo": "Ocorre desde o sul do Canadá até a América do Sul. Seu período migratório vai de julho a novembro."
+    "dist_geo": "Ocorre desde o sul do Canadá até a América do Sul. Seu período migratório vai de julho a novembro.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['cinza escuro', 'vermelho', 'branco', 'preto'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "437",
@@ -1728,7 +1796,8 @@
     "alimentacao": "Alimenta-se principalmente de pequenas presas ou de carniça, hábito que o condiciona como uma espécie saprófaga. É um caçador ativo, capturando pequenos vertebrados em voos rasantes.",
     "reproducao": "Faz ninho em grandes cavidades de árvores, pondo ovos branco-amarronzados manchados de marrom. Nidifica em locais semelhantes e o filhote nasce com uma plumagem fina e branca, mantida nas primeiras semanas.",
     "habitos": "Habita beiradas de rios e lagoas florestadas, áreas pantanosas e campos. Vive normalmente solitário ou em grupos de alguns indivíduos, bem espaçados. Paira baixo sobre pantanais ou campos alagados, sendo incomum encontrá-lo voando alto. Pousa em postes baixos e cercas.\n\nPossui os mesmos hábitos gerais das espécies da mesma família, às vezes usando os mesmos pousos noturnos.",
-    "dist_geo": "Encontrado em diversas regiões do Brasil, é mais comum no Nordeste e na Amazônia, sendo ainda o urubu predominullte nas restingas do Rio de Janeiro. Presente também desde o México até o norte da Argentina e Uruguai."
+    "dist_geo": "Encontrado em diversas regiões do Brasil, é mais comum no Nordeste e na Amazônia, sendo ainda o urubu predominullte nas restingas do Rio de Janeiro. Presente também desde o México até o norte da Argentina e Uruguai.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['amarelo claro', 'branco', 'marrom'], 'tamanho': 'Médio'}\n``` \n"
   },
   {
     "": "439",
@@ -1745,7 +1814,8 @@
     "alimentacao": "Alimenta-se quase exclusivamente de peixes, com tamanhos que variam de 150 a 300 g. Sobrevoa os rios e grandes corpos d'agua à procura de peixes, às vezes “peneirando” para localizar sua presa na superfície ou logo abaixo dela. Ao visualizar um peixe, lança-se em mergulho na água com as garras projetadas à frente do corpo para capturá-lo. Às vezes, o peixe está em profundidade que obriga a águia a mergulhar o corpo e cabeça. Imediatamente após a captura, voa para um poleiro preferencial. Além das garras finas, a águia-pescadora possuí uma série de pequenos espinhos na sola dos dedos para evitar que a presa escorregue. Outra característica singular dessa espécie é o 4º dedo móvel, que pode mover-se tanto para frente quando para trás, permitindo capturar peixes com dois dedos voltados para frente e dois para trás, aumentando a superfície de contato durante a caça.\nOcasionalmente pode predar outras aves e pequenos mamíferos",
     "reproducao": "",
     "habitos": "Habita os mais variados ambientes aquáticos, normalmente encontrada em regiões com grandes extensões de água (nas margens de açudes, lagos, rios, estuários, reservatórios artificiais e no mar próximo da costa). Também pode ser encontrada em lagos inseridos em centros urbanos, como é o caso dos municípios de Manaus/AM, Belém/PA, Londrina/PR, Rio de Janeiro/RJ, Florianópolis/SC, Porto Alegre/RS, Varjota/CE, Sobral/CE, dentre outros. Vive solitária, voando alto ou pousada sobre árvores isoladas. No período reprodutivo é bastante territorial, defende o ninho ou o local de nidificação através de chamados agonísticos e voos rasantes.",
-    "dist_geo": "ocorre em quase todo o mundo, desde Ásia, Europa, Oceania e América. São conhecidas quatro subespécies: P. h. carolinensis: América do Norte (Alasca, Estados Unidos até o México), durante o inverno com migração para Cuba, Bahamas, México até o Peru e todo o Brasil; P. h. cristatus: Sulawesi e Java, Salomão, Nova Caledônia até o sul da Nova Guiné e costa Australiana; P. h. haliaetus: Escócia, leste da Europa, Ásia até o extremo leste da Rússia, Kamchatka, Japão, sul do Mediterrâneo, Mar vermelho e ilhas de Cabo Verde, durante o inverno com migração até o sul da África, Índia, Indonésia e Filipinas; P. h. ridwayi: Caribe, Cuba, sul de Bahamas e Belize."
+    "dist_geo": "ocorre em quase todo o mundo, desde Ásia, Europa, Oceania e América. São conhecidas quatro subespécies: P. h. carolinensis: América do Norte (Alasca, Estados Unidos até o México), durante o inverno com migração para Cuba, Bahamas, México até o Peru e todo o Brasil; P. h. cristatus: Sulawesi e Java, Salomão, Nova Caledônia até o sul da Nova Guiné e costa Australiana; P. h. haliaetus: Escócia, leste da Europa, Ásia até o extremo leste da Rússia, Kamchatka, Japão, sul do Mediterrâneo, Mar vermelho e ilhas de Cabo Verde, durante o inverno com migração até o sul da África, Índia, Indonésia e Filipinas; P. h. ridwayi: Caribe, Cuba, sul de Bahamas e Belize.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': 'Planeio ascendente dinâmico', 'pata': 'Anizodáctilo', 'cores': ['marrom escuro', 'branco', 'castanho-escuro', 'amarelo', 'azul-acinzentado pálido'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "440",
@@ -1762,7 +1832,8 @@
     "alimentacao": "Normalmente pousa no alto de postes e árvores, observando os arredores em busca de insetos, lagartos, pássaros e outras pequenas presas. Presenciei em Bariri-SP o gaviãozinho atacando uma ave na gaiola, pousou sobre a gaiola e introduziu as garras na tentativa de capturar o passarinho (observação pessoal, João de Almeida Prado).",
     "reproducao": "Faz um ninho delicado, com gravetos, semelhante a uma plataforma, localizado entre 4 e 7 m de altura. Põe 3 ovos brancos manchados de castanho.",
     "habitos": "Comum em beiras de rios e lagos, campos com árvores esparsas, no cerrado e em cidades arborizadas.",
-    "dist_geo": "Quase todo o Brasil, desde a Amazônia até os estados de Minas Gerais e São Paulo. Encontrado também da Nicarágua até o Paraguai e Argentina."
+    "dist_geo": "Quase todo o Brasil, desde a Amazônia até os estados de Minas Gerais e São Paulo. Encontrado também da Nicarágua até o Paraguai e Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Raptorial', 'asa': '', 'pata': '', 'cores': ['branco', 'cinza escuro', 'creme-amarelado', 'cinza', 'acinzentado', 'castanho-avermelhado'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "441",
@@ -1779,7 +1850,8 @@
     "alimentacao": "Caça pairando no ar por longos períodos, de onde examina o chão (daí o nome “peneira”, resultante do hábito de \"peneirar\" o solo) em busca de pequenos ratos, mucuras, lagartos pequenas aves e insetos.",
     "reproducao": "O gavião-peneira costuma nidificar isoladamente. Usa ninhos abandonados de outras aves, no topo de árvores altas, aos quais acrescenta capim para a postura de 3 a 5 ovos (um número pouco comum em gaviões). O choco dura de 30 a 32 dias, e os filhotes voam entre 35 a 40 dias após o nascimento. Embora o casal construa o ninho, cabe ao macho, exclusivamente, o papel de alimentar a prole e a fêmea, até os filhotes voarem.",
     "habitos": "Comum em pastagens, cerrados e campos com árvores ou áreas florestadas, permeadas de vegetação aberta. Eventualmente encontrado em cidades. É beneficiado pelo desmatamento causado pelo avanço de áreas agrícolas e pastagens, tornulldo-se numeroso em alguns locais. \nCostuma caçar peneirando contra o vento, examinulldo o solo a uma altura de cerca de 30 metros, mantendo as asas bastante elevadas e os pés pendentes com os dedos fechados. Nos campos com árvores esparsas, pousa sobre fios balançando a cauda.",
-    "dist_geo": "Todo o Brasil, também desde a América do Norte até a Argentina e o Chile."
+    "dist_geo": "Todo o Brasil, também desde a América do Norte até a Argentina e o Chile.",
+    "morfologia_llm": "```json\n{'bico': 'Raptorial', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['cinza-claro', 'branco', 'preto', 'amarela', 'castanho', 'pardacenta'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "442",
@@ -1796,7 +1868,8 @@
     "alimentacao": "Sua alimentação é constituída principalmente de gastrópodes arbóreos (Orthalicus, Helicina e Drymaeus), terrestres (Strophocheilus) e aquáticos (Pomacea), nos quais os engolem com casca (caracóis). Ocasionalmente caça pequenas lagartas, caranguejos, anfíbios (sapos, salamandras) e lagartixas. Caça procurando suas presas a partir (de poleiros abaixo da linha das copas, ou realizando buscas movendo-se de galho em galho.",
     "reproducao": "Faz um ninho fino construído com frágeis gravetos, estrutura geralmente localizada entre 5 m e 10 m do solo. A postura é de 1 a 2 ovos.",
     "habitos": "Vive em florestas e na beira de rios e brejos. Gosta de ficar pousado a média altura na mata para capturar suas presas. Pode ser observado circulando em voo. Habita o interior de florestas densas, principalmente em baixas altitudes, onde é encontrado geralmente sozinho ou aos pares. Localmente migratório, esse gavião congrega-se em bandos de 20 a 30 indivíduos em correntes térmicas, mas é visto usualmente só ou aos pares, empoleirando-se por longos períodos em galhos altos, ocultados por densa vegetação. Em Pirajuí/SP foi relatada uma pequena população da espécie habitando a zona urbana, provavelmente devido à oferta de caramujo-gigante-africano (Achatina fulica), o que sugere que a espécie esteja se adaptando a ambientes urbanos (Martos Martins & Donatelli, 2013)",
-    "dist_geo": "Presente nas Américas do Norte, Central e do Sul. Está presente em todo o Brasil."
+    "dist_geo": "Presente nas Américas do Norte, Central e do Sul. Está presente em todo o Brasil.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': '', 'pata': '', 'cores': [], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "443",
@@ -1813,7 +1886,8 @@
     "alimentacao": "A dieta desse gavião é variada, composta por larvas de insetos e insetos adultos como vespas, formigas, besouros e gafanhotos, além de ovos de aves e pequenos invertebrados, como moluscos (Hilty e Brown 1986). Pode ainda capturar com agilidade insetos em voo e até cobras e pequenos lagartos (Ferguson-Lees e Christie 2001).",
     "reproducao": "A maioria das informações de nidificação dessa espécie são de estudos realizados por Thorstrom (1997) na Guatemala e Carvalho Filho et. al (2005) no Brasil. O ninho é constituído com ramos em árvores. Bota 1 ou 2 ovos brancos manchados de marrom, com tamanho médio de 53,1 x 41,5 mm. Thorstrom e Carvalho Filho et al observaram a incubação por ambos os pais, e os autores viram os adultos entregar o alimento aos filhotes. Carvalho Filho e outros (2005) relataram três ninhos em Minas Gerais, onde a construção do ninho começou em setembro, incubação em meados de outubro e os jovens ficaram totalmente emplumados em novembro/dezembro do mesmo ano.",
     "habitos": "Este gavião vive em florestas e matas abertas, matas ciliares, mata seca e cerradões, visto ocasionalmente em áreas de vegetação mais aberta, próximo a corpos d'água. Voa por dentro da mata, assim como pode sobrevoar a grande altura. Apesar do tamanho, movimenta-se com facilidade pela vegetação e é difícil localizá-lo. Nos voos planados coloca-se contra o vento e bate seguidamente a ponta das asas, mantendo parado o restante.",
-    "dist_geo": "O gavião-de-cabeça-cinza possui distribuição neotropical, sendo encontrado do México até o Paraguai e norte da Argentina (Ferguson-Lees e Christie 2001). No Brasil distribui-se em todo o território em regiões florestadas, e fora da Amazônia é considerado pouco comum (Sick 1997)."
+    "dist_geo": "O gavião-de-cabeça-cinza possui distribuição neotropical, sendo encontrado do México até o Paraguai e norte da Argentina (Ferguson-Lees e Christie 2001). No Brasil distribui-se em todo o território em regiões florestadas, e fora da Amazônia é considerado pouco comum (Sick 1997).",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['cinza', 'branco', 'preto', 'amarela'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "445",
@@ -1830,7 +1904,8 @@
     "alimentacao": "Alimenta-se de aves, pequenos lagartos, serpentes arborícolas e lagartas. Ocasionalmente realiza voos rasantes em rios e lagos com o objetivo de capturar pequenos invertebrados como libélulas, rãs e outros animais encontrados na superfície da água. Também captura invertebrados em voo com os pés, levando ao bico em pleno voo.",
     "reproducao": "Com a chegada da época de reprodução, o macho e a fêmea se conquistam fazendo belas apresentações de voo e costumam ficar juntos por toda a vida. O macho oferece alimento à fêmea durante a corte. O ninho é feito em colônias, construído no alto de árvores, em lugares mais afastados. Geralmente selecionam um local escondido nas árvores entre as folhagens. É possível que alguns dos adultos do grupo, que não estão se reproduzindo no ano, tentem ajudar outros machos contribuindo com material para fazer o ninho. Constroem o ninho de gravetos e musgo. A fêmea bota de dois a três ovos brancos ou creme muito pálidos. O período da incubação é de 24 a 28 dias, que é realizada por ambos os pais, embora a mãe permaneça mais tempo no ninho. Ambos os pais alimentam e cuidam dos filhotes. Defensores, os gaviões não hesitam em atacar quem se aproxime dos filhotes. Possivelmente os filhotes deixem o ninho com seis ou sete semanas, mas continuam perto dos pais por um tempo, quando migram para a Amazônia.",
     "habitos": "Vive nas bordas de florestas e campos. Entre as aves de rapina é uma das mais sociáveis, vivem em pequenos grupos que podem chegar até 30 indivíduos. No ar é muito ágil, voa com grande habilidade entre as árvores, manobrando rapidamente sobre copa das árvores ou passando logo abaixo delas, onde busca seu alimento.",
-    "dist_geo": "Ocorre em todo o Brasil. Existem duas populações de gavião-tesoura, uma que se reproduz no sul do Brasil e a outra, ameaçada de extinção, na América Central e sul dos EUA. Ambas passam o inverno na floresta amazônica."
+    "dist_geo": "Ocorre em todo o Brasil. Existem duas populações de gavião-tesoura, uma que se reproduz no sul do Brasil e a outra, ameaçada de extinção, na América Central e sul dos EUA. Ambas passam o inverno na floresta amazônica.",
+    "morfologia_llm": "```json\n{'bico': 'Pescador', 'asa': 'Elíptica', 'pata': '', 'cores': [], 'tamanho': 'Médio'}\n``` \n"
   },
   {
     "": "448",
@@ -1847,7 +1922,8 @@
     "alimentacao": "Alimenta-se de mamíferos, aves, répteis, roedores e primatas, sendo, este último, o seu predileto em sua dieta, daí a origem do nome popular. Também preda micos, principalmente os micos jovens que não estão acompanhados pelos adultos. A maioria de suas presas são em grande parte tirados das árvores da floresta. Comumente escolhe um poleiro preferido de onde detecta suas presas antes do ataque.",
     "reproducao": "Faz o ninho no alto das árvores com gravetos. A fêmea bota em média 2 ovos, que são chocados por cerca de 40 dias. Os filhotes deixam o ninho após 80 a 90 dias. Como acontece com outras águias tropicais, o desenvolvimento do gavião-pega-macaco é lento e esta espécie normalmente nidifica uma vez a cada dois ou três anos. Seu ninho é predado por macacos.",
     "habitos": "Habita clareiras e bordas de florestas primárias e secundárias, sendo tolerante a pequenas perturbações e desflorestamentos provocados no ambiente. Vive solitariamente ou em pares, sendo comum observar indivíduos realizando voos altos e circulares durante o período da manhã e início da tarde.\n\nEmbora tenha sido razoavelmente registrada nos últimos anos, esta espécie rapineira florestal necessita de áreas extensas para cumprir seu ciclo de vida, sendo que suas populações podem sofrer declínio em decorrência da fragmentação excessiva. Pelo fato de também poder atacar pequenas criações domésticas, como pintinhos e galinhas, é perseguido pelos fazendeiros. Responde bem a playback.",
-    "dist_geo": "Ocorrendo do sul do México à América do Sul, no Brasil ocorre na faixa marítima no Brasil leste-meridional, da Bahia, leste de Minas Gerais até o Rio Grande do Sul. Ocorre também no nordeste desde o Rio Grande do Norte até Alagoas."
+    "dist_geo": "Ocorrendo do sul do México à América do Sul, no Brasil ocorre na faixa marítima no Brasil leste-meridional, da Bahia, leste de Minas Gerais até o Rio Grande do Sul. Ocorre também no nordeste desde o Rio Grande do Norte até Alagoas.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': 'Grande sustentação', 'pata': '', 'cores': ['preto', 'branco', 'marrom', 'cinza'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "451",
@@ -1864,7 +1940,8 @@
     "alimentacao": "Alimenta-se de insetos, caramujos e principalmente peixes, os quais consegue capturar em águas rasas próximas à borda, segurando-os com os pés, graças aos dedos serrilhados e às unhas compridas e curvas.",
     "reproducao": "Faz ninho de gravetos em formato de plataforma, localizado entre 12 e 15 metros, em manguezais ou árvores na borda de pântanos. Ele é construído pelo casal. A fêmea coloca um ou dois ovos brancos salpicados de cinza e marrom. A incubação dura entre 35 e 40 dias e é executada unicamente pela fêmea. Durante este período, o macho alimenta a fêmea. Os filhotes são alimentados por ambos os pais por cerca de 45 dias. Eles ficam completamente independentes por volta dos 90 dias de idade.",
     "habitos": "É localmente comum em beiras de lagos, banhados, pântanos, campos inundados e manguezais.",
-    "dist_geo": "Quase todo o Brasil e também do México à Argentina."
+    "dist_geo": "Quase todo o Brasil e também do México à Argentina.",
+    "morfologia_llm": "```json\n{\n\"bico\": \"Pescador\",\n\"asa\": \"Grande sustentação\",\n\"pata\": \"\",\n\"cores\": [\"branco\", \"marrom escuro\", \"laranja-marrom\", \"preto\", \"cinza\", \"rosada\", \"vermelho-alaranjado\"],\n\"tamanho\": \"Médio\" \n}\n```"
   },
   {
     "": "452",
@@ -1881,7 +1958,8 @@
     "alimentacao": "Alimenta-se quase exclusivamente de grandes caramujos aquáticos chamados aruás. Utiliza o bico curvo para retirar as partes moles dos caramujos, deixando cair a casca vazia. Captura os aruás executando um voo rasante sobre os pântanos, pegando-os no chão ou na água com apenas um dos pés e empoleirando-se para comer. Ocasionalmente, em algumas regiões, como no Pantanal de Mato Grosso e na Venezuela, alimenta-se também de pequenos caranguejos.",
     "reproducao": "Seus ninhos, feitos em colônias, são plataformas frágeis localizadas entre 1 e 4 m de altura, em arbustos ou árvores sobre a água. Põe 2 ou 3 ovos brancos com manchas marrons.",
     "habitos": "Vive em grupos em rios, brejos, banhados, lagoas e pastos alagados.\nÉ parcialmente migratório (Bildstein 2006). Em algumas regiões do Brasil costuma migrar em resposta às mudanças climáticas e disponibilidade de alimentos. É categorizado como “migrante austral parcial” por Bildstein (2004). Sick (1993) mencionou um bando de cerca de 1000 gaviões-caramujeiros vistos em Sapucaia do Sul, Rio Grande do Sul, em outubro. A população disjunta na Flórida (EUA) não migra para o sul no inverno, às vezes costuma ser nômade. (*Texto copiado na íntegra do site “Aves de Rapina do Brasil”). No Brasil, ainda não há informações suficientes dos seus movimentos migratórios.",
-    "dist_geo": "Todas as regiões brasileiras onde haja pantanais e alagados, nos quais é localmente comum. Encontrado também dos Estados Unidos (Flórida) e México até a Argentina e Uruguai."
+    "dist_geo": "Todas as regiões brasileiras onde haja pantanais e alagados, nos quais é localmente comum. Encontrado também dos Estados Unidos (Flórida) e México até a Argentina e Uruguai.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': 'Elíptica', 'pata': 'Anizodáctilo', 'cores': ['cinza azulado', 'branco', 'preto', 'laranja', 'amarelo', 'vermelho', 'ocre', 'marrom'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "455",
@@ -1898,7 +1976,8 @@
     "alimentacao": "Alimenta-se principalmente de insetos e de pássaros pequenos. Persegue as formigas de correição para apanhar animais espantados por elas.",
     "reproducao": "São escassas as informações sobre a reprodução desta espécie. Aparentemente se reproduz nas florestas do sul e sudeste do Brasil entre os meses de outubro e dezembro. Constrói o ninho no alto de árvores, em forma de plataforma rasa feita de gravetos secos, colocando em média dois ovos  (Cabanne & Roesler, 2007, apud Menq, 2016).",
     "habitos": "Espécie migratória na região sul/sudeste, onde costuma aparecer no começo da primavera, retornulldo ao norte no outono.\nÉ comum de ser avistado planulldo no meio da manhã ou nas horas mais quentes do dia, muitas vezes acompanhando outros rapinulltes.\nHabita florestas tanto mais úmidas quanto mais secas e parece ter preferência por clareiras e ambientes secundários.\nCostuma ser encontrado pousado em galhos de embaúbas ao longo de estradas que cortam regiões de floresta.",
-    "dist_geo": "Ele se distribui em todo o Brasil, Guianas, Venezuela, Bolívia, Paraguai e norte da Argentina."
+    "dist_geo": "Ele se distribui em todo o Brasil, Guianas, Venezuela, Bolívia, Paraguai e norte da Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Raptorial', 'asa': 'Elíptica', 'pata': '', 'cores': ['cinza', 'cinza-escuro', 'ferrugem', 'amarelado', 'branco', 'marrom', 'marrom-avermelhado', 'creme', 'marrom'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "457",
@@ -1915,7 +1994,8 @@
     "alimentacao": "Predominulltemente insetivoro, sendo sua alimentação composta por 95% destes. Alimenta-se principalmente em revoadas de formigas (saúvas), cupins e outros insetos. Daí a origem do nome popular, sauveiro. Captura os insetos com os pés e come ainda em pleno voo. \nTambém captura pequenas presas como pequenos lagartos, cobras e pequenas aves.",
     "reproducao": "Reproduz-se no Pantanal, Goiás, Sul, Sudeste e na Amazônia. Há exibições aéreas do macho. Ovos uniformemente brancos ou brancos sujo.",
     "habitos": "Gosta de voar em grandes altitudes e pousa em árvores altas. Comum em bordas de florestas densas, capoeiras altas, florestas de galeria e áreas urbanas arborizadas. Vive solitário, aos pares ou mesmo em bandos, às vezes misturado a outras espécies de gaviões. É muito agressivo e territorial contra outros gaviões que passam próximo ao ninho. Nesse período, emite com frequência um assobio fino e curto, um som parecendo vir de um passarinho e não de um gavião.",
-    "dist_geo": "Presente em todas as regiões brasileiras e do México à Argentina. É migratório no Pantanal, sul e sudeste do Brasil, com uma população residente na Amazônia, por onde passam os migrantes em seu movimento para o norte, em abril, ou no seu retorno, em agosto."
+    "dist_geo": "Presente em todas as regiões brasileiras e do México à Argentina. É migratório no Pantanal, sul e sudeste do Brasil, com uma população residente na Amazônia, por onde passam os migrantes em seu movimento para o norte, em abril, ou no seu retorno, em agosto.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Planeio ascendente dinâmico', 'pata': '', 'cores': ['cinza-ardósia', 'castanho', 'branco', 'vermelho', 'alaranjado'], 'tamanho': 'Pequeno'}\n```   \n"
   },
   {
     "": "459",
@@ -1932,7 +2012,8 @@
     "alimentacao": "Caça anfíbios, mamíferos, pássaros chocando no ninho, com seus ovos e filhotes, e outros pequenos animais. Consta que consome ovos de outras aves voando sobre áreas úmidas paludosas como o gavião-cinza (Circus cinereus). Foi observado consumindo ovos da marreca-de-cabeça-preta (Heteronetta atricapilla). Até captura o quiriquiri (Falco sparverius) em áreas campestres, começando a devorá-lo pela cabeça.",
     "reproducao": "Nidifica no solo, entre a vegetação de áreas alagadas. O ninho é construído com grama e com a própria vegetação da área. Postura de 3 a 5 ovos. As espécies do gênero costumam apresentar um comportamento poligâmico.",
     "habitos": "Localmente migratório, ocorre nos mesmos habitats que o gavião-cinza (Circus cinereus) no Sul, como banhados e arrozais; também ocorre ao longo da orla marítima e campos cerrados no interior do país.",
-    "dist_geo": "Está presente em grande parte do Brasil, com exceção dos estados do Acre, Amazonas. Também ocorre nas Guianas, Venezuela, Colômbia, Paraguai, Uruguai, Argentina e Chile."
+    "dist_geo": "Está presente em grande parte do Brasil, com exceção dos estados do Acre, Amazonas. Também ocorre nas Guianas, Venezuela, Colômbia, Paraguai, Uruguai, Argentina e Chile.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': [], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "462",
@@ -1949,7 +2030,8 @@
     "alimentacao": "Apesar de pequeno não hesita em atacar uma presa maior. Sua dieta consiste principalmente em pequenas aves. Localiza sua presa a partir de um poleiro. Uma das maneiras de caça é ficar em um poleiro escondido entre a vegetação, de onde localiza a presa. Quando em voo sobre o solo é uma ave rápida e silenciosa, o que permite capturar pássaros em pleno voo, mesmo em meio à vegetação densa. Mais raramente, alimenta-se de pequenos roedores e pequenas rãs.",
     "reproducao": "O ninho construído pelo casal é uma plataforma feita com galhos, construída entre 5 e 6 metros de altura, nos arbustos de grande espessura. O interior é decorado com folhas, cascas e penas. A fêmea põe entre 3 e 5 ovos esbranquiçados e manchados de marrom escuro. A incubação dura entre 32 e 35 dias e é feita por ambos os pais, embora durante as primeiras duas semanas apenas a fêmea fique responsável pela incubação. Durante este período, ela é alimentada pelo macho. Os filhotes são então alimentados pelo casal e fazem o seu primeiro voo depois de um mês de idade.",
     "habitos": "Vive em florestas e matas. Apesar de viver oculto nas matas e bosques, ele voa abertamente de uma mata a outra.\nÉ um gavião solitário e muitas vezes frequenta a alta e densa floresta de planícies e montanhas, mas também pode ser encontrado sobrevoando as grandes cidades.",
-    "dist_geo": "Ocorre da América do Norte até a Argentina, no Brasil central e meridio-oriental, até o Rio Grande do Sul."
+    "dist_geo": "Ocorre da América do Norte até a Argentina, no Brasil central e meridio-oriental, até o Rio Grande do Sul.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Elíptica', 'pata': '', 'cores': ['acinzentado', 'castanho', 'branco', 'cinza', 'preto', 'cinza azulado', 'ferrugíneo', 'amarelo'], 'tamanho': 'Pequeno'}\n```"
   },
   {
     "": "463",
@@ -1966,7 +2048,8 @@
     "alimentacao": "Sua alimentação é constituída quase que, exclusivamente\nde aves, especialmente sabiás (Turdus e Mimus) e pequenas pombas; come também pequenos mamíferos e lagartos. Caça utilizando poleiros para localizar suas presas ou voando sobre as copas. Um indivíduo foi observado caçando como um falcão, planulldo a grande altitude e posteriormente fazendo um mergulho picado sobre um grupo de S. flaveola e Z. capensis (com. pess. Jorge Albuquerque).",
     "reproducao": "Durante o período reprodutivo costuma voar a grandes altitudes, solitariamente ou em pares, realizando uma série de acrobacias e vários mergulhos após uma sequência de batidas rápidas de asas (obs. pess. D. Kajiwara, J. L. B. Albuquerque e L. G. Trainini). Coloca de um a quatro ovos, que são incubados durante 33 a 37 dias A fêmea incuba os ovos na maioria das vezes, e o macho traz o alimento ao ninho. Os filhotes são alimentados por cerca de sete semanas, embora alguns retornem de vez em quando pelas semanas seguintes de modo que os pais lhe deem algo para comer. O cortejo acontece entre julho e agosto e seu período reprodutivo se inicia normalmente entre outubro e novembro (Obs. pess. Henrique Mariano Martins).",
     "habitos": "É encontrado em florestas densas, matas de galeria, matas secundárias e áreas de cerrado mais arbóreo. Trata-se de um accipitriforme florestal de difícil detecção, pois é uma espécie discreta. Raramente voa e costuma ficar em silêncio empoleirado no interior da mata de onde se lança atrás de suas presas.\nDevido ao seu comportamento críptico, ele provavelmente tem sido subestimado em levantamentos ornitológicos, podendo ser mais comum do que aparenta.",
-    "dist_geo": "Distribui-se do Uruguai e Argentina até o México, inclundo grande parte da América do Sul e quase todo o Brasil."
+    "dist_geo": "Distribui-se do Uruguai e Argentina até o México, inclundo grande parte da América do Sul e quase todo o Brasil.",
+    "morfologia_llm": "```json\n{'bico': 'Raptorial', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['cinza', 'cinza-escuro', 'alaranjado'], 'tamanho': 'Médio'} \n```"
   },
   {
     "": "465",
@@ -1983,7 +2066,8 @@
     "alimentacao": "Vasculha cavidades em ocos de árvores e palmeiras ou entre folhas de bromélias, graças à grande mobilidade da articulação intertarsal e de seus dedos curtos e tarso longo. Captura morcegos em seus dormitórios diurnos, além de lagartos, lagartixas, calangos, iguanas, cobras, sapos, pererecas, cuícas e outros mamíferos que ficam em ocos de árvores. Captura também outras aves, sendo afugentado sempre que aparece no território de bem-te-vis. Também entram em sua dieta cigarras, besouros, anfíbios e répteis em bromélias. Segue os incêndios, solitário ou aos pares, capturando presas assustadas no solo. Segue bandos de macacos-prego, gênero Cebus, que têm o hábito de desfolhar bromélias para comerem a base tenra esbranquiçada das folhas, desalojando assim cobras arborícolas e anfíbios, que se tornam presas fáceis.",
     "reproducao": "Em árvores altas, constrói ninho denso de gravetos e ramos finos, no formato de taça, localizado em galhos terminais, às vezes oculto entre epífitas. Põe cerca de dois ovos, com um período de incubação de 35 dias, em média.",
     "habitos": "Pode ocorrer em qualquer tipo de habitat, como florestas úmidas e estacionais, cerrado denso e cerradão, caatingas, fragmentos de mata em regeneração, às vezes em talhões de eucalipto mesclados com vegetação nativa ou áreas úmidas como brejos, buritizais e mangues. Tem o hábito de coçar a garganta e a face com as garras e arrumar a cauda com o bico.",
-    "dist_geo": "Ocorre desde o México até a Argentina e Uruguai, incluindo todo o Brasil."
+    "dist_geo": "Ocorre desde o México até a Argentina e Uruguai, incluindo todo o Brasil.",
+    "morfologia_llm": "```json\n{'bico': 'Raptorial', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': 'Anizodáctilo', 'cores': ['cinza', 'branco', 'amarelado', 'castanho', 'preto','vermelho alaranjado'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "468",
@@ -2000,7 +2084,8 @@
     "alimentacao": "É um gavião de áreas abertas, campos e cerrados, onde alimenta-se de várias presas, como pequenos mamíferos, aves, cobras, lagartos, rãs, sapos e grandes insetos. Na baixa das águas, apanha caranguejos.",
     "reproducao": "Reproduz-se de julho a novembro. Faz ninho a pouca altura, sobre árvores baixas ou palmeiras. Põe 1 ou, raramente, 2 ovos brancos.",
     "habitos": "É o seu hábito de seguir incêndios que chama mais a atenção, razão do nome comum, gavião-fumaça. Voa para a queimada, geralmente pousando em galhos à frente do fogo, ou caminha logo atrás das chamas, às vezes a poucos metros das labaredas. Na parte dianteira do incêndio, apanha os pequenos vertebrados e insetos fugindo da queimada, enquanto na parte posterior come os animais e insetos moribundos ou mortos pelo fogo.\nPossui um território de caça exclusivo, afastando os outros gaviões-caboclos. Possui o hábito de ficar por minutos pousado em árvores, estacas ou locais altos onde consegue visualizar todo o movimento a sua volta, fazendo do seu bote certeiro o ataque; passa longos períodos caçando em um mesmo local.\nO casal se comunica através de um assobio fino, longo e choroso, repetido continuamente. Voa alto, aproveitando as correntes de ar quente para planar, ou através de voo ativo, com batimento ritmado das asas.\nExtremamente arisco, o gavião caboclo sempre está alerta a qualquer movimento, levantando voo rapidamente quando se sente ameaçado. \nNo que tange à área de vida, um interessante estudo de Marco Granzinolli, para sua tese de doutorado, acompanhou a movimentação de três indivíduos (duas fêmeas e um macho) adultos e constatou uma distribuição espacial entre 1.774 hectares e 2.060 hectares, com centro de atividade de 399 hectares, valores bem mais elevados que um estudo venezuelano prévio.\nComum em campos, pastagens, borda de alagados, manguezais, pequenas florestas de eucaliptos em áreas campestres, cerrado e áreas urbanas.",
-    "dist_geo": "Presente em quase todo o Brasil, com exceção de áreas densamente florestadas. Encontrado também do Panamá à Argentina."
+    "dist_geo": "Presente em quase todo o Brasil, com exceção de áreas densamente florestadas. Encontrado também do Panamá à Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': '', 'cores': ['marrom avermelhado', 'branco', 'preto', 'cinza amarronzado', 'creme'], 'tamanho': 'Médio'}\n``` \n\n\n"
   },
   {
     "": "470",
@@ -2017,7 +2102,8 @@
     "alimentacao": "Alimenta-se de rãs, lagartos, cobras, ratos, insetos e peixes etc. Come também filhotes de aves caídos do ninho, carniça e frutas, como o cajá-mirim; observei também o urubitinga arrastando um quati morto atravessando a rodovia transpantaneira, dia 09/09/2012 (Rodrigo Y Castro).",
     "reproducao": "Faz ninho no alto de árvores próximas a rios e pântanos.",
     "habitos": "É uma espécie incomum. Habita pântanos, parques com corpos d'água, alagados e bordas de matas, frequentemente próximo à água. Ocasionalmente, pode ser encontrado em pastagens. Vive solitário, aos pares ou, ocasionalmente, em pequenos grupos.",
-    "dist_geo": "Todo o Brasil e também do México à Argentina."
+    "dist_geo": "Todo o Brasil e também do México à Argentina.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['preto', 'branco', 'amarelo'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "471",
@@ -2034,7 +2120,8 @@
     "alimentacao": "Sua alimentação é constituída de mamíferos (gambás, lebres, tatus, ratos silvestres, etc), aves e répteis (especialmente serpentes); eventualmente pode consumir carniça.",
     "reproducao": "No período reprodutivo coloca um único ovo branco com manchas cinza ou amarelas. Incubação entre Setembro e Outubro no  sudeste do Brasil (Zorzin et al. 2021). Ciclo reprodutivo entre 2 a 3 anos caso o jovem chegue a independência e abandone o território dos pais.",
     "habitos": "Vive solitariamente ou em casais, habitando áreas montanhosas (a exemplo da Serra dos Órgãos/RJ), campos naturais, cerrado e caatinga. Passa a maior parte do dia pousada em cercas, cupinzeiros, buritizais, postes, etc.\n\nGeralmente emite vocalizações e reluta em abandonar seu poleiro quando perturbada (Brown & Amadon, 1989).",
-    "dist_geo": "Ocorre no Brasil central e leste-meridional, de São Paulo, Minas Gerais até o Rio Grande do Sul."
+    "dist_geo": "Ocorre no Brasil central e leste-meridional, de São Paulo, Minas Gerais até o Rio Grande do Sul.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': 'Grande sustentação', 'pata': '', 'cores': ['cinza-chumbo'], 'tamanho': 'Grande'}\n```"
   },
   {
     "": "472",
@@ -2051,7 +2138,8 @@
     "alimentacao": "Sua ampla distribuição geográfica também se reflete nos seus hábitos alimentares generalistas, pois consome desde insetos, como cupins Coptotermes testaceus (Barbosa et al., 2022), até aves, ratos e lagartos. Existe um registro desta ave predando um sapo-cururu Rhinella diptycha, onde não houve envenenamento pela bufotoxina deste anfíbio (Pommer-Barbosa et al., 2022). Procura os abrigos diurnos de morcegos para atacá-los enquanto dormem. Ataca ninhos de outras aves e por isso é ferozmente perseguido por suiriris, bem-te-vis e tesourinhas.",
     "reproducao": "O gavião-carijó vive em casais que constroem um ninho de gravetos revestido por folhas com cerca de meio metro de diâmetro, geralmente no topo de uma árvore grande.\nAs fêmeas apresentam os dois ovários desenvolvidos, em vez de apenas o esquerdo como as outras aves. A postura de em média 2 ovos é depositada sobre um revestimento de folhas secas e incubada pela fêmea. Durante este período de cerca de um mês, a fêmea é alimentada pelo macho. Os ovos são geralmente manchados, de cor muito variável, até dentro de uma mesma postura. Quando está reproduzindo pode tornar-se agressivo, atacando até mesmo seres humanos que se aproximem de seu ninho.",
     "habitos": "Costuma voar em casais, fazendo movimentos circulares enquanto os dois vocalizam em dueto. \nPossui o hábito de utilizar o mesmo poleiro de caça por longo tempo (dias e até semanas). Adapta-se a regiões urbanizadas.",
-    "dist_geo": "Ocorre do México à Argentina e em todo o Brasil. \nÉ a espécie mais comum de nosso país, ocorrendo em todos os estados, habitando os mais variados ambientes: campos, bordas de mata, áreas urbanas, etc., sendo mais raro em áreas densamente florestadas. \n\nNas últimas décadas este gavião passou a se tornar mais comum nos centros urbanos, adaptando-se com sucesso a este ambiente, pois nas cidades a oferta de presas é maior e os seus predadores naturais (outras aves de rapina maiores) são escassos."
+    "dist_geo": "Ocorre do México à Argentina e em todo o Brasil. \nÉ a espécie mais comum de nosso país, ocorrendo em todos os estados, habitando os mais variados ambientes: campos, bordas de mata, áreas urbanas, etc., sendo mais raro em áreas densamente florestadas. \n\nNas últimas décadas este gavião passou a se tornar mais comum nos centros urbanos, adaptando-se com sucesso a este ambiente, pois nas cidades a oferta de presas é maior e os seus predadores naturais (outras aves de rapina maiores) são escassos.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': 'Grande sustentação', 'pata': 'Zigodáctilo', 'cores': ['marrom-carijó', 'amarelado', 'marrom', 'cinza', 'ferruginoso', 'branco', 'bege', 'escuro'], 'tamanho': 'Médio'}\n``` \n"
   },
   {
     "": "473",
@@ -2068,7 +2156,8 @@
     "alimentacao": "Além de se parecer um pouco com uma águia (rosto semelhante ao das Aquilas), o gavião-asa-de-telha é muito estratégico. Para caçar, ele abre suas asas para abafar a reação da presa (como uma cobra por exemplo), evitando levar uma picada no corpo. Preda principalmente pequenos vertebrados, mas não despreza insetos grandes, conforme o tipo de presa mais comum na região onde se encontre; pode caçar todo tipo de ave até o porte de uma galinha, mamíferos até o porte de um coelho, já tendo sido encontrados entre os restos das suas presas gambás, frangos d’água, pombas silvestres, ratos do mato, passarinhos diversos, codornas, pequenas garças, entre outros. Caça em bandos de até seis indivíduos, o que lhe permite capturar presas maiores, como coelhos, que são rápidos para serem caçados por uma só ave. Também divide a caça.",
     "reproducao": "Bota de dois a quatro ovos (em média três), cuja incubação dura 33 a 36 dias. As crias são totalmente dependentes dos pais durante os primeiros tempos de vida, a exemplo das outras aves de rapina. Os juvenis abandonam o ninho com cerca de 40 dias, mas permanecem próximo deste durante três a quatro meses.",
     "habitos": "Habita regiões campestres, áreas de várzeas, manguezais, pastagens, campos de cultivo e campos nativos como o cerrado e a caatinga, e está cada vez mais comum em áreas urbanas como no Rio de Janeiro, São Paulo e Santos, desde que encontre nesses locais presas suficientes para manter a espécie.\n\nUma característica notável é que esta espécie costuma caçar em bandos, coisa pouco comum entre as aves de rapina caçadoras, já que a maioria é antissocial. É bastante inteligente, caçando cooperativamente.",
-    "dist_geo": "Distribui-se no sudoeste dos EUA (do Texas à Califórnia), no México e em zonas áridas da América Central e do Sul. Ocorre no Brasil oriental, meridional e central. Crozariol & Lima (2015) redescobriram essa espécie, após 115 anos, na região do Vale do Paraíba, estado de São Paulo."
+    "dist_geo": "Distribui-se no sudoeste dos EUA (do Texas à Califórnia), no México e em zonas áridas da América Central e do Sul. Ocorre no Brasil oriental, meridional e central. Crozariol & Lima (2015) redescobriram essa espécie, após 115 anos, na região do Vale do Paraíba, estado de São Paulo.",
+    "morfologia_llm": "```json\n{'bico': 'Carniceiro', 'asa': 'Elíptica', 'pata': '', 'cores': ['castanho-escura', 'castanho-avermelhada', 'branca'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "475",
@@ -2085,7 +2174,8 @@
     "alimentacao": "Alimenta-se de insetos, répteis, mamíferos, anfíbios e até de outras aves de menor porte. Também vasculha estradas em busca de animais atropelados. É menos um predador especializado do que um generalista, que se concentra em presas de pequeno tamanho e de fácil captura. Pratica a caça de espreita lançando-se sobre a presa de um galho, tronco, estaca ou mesmo de postes de iluminação.\nPlana muito à procura de alimento, tendo o costume de  peneirar pastos abertos em busca de presas. Procura queimadas para capturar animais no solo ou em pleno ar espantados pela fumaça.",
     "reproducao": "Constrói o ninho sobre árvores ou rochas com galhos secos.",
     "habitos": "Vive nos cerrados, pastagens, campos de altitude, áreas montanhosas e áreas urbanas. Tem o costume de planar em círculos e pousar em postes na beira de estradas.   \nAfronta o vento em voo elástico elegante, pairando com as asas imóveis, movendo apenas as primárias e a cauda para manter o voo. Toma banho de sol arrepiando a plumagem.",
-    "dist_geo": "Presente dos Estados Unidos até  a Argentina e em todo o Brasil ."
+    "dist_geo": "Presente dos Estados Unidos até  a Argentina e em todo o Brasil .",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Grande sustentação', 'pata': '', 'cores': ['preto', 'acinzentado', 'branco', 'ferruginosa'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "481",
@@ -2102,7 +2192,8 @@
     "alimentacao": "Alimenta-se de aves, répteis e insetos. É rápido e ágil, podendo perseguir suas presas por manobras entre as árvores. Caça também a partir de poleiros e gosta de planar à procura de presas.",
     "reproducao": "Faz o ninho com galhos secos no alto das árvores, pondo de dois a três ovos. Os filhotes permanecem no ninho por cerca de 6 semanas. O período de incubação é de aproximadamente 32 dias e é realizado por ambos os pais. O macho fornece com maior frequência o alimento para a fêmea nas duas primeiras semanas de pós-incubação, e após esse período a fêmea também ajuda na caça. Aos 2 anos de idade os indivíduos atingem a maturidade sexual.",
     "habitos": "Vive na borda de matas, campos, cerrados, matas ribeirinhas e florestas. Ave rápida e ágil, bate asas e plana por pouco tempo para arrebatar a presa. No voo, usa as correntes de ar quente para adquirir altura.",
-    "dist_geo": "Ocorre desde o sul dos Estados Unidos até a Argentina."
+    "dist_geo": "Ocorre desde o sul dos Estados Unidos até a Argentina.",
+    "morfologia_llm": "```json\n{'bico': 'Raptorial', 'asa': 'Elíptica', 'pata': '', 'cores': ['cinza-claras', 'branco', 'cinza', 'amarelo', 'marrom-escuro'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "483",
@@ -2119,7 +2210,8 @@
     "alimentacao": "Embora estudos mais antigos mencionem uma dieta variada de répteis, invertebrados, anfíbios e roedores, dados obtidos posteriormente confirmaram que a espécie é um predador especializado em aves, mostrando adaptações tanto morfológicas quanto comportamentais para sua captura. Normalmente capturam pequenas aves dando voos rasantes na copa das árvores. Em regiões tropicais, entretanto, pode ter uma dieta um pouco mais diversificada, devido à maior disponibilidade de presas.",
     "reproducao": "Há exibições aéreas do macho, acompanhadas de vocalizações. Nidifica no topo de árvores de 12 a 30 metros de altura. Os ovos são geralmente manchados, de cor muito variável. O período de incubação é de 32 a 39 dias. Embora haja frequentemente dois ovos, muitas vezes desenvolve-se apenas um filhote. Os filhotes permanecem no ninho por um período em torno de 5 semanas (Monsalvo, 2012).\n\nO macho é o único responsável pela alimentação da família durante boa parte da nidificação. Em um estudo em um parque urbano de São Paulo - SP (Monsalvo, 2012), o filhote foi alimentado pelo menos até os 3 meses de idade, e só abandonou a área do ninho com 4 meses. Aparentemente os filhotes ainda permanecem no território dos pais pelo menos até os 6 meses de idade, tornulldo-se adultos apenas com 2 ou 3 anos.",
     "habitos": "Habita campos com árvores, áreas florestadas permeadas de vegetação aberta e áreas urbanas. Normalmente é encontrado sozinho, ocasionalmente aos pares. Tende a passar despercebido devido ao fato de passar a maior parte do dia planulldo a grande altitude.\n\nDiversos estudos têm demonstrado que esta espécie parece ser mais comum do que se supunha. Há ainda indícios de que suas populações estejam aumentando devido à sua adaptabilidade a alterações antrópicas.\n\nEm muitas regiões onde foram mais bem estudados - na Argentina, nos EUA e no Brasil - o morfo escuro mostrou ser a forma mais comum. Paralelamente, observações de Meyer (2004) e Monsalvo (2012) sugerem que esta forma seria geneticamente dominullte ao morfo claro.\n\nA aparência do morfo escuro poderia ser outra causa de esta espécie passar despercebida, já que esses indivíduos facilmente são confundidos com o urubu-preto (Coragyps atratus), com o qual costuma compartilhar as térmicas. Monsalvo (2012, 2014) sugeriu que essa semelhança possa ser um caso de mimetismo agressivo, como o apresentado pelo gavião-urubu (Buteo albonotatus).",
-    "dist_geo": "Desde o sul dos Estados Unidos e México até a Argentina e Paraguai, e em todo o Brasil."
+    "dist_geo": "Desde o sul dos Estados Unidos e México até a Argentina e Paraguai, e em todo o Brasil.",
+    "morfologia_llm": "```json\n{'bico': 'Raptorial', 'asa': 'Elíptica', 'pata': '', 'cores': ['preto', 'branco', 'pardo', 'amarelo'], 'tamanho': 'Médio'}\n```"
   },
   {
     "": "486",
