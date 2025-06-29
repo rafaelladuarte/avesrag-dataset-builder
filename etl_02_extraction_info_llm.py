@@ -154,7 +154,7 @@ if __name__ == "__main__":
             else:
                 print("- Information behavior for bird is exists")
 
-            if j == 20:
+            if j == 50:
                 should_stop = True
 
         except requests.exceptions.HTTPError as err:
