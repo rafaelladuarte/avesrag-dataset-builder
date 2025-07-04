@@ -11,6 +11,10 @@ playwright = "*"
 pytest-playwright = "*"
 groq = "*"
 transformers = "*"
+networkx = "*"
+plotly = "*"
+scipy = "*"
+nbformat = "*"
 
 [dev-packages]
 ipykernel = "*"
