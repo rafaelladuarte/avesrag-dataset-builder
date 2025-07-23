@@ -13897,7 +13897,9 @@
     "dist_geo": "Toda a Amazônia brasileira, na região Centro-Oeste e nos estados do Piauí, São Paulo, Minas Gerais e Paraná. Encontrado também no Panamá e em todos os demais países amazônicos.",
     "alimentacao": "Vive aos pares, procurando insetos em emaranhados de vegetação.",
     "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['marrom avermelhado', 'marrom acinzentado', 'preto', 'branco', 'bege', 'cor de tijolo'], 'tamanho': 'Pequeno'}\n```",
-    "food_llm": "```json\n{'tipo': 'insetívoro', 'itens': ['insetos']}\n```"
+    "food_llm": "```json\n{'tipo': 'insetívoro', 'itens': ['insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['mata ciliar', 'área alagada', 'manguezais']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '...', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3412,
@@ -13914,7 +13916,11 @@
     "reproducao": "Seu ninho é delicado, parecendo com o ninho dos beija-flores. Ele é dissimulado, por fora, por liquens presos por teias de aranha.",
     "habitos": "Vive nos campos abertos, entre árvores espinhentas. Ocorre no cerrado e em áreas urbanas. Vive abertamente na copa das árvores, exposto ao vento e à forte insolação. Aprecia regiões áridas. \nMantém a cauda em constante movimento, quer vertical, quer lateralmente. Se excitado abre a mesma em leque, expondo a contrastante coloração branca e preta.",
     "dist_geo": "Ocorre na Bolívia, Paraguai, Argentina, Uruguai e Brasil (sudeste do Pará, Goiás, Minas Gerais a São Paulo, Rio Grande do Sul e Mato Grosso). De acordo com Ghizoni-Jr (2004), essa espécie foi registrada também em Santa Catarina pela primeira vez em 2000, no município de Chapecó.",
-    "alimentacao": "É uma ave insetívora."
+    "alimentacao": "É uma ave insetívora.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['cinzento', 'branco', 'cinzento-azulado', 'preto'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'insetívoro', 'itens': ['insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'cerrado', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'solitária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3421,
@@ -13931,7 +13937,11 @@
     "reproducao": "Costuma abrir e fechar a cauda e balançá-la várias vezes, emitindo fortes gritos. Isto faz parte da cerimônia de corte do casal. \nOs ovos são de cor ferrugem-clara. Faz um cesto profundo enfaixado com teias de aranha, sendo afixado ao capim alto ou outras plantas a pouca altura, no brejo ou nas suas margens. O filhote nasce após 17 dias e deixa o ninho com 17-18 dias.",
     "habitos": "Vive em taboais, brejos, lagos, córregos e juncos onde encontra pequenos organismos para alimentar-se.",
     "dist_geo": "Ocorre em quase todo o território nacional, com exceção de uma grande área da Caatinga, dos Pampas e da Mata Atlântica do Sul.",
-    "alimentacao": "Alimenta-se quase exclusivamente de invertebrados; itens registrados incluem himenópteros, besouros, ortópteros, neuropteros e aracnoides. Forrageia em pares e em grupos. Itens geralmente retirados de superfícies de folhas e animais, mas ocasionalmente capturados em voo."
+    "alimentacao": "Alimenta-se quase exclusivamente de invertebrados; itens registrados incluem himenópteros, besouros, ortópteros, neuropteros e aracnoides. Forrageia em pares e em grupos. Itens geralmente retirados de superfícies de folhas e animais, mas ocasionalmente capturados em voo.",
+    "morfologia_llm": "```json\n{'bico': 'insetívoro', 'asa': 'elíptica', 'pata': 'anizodáctilo', 'cores': ['preto', 'amarelo'], 'tamanho': 'pequeno'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'insetívoro', 'itens': ['himenópteros', 'besouros', 'ortópteros', 'neuropteros', 'aracnoides']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['brejo', 'área alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'corredora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3423,
@@ -13948,7 +13958,11 @@
     "reproducao": "Se reproduz no sul do Canadá e norte dos Estados Unidos. \nFaz um ninho em forma de taça com folhas mortas, cascas, caules de plantas daninhas e musgo, no solo ou próximo a ele. A fêmea põe 4 ovos e tem uma a duas ninhadas por temporada que vai de maio a julho.",
     "habitos": "Durante o inverno setentrional, migra para o Brasil, Colômbia, Guianas e Venezuela. Pode ser visto no sub-bosque de florestas úmidas e cerradões.",
     "dist_geo": "No Brasil, sua área de abrangência inclui quase todos os biomas, ocorrendo no Tocantins, Pará, Roraima, Amazonas, Rondônia, Mato Grosso, Alagoas, Pernambuco, Maranhão, Distrito Federal, Goiás, Minas Gerais, Rio de Janeiro, São Paulo, Paraná, Santa Catarina.",
-    "alimentacao": "Forragea o solo à procura de insetos, aranhas e caracóis; se alimenta também de frutas e bagas."
+    "alimentacao": "Forragea o solo à procura de insetos, aranhas e caracóis; se alimenta também de frutas e bagas.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['marrom ferrugíneo', 'branco', 'amarelado', 'pardacentas'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'frutas', 'bagas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta úmida', 'cerradão']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3429,
@@ -13965,7 +13979,11 @@
     "reproducao": "Atinge a maturidade sexual aos 12 meses.\n\nResidente, inicia sua reprodução em agosto e estende-a até dezembro. Como outros sabiás, constrói um ninho apoiado em galhos ou forquilhas, às vezes em alpendres e varandas de casas, usando uma mistura de barro, raízes e folhas na parte externa. Forma uma pequena torre e na parte superior fica a tigela funda de material vegetal mais macio. A fêmea choca de 2 a 4 ovos verde-azulados com salpicos pardos, que medem 28 por 20 milímetros e são incubados durante cerca de 12 dias, com os filhotes saindo do ninho em 17 dias. Por um tempo os filhotes costumam utilizar o ninho para dormir após já terem conseguido alçar voo em companhia dos pais. (Observação Pessoal, João de Almeida Prado).\n\nA fêmea retira ou engole os sacos fecais dos filhotes nidícolas [T. Sigrist - Avifauna Brasileira, pg 253].\n\nCostuma ter quatro ninhadas por temporada.",
     "habitos": "Comum em todas as matas ciliares, matas de galeria, matas secas, cambarazais e cerradões. Utiliza os capões de cerrado e cruza áreas abertas em voos diretos a meia altura. Acostuma-se com ambientes criados pela ação humana, como jardins, pomares e áreas urbanas bem arborizadas. \nCanta somente na primavera, época em que acasala.  \nAdapta-se a diferentes ambientes e também é muito visto em parques urbanos com muita vegetação.",
     "dist_geo": "Presente no Brasil todo.",
-    "alimentacao": "Alimenta-se basicamente de minhocas e artrópodes. Assim como outros sabiás, revira as folhas caídas em busca de pequenos invertebrados e também se alimenta de pequenos frutos. Aprecia os frutos do tapiá ou tanheiro (Alchornea glandulosa). Costuma frequentar comedouros com frutas. Gosta de frutas tropicais, como a banana. \n\n\nFoi observado na cidade de Jaú-SP um adulto alimentando-se do néctar das flores da paineira-vermelha ou paineira-da-índia (Observação:João Prado).\nNo sudeste e norte do Brasil a espécie já foi avistada se alimentando de lagartixas e cobras-cegas.\nEm Ananindeua/Pará, a espécie foi avistada regurgintando duas sementes de Virola Surinamensis, árvore conhecida na região como Ucuuba (Observação:https://www.wikiaves.com.br/perfil_3b8785550d090c1 - Humberto Pereira)"
+    "alimentacao": "Alimenta-se basicamente de minhocas e artrópodes. Assim como outros sabiás, revira as folhas caídas em busca de pequenos invertebrados e também se alimenta de pequenos frutos. Aprecia os frutos do tapiá ou tanheiro (Alchornea glandulosa). Costuma frequentar comedouros com frutas. Gosta de frutas tropicais, como a banana. \n\n\nFoi observado na cidade de Jaú-SP um adulto alimentando-se do néctar das flores da paineira-vermelha ou paineira-da-índia (Observação:João Prado).\nNo sudeste e norte do Brasil a espécie já foi avistada se alimentando de lagartixas e cobras-cegas.\nEm Ananindeua/Pará, a espécie foi avistada regurgintando duas sementes de Virola Surinamensis, árvore conhecida na região como Ucuuba (Observação:https://www.wikiaves.com.br/perfil_3b8785550d090c1 - Humberto Pereira)",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Alto coeficiente de proporcionalidade', 'pata': 'Anizodáctilo', 'cores': ['acinzentada', 'olivácea', 'amarronzado', 'laranja', 'branca', 'cinza-escuro', 'marrom'], 'tamanho': 'Médio'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['minhocas', 'artrópodes', 'frutos', 'sementes', 'lagartixas', 'cobrinhas cegas', 'néctar']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['mata ciliar', 'matas de galeria', 'mata seca', 'cambarazais', 'cerradões', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n``` \n"
   },
   {
     "Unnamed: 0": 3432,
@@ -13982,7 +14000,11 @@
     "reproducao": "Pode fazer seu ninho em beirais de telhados. A construção de ninhos pode se tornar confusa em certas ocasiões: quando o local escolhido é formado por vãos entre numerosos suportes iguais de um telhado, o sabiá-laranjeira pode construir vários ninhos ao mesmo tempo, por confundir os vãos.\n\nO ninho é feito entre setembro e janeiro, geralmente em arbustos, árvores de folhagem densa ou bananeiras, empregando fibras e gravetos ligados por um pouco de lama, num formato de tigela funda. Por dentro são revestidos de materiais mais macios como hastes de flores e capim.\n\nO período de incubação dura em torno de 13 dias. A fêmea choca até 3 vezes por ano, e em cada postura coloca de 3 a 4 ovos, de coloração verde-azulada com pintas (ou manchas) cor de ferrugem (sépia). A fêmea é a única resposável na construção do ninho e pela incubação dos ovos. Ao macho cabe a proteção do ninho durante a fase de construção e incubação dos ovos. A alimentação e o cuidado dos filhotes, bem como a higiene do ninho é efetuada em conjunto pelo casal.",
     "habitos": "É comum em bordas de florestas, parques, quintais e áreas urbanas arborizadas. Vive solitário ou aos pares, pulando no chão. Em regiões mais secas é, de certa forma, restrito a áreas próximas à água.\n\nÉ uma ave que convive bem com ambientes modificados pelo homem, seja no campo ou na cidade, desde que tenha oportunidades de encontrar abrigo, alimento e água.\n\nNa natureza, é encontrado em casais e grupos familiares quando em processo de criação. É uma ave de ambientes abertos, preferindo viver em bordas de matas, pomares, capoeiras, entorno de estradas, praças e quintais, sempre por perto de água abundante. É um pássaro territorial: demarca uma área geográfica quando está em processo de reprodução e não aceita a presença de outras aves da espécie. Começa a cantar antes mesmo de clarear o dia. O sabiá-laranjeira vive até 10 anos na natureza. Gosta de ficar em árvores fechadas e escuras, ou em árvores um pouco abertas.",
     "dist_geo": "Presente do Maranhão ao Rio Grande do Sul, é o sabiá mais conhecido do Sudeste, sendo menos numeroso no Nordeste. Migra para regiões mais quentes no inverno. Encontrado também na Bolívia, Paraguai, Argentina e Uruguai.",
-    "alimentacao": "Sua nutrição se compõe basicamente de insetos, larvas, minhocas e frutas maduras, incluindo frutas cultivadas como o mamão, a laranja e o abacate. Come coquinhos de várias espécies de palmeiras e de espécies introduzidas, como o dendê. Cospe os caroços após cerca de 1 hora, contribuindo assim para a dispersão dessas palmeiras, comportamento apresentado também por outros sabiás. Ração de cachorro também atrai esta espécie, podendo servir de alimento em cidades grandes com menor disponibilidade de alimentos naturais. Aprecia os frutos do tapiá ou tanheiro (Alchornea glandulosa)."
+    "alimentacao": "Sua nutrição se compõe basicamente de insetos, larvas, minhocas e frutas maduras, incluindo frutas cultivadas como o mamão, a laranja e o abacate. Come coquinhos de várias espécies de palmeiras e de espécies introduzidas, como o dendê. Cospe os caroços após cerca de 1 hora, contribuindo assim para a dispersão dessas palmeiras, comportamento apresentado também por outros sabiás. Ração de cachorro também atrai esta espécie, podendo servir de alimento em cidades grandes com menor disponibilidade de alimentos naturais. Aprecia os frutos do tapiá ou tanheiro (Alchornea glandulosa).",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['parda', 'vermelho-ferrugem', 'alaranjado', 'amarelo', 'amarelo vivo', 'rosa-cinzento'], 'tamanho': 'Pequeno'} \n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'frutas', 'sementes', 'ração']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['área urbana', 'floresta aberta', 'campo natural', 'área alagada']}\n```  \n",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'territorial', 'atividade': ['diurna', 'crepuscular']}\n```"
   },
   {
     "Unnamed: 0": 3436,
@@ -13999,7 +14021,11 @@
     "reproducao": "Em agosto inicia-se a reprodução. Nessa época, aparecem as aves com o bico amarelo vivo, uma característica ligada à reprodução. Aves juvenis ou adultos fora do período reprodutivo têm o bico escuro ou com diferentes proporções de amarelo.\nNidifica em arbustos isolados. O ninho apresenta formato de tigela, é feito com raízes e fibras com acabamento de barro nas paredes laterais dando solidez, dentro há um acolchoado de raízes finas e macias sem o barro. Coloca 3 a 4 ovos, bojudos e com a ponta alongada, azul-esverdeado com manchas e pintas ferrugíneas. O casal fica junto no período de incubação.",
     "habitos": "Pousado ou no chão, possuem o característico hábito de balançar a cauda rapidamente na vertical, especialmente quando vocalizam. O piado de contato é traduzido por póca, nome tupi para barulho. Além desse chamado, um característico miado baixo. Espécie semiflorestal, embora também é visto em bordas de matas e clareiras. Adapta-se também a áreas urbanas muito arborizadas e só canta na época de reprodução, fora isso só emite chamados fora dessa época. Espécie mais tímida e incomum que o sabiá-barranco e o sabiá-laranjeira, acaba aparecendo e se expondo com maior frequência durante o período de reprodução.",
     "dist_geo": "Há ocorrência dessa espécie em quase todos os estados do Brasil e na Argentina. Seu período migratório vai dos meses de maio a agosto.",
-    "alimentacao": "Alimentam-se de invertebrados e pequenos frutos, principalmente no solo. Gosta muito do fruto da aroeira (Schinus terebinthifolius)  e dos frutos/sementes da aroeira-do-campo (Schinus lentiscifolius). Como outros sabiás, gostam de ciscar com o bico as folhas secas e escavar o chão. A cada movimento com o bico para a lateral, dão um salto para trás e ficam procurando presas, imóveis por alguns segundos. Se nada aparece, saltam para a frente, ciscam e retornam à posição original.\nQuando os frutos das figueiras estão caindo no chão, concentram-se sob a árvore e fartam-se."
+    "alimentacao": "Alimentam-se de invertebrados e pequenos frutos, principalmente no solo. Gosta muito do fruto da aroeira (Schinus terebinthifolius)  e dos frutos/sementes da aroeira-do-campo (Schinus lentiscifolius). Como outros sabiás, gostam de ciscar com o bico as folhas secas e escavar o chão. A cada movimento com o bico para a lateral, dão um salto para trás e ficam procurando presas, imóveis por alguns segundos. Se nada aparece, saltam para a frente, ciscam e retornam à posição original.\nQuando os frutos das figueiras estão caindo no chão, concentram-se sob a árvore e fartam-se.",
+    "morfologia_llm": "```json\n{'bico': 'Sondador', 'asa': '', 'pata': '', 'cores': ['preto', 'branco', 'marrom-olivácea', 'marrom claro', 'amarelo'], 'tamanho': 'Médio'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutos', 'sementes', 'invertebrados']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'bordas de matas', 'clareiras', 'área urbana']}\n```  \n",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'territorial', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3440,
@@ -14016,7 +14042,11 @@
     "reproducao": "O ninho é construído com musgo, finos galhos, cipós e raízes e é construído a cerca de 4 metros acima do solo em uma árvore cuja folhagem é densa e com sombra. A postura geralmente inclui três ovos azuis com manchas marrons.  (Clement, 2000).",
     "habitos": "É uma espécie de hábitos tímidos e extremamente discreta. Eles muitas vezes permanecem escondidos na folhagem e são muito difíceis de observar, mesmo quando eles cantam ou emitem suas várias formas de vocalizações. O melhor momento para vê-los é quando eles estão nos galhos baixos das copas das árvores. (Clement, 2000).",
     "dist_geo": "Ocorre da Argentina, Paraguai e Bolívia e localmente até o Rio de Janeiro (Itatiaia) e Minas Gerais, durante o inverno, Goiás, Tocantins e Mato Grosso (alto Xingu) (SICK, 1997). Estudos mais recentes registraram a espécie em outras regiões do Estado de Mato Grosso, na porção leste - Vale do Rio Araguaia (Purificação et al. 2014) e no oeste do Estado - Alto Guaporé (Vitorino et al. 2016). A espécie é muito comum em localidades no Estado do Rio Grande do Sul, e.g. Gramado-Canela e Parque Nacional Aparados da Serra, onde é facilmente ouvida, principalmente no final da primavera e início do verão (período reprodutivo).\nÉ uma ave migratória com as rotas ainda pouco conhecidas. Sabe-se que passa o inverno nas regiões centrais e parte do sul da Amazônia, retornando ao Estado sulino para procriar (SICK, 1997). No retorno vem parando em fragmentos florestais, onde fica alguns dias, já vocalizando, como observado no Parque Estadual da Cantareira (SANTOS,2010b), também no Estado de São Paulo (Jacques Vielliard, com. pess.; SICK, 1997).",
-    "alimentacao": "Alimenta-se de pequenos artrópodes, invertebrados e principalmente de frutas.  (Clement, 2000). Na categoria de invertebrados, incluem os caracóis, besouros, formigas e moscas."
+    "alimentacao": "Alimenta-se de pequenos artrópodes, invertebrados e principalmente de frutas.  (Clement, 2000). Na categoria de invertebrados, incluem os caracóis, besouros, formigas e moscas.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': [], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['frutas', 'invertebrados', 'artrópodes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta','mata ciliar','área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'solitária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3443,
@@ -14033,7 +14063,11 @@
     "reproducao": "O ninho é construído grosseiramente com gravetos secos, grama e algodão, em forma de tigela rasa sobre árvores ou arbustos e em certos locais sobre os grandes ninhos abandonados de outros pássaros. O centro do ninho é forrado com material macio. Os ovos são verde-azulados com manchas cor de ferrugem. A fêmea põe de 3 a 4 ovos e, às vezes, choca ovos de outros pássaros. O casal é auxiliado por um terceiro ou quarto indivíduo do bando, que talvez sejam crias de anos anteriores que ajudam na alimentação e proteção. Repelem os outros pássaros das proximidades do ninho. Os ovos eclodem após 12 ou 14 dias e os filhotes abandonam o ninho com 11 a 14 dias de vida. O interior da boca dos filhotes é amarelo-laranja.",
     "habitos": "Apresenta uma série de comportamentos, muitos deles pouco entendidos, talvez pela dificuldade de se aplicar um método muito comum de pesquisa, que é o de anilhamento. Algumas pessoas que tentaram anilhar esta ave para estudar seu comportamento desistiram deste recurso pois a ave parece ser tão sensível ao estresse da captura que alguns indivíduos morreram após o anilhamento.\n\nAnda pelos campos e cerrados ou parques e terrenos baldios de cidades geralmente em bandos, que podem ter até 13 integrantes. Na porção sul de sua distribuição não forma bandos, e costuma viver em casais. Possui o hábito de erguer as asas semiabertas de tempos em tempos enquanto anda pelo chão, numa exibição denominada “lampejo de asas”, cuja finalidade não é entendida e que é observada também em outras espécies do gênero. O lampejo pode ser executado também quando a ave se depara com uma ameaça em potencial (humanos próximos demais, serpentes).\n\nApesar de viver em grupos familiares, são muito agressivos entre si e usam os longos bicos e as garras fortes em brigas sem trégua (origem do nome galo-do-campo).\n\nApresenta a característica de ave sinantrópica, ou seja, pode se adaptar às grandes cidades, desde que estejam disponíveis água e áreas verdes onde eles possam pousar, caçar e fazer ninhos. Não teme o ser humano, permitindo uma grande aproximação sem se assustar. \n\nÉ um dos melhores imitadores de outras aves na natureza. Alguns indivíduos repetem o canto de até 6 espécies diferentes. Além dessas imitações, usadas na época reprodutiva (julho a dezembro), possui um canto próprio, onde lança mão dos chamados mais graves e agudos característicos, iniciando ou terminando a imitação. Em sua grande obra Ornitologia Brasileira, Helmut Sick cita que as populações de sabiás-do-campo mais ao sul apresentam repertório de vocalização mais rico e melodioso do que as populações mais setentrionais.\n\nFoi observado em área rural do município de Bariri-SP, comportamento de cooperação grupal notável. Um indivíduo adulto ficou preso em uma cerca de arame farpado pendurado por uma perna e todos os indivíduos do grupo pousaram ao lado dele e ficaram emitindo o chamado de alerta. No entanto em pouco tempo apareceu um quiriquiri que tentou por todas as formas capturá-lo mas não teve êxito pois os demais o atacavam ferozmente a cada investida da ave de rapina. Libertando-se da cerca, porém sem um dos pés, pousou em uma outra cerca próxima; nesse momento apenas um dos indivíduos do grupo pousou ao seu lado e ficou dando pequenas bicadas insistentemente em sua asa até que o sabiá acidentado voou para uma árvore mais alta, a salvo. (Observação: João de Almeida Prado).",
     "dist_geo": "Regiões campestres do baixo Amazonas, através do Brasil central, Nordeste, Leste e Sul até o Uruguai, Paraguai, Argentina e Bolívia.",
-    "alimentacao": "São onívoros, alimentam-se principalmente de invertebrados e frutos. Dentre os invertebrados, os insetos (formigas, cupins, besouros) constituem a maior parte das presas. Os frutos podem ser silvestres (neste caso de pequeno tamanho, engolidos inteiros) ou cultivados, como laranja e abacate. Aprecia muito os frutos do Tapiá ou tanheiro (Alchornea glandulosa). As sementes não são digeridas, e atravessam intactas o tubo digestivo. A ave atua, assim, como dispersora das sementes dos frutos que ingere. A maior parte do alimento é obtida enquanto a ave caminha pelo solo, podendo acompanhar outras aves como o joão-de-barro na procura de insetos em áreas abertas como pastagens e gramados. Outros métodos de alimentação com presas animais são menos frequentes, como a captura de insetos em voo a partir de poleiros elevados, ou com saltos a partir do solo. Frutos são coletados pela ave empoleirada; frutos de grande tamanho, cultivados, podem ter parte de sua polpa consumida após caírem ao solo. Ocasionalmente predam ninhos com ovos e filhotes de outros pássaros. Aproveita-se de gordura e carne em mantas de charque ao sol, (daí o nome papa-sebo) costuma comer pimenta Malagueta (Capsicum frutescens) madura. Podem eventualmente frequentar comedouros artificiais de frutas.\nMimus saturninus forrageando\n\n\nFoi observado, em área residencial na zona sul da cidade de São Paulo, um indivíduo adulto capturando um filhote de lagartixa e batendo-o contra o chão para despedaçá-lo antes de comer. (Observação:Antonio Vicente)\nUm bando disputando uma cobra. Registro em foto: http://www.wikiaves.com.br/2241670&p=1&t=u&u=23584&s=11535"
+    "alimentacao": "São onívoros, alimentam-se principalmente de invertebrados e frutos. Dentre os invertebrados, os insetos (formigas, cupins, besouros) constituem a maior parte das presas. Os frutos podem ser silvestres (neste caso de pequeno tamanho, engolidos inteiros) ou cultivados, como laranja e abacate. Aprecia muito os frutos do Tapiá ou tanheiro (Alchornea glandulosa). As sementes não são digeridas, e atravessam intactas o tubo digestivo. A ave atua, assim, como dispersora das sementes dos frutos que ingere. A maior parte do alimento é obtida enquanto a ave caminha pelo solo, podendo acompanhar outras aves como o joão-de-barro na procura de insetos em áreas abertas como pastagens e gramados. Outros métodos de alimentação com presas animais são menos frequentes, como a captura de insetos em voo a partir de poleiros elevados, ou com saltos a partir do solo. Frutos são coletados pela ave empoleirada; frutos de grande tamanho, cultivados, podem ter parte de sua polpa consumida após caírem ao solo. Ocasionalmente predam ninhos com ovos e filhotes de outros pássaros. Aproveita-se de gordura e carne em mantas de charque ao sol, (daí o nome papa-sebo) costuma comer pimenta Malagueta (Capsicum frutescens) madura. Podem eventualmente frequentar comedouros artificiais de frutas.\nMimus saturninus forrageando\n\n\nFoi observado, em área residencial na zona sul da cidade de São Paulo, um indivíduo adulto capturando um filhote de lagartixa e batendo-o contra o chão para despedaçá-lo antes de comer. (Observação:Antonio Vicente)\nUm bando disputando uma cobra. Registro em foto: http://www.wikiaves.com.br/2241670&p=1&t=u&u=23584&s=11535",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['cinza', 'branco', 'amarelado', 'arroxeado', 'preto'], 'tamanho': 'Médio'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['invertebrados', 'frutas', 'insetos', 'sementes', 'lagartilxa', 'cobra']}\n```  \n",
+    "habitat_llm": "```json\n{'habitat': ['campo', 'cerrado', 'área urbana', 'área verde']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3446,
@@ -14050,7 +14084,11 @@
     "reproducao": "Faz ninho em arbustos fechados, de forma esférica ou oval, com paredes grossas feitas de capim, penas de galinha e algodão, acessível por um tubo estreito. Põe 3 ovos pequenos de cor branca, os quais são chocados pelo casal por cerca de 13 dias.",
     "habitos": "É comum em campos e terrenos baldios nas cidades. Originário da África, o bico-de-lacre foi trazido para o Brasil em navios negreiros para servir como pássaro de estimação, durante o reinado de D. Pedro I. Tendo escapado das gaiolas, inicialmente no Rio de Janeiro, espalhou-se por diversas regiões brasileiras. Vive em bandos de cerca de 6 indivíduos.\nComumente, pode ser encontrado voando em bandos em áreas urbanas de passagem, indo para locais onde há terrenos baldios na cidade.",
     "dist_geo": "Espécie com ocorrência em praticamente todo o território brasileiro, com exceção ainda para os estados de Mato Grosso, Rondônia e Tocantins.",
-    "alimentacao": "Alimenta-se de sementes, principalmente as de gramíneas africanas, como capim-colonião, capim-elefante e capim-gordura, introduzidos em nosso país para a formação de pastagens. Eventualmente, pode capturar pequenos insetos."
+    "alimentacao": "Alimenta-se de sementes, principalmente as de gramíneas africanas, como capim-colonião, capim-elefante e capim-gordura, introduzidos em nosso país para a formação de pastagens. Eventualmente, pode capturar pequenos insetos.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['preto', 'branco', 'pardo', 'vermelho'], 'tamanho': 'Pequeno'} \n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3447,
@@ -14067,7 +14105,11 @@
     "reproducao": "O ninho é esférico com entrada lateral, feito de capins, penas, papel, algodões e outras fibras, excepcionalmente feito pelo macho. Ele é construído em cavidades e fendas afastadas do solo, em árvores, telhados, postes de iluminação pública e semáforos. Ninhos de outras aves também podem ser utilizados. Os 4 ovos cinzentos manchados são incubados pelo casal durante 12 dias. Os filhotes são alimentados com pequenos artrópodes e abandonam o ninho",
     "habitos": "É comum escutar ao entardecer um bando fazendo bastante barulho. Também gosta de ficar procurando comida no chão.",
     "dist_geo": "Potencialmente ocorre em todo o território brasileiro, sendo restrito a áreas com muitos prédios como algumas cidades de São Paulo, Rio de Janeiro, entre outras, sendo que ele faz ninho em cavidades em casas.",
-    "alimentacao": "Sua alimentação consiste de sementes, flores, insetos, brotos de árvores e restos de alimentos deixados pelos seres humanos. Costuma frequentar comedouros com sementes e quirera de milho. Alimenta-se também de frutos como banana, maçã e mamão."
+    "alimentacao": "Sua alimentação consiste de sementes, flores, insetos, brotos de árvores e restos de alimentos deixados pelos seres humanos. Costuma frequentar comedouros com sementes e quirera de milho. Alimenta-se também de frutos como banana, maçã e mamão.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['acinzentada', 'preta', 'marrom', 'cinza-claro', 'branca', 'cinza-rosado', 'preto-amarelada'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['sementes', 'flores', 'insetos', 'brotos', 'frutas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna', 'crepuscular']}\n```"
   },
   {
     "Unnamed: 0": 3448,
@@ -14084,7 +14126,11 @@
     "reproducao": "Os machos, no período reprodutivo (julho a setembro), levantam voo a qualquer hora e emitem o canto característico. Podem ficar a poucos metros do solo ou a grande altura.\n\nConstrói um ninho de capins sobre o chão e embaixo de uma touceira. Ovos brancos com denso salpicado de marrom ou cinza.",
     "habitos": "É comum em campos, beiras de lagos, rios e pântanos.\nÉ de difícil observação, tanto por suas cores, como pelo hábito de preferir afastar-se caminhando a voar. Também agacha-se no meio dos capins e camufla-se bem com o entorno.\nAnda e corre rente ao solo, empoleirando-se pouco e evitando voar. Quando perseguido agacha-se no solo, ocultando-se atrás de um monte de terra ou do capim.",
     "dist_geo": "A espécie é migratória no sul da distribuição geográfica. Presente em todo o Brasil nas regiões campestres quentes, estando ausente de áreas densamente florestadas, como alguns locais da Amazônia. Encontrado também no Panamá e em quase todos os demais países da América do Sul, com exceção do Equador. Tem ampliado sua área de distribuição no país por conta do desmatamento e criação de áreas de pastagens, sendo registrado recentemente no Acre e no Amazonas.",
-    "alimentacao": "Caça invertebrados em características corridas entre o capim baixo e no solo. Quando escasseia o alimento de origem animal, no inverno por exemplo, ingere sementes."
+    "alimentacao": "Caça invertebrados em características corridas entre o capim baixo e no solo. Quando escasseia o alimento de origem animal, no inverno por exemplo, ingere sementes.",
+    "morfologia_llm": "```json\n{'bico': 'Sondador', 'asa': '', 'pata': 'Pernalta', 'cores': ['cinza escuro', 'claro', 'amarelada'], 'tamanho': ''}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['invertebrados', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural','área alagada','pampa']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'corredora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3456,
@@ -14101,7 +14147,11 @@
     "reproducao": "Hábitos reprodutivos…",
     "habitos": "É um pássaro de áreas abertas e semi-abertas, não associado inteiramente a florestas (Ridley & Tudor 1989).",
     "dist_geo": "Ocorre nos estados de Pernambuco, Alagoas, Bahia, Espírito Santo, Goiás, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Paraná, Rio de Janeiro, Rio Grande do Sul, Roraima, Pará, Santa Catarina e São Paulo",
-    "alimentacao": "Diferindo um pouco de outros gaturamos como E. violacea e E.chlorotica, o gaturamo-rei quase não visita regularmente pomares e/ou plantações extensas de frutas (Ex: banana, goiabas, mamão e caqui), preferidas por aqueles. Alimenta-se geralmente de frutinhas silvestres variadas, entre elas, espécies de “ervas de passarinho” epífitas (Viscum) e pequeninos insetos nessas. Ou, como dizem os caboclos do Vale do Ribeira (SP), “ele come os “enxertos” que dão nos galhos”. Razão pela qual apresenta baixa adaptabilidade ao cativeiro conservacionista, por dificuldade em adaptar-se a outra forma de alimentação."
+    "alimentacao": "Diferindo um pouco de outros gaturamos como E. violacea e E.chlorotica, o gaturamo-rei quase não visita regularmente pomares e/ou plantações extensas de frutas (Ex: banana, goiabas, mamão e caqui), preferidas por aqueles. Alimenta-se geralmente de frutinhas silvestres variadas, entre elas, espécies de “ervas de passarinho” epífitas (Viscum) e pequeninos insetos nessas. Ou, como dizem os caboclos do Vale do Ribeira (SP), “ele come os “enxertos” que dão nos galhos”. Razão pela qual apresenta baixa adaptabilidade ao cativeiro conservacionista, por dificuldade em adaptar-se a outra forma de alimentação.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'amarelo', 'azul', 'verde'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['frutinhas', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['plantação', 'campo natural', 'floresta aberta', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3459,
@@ -14118,7 +14168,11 @@
     "reproducao": "Atinge a maturidade sexual com cerca de 12 meses. Cada ninhada geralmente tem entre 2 e 5 ovos, tendo de 2 a 3 ninhadas por temporada. Os filhotes nascem após 15 dias.\n\nNo período reprodutivo o macho costuma ficar cantando nas horas mais quentes do dia, pousado sob a copa. Nessas cantorias, usa um canto próprio, elaborado, às vezes mesclado com imitações.",
     "habitos": "Habita a mata baixa e rala, o cerrado, a caatinga, cocais e matas serranas (região Sudeste).\n\n\n\nVisita as áreas de vegetação mais densa na procura de insetos e frutos, sempre na parte alta da árvore ou arbustos maiores. Costuma movimentar-se no meio da folhagem das copas, não se aproximando do chão na parte interna da ramagem. Observado várias vezes utilizando as brácteas da pequena bromélia tilandísia (Tilandsia aeranthus) para fazer o ninho, também sob o abrigo da planta.",
     "dist_geo": "Ocorre em todas as regiões do Brasil.",
-    "alimentacao": "Frugívoro. Geralmente pousa ao lado de um cacho de frutos e os ingere um após o outro. As sementes ingeridas passam intactas pelo tubo digestivo e, quando eliminadas junto com as fezes, muitas vezes aderem a um tronco de árvore ou caem no solo onde germinam. Dessa forma, esta e outras espécies de Euphonia são consideradas excelentes dispersoras de sementes.\nApreciam muito as frutinhas das ervas-de-passarinho, plantas das famílias loranthaceae e viscaceae; neste último caso, ingerem a polpa dos frutos e a semente, deixando cair a casca. Em geral, as sementes são defecadas na forma de um “colar de contas” nos galhos, mas algumas vezes podem cair no solo, onde não se desenvolvem.\nExiste uma particularidade anatômica que muito singulariza esta ave, que é a não existência de moela, sendo o próprio papo bastante atrofiado. Tal simplicidade do aparelho digestivo revela claramente o regime frugívoro levado ao extremo."
+    "alimentacao": "Frugívoro. Geralmente pousa ao lado de um cacho de frutos e os ingere um após o outro. As sementes ingeridas passam intactas pelo tubo digestivo e, quando eliminadas junto com as fezes, muitas vezes aderem a um tronco de árvore ou caem no solo onde germinam. Dessa forma, esta e outras espécies de Euphonia são consideradas excelentes dispersoras de sementes.\nApreciam muito as frutinhas das ervas-de-passarinho, plantas das famílias loranthaceae e viscaceae; neste último caso, ingerem a polpa dos frutos e a semente, deixando cair a casca. Em geral, as sementes são defecadas na forma de um “colar de contas” nos galhos, mas algumas vezes podem cair no solo, onde não se desenvolvem.\nExiste uma particularidade anatômica que muito singulariza esta ave, que é a não existência de moela, sendo o próprio papo bastante atrofiado. Tal simplicidade do aparelho digestivo revela claramente o regime frugívoro levado ao extremo.",
+    "morfologia_llm": "```json\n{'bico': 'Frugívoro', 'asa': '', 'pata': '', 'cores': ['verde-olivácea', 'amarelada', 'esbranquiçado'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['frutas', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['mata baixa', 'cerrado', 'caatinga', 'cocais', 'matas serranas']}\n``` \n",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3464,
@@ -14135,7 +14189,11 @@
     "reproducao": "Atinge a maturidade sexual com 12 meses.\n\nOs ninhos são construídos em cavidades em troncos. Cada postura tem em média quatro ovos brancos, pintalgados de vermelho, e incubados apenas pela fêmea durante 15 dias, que tem de 2 a 3 ninhadas por temporada.",
     "habitos": "É comum em bordas de florestas, florestas de galeria, clareiras, jardins, plantações de cacau e citrinos, fruteiras em plantações, árvores densas em parques, evitando áreas abertas mais áridas. Vive aos pares ou em pequenos grupos e junta-se com frequência a bandos mistos de aves. Além de ser muito apreciado por seu canto melodioso, o macho costuma imitar as vocalizações de uma grande variedade de espécies, como gaviões, papagaios, tucanos e gralhas.",
     "dist_geo": "Amazônia brasileira, a leste dos rios Negro e Madeira, no Nordeste (excetuando-se a área da caatinga), e em direção sul até o Rio Grande do Sul. Encontrado também nas Guianas, Venezuela, Paraguai e Argentina.",
-    "alimentacao": "É ave social, que se alimenta de frutos e consome insetos apenas raramente.\n\nPossui moela degenerada, ou seja, baixa capacidade de processamento mecânico dos alimentos ingeridos. O alimento é pouco aproveitado e eliminado poucos minutos após a ingestão."
+    "alimentacao": "É ave social, que se alimenta de frutos e consome insetos apenas raramente.\n\nPossui moela degenerada, ou seja, baixa capacidade de processamento mecânico dos alimentos ingeridos. O alimento é pouco aproveitado e eliminado poucos minutos após a ingestão.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"azul-metálicas\", \"amarelo\", \"verde-oliváceas\", \"amarelo-oliváceas\"], 'tamanho': 'Pequeno'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['frutas', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'plantação', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3470,
@@ -14152,7 +14210,11 @@
     "reproducao": "O ninho tem a forma de uma tigela rasa e é construído diretamente no chão. Os ovos são azulados. No período reprodutivo fica mais visível, pousando em locais expostos para cantar.",
     "habitos": "Vive em campos secos com gramíneas, cerrados, terrenos cultivados e locais com moitas de capim alto.\nÉ uma espécie muito mais ouvida do que vista. Seu canto é um trinado muito agudo que revela sua presença, mas mesmo que a vegetação seja rala e rasteira é difícil enxergar a ave. Corre e pula silenciosamente por entre as gramíneas, o que justifica seu outro nome popular tico-tico-rato. Só empoleira para cantar e mesmo quando o faz busca um poleiro baixo.",
     "dist_geo": "Ocorre em alguns locais da Amazônia brasileira (Roraima, Amapá e em áreas campestres isoladas, do leste do rio Tapajós até o Maranhão) e em todo o restante do país, assim como nos demais países da América do Sul, exceto Equador e Chile.",
-    "alimentacao": "Alimenta-se basicamente de sementes, mas também apanha larvas e pequenos insetos."
+    "alimentacao": "Alimenta-se basicamente de sementes, mas também apanha larvas e pequenos insetos.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': 'Anizodáctilo', 'cores': ['amarelo', 'marrom escuro', 'negro', 'cinza'], 'tamanho': 'Pequeno'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['sementes', 'larvas', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'cerrado', 'plantação']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'corredora', 'sociabilidade': 'territorial', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3476,
@@ -14169,7 +14231,11 @@
     "reproducao": "Constrói um volumoso ninho esférico no solo. \nSolitário ou em casais, passa despercebido por seus hábitos discretos. Mesmo o canto (emitido de julho a novembro, período de nidificação) é um chamado agudo, relativamente curto, discreto e tendo uma parte semelhante ao canto do tico-tico, originando o nome comum. Tem em média 2 ninhadas por estação com 2 ovos cada uma.",
     "habitos": "Vive no chão e área baixa das matas ciliares dos rios, corixos e baías, além das matas secas. A qualquer sinal de perigo, afasta-se em vôos curtos, encobertos pela vegetação densa.\nPode ser encontrado nos bandos de aves associados às formigas de correição, caçando insetos fugindo da horda de formigas.\nInvadiu os biótopos florestais, sendo representante semi-terrícola cujo aspecto absolutamente não corresponde ao de uma ave florestal, o que sugere que a sua adaptação a esse ambiente é evento relativamente recente.",
     "dist_geo": "Endêmico do Brasil, está presente no extremo sul do Tocantins, Goiás, Minas Gerais, São Paulo e, marginalmente, no extemo oeste do Rio de Janeiro.",
-    "alimentacao": "Caça insetos e alimenta-se de sementes de gramíneas."
+    "alimentacao": "Caça insetos e alimenta-se de sementes de gramíneas.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['laranja', 'preto', 'cinza', 'branco', 'verde', 'amarelo', 'avermelhado', 'pardacenta'], 'tamanho': 'Pequeno'}\n```   \n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['mata ciliar', 'mata seca']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3478,
@@ -14186,7 +14252,11 @@
     "reproducao": "Primavera-verão. Durante a reprodução vive estritamente aos casais, sendo extremamente fiel a um território, que o macho defende energicamente contra a aproximação de outros machos de sua espécie. Torna-se assim fácil vítima de caçadores. O ninho é uma tigela aberta e rala, feito de capim seco e raízes. A fêmea bota de 2 a 5 ovos, que são de cor verde-amarelado com uma coroa de salpicos avermelhados, medindo cerca de 21 por 16 milímetros em seus eixos e pesando de 2 a 3 gramas. A incubação se faz em 13 a 14 dias e os filhotes nidícolas são cuidados pelo casal. Os filhotes deixam o ninho entre 16 e 22 dias de vida para acompanharem os pais, que ainda os seguem alimentando por vários dias. Os tico-ticos jovens estabelecem territórios entre o 5º e o 11º mês de vida. Sofre pesadas perdas de sua própria prole, pois o vira-bosta é uma ave parasita que retira os ovos do ninho do tico-tico e põe os seus. A pressão exercida chega a ser tão grande que, em certos locais, o tico-tico é eliminado.",
     "habitos": "É comum em campos, paisagens abertas, plantações e áreas urbanas com baixa intensidade de atividade humana, a exemplo de jardins, pátios e coberturas ajardinadas de edifícios. Abundante em regiões de clima temperado e também em cumes altos expostos a ventos frios e fortes. É favorecido pelo desmatamento e pela drenagem de alagados, aumentando sua área de ocorrência. Vive em casais isolados, sendo que o macho ataca tico-ticos vizinhos que invadam seu território. Entre os traços interessantes do seu comportamento figura a técnica de esgravatar alimento no solo por meio de pequenos pulos, para remover a camada superficial de folhas ou terra solta que recubra o alimento. Perscrutando o terreno a sua frente, pula até 4 vezes consecutivas verticalmente sem alterar a posição das pernas e esgravatando o chão com ambos os pés sincronizadamente, jogando para trás o material impeditivo. A tendência de executar tal movimento pelo tico-tico é tão forte que, mesmo quando come algo sobre uma laje de cimento limpo ou num quintal, pula da mesma forma.",
     "dist_geo": "Todas as regiões do País, com exceção das áreas florestadas da Amazônia. É migratório no Rio Grande do Sul e Paraná, aparecendo em bandos provavelmente procedentes dos países vizinhos. Encontrado também do México ao Panamá e na maior parte da América do Sul até a Terra do Fogo (Argentina). Apesar de ser uma ave extremamente comum, tem se notado que em certos lugares o tico tico tem ficados mais raro, às vezes sumindo de certas áreas, provavelmente por causa do parasitismo do vira-bosta.",
-    "alimentacao": "Alimenta-se de sementes, brotos, frutas, insetos (besouros, formigas, grilos, cupins alados e larvas). Costuma frequentar comedouros com sementes,bananas e quirera de milho. Também já foi visto comendo ração para cães."
+    "alimentacao": "Alimenta-se de sementes, brotos, frutas, insetos (besouros, formigas, grilos, cupins alados e larvas). Costuma frequentar comedouros com sementes,bananas e quirera de milho. Também já foi visto comendo ração para cães.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': 'Elíptica', 'pata': 'Anizodáctilo', 'cores': [\"pardo-acinzentada\", \"cinza\", \"preto\", \"vermelho-ferrugíneo\"], 'tamanho': 'Médio'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['sementes', 'brotos', 'frutas', 'insectos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'plantação', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'corredora', 'sociabilidade': 'territorial', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3483,
@@ -14203,7 +14273,11 @@
     "reproducao": "Nidifica no chão, principalmente nos campos em moitas de capim, pondo de 3 a 5 ovos. Tem hábito de levantar-se em voo na vertical sobre o ninho, cantando, como fazem as cotovias (nome genérico de aves da Europa). Tem em média duas ninhadas por estação.",
     "habitos": "Prefere zonas úmidas e palustres, sendo facilmente encontrado em campos, pastagens e plantações de arroz.",
     "dist_geo": "Quase todo o Brasil extra-amazônico.",
-    "alimentacao": "A alimentação é constituída de larvas, insetos e várias sementes."
+    "alimentacao": "A alimentação é constituída de larvas, insetos e várias sementes.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': 'Anizodáctilo', 'cores': [], 'tamanho': ''}\n```  \n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'plantação']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '...', 'sociabilidade': '...', 'atividade': ['...']}\n```"
   },
   {
     "Unnamed: 0": 3486,
@@ -14220,7 +14294,11 @@
     "reproducao": "Faz ninhos grandes e compridos em forma de bolsa, localizados em colônias, em árvores isoladas na borda de florestas ou clareiras. Geralmente seus ninhos localizam-se próximos aos de outras espécies de japus, porém não na mesma árvore. Cada colônia tem um macho dominante, cercado por subordinados que o ajudam a defender o território. Põe 1 ou 2 ovos verde-claros ou de coloração cinza, com pontos ou listras escuras, tendo 3 ninhadas por ano.",
     "habitos": "Varia de incomum a localmente comum em uma série de hábitats, que vão desde florestas úmidas (tendendo a evitar regiões muito extensas de florestas de terra firme) a florestas secas, clareiras e áreas agrícolas com árvores altas espalhadas. É fácil de ver, sendo menos restrito a florestas do que outras espécies de japus. Vive na copa ou em suas proximidades, solitário ou em grupos pequenos, frequentemente misturado a bandos maiores de japiins ou outros japus.",
     "dist_geo": "Quase todo o Brasil, com exceção de parte do Nordeste e da maior parte da região Sul. Encontrado também no Panamá e em quase todos os países da América do Sul, com exceção do Chile e Uruguai.",
-    "alimentacao": "Alimenta-se de banana, mamão, tangerina e outros frutos. Nas proximidades de Pião/Sapucaia/RJ, em uma altitude de 900m, aparece na época da tangerina ponkan, pousa na árvore ou no chão para se alimentar desse fruto (observação pessoal de Béatrice Jenni)."
+    "alimentacao": "Alimenta-se de banana, mamão, tangerina e outros frutos. Nas proximidades de Pião/Sapucaia/RJ, em uma altitude de 900m, aparece na época da tangerina ponkan, pousa na árvore ou no chão para se alimentar desse fruto (observação pessoal de Béatrice Jenni).",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'amarelo', 'avermelhado'], 'tamanho': 'Médio'} \n```\n",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['banana', 'mamão', 'tangerina']}\n```  \n",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'área agrícola']}\n```  \n",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3489,
@@ -14237,7 +14315,11 @@
     "reproducao": "É uma ave monogâmica que não faz ninho em colônias. A época de reprodução vai de outubro a abril. O ninho é muito elaborado, construído apenas pela fêmea. É uma construção em forma de bolsa e mede 45-70 cm de altura, pendurado em um galho e muito visível. É construído com fibras vegetais longas, tecidas em conjunto. A entrada está antes de um pequeno túnel de cerca de 20 centímetros de comprimento e com um diâmetro de 5 a 6 cm que conduz até a câmara de incubação. Ele é coberto com folhas e galhos. A fêmea põe dois ou três ovos brancos com pintas ou pequenas listras marrons e cinza. A incubação dura cerca de duas semanas e é exclusividade da fêmea. Apenas a fêmea alimenta os pequenos filhotes, que deixam o ninho após cerca de 4 semanas. Pode apresentar até duas ninhadas por temporada.",
     "habitos": "Vive em matas de várzea, mangues, lagos, brejos, rios e caatinga. É monogâmica, encontrada sempre solitária ou aos pares e, ao contrário do guaxe (Cacicus haemorrhous), não constrói seus ninhos em colônias.",
     "dist_geo": "Ocorre no sudoeste da Venezuela (Táchira, Apure) sul e leste da Colômbia (Meta), leste do Equador e Peru, Brasil, Bolívia, Chaco do Paraguai, norte e leste da Argentina (sul de Santiago del Estero, Santa Fé e Buenos Aires) e oeste do Uruguai (localmente na região do rio Uruguai).",
-    "alimentacao": "A iraúna-de-bico-branco é onívora. Sua dieta consiste principalmente de insetos que ele procura navegando por entre as árvores, mas também consome frutas e bagas."
+    "alimentacao": "A iraúna-de-bico-branco é onívora. Sua dieta consiste principalmente de insetos que ele procura navegando por entre as árvores, mas também consome frutas e bagas.",
+    "morfologia_llm": "```json\n{'bico': 'Sondador', 'asa': '', 'pata': '', 'cores': [\"preto\", \"cinza claro\", \"marrom avermelhada\", \"cinza\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'frutas', 'bagas']}\n```\n",
+    "habitat_llm": "```json\n{'habitat': ['mata ciliar', 'área alagada', 'brejo', 'caatinga']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'solitária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3491,
@@ -14254,7 +14336,11 @@
     "reproducao": "Atinge a maturidade sexual aos 24-36 meses. Reproduze-se em colônias, onde reina a poliginia (um macho acasalando com várias fêmeas). Faz ninho de folhas de palmeiras, gravetos e capim com a forma de uma bolsa pendurada com 40 a 70 cm de comprimento, relativamente curta e larga quando comparada ao dos japus. Os ninhos ficam agrupados em colônias, instaladas frequentemente em árvores baixas, algumas vezes sobre a água, nos galhos em que haja a presença de formigueiros e de alguns vespeiros. Às vezes os ninhos podem estar na mesma árvore que os de japus, porém é mais comum estarem em uma árvore adjacente ou isolados. Põe 2 a 3 ovos branco-azulados com manchas, pontos e listras marrom-escuras ou pretas, tendo de 2 a 3 ninhadas por período reprodutivo.",
     "habitos": "É comum em bordas de florestas (sobretudo de várzea), campos com árvores, cerrados e florestas de galeria. Vive em bandos de tamanhos variáveis.",
     "dist_geo": "Presente em regiões separadas:",
-    "alimentacao": "Onívoro, alimenta-se principalmente de frutos e sementes. Ocasionalmente saqueia ninhos de outras aves. Tem predileção pelas mangas (Mangifera indica), frequentando com assiduidade e em grandes grupos os mangueirais urbanos."
+    "alimentacao": "Onívoro, alimenta-se principalmente de frutos e sementes. Ocasionalmente saqueia ninhos de outras aves. Tem predileção pelas mangas (Mangifera indica), frequentando com assiduidade e em grandes grupos os mangueirais urbanos.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'cinza'], 'tamanho': 'Médio'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'campo natural', 'cerrado']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3493,
@@ -14271,7 +14357,11 @@
     "reproducao": "Leva de 24 a 36 meses para atingir a maturidade sexual.\n\nSomente a fêmea constrói o ninho em forma de bolsa com 40 a 70 centímetros de comprimento, em colônias, com material de vários vegetais e localização variada, podendo ser a pouca altura sobre a água, no alto de árvores no meio da floresta ou em palmeiras nas bordas da floresta. Põe 2 a 3 ovos brancos com pontos e manchas avermelhados e roxos, tendo de 2 a 3 ninhadas por período de reprodução.",
     "habitos": "Varia de raro a comum na copa e bordas de florestas úmidas (na Amazônia principalmente na terra firme), florestas secas e de galeria e capoeiras altas. Vive em grupos, sendo visto regularmente nas bordas de diversos habitats florestais. Prefere baixadas quentes com florestas.",
     "dist_geo": "Presente em quase todo o Brasil em duas regiões separadas, com exceção de uma parte da região Nordeste do país:",
-    "alimentacao": "Onívoro."
+    "alimentacao": "Onívoro.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['preto', 'amarelo', 'vermelho'], 'tamanho': 'Médio'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['']} \n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta úmida', 'floresta seca', 'floresta de galeria', 'capoeiras altas', 'baixadas quentes']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n``` \n"
   },
   {
     "Unnamed: 0": 3496,
@@ -14288,7 +14378,11 @@
     "reproducao": "Atinge a maturidade sexual de 18 a 24 meses. As vezes constrói seu próprio ninho, mas costuma ocupar ninho alheio para procriar (ex.: bem-te-vi, casaca-de-couro, joão-de-barro, joão-de-pau e xexéu), enxotando os donos e jogando seus filhotes ao chão, mas não é totalmente parasita, pois choca e cria sua própria prole. Cada ninhada geralmente tem entre 2 e 3 ovos, tendo de 2 a 3 ninhadas por estação. Os filhotes nascem após 14 dias.",
     "habitos": "Os principais habitats do corrupião são em áreas da caatinga e zonas secas abertas, onde pousa em cactos, e também em bordas de florestas e clareiras, nos locais mais úmidos. Nos locais mais secos, como a caatinga nordestina, procura avidamente as fontes de água, tanto para matar a sede como para tomar banho.Além disso, ele vive aos pares, não costuma acompanhar bandos mistos de aves.",
     "dist_geo": "Encontrado exclusivamente no Brasil, ocorrendo em todos os estados do Nordeste, Centro-Oeste e do Sudeste; leste do Pará (apenas recentemente, a partir do Maranhão, beneficiada pelo desmatamento), estendendo-se para o oeste até Goiás e Tocantins. Continua se expandindo em direção oeste e norte.",
-    "alimentacao": "O corrupião é um pássaro onívoro, ou seja, se alimenta lagartos, insetos, ovos de outros pássaros, plantas, sementes, legumes, verduras, cocos maduros de buriti.\nE seiva as flores do ipê amarelo, das flores do mandacaru, das flores de bromélias, cactáceas e de diversas frutas de pomar fazem parte do seu cardápio.\nAlém disso, seu bico é fino, o que facilita inseri-lo dentro das flores, folhas e troncos de árvores, conseguindo assim seu alimento."
+    "alimentacao": "O corrupião é um pássaro onívoro, ou seja, se alimenta lagartos, insetos, ovos de outros pássaros, plantas, sementes, legumes, verduras, cocos maduros de buriti.\nE seiva as flores do ipê amarelo, das flores do mandacaru, das flores de bromélias, cactáceas e de diversas frutas de pomar fazem parte do seu cardápio.\nAlém disso, seu bico é fino, o que facilita inseri-lo dentro das flores, folhas e troncos de árvores, conseguindo assim seu alimento.",
+    "morfologia_llm": "```json\n{'bico': 'Sondador', 'asa': '', 'pata': '', 'cores': ['alaranjada', 'preta', 'branca'], 'tamanho': 'Pequeno'} \n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['lagartos', 'insetos', 'ovos', 'sementes', 'legumes', 'verduras', 'cocos', 'flores', 'frutas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['caatinga', 'área seca aberta', 'floresta aberta', 'clareira']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'territorial', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3497,
@@ -14305,7 +14399,11 @@
     "reproducao": "Cada casal constrói seu ninho em forma de bolsa, distante dos demais. Possui um canto flautado, mas costuma imitar várias outras aves em suas longas estrofes improvisadas. Entremeia o canto das outras aves com um chamado curto e grave, próprio. Tem normalmente 1 ninhada por estação com 3 ovos. * Vale salientar que nos machos existe uma sutil diferença das fêmeas; a curva da asa(ombro) é amarela nos machos e preta nas fêmeas.",
     "habitos": "Comum nos ambientes florestados, também utiliza-se de capões de cerradão e árvores ou arbustos isolados próximos à mata. Vive solitário, aos pares e, eventualmente, em bandos, às vezes junto a bandos mistos. Nas manhãs frias, gosta de pousar em galhos expostos para tomar sol nas primeiras horas do dia.\n Uma característica que vem sendo constantemente observada, é que esta ave tem o costume de usar sua inteligência, quando uma ave maior que ela está se alimentando de um fruto, ele imita sons de aves predadoras para o fim de afugentar as aves e alimentar sua prole com o fruto conquistado. Ocasionalmente frequenta comedouros com frutos.",
     "dist_geo": "É observado em grande parte do Brasil, exceto na Região Norte do país.",
-    "alimentacao": "Sempre metido no meio da vegetação da copa ou das bordas, procura invertebrados, frutos e flores. Como o joão-pinto, suga o néctar das flores, abrindo-as ou enfiando o bico, às vezes a cabeça, na corola. Gosta das flores de ipê, tarumã, piúva e pombeiro, umbigo de bananeira, entre outras. Uma das formas de diferenciar o encontro do inhapim (Icterus cayanensis) é o comportamento mais acrobático de se alimentar."
+    "alimentacao": "Sempre metido no meio da vegetação da copa ou das bordas, procura invertebrados, frutos e flores. Como o joão-pinto, suga o néctar das flores, abrindo-as ou enfiando o bico, às vezes a cabeça, na corola. Gosta das flores de ipê, tarumã, piúva e pombeiro, umbigo de bananeira, entre outras. Uma das formas de diferenciar o encontro do inhapim (Icterus cayanensis) é o comportamento mais acrobático de se alimentar.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['amarelo', 'castanho'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['invertebrados', 'frutas', 'flores', 'néctar']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'capoe']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3502,
@@ -14322,7 +14420,11 @@
     "reproducao": "Ave parasita, como chupim (M. bonariensis). Os ovos são extremamente variáveis, avermelhados, azulados, esverdeados, cinzentos, amarelados ou brancos, sem demonstrar uma tendencia de mimetismo com os ovos dos hospedeiros. \nTem em média 3 ninhadas por estação com 2 ovos cada uma.",
     "habitos": "É uma espécie típica de áreas abertas, ocorrendo em plantações de cereais, pastagens, terreiros de fazendas e campos com árvores esparsas.",
     "dist_geo": "Ocorre em uma boa parte do leste do Brasil, do Rio Grande do Sul até o Piauí. Por toda região Sul, Sudeste, Centro-Oeste e Nordeste.",
-    "alimentacao": "O chupim-azeviche (Molothrus rufoaxillaris) foi observado ocorrendo junto com as seguintes espécies de aves: asa-de-telha-pálido (Agelaioides fringillarius), passaro-preto (Gnorimopsar chopi), chupim (Molothrus bonariensis), garibaldi (Chrysomus ruficapillus), cardeal-do-nordeste (Paroaria dominicana) e tipio (Sicalis luteola). Com exceção de, A. fringillarius e de G. chopi, M. rufoaxillaris agrupou-se apenas com as outras espécies, citadas acima, em atividades de forrageio, que ocorreram ao longo de todos os meses do ano. Belton (1994) e Jaramillo & Burke (1998), também, citam esta característica de M. rufoaxillaris em se agrupar com outras espécies, principalmente, em torno de recursos alimentares. Todas as espécies citadas acima são gregárias (Sick, 1997) e indicadoras de áreas antropizadas (Stotz et al., 1996), sendo que, no período de seca, compreendido entre os meses de abril e setembro, esses agrupamentos foram mais frequentes e com um maior número de indivíduos. Tal fato pode estar relacionado à escassez e à concentração de recursos em torno de áreas propícias, tais como margens de tanques, lagoas e córregos."
+    "alimentacao": "O chupim-azeviche (Molothrus rufoaxillaris) foi observado ocorrendo junto com as seguintes espécies de aves: asa-de-telha-pálido (Agelaioides fringillarius), passaro-preto (Gnorimopsar chopi), chupim (Molothrus bonariensis), garibaldi (Chrysomus ruficapillus), cardeal-do-nordeste (Paroaria dominicana) e tipio (Sicalis luteola). Com exceção de, A. fringillarius e de G. chopi, M. rufoaxillaris agrupou-se apenas com as outras espécies, citadas acima, em atividades de forrageio, que ocorreram ao longo de todos os meses do ano. Belton (1994) e Jaramillo & Burke (1998), também, citam esta característica de M. rufoaxillaris em se agrupar com outras espécies, principalmente, em torno de recursos alimentares. Todas as espécies citadas acima são gregárias (Sick, 1997) e indicadoras de áreas antropizadas (Stotz et al., 1996), sendo que, no período de seca, compreendido entre os meses de abril e setembro, esses agrupamentos foram mais frequentes e com um maior número de indivíduos. Tal fato pode estar relacionado à escassez e à concentração de recursos em torno de áreas propícias, tais como margens de tanques, lagoas e córregos.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['preta', 'ferrugem', 'castanha', 'vermelha'], 'tamanho': 'Médio'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'sementes', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['plantação', 'campo natural']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3503,
@@ -14339,7 +14441,11 @@
     "reproducao": "Não faz ninho; durante a reprodução ocupa ninhos de outras espécies, como japus e japiins. Tem em média 2 ninhadas por estação com 2 ovos cada uma.",
     "habitos": "Varia de incomum a localmente comum em áreas campestres e pastos - geralmente perto do gado, cavalos e porcos, dos quais retira carrapatos. Pousa em praias e rochas nos rios, árvores altas isoladas e até mesmo sobre capivaras semi-submersas. Vive solitária ou em pequenos bandos. Ás vezes, também pode ser encontrada em cidades arborizadas.",
     "dist_geo": "Todas as regiões do Brasil. Encontrada também do México à Argentina e Paraguai e nos demais países amazônicos - Guianas, Venezuela, Colômbia, Equador, Peru e Bolívia.",
-    "alimentacao": "Procura alimentos em campos abertos, no chão ou em arbustos,onde busca grãos e invertebrados. Retira carrapatos do gado e de cavalos deitados, as vezes pousando sobre eles. \nCostuma frequentar comedouros feitos para atrair cavalarias (Paroaria capitata) e vira-bosta (Molothrus bonariensis), consumindo grãos de milho e quirera de arroz."
+    "alimentacao": "Procura alimentos em campos abertos, no chão ou em arbustos,onde busca grãos e invertebrados. Retira carrapatos do gado e de cavalos deitados, as vezes pousando sobre eles. \nCostuma frequentar comedouros feitos para atrair cavalarias (Paroaria capitata) e vira-bosta (Molothrus bonariensis), consumindo grãos de milho e quirera de arroz.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': [], 'tamanho': 'Médio'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['grãos', 'invertebrados']}\n``` \n",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3504,
@@ -14356,7 +14462,11 @@
     "reproducao": "O período entre julho e dezembro marca o início da reprodução, mas é após o acasalamento que se inicia a fase pela qual a espécie é mais conhecida. Esta espécie não constrói ninho e a fêmea põe 4 ou 5 ovos por postura, sendo um no ninho de cada hospedeiro. Porém, em ninhos de sabiá-do-campo (Mimus saturninus) e joão-de-barro (Furnarius rufus), já foram encontrados 35 e 14 ovos de chupim, respectivamente. Para chegar ao ninho hospedeiro, segue os futuros “pais adotivos”. Os ovos são de colorido uniforme e com a casca sem brilho, branco-esverdeados, vermelho-claros ou verdes, ou ainda com manchas e pintas, conforme a região geográfica. O tico-tico (Zonotrichia capensis) é muito parasitado e a adaptação vantajosa para o chupim é a postura de seu ovo antes, ou no mesmo dia, daquela do primeiro ovo do hospedeiro. Como o período de incubação do vira-bosta é de 11 ou 12 dias, um a menos do que o do tico-tico, seu filhote, que é bem maior, nasce antes. Desta forma, o filhote do chupim pode eliminar do ninho seus companheiros tico-ticos ou receber mais alimento, tendo maior probabilidade de sobrevivência. Quando abandona o ninho, o filhote chupim é alimentado pelos pais adotivos por 15 dias, solicitando alimento no bico através de um chamado característico, abaixando o corpo e tremulando as asas. Também pode colocar seus ovos em ninhos de galinhas domésticas, como a garnisé. Os ovos do chupim podem variar bastante tanto no formato quanto na coloração. Podem ser ovais ou redondos, sendo que a tonalidade varia de branco, esverdeado, vermelho claro, com ou sem manchas e pintas. Cada tipo de variação predomina em certas regiões (Sick).",
     "habitos": "Habita paisagens abertas como campos, pastos, parques e jardins,fazendas.\nEntre junho e setembro é muito gregário, concentrando-se em pousos noturnos comunitários ou buscando alimentos em gramados e áreas campestres com capim baixo. Nessas concentrações, é possível observar os machos ameaçando-se mutuamente com seu característico comportamento de apontar o bico para cima e caminhar em direção ao oponente com as penas brilhando ao sol.\n\nNa região da caatinga realiza pequenas migrações locais, sempre em busca de áreas verdes e com água.",
     "dist_geo": "Ocorre em todo o Brasil e América do sul, menos na cordilheira dos Andes.",
-    "alimentacao": "Possui uma dieta onívora, alimentando-se principalmente de insetos e sementes, mas ocasionalmente come frutos e flores. Costuma frequentar comedouros com sementes e quirera de milho. Também pode se alimentar de carrapatos em capivaras (Hydrochoerus hydrochaeris)."
+    "alimentacao": "Possui uma dieta onívora, alimentando-se principalmente de insetos e sementes, mas ocasionalmente come frutos e flores. Costuma frequentar comedouros com sementes e quirera de milho. Também pode se alimentar de carrapatos em capivaras (Hydrochoerus hydrochaeris).",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['preto', 'azul', 'marrom'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'sementes', 'frutas', 'flores']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'plantação', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'corredora', 'sociabilidade': 'gregária', 'atividade': ['crepuscular', 'diurna']}\n```"
   },
   {
     "Unnamed: 0": 3511,
@@ -14373,7 +14483,11 @@
     "reproducao": "Atinge a maturidade sexual aos 18 meses. Faz ninho em árvores ocas, troncos de palmeiras, ninhos de pica-pau, em mourões, dentro do penacho de coqueiros e nas densas copas dos pinheiros, utilizando também ninhos abandonados de joão-de-barro. Ocupa buracos também em barrancos e cupinzeiros terrestres. Às vezes faz um ninho aberto, situado em uma forquilha de um galho distante do tronco, em uma árvore densa e alta. Cada ninhada geralmente tem entre 3 e 4 ovos, tendo de 2 a 3 ninhadas por temporada. Os filhotes nascem após 14 dias e ficam no ninho 18 dias. O macho ajuda a criar a prole.",
     "habitos": "É comum em áreas agrícolas, buritizais, pinheirais, pastagens e áreas pantanosas, plantações com árvores isoladas, mortas, remanescentes da mata. Sua presença está fortemente associada a palmeiras. Vive normalmente em pequenos grupos que fazem bastante barulho. Pousa no chão ou em árvores sombreadas. Há quem confunda o passaro-preto com o atrevido chupim (Molothrus bonariensis), famoso por parasitar o ninho de várias espécies (ex.: tico-tico). Enquanto o chupim é elegantíssimo, esguio e traja cintilantes vestes de tom violáceo, o passaro-preto é negro e de porte mais avantajado, com bico mais alongado, fino e com sulcos (estrias) na maxila inferior. O passaro-preto sabe nidificar e não se descuida da criação da ruidosa prole. No nordeste ocorre a subespécie (Gnorimopsar chopi sulcirostris), que é maior, medindo 25,5 centímetros de comprimento. Quando canta arrepia as penas da cabeça e pescoço. Um fato interessante é a interação de G. chopi e M. rufoaxillaris (chupim-azeviche) em especial durante alimentação e forrageio. Foi observado durante o período reprodutivo, que ocorreu de outubro a dezembro, o compartilhamento de locais de pernoite e de exibições de côrte para com o parceiro. Tanto G. chopi como também A. fringillarius foram vistos agredindo M. rufoaxillaris próximo aos seus sítios de nidificação. Estas interações agonísticas indicam que as duas espécies são incomodadas pelo nidoparasita, o qual é incansável na procura por ninhos de hospedeiros, inspecionando incessantemente ocos em árvores (locais de nidificação de G. chopi) e ninhos de gravetos (locais de nidificação de A. fringillarius). Em Bariri-SP pude observar um bando misto de graúnas e chupins-azeviche que alimentavam-se alternadamente no comedouro e pousavam próximos na mesma árvore, após algum tempo partiram todos juntos (observação pessoal: João de Almeida Prado).",
     "dist_geo": "Excluindo-se a Amazônia, onde está presente apenas no leste do Pará e Maranhão, é encontrado em todo o restante do País. Encontrado também no Peru, Bolívia, Paraguai, Argentina e Uruguai.\n\nPara o estado de São Paulo a espécie consta no Anexo III do Decreto nº 56.031/10 classificada como 'quase ameaçada' (NT), o que significa que, levando-se em conta sua avaliação quanto aos critérios estabelecidos pela International Union for Conservation of Nature (IUCN), o táxon não se qualifica para as categorias de ameaça apresentadas no referido Decreto, mas mostra que ele está em vias de integrá-las em um futuro próximo (Art. 2º; IX).",
-    "alimentacao": "Onívoro. Come frutos, sementes, insetos, aranhas e outros invertebrados. Aprecia o coco maduro da palmeira buriti. Apanha insetos atropelados nas estradas e aproveita restos de milho junto às habitações humanas ou desenterra sementes recém-plantadas."
+    "alimentacao": "Onívoro. Come frutos, sementes, insetos, aranhas e outros invertebrados. Aprecia o coco maduro da palmeira buriti. Apanha insetos atropelados nas estradas e aproveita restos de milho junto às habitações humanas ou desenterra sementes recém-plantadas.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"preto\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'sementes', 'insetos', 'aranhas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['plantações', 'áreas pantanosas', 'buritizais', 'pinheirais', 'pastagens']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3517,
@@ -14390,7 +14504,11 @@
     "reproducao": "Seu ninho, em forma de tigela, é geralmente construído entre as folhas de taboas. Os ovos, cerca de três, são levemente azulados com pequenas manchas escuras.",
     "habitos": "Vive nas paisagens úmidas, campos, áreas agrícolas, banhados e brejos, em bandos numerosos. No contexto urbano, não vê problema em dividir as árvores, onde se alimentam e descansam, com outras espécies (pardais, cardeais e outras).\nÉ ave fortemente associada à água. Pode se tornar praga agrícola, especialmente em lavouras de arroz alagado.",
     "dist_geo": "Ocorre nos estados do Amapá, Amazonas, Mato Grosso do Sul, Minas Gerais, Goiás, Rio de Janeiro, São Paulo, Paraná, Santa Catarina, Rio Grande do Sul, Tocantins, Distrito Federal e todos os estados do Nordeste.",
-    "alimentacao": "Alimenta-se em geral no chão, também em taboais e macegas. Come basicamente frutas, sementes, grãos e pequenos artrópodes (besouros, aranhas, grilos, gafanhotos, lagartas e larvas). Aprecia arroz com casca."
+    "alimentacao": "Alimenta-se em geral no chão, também em taboais e macegas. Come basicamente frutas, sementes, grãos e pequenos artrópodes (besouros, aranhas, grilos, gafanhotos, lagartas e larvas). Aprecia arroz com casca.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'vermelho', 'pardo', 'cinza'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'sementes', 'grãos', 'insectos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['área alagada', 'brejo', 'campos', 'banhados']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3520,
@@ -14407,7 +14525,11 @@
     "reproducao": "A nidificação ocorre geralmente em colônias, em áreas úmidas, e ocorre com maior frequência duas vezes por temporada de reprodução. A fêmea constrói o ninho, este é colocado a baixa altura, pendurado em plantas ou ramos baixos. O ninho, em forma de copo aberto e profundo, é feito de vegetação úmida e lama, sem guarnição interior. A fêmea coloca entre 3 e 5 ovos brancos com manchas vináceas. A incubação é efetuada pela fêmea e, durante esse período, o macho faz visitas periódicas trazendo comida. Os filhotes são alimentados por ambos os pais e deixam o ninho após 12 a 15 dias, mas permanecem no grupo familiar por algumas semanas. Os pais frequentemente são auxiliados por componentes do grupo familiar, que fornecem comida para fêmeas e jovens e ajudam a defender o ninho. Em Bariri-SP, presenciamos um chupim-do-brejo cuidando de um chupim, caso de parasitismo (Observação pessoal, João de Almeida Prado).",
     "habitos": "Quando o bando muda para outro local, costumam cantar em voo. Vivem nos brejos, nas várzeas com capim alto, quase sempre em bandos. \nÉ frequente alguns indivíduos cantarem juntos, pousados a um palmo de distância uns dos outros. Podem, em algumas épocas do ano, frequentar comedouros onde há oferta de quirera de milho (Observação pessoal, João de Almeida Prado).",
     "dist_geo": "Ocorre no sul do Mato Grosso, Mato Grosso do Sul, Goiás, Distrito Federal, São Paulo, Paraná, Santa Catarina, Rio Grande do Sul, Rio de Janeiro e Minas Gerais.",
-    "alimentacao": "Alimenta-se de grãos e sementes que encontra nos brejos, além de sementes que são encontradas no solo de roças como milho, soja e outras variedades. Pode ser visto revirando as fezes de animais como equinos e bovinos em busca de alimento."
+    "alimentacao": "Alimenta-se de grãos e sementes que encontra nos brejos, além de sementes que são encontradas no solo de roças como milho, soja e outras variedades. Pode ser visto revirando as fezes de animais como equinos e bovinos em busca de alimento.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['amarelo', 'preto'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['grãos', 'sementes', 'milho', 'soja']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['brejo', 'área alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3526,
@@ -14424,7 +14546,11 @@
     "reproducao": "O ninho é uma tigela funda, aberta, bem feita com folhas feitas de junco externamente e raízes finas na parte interna. Os 3 ovos são brancos com poucas manchas violetas e muitos pontos vermelho-escuros reunidos em coroa num dos polos.",
     "habitos": "Vive em brejos com arbustos, buritizais, restingas e matas de galeria. Esconde-se em moitas de vegetação, sendo observado apenas quando voa.",
     "dist_geo": "Presente no Brasil em duas regiões separadas: 1) tanto ao norte do rio Amazonas, do rio Negro para leste até o Amapá, quanto ao sul, do baixo rio Madeira para leste até o Maranhão; 2) do sul do Piauí e Bahia para oeste até o Mato Grosso e em direção sul até o Rio Grande do Sul. Encontrado também da Costa Rica e Panamá à quase totalidade dos países da América do Sul, com exceção do Chile.",
-    "alimentacao": "Alimenta-se de insetos, principalmente lagartas."
+    "alimentacao": "Alimenta-se de insetos, principalmente lagartas.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['cinza', 'preto'], 'tamanho': 'Pequeno'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'insetívoro', 'itens': ['insetos', 'lagartas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['brejo', 'restingas', 'matas de galeria']}\n``` \n",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3529,
@@ -14441,7 +14567,11 @@
     "reproducao": "Seu período reprodutivo inicia-se em agosto  e tem seu término em novembro. O ninho é uma cestinha aberta, colocada no interior da vegetação densa, no alto das árvores, ou então, em tranças pendentes de barba-de-velho (Tillandsia usneoides). Os ovos são branco-amarelados com poucos salpicos roxos e medem 19 x 13 mm.",
     "habitos": "Habita a copa das árvores mais altas da mata seca e cerradões e ocasionalmente desce a estratos mais baixos nas regiões de borda e clareiras. Evita planícies úmidas, sendo que em regiões de maior umidade é encontrada principalmente em áreas montanhosas. \n\nVive em casais ou solitária, acompanhando bandos mistos na copa ou caçando por conta própria. É de comportamento bastante inquieto e canta incansavelmente, inclusive nas horas mais quentes do dia.",
     "dist_geo": "Presente do Piauí, Maranhão, Goiás e Mato Grosso, em direção sul, até o Rio Grande do Sul e também em regiões periféricas da Amazônia, no estado de Roraima e em áreas montanhosas do Amapá. Encontrada também do sul dos Estados Unidos (Texas) à Bolívia, Paraguai, Argentina e Uruguai.",
-    "alimentacao": "Alimenta-se de insetos, pequenas aranhas e lagartas, obtidos em flores e, às vezes, diretamente em voo. A mariquita consegue também se aproveitar da excreção adocicada de pulgões, pairando no ar para lambê-la. “Tenho observado desde 2016 essa ave se alimentando de banana e laranja em um comedouro que fiz em minha casa. Sempre procura o local quando não há outras aves. Recentemente consegui registrar essa cena cuja fotografia envio a este site. Alberto Jorge Bittencourt, de Tibagi-PR.” Registrado em 17/09/2024 no Sítio Ibi Marane (Juquitiba/SP) a mariquita lambendo a espuma secretada pela cigarrinha Prosapia bicincta."
+    "alimentacao": "Alimenta-se de insetos, pequenas aranhas e lagartas, obtidos em flores e, às vezes, diretamente em voo. A mariquita consegue também se aproveitar da excreção adocicada de pulgões, pairando no ar para lambê-la. “Tenho observado desde 2016 essa ave se alimentando de banana e laranja em um comedouro que fiz em minha casa. Sempre procura o local quando não há outras aves. Recentemente consegui registrar essa cena cuja fotografia envio a este site. Alberto Jorge Bittencourt, de Tibagi-PR.” Registrado em 17/09/2024 no Sítio Ibi Marane (Juquitiba/SP) a mariquita lambendo a espuma secretada pela cigarrinha Prosapia bicincta.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': 'Elíptica', 'pata': 'Anizodáctilo', 'cores': ['amarelo', 'alaranjado', 'cinza-azulado', 'branco', 'preto', 'verde'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'aranhas', 'lagartas', 'pulgões', 'frutas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['mata seca', 'cerradão']}\n``` \n\n\n",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3534,
@@ -14458,7 +14588,11 @@
     "reproducao": "Durante todo o ano, o casal patrulha seu território, a reprodução se dá entre fins de julho e novembro/dezembro.",
     "habitos": "Um dos poucos endemismos das matas ciliares e matas de galeria dos planaltos centrais do país. Vive sozinho ou aos casais nas matas densas e nas proximidades de riachos ou córregos, mostrando uma grande dependência desses corpos d’água. É espécie muito ativa, fica o dia inteiro de um lado para outro da floresta. Observação pessoal (João de Almeida Prado): É uma espécie curiosa, quando se adentra ao seu território emite vocalização de alarme que agita também outras espécies que estão nas proximidades. Tolera bem a proximidade humana e até urbanização desde que seja bem preservado seu habitat natural. É típica de matas paludosas, nunca se afasta das áreas úmidas.",
     "dist_geo": "Endêmico do Brasil, está presente na região Centro-Oeste(todos os estados) e Sudeste (Minas Gerais e São Paulo) além do Tocantins e áreas de cerrado do Oeste da Bahia. Ocorre quase que exclusivamente no Bioma Cerrado sendo muito escassa na Mata Atlântica, restrita apenas a áreas de transição para o Cerrado.",
-    "alimentacao": "Alimenta-se de insetos que captura, enquanto saltita pelo chão ou quando lança-se de\npoleiros a pequena altura em direção à ramagem."
+    "alimentacao": "Alimenta-se de insetos que captura, enquanto saltita pelo chão ou quando lança-se de\npoleiros a pequena altura em direção à ramagem.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': 'Anizodáctilo', 'cores': ['verde-oliváceo', 'preto', 'branco', 'cinza', 'amarelado'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'insetívoro', 'itens': ['insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['mata ciliar', 'mata de galeria', 'área alagada', 'brejo']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'territorial', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3535,
@@ -14475,7 +14609,11 @@
     "reproducao": "Canta o ano inteiro, mas com maior frequência entre os meses de julho a dezembro, época de reprodução.",
     "habitos": "Ave comum na parte baixa e chão das matas ciliares, matas secas e cerradões.  Aparece nos bandos mistos próximos ao solo, parecendo ser algo ocasional, ao contrário de muitas espécies de aves.",
     "dist_geo": "A espécie possui distribuição distinta. A ssp. nominal ocupa uma grande área no Brasil nas regiões NE, SE, S, CO e parte L da região N, além dos países vizinhos da Bolívia, Paraguai e no N da Argentina. A ssp. pallidirostris ocorre na Colômbia, Venezuela, Guiana e no extremo N do Brasil, em RR.",
-    "alimentacao": "Muito ativa, vive aos casais procurando invertebrados entre as folhas caídas ou nas galhadas baixas. Segue as formigas de correição, capturando os invertebrados fugindo das pequenas predadoras. Se alimenta de frutas também, onde registramos o mesmo se alimentando de mamão ( Obs: Gustavo Muniz )."
+    "alimentacao": "Muito ativa, vive aos casais procurando invertebrados entre as folhas caídas ou nas galhadas baixas. Segue as formigas de correição, capturando os invertebrados fugindo das pequenas predadoras. Se alimenta de frutas também, onde registramos o mesmo se alimentando de mamão ( Obs: Gustavo Muniz ).",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': 'Pernalta', 'cores': [\"amarelo\", \"oliváceo\", \"preto\"], 'tamanho': ''}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['invertebrados', 'frutas']}\n```  \n",
+    "habitat_llm": "```json\n{'habitat': ['mata ciliar', 'cerradão']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'corredora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3541,
@@ -14492,7 +14630,11 @@
     "reproducao": "O ninho, em forma de tigela, é feito no solo, entre a vegetação, sendo confeccionado com capins muito finos; a câmara incubatória é acolchoada com talos finos de cortiças. Os 2 ou 3 ovos são brancos, com uma larga coroa de pontos azul-cinzentos misturados a outros de cor-de-vinho e medem 17 por 12 milímetros.",
     "habitos": "É um pássaro bastante inquieto, daí seu nome popular. Vive no interior de florestas úmidas e secas, capoeiras e cerradões, a média altura. É bastante comum em bandos mistos de aves, sendo indicado por muitos estudos como espécie regular e responsável pela coesão do bando.",
     "dist_geo": "Segundo Helmut Sick, ocorre do México e América Central, através da maior parte da América do Sul, à Bolívia, Paraguai, Argentina, Uruguai, Brasil setentrional (Roraima), Brasil oriental (Maranhão ao Rio Grande do Sul) e Brasil central (Mato Grosso, Mato Grosso do Sul, Serra do cachimbo no sul do Pará e Goiás).",
-    "alimentacao": "Alimenta-se de insetos capturados na superfície de ramos e folhas."
+    "alimentacao": "Alimenta-se de insetos capturados na superfície de ramos e folhas.",
+    "morfologia_llm": "```json\n{'bico': 'Insetívoro', 'asa': '', 'pata': '', 'cores': ['amarelo', 'verde-oliváceo', 'esbranquiçado', 'cinza', 'avermelhada'], 'tamanho': 'Pequeno'} \n```",
+    "food_llm": "```json\n{'tipo': 'insetívoro', 'itens': ['insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'cerrado']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3547,
@@ -14509,7 +14651,11 @@
     "reproducao": "Reproduz o ano todo em certos locais e consta que, às vezes, usa ninhos da rolinha-roxa (Columbina talpacoti) como base para o seu ninho. A fêmea põe 2 a 5 ovos, verde-azulados com pintas esparsas pretas ou avermelhadas, que incuba sozinha por 12 a 16 dias.\nAs fêmeas criam, às vezes, filhotes de outra espécie como o chopim (Molothrus bonariensis).",
     "habitos": "Pousa abertamente no topo de árvores altas (em contraste com Ramphocelus), desloca-se em voo impetuoso na altura das copas. Vive em mata rala e decídua, cerrado e capões de eucalipto.",
     "dist_geo": "Expande sua distribuição na faixa litorânea do Brasil, beneficiado pela devastação das matas. Ocorre nas Guianas, Roraima, Nordeste do Brasil até o Rio Grande do Sul,",
-    "alimentacao": "Alimenta-se de insetos, frutas, folhas, botões e também néctar. Frequentam comedouros com frutas."
+    "alimentacao": "Alimenta-se de insetos, frutas, folhas, botões e também néctar. Frequentam comedouros com frutas.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['vermelho', 'alaranjado', 'acinzentado', 'marrom', 'preto', 'amarelo', 'esverdeado'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'insetos', 'folhas', 'botões', 'néctar']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['mata rala e decídua', 'cerrado', 'capon de eucalipto']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3563,
@@ -14526,7 +14672,11 @@
     "reproducao": "O azulão se reproduz entre setembro e fevereiro, constrói seu ninho não muito longe do solo e cada ninhada geralmente tem entre 2 e 3 ovos, tendo de 3 a 4 ninhadas por temporada. Os filhotes nascem entre 13 e 15 dias após a fêmea botar os ovos.",
     "habitos": "É encontrado em áreas com água abundante na beira de pântanos, grotas, brejos, florestas ralas, matas secundárias espessas e plantações.",
     "dist_geo": "Sua distribuição geográfica abrange do Nordeste do Brasil ao Rio Grande do Sul, bem como na Bolívia, Paraguai e Argentina.",
-    "alimentacao": "Sua alimentação é bem variada, sobretudo de sementes, frutas e insetos."
+    "alimentacao": "Sua alimentação é bem variada, sobretudo de sementes, frutas e insetos.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['azul-escuro', 'azul', 'pardo'], 'tamanho': ''}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['sementes', 'frutas', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['pântano', 'brejo', 'floresta aberta', 'mata ciliar', 'plantação']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna', 'crepuscular']}\n```"
   },
   {
     "Unnamed: 0": 3564,
@@ -14543,7 +14693,11 @@
     "reproducao": "Seu ninho é uma tigelinha aberta, construída a pouca altura do solo. A ninhada é de até 3 ovos e os pais se revezam para cuidar do(s) filhote(s).",
     "habitos": "Varia de incomum a localmente comum em campos cerrados com árvores e arbustos esparsos. Vivem aos pares ou  em grupos que podem passar de cinquenta (50) indivíduos, alimentando-se no chão, perto da cobertura de gramíneas, onde se locomove pulando. Na caatinga só raras vezes procura as fontes de água.\nTambém empoleira-se nos arbustos baixos. Aparentemente é mais numeroso em locais onde o cerrado tenha sido recentemente queimado. Canta de madrugada, pousando abertamente na ponta de um galho.",
     "dist_geo": "Presente no Maranhão, Piauí, Bahia, Tocantins, Goiás, Minas Gerais, Mato Grosso do Sul e Mato Grosso. Em Goiás desaparece com o início das chuvas. Em São Paulo provavelmente extinto, ocorria nos campos cerrados, tendo sido registrado em 2002 na Estação Ecológica de Itirapina. Há uma pequena população isolada no Rio Grande do Norte. Encontrado também na Argentina.",
-    "alimentacao": "Como a maioria das aves de sua família, é principamente um comedor de sementes de capim, mas podendo também se alimentar de pequenos invertebrados. Desce ao chão procurando comida, onde se movimenta aos pulos."
+    "alimentacao": "Como a maioria das aves de sua família, é principamente um comedor de sementes de capim, mas podendo também se alimentar de pequenos invertebrados. Desce ao chão procurando comida, onde se movimenta aos pulos.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': 'Anizodáctilo', 'cores': ['cinza', 'preto', 'branco', 'bege', 'alaranjado', ' Pardo'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'invertebrados']}\n```  \n",
+    "habitat_llm": "```json\n{'habitat': ['campo natural']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'pulando', 'sociabilidade': 'gregária', 'atividade': ['diurna', 'crepuscular']}\n```"
   },
   {
     "Unnamed: 0": 3567,
@@ -14560,7 +14714,11 @@
     "reproducao": "A biologia reprodutiva é pouco conhecida. O ninho é construído pelo macho e fêmea e é um ninho aberto. A incubação é feita pela fêmea. A espécie põe dois ovos azulados com manchas escuras.",
     "habitos": "Vive em regiões com vegetação arbórea rala como caatinga, cerrado etc.",
     "dist_geo": "Ocorre em praticamente todo o Brasil, exceto o extremo sul e o noroeste do estado do Amazonas.",
-    "alimentacao": "Predominantemente de substâncias vegetais: frutinhas (frequentemente duras) das árvores e arbustos ou de epífitas que neles vegetam, frutinhas de cipós e pedaços de frutas maiores e seu suco, folhas, botões e néctar. Se alimenta, por exemplo, dos frutos de caroba-branca (Sparattosperma leucanthum) e do tapiá ou tanheiro (Alchornea glandulosa).\nSua alimentação também é formada por invertebrados apanhados na folhagem e galhos. Às vezes captura algum inseto com carapaça dura e costuma bater com o bico no tronco para matar a presa ou desmembrá-la."
+    "alimentacao": "Predominantemente de substâncias vegetais: frutinhas (frequentemente duras) das árvores e arbustos ou de epífitas que neles vegetam, frutinhas de cipós e pedaços de frutas maiores e seu suco, folhas, botões e néctar. Se alimenta, por exemplo, dos frutos de caroba-branca (Sparattosperma leucanthum) e do tapiá ou tanheiro (Alchornea glandulosa).\nSua alimentação também é formada por invertebrados apanhados na folhagem e galhos. Às vezes captura algum inseto com carapaça dura e costuma bater com o bico no tronco para matar a presa ou desmembrá-la.",
+    "morfologia_llm": "```json\n{'bico': 'Insetos em troncos', 'asa': '', 'pata': '', 'cores': ['amarelo', 'negro', 'cinza', 'branco', 'amarronzado'], 'tamanho': 'Pequeno'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'folhas', 'invertebrados', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['caatinga', 'cerrado']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3574,
@@ -14577,7 +14735,11 @@
     "reproducao": "No período de reprodução, vive estritamente aos casais, sendo extremamente fiéis a um território, que o macho defende energicamente contra a aproximação de outros machos da espécie. Além disso, o macho costuma vibrar as asas e move a longa cauda para cima e para os lados. Tem em média 2 ninhadas por estação, com 3 ovos cada uma.",
     "habitos": "Sempre assustado, voa para um local exposto e começa a emitir piados curtos, metálicos, de alarme, em geral respondido pelo outro membro do par. No período de canto, entre setembro e novembro, o macho emite seu característico chamado pungente. Compõe-se de duas partes: na primeira, o som lembra um pergunta (que, que foi?) seguida de uma breve pausa e logo mais duas sílabas como se fosse uma resposta. Outro intervalo e segue cantando. Pode cantar por vários minutos a fio, enchendo o campo com sua melodia tristonha. \nVive solitário ou em casais, sem associar-se a outras espécies.",
     "dist_geo": "Registros no Wikiaves em todo o Brasil, exceto no Acre e Ceará. No exterior ocorre na Venezuela, Colômbia, Guianas, Peru, Equador, Bolívia, Argentina, Uruguai e Paraguai. Há uma ssp. que ocorre entre a Costa Rica e o Panamá.",
-    "alimentacao": "Caça insetos e, provavelmente, sementes no chão ou no meio dos talos das gramíneas, ficando invisível, apesar do tamanho relativamente grande."
+    "alimentacao": "Caça insetos e, provavelmente, sementes no chão ou no meio dos talos das gramíneas, ficando invisível, apesar do tamanho relativamente grande.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'acinzentado', 'amarelo', 'branco', 'pardo-esbranquiçado', 'amarela'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'sementes']}\n```  \n",
+    "habitat_llm": "```json\n{'habitat': ['campo natural']}\n``` \n",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'solitária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3580,
@@ -14594,7 +14756,11 @@
     "reproducao": "Durante o tempo de acasalamento, exibem as partes de cores berrantes da plumagem. O ninho é um cesto aberto e bem elaborado colocado na ramagem a várias alturas.",
     "habitos": "É localmente comum em bordas de florestas úmidas ou secas, bosques e florestas de galeria. Em regiões densamente florestadas habita principalmente clareiras ou ambientes secundários, como ilhas de rios. Vive aos pares ou em pequenos grupos, acompanhando bandos mistos com freqüência.",
     "dist_geo": "Presente localmente em grande parte do Brasil, com exceção do noroeste da Amazônia; há também poucos registros de sua ocorrência na região da costa. Encontrada nos demais países da América do Sul, excetuando-se o Chile e o Uruguai.",
-    "alimentacao": "Alimenta-se de frutinhas das árvores e arbustos, ou de epífitas, frutinhas de cipós e pedaços de frutas maiores e seu suco, folhas e néctar."
+    "alimentacao": "Alimenta-se de frutinhas das árvores e arbustos, ou de epífitas, frutinhas de cipós e pedaços de frutas maiores e seu suco, folhas e néctar.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': 'Anizodáctilo', 'cores': ['preto', 'amarelo', 'olivácea'], 'tamanho': 'Pequeno'}\n```\n\n\n\n\n",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['frutinhas', 'frutas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'floresta de galeria']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3582,
@@ -14611,7 +14777,11 @@
     "reproducao": "Escava galerias em barrancos, construindo o ninho no fundo delas. O trabalho de construção fica a cargo da fêmea, que também realiza a incubação e cuida dos filhotes, praticamente sozinha. O macho fica de sentinela a maior parte do tempo, sem envolver-se muito na criação dos filhotes. \nDepois da reprodução as aves voltam a formar bandos, e ocasionalmente dezenas de indivíduos podem ser vistos nos arredores de árvores em frutificação.",
     "habitos": "Costuma viver em bandos durante a maior parte do ano. Os bandos deslocam-se à procura de alimentos, muitas vezes pousando nos galhos mais expostos de árvores e arbustos em frutificação. Pode ser vista em em bordas de matas e até em zonas mais arborizadas de cidades. No meio do bando podem ser vistas outras espécies de saís, como por exemplo o saí-azul (Dacnis cayana).",
     "dist_geo": "Surge e desaparece sem que ainda tenha tido o comportamento migratório bem determinado. Parece frequentar certas regiões somente nas épocas do amadurecimento de frutos dos quais se alimenta.",
-    "alimentacao": "Alimenta-se de frutos e insetos, apanhando esses últimos em voos a partir de galhos expostos. Somente se aproxima do chão para alimentar-se de frutos maduros caídos, apanhar insetos em voo ou para nidificar. \nDevido ao formato do bico e cabeça, é capaz de apanhar vários frutos, carregando-os para um poleiro mais escondido. Os frutos com semente muito grande para ser engolida têm a polpa retirada no esôfago, e a semente é cuspida. É um excelente dispersor de sementes. Aprecia muito a frutinha do abacateiro-do-mato ou maçaranduba-de-minas (Persea pyrifolia), bem como os frutos vermelhos da scheflera (Schefflera actinophylla) e os frutos da magnólia-amarela (Magnolia champaca)."
+    "alimentacao": "Alimenta-se de frutos e insetos, apanhando esses últimos em voos a partir de galhos expostos. Somente se aproxima do chão para alimentar-se de frutos maduros caídos, apanhar insetos em voo ou para nidificar. \nDevido ao formato do bico e cabeça, é capaz de apanhar vários frutos, carregando-os para um poleiro mais escondido. Os frutos com semente muito grande para ser engolida têm a polpa retirada no esôfago, e a semente é cuspida. É um excelente dispersor de sementes. Aprecia muito a frutinha do abacateiro-do-mato ou maçaranduba-de-minas (Persea pyrifolia), bem como os frutos vermelhos da scheflera (Schefflera actinophylla) e os frutos da magnólia-amarela (Magnolia champaca).",
+    "morfologia_llm": "```json\n{'bico': 'frugívoro', 'asa': '', 'pata': '', 'cores': ['azul-brilhante', 'preto', 'verde', 'branco', 'amarelo'], 'tamanho': 'Pequeno'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': [\"área urbana\", \"floresta aberta\", \"mata ciliar\"]}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3585,
@@ -14628,7 +14798,11 @@
     "reproducao": "Atinge a maturidade sexual aos 12 meses. O ninho é uma tigela rasa bem fixada com teias de aranha a uma forquilha. Cada ninhada geralmente tem 2 ou 3 ovos chocados pela fêmea, tendo 2 ou 3 ninhadas por estação. Os filhotes nascem após 12 ou 13 dias. O macho ajuda a alimentar os filhotes, que saem do ninho após 14 dias de vida.",
     "habitos": "Vive em florestas de diversos tipos, da Amazônia e de outras regiões do Brasil e da América do Sul. Vive em pequenos bandos, tanto nas copas de árvores de grande porte, como em mata baixa (matas secundárias). Segue regularmente bandos mistos de pássaros e realiza migrações locais. Surge então em locais onde não é visto em outras ocasiões.",
     "dist_geo": "Ocorre em toda a Amazônia brasileira e no Centro-Oeste. No Nordeste e Sudeste é mais restrito à Mata Atlântica. Escasso no Sul. Presente também em todos os países amazônicos da América do Sul e desde o México até o Panamá. Também na ilha de Cuba.",
-    "alimentacao": "Alimenta-se de insetos, frutas e néctar das flores. Já foi observado caçando cupins em revoada e se alimentando de laranjas e caquis."
+    "alimentacao": "Alimenta-se de insetos, frutas e néctar das flores. Já foi observado caçando cupins em revoada e se alimentando de laranjas e caquis.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': [\"azul\", \"amarelo\", \"verde\", \"preto\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'frutas', 'néctar']}\n``` \n",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'mata ciliar']}\n```  \n",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3589,
@@ -14645,7 +14819,11 @@
     "reproducao": "Atinge a maturidade sexual aos 12 meses. Reproduz na primavera e no verão. O ninho é uma taça profunda, feita de fibras finas, colocado de 5 a 7 metros do solo, entre as folhas externas de uma árvore. A construção do ninho é tarefa da fêmea, que é protegida pelo macho contra intrusos. Os 2 ou 3 ovos são esbranquiçados ou branco-esverdeados com manchas cinza-claras e são incubados pela fêmea. Durante este período ela é, às vezes, alimentada pelo macho. Os filhotes são alimentados pelo casal e permanecem no ninho cerca de 13 dias. Costuma ter de 2 a 4 ninhadas por temporada.",
     "habitos": "É comum em bordas de florestas, capoeiras arbóreas, campos com árvores esparsas, florestas secas e de galeria. Vive normalmente aos pares ou em pequenos grupos, procurando insetos ativamente na folhagem ou alimentando-se de frutos em árvores e arbustos.\nVive à beira da mata em várias altitudes, copas de mata alta. Costuma aparecer em pequenos bandos mistos com Cyanerpes e Tangara.",
     "dist_geo": "Ocorre em todas regiões do Brasil. Encontrado também de Honduras ao Panamá e em quase todos os países da América do Sul, com exceção do Chile e Uruguai.",
-    "alimentacao": "Alimenta-se de néctar, insetos e frutas. Costuma frequentar comedouros de frutas. Aprecia os frutos da tapiá ou iricuruna (Alchornea glandulosa) e da magnólia-amarela (Magnolia champaca)."
+    "alimentacao": "Alimenta-se de néctar, insetos e frutas. Costuma frequentar comedouros de frutas. Aprecia os frutos da tapiá ou iricuruna (Alchornea glandulosa) e da magnólia-amarela (Magnolia champaca).",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['azul', 'negro', 'verde', 'azulada', 'alaranjado', 'rosada'], 'tamanho': 'Pequeno'} \n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutos', 'insectos', 'néctar']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'floresta aberta', 'floresta']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3591,
@@ -14662,7 +14840,11 @@
     "reproducao": "Na época reprodutiva, o ninho é confeccionado em forma de taça sobre os galhos das árvores ou em moitas de capim, é feito com raminhos, talos e ervas e a cavidade é forrada com talos de capim. A fêmea põe de 2 a 3 ovos com incubação média de 13 dias.\nSão de 2 a 3 ninhadas por ano.",
     "habitos": "Habita o cerrado, campos cerrados, caatinga e campos adjacentes.",
     "dist_geo": "Ocorre desde o Mato Grosso do Sul à Bahia, Rio de Janeiro, Mato Grosso e Goiás ao interior das regiões Sudeste e Nordeste. Também ocorre no Paraguai e Bolívia. Embora ocorra também em regiões de Mata Atlântica, é uma espécie muito mais ligada ao bioma Cerrado.",
-    "alimentacao": "Alimenta-se de sementes e artrópodes."
+    "alimentacao": "Alimenta-se de sementes e artrópodes.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': 'Elíptica', 'pata': 'Anizodáctilo', 'cores': ['preto', 'cinza', 'amarelado', 'branco'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'artrópodes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['cerrado', 'caatinga']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3593,
@@ -14679,7 +14861,11 @@
     "reproducao": "Atinge a maturidade sexual aos 12 meses. Faz um ninho grosseiro com gravetos, folhas e gramíneas, em formato de tigela profunda. Põe de 2 a 3 ovos azul-claros manchados, com o período de incubação variando de 12 a 15 dias, tendo de 2 a 3 ninhadas por estação.",
     "habitos": "É comum em bordas de florestas, clareiras arbustivas com árvores isoladas, capoeiras e plantações, principalmente em regiões mais úmidas. Não penetra em regiões serranas. Vive solitário ou aos pares e em bandos mistos pelas copas ou então, pelo estrato médio.",
     "dist_geo": "Presente em toda a Amazônia e nas regiões central e leste do Brasil, estendendo-se para o sul até o Mato Grosso, São Paulo e Rio de Janeiro. Encontrado também do México ao Panamá, em todos os demais países Amazônicos - Guianas, Venezuela, Colômbia, Equador, Peru e Bolívia - e no Paraguai.",
-    "alimentacao": "Onívoro, alimenta-se principalmente de frutos."
+    "alimentacao": "Onívoro, alimenta-se principalmente de frutos.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['verde', 'cinza', 'canela', 'castanho', 'marrom', 'branco', 'verde oliva'], 'tamanho': 'Médio'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['frutas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'brejo']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3595,
@@ -14696,7 +14882,11 @@
     "reproducao": "O ninho, construído em arbustos a 1 a 2 metros de altura, é uma tigela espaçosa, com cerca de 12 centímetros de diâmetro externo, feita com folhas grandes e secas seguras por alguns ramos, resultando uma construção frouxa; no interior são colocadas pequenas raízes e ervas. Os 2 ou 3 ovos, alongados, medem cerca de 29 por 18 milímetros e são azul-claros ou verde-azulados, com manchas pequenas e grandes no polo rombo, formando uma coroa. Durante o período de reprodução, vive estritamente aos casais, sendo extremamente fiel a um território.",
     "habitos": "Vive em capoeiras, bordas de matas e clareiras. Está sempre associado às matas, ocupando o estrato médio e superior.",
     "dist_geo": "Distribui-se na parte central do Brasil e nordeste, na Bahia ao sul do País, no Rio Grande do Sul e toda a região Sudeste, além de fronteiras vizinhas internacionais, como Argentina, Bolívia, Paraguai e Uruguai.",
-    "alimentacao": "O trinca-ferro-verdadeiro é um típico onívoro, alimentando-se de frutos, insetos, sementes, folhas e flores (como as do ipê). Aprecia os frutos do tapiá ou tanheiro (Alchornea glandulosa) e os frutos/sementes da aroeira-do-campo (Schinus lentiscifolius).\nNa infância, seu regime alimentar é predominantemente animal. O macho costuma trazer alimento para sua fêmea."
+    "alimentacao": "O trinca-ferro-verdadeiro é um típico onívoro, alimentando-se de frutos, insetos, sementes, folhas e flores (como as do ipê). Aprecia os frutos do tapiá ou tanheiro (Alchornea glandulosa) e os frutos/sementes da aroeira-do-campo (Schinus lentiscifolius).\nNa infância, seu regime alimentar é predominantemente animal. O macho costuma trazer alimento para sua fêmea.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['verde', 'acinzentado', 'branco', 'marrom', 'alaranjado'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'insetos', 'sementes', 'folhas', 'flores']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta','mata ciliar']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3600,
@@ -14713,7 +14903,11 @@
     "reproducao": "Faz ninho esférico que pode ser de dois tipos, segundo sua finalidade:",
     "habitos": "Vive solitária ou aos pares e é bastante ativa, mas também pode ser vista em pequenos bandos. Toma banho muitas vezes, por causa do contato com o néctar pegajoso. Seu canto é relativamente forte, simples e monótono, e emitido incansavelmente. Canta a qualquer hora do dia e em qualquer época do ano. A fêmea também canta, mas pouco e por menos tempo. Para amedrontar um rival, põe-se de pé, estica o corpo e vibra as asas. Muito briguentas, as cambacicas chegam a cair engalfinhadas no solo, onde continuam a luta. E é até comum aparecer em quintais com bebedouros de beija-flores, mas geralmente espécies como o beija-flor-tesoura as espanta, ficando com a posse do bebedouro.",
     "dist_geo": "Ocorre em quase todas as regiões do país, podendo estar ausente de regiões extensivamente florestadas, como no oeste e centro da Amazônia. É encontrada desde o SE México, América Central e Caribe e em todos os países da América do Sul, com exceção do Chile e Uruguai. Rara nos Estados Unidos (Flórida) e Cuba.",
-    "alimentacao": "Néctar, frutas e artrópodes. Para coletar alimento, em qualquer altura, agarra-se firmemente à coroa das flores e com o bico curvo e pontiagudo perfura o cálice, atingindo assim os nectários. Visita também as garrafas de água açucarada, destinadas a atrair beija-flores e comedouros de frutas para pássaros. Aprecia muito banana, mamão, jabuticaba, laranja e melancia, daí vem seu nome em inglês bananaquit."
+    "alimentacao": "Néctar, frutas e artrópodes. Para coletar alimento, em qualquer altura, agarra-se firmemente à coroa das flores e com o bico curvo e pontiagudo perfura o cálice, atingindo assim os nectários. Visita também as garrafas de água açucarada, destinadas a atrair beija-flores e comedouros de frutas para pássaros. Aprecia muito banana, mamão, jabuticaba, laranja e melancia, daí vem seu nome em inglês bananaquit.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': [\"marrom-escuro\", \"esbranquiçado\", \"amarelo\", \"amarelo-limão\", \"preto\", \"cinza\"], 'tamanho': 'Pequeno'} \n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['nectar', 'frutas', 'artrópodes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3603,
@@ -14730,7 +14924,11 @@
     "reproducao": "Procria em qualquer época do ano, pelo menos em algumas regiões quentes próximas à linha do equador, como em Belém (PA). Quando solta seu canto (semelhante ao som da palavra “tiziu”, o que lhe valeu o nome popular), principalmente durante a reprodução, o macho dá um salto curto para o ar e mostra uma região branca sob a asa, voltando a empoleirar-se no mesmo local. Acredita-se que este ritual seja para defender seu território. Faz ninho na forma de uma xícara fina e profunda, sobre gramíneas. Põe de 1 a 4 ovos branco-azulados com pontos marrom-avermelhados.",
     "habitos": "Estes pequenos pássaros são vistos com grande frequência, geralmente aos pares, em áreas alteradas, descampados, savanas, campos e capoeiras baixas da América do Sul, exceto no extremo sul.\nVive aos pares durante o período reprodutivo, porém, fora deste, reúne-se em bandos que podem chegar a dezenas de indivíduos. Nestas situações, frequentemente mistura-se a outras espécies de pássaros que alimentam-se de sementes. Em regiões do Sudeste e Sul do País, como em São Paulo, desaparece durante o inverno, migrando para regiões mais quentes.",
     "dist_geo": "Presente em todo o Brasil e também do México ao Panamá e em todos os países da América do Sul.",
-    "alimentacao": "Alimenta-se principalmente de sementes de gramíneas como a braquiária, mas também captura insetos. Costuma frequentar comedouros com sementes e quirera de milho."
+    "alimentacao": "Alimenta-se principalmente de sementes de gramíneas como a braquiária, mas também captura insetos. Costuma frequentar comedouros com sementes e quirera de milho.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'azul-metálico', 'branco', 'marrom-oliva', 'amarelo-amarronzado', 'escuro'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo', 'savana', 'capoeira']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3606,
@@ -14747,7 +14945,11 @@
     "reproducao": "Hábitos reprodutivos…",
     "habitos": "Espécie típica de sub-bosques, fica sempre na vegetação, a baixa altura, e quase nunca sai para lugares abertos. Ativa e irrequieta, ergue a crista quando está nervosa ou agitada. Vista em casal, que às vezes se junta a bandos mistos. Habita cerrados, cerradões, mangues, matas de galeria e matas secas na Amazônia, no Centro-Oeste e no Sudeste (São Paulo). Na Amazônia frequenta áreas alagadas como florestas de várzea e igapós.",
     "dist_geo": "Presente no Brasil nos estados do Amazonas, Roraima, Amapá, Pará, Maranhão, Acre, Rondônia, Mato Grosso, Mato Grosso do Sul, Goiás e trechos de Minas Gerais, São Paulo e Paraná além de outros países da América do Sul: Guianas, Venezuela, Colômbia, Peru, Equador, Bolívia e Paraguai.",
-    "alimentacao": "Segue correições de formigas. Vive aos pares ou em pequenos grupos caçando frutos e insetos."
+    "alimentacao": "Segue correições de formigas. Vive aos pares ou em pequenos grupos caçando frutos e insetos.",
+    "morfologia_llm": "```json\n{'bico': 'rósio', 'asa': '', 'pata': '', 'cores': ['oliva', 'cinza-clara', 'amarelo', 'pardacenta'], 'tamanho': 'Pequeno'}\n```\n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'insetos']} \n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'mata ciliar', 'área alagada']}\n```\n",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3612,
@@ -14764,7 +14966,11 @@
     "reproducao": "Zima & Francisco (2016) estudaram 16 ninhos ativos da espécie no sudeste do Brasil e constataram que: a reprodução da espécie nesta região ocorre entre outubro e fevereiro. A postura consiste em 2 a 3 ovos (2.06 ± 0.25) de coloração branca, os quais são postos em dias consecutivos. A incubação geralmente começa na manhã em que as fêmeas põem seu último ovo e duram 11.27 dias ± 0.47. A eclosão é sincrônica ou ocorre em intervalos de um dia. O estágio de ninhego dura 12 dias ± 0.89. Somente as fêmeas incubam os ovos e alimentam os ninhegos mais frequentemente que os machos. O sucesso de reprodução, desde a incubação até a saída dos ninhegos é de 28.2%. A arquitetura do ninho e a coloração dos ovos são características diagnósticas do gênero (Coryphospingus). A espécie tem preferência para construir seus ninhos em bordas de floresta ou em áreas de cerrado.",
     "habitos": "Apesar de sua beleza, o tico-tico-rei não é uma ave que costuma chamar muita atenção, principalmente por causa de seu comportamento discreto e solitário. O macho só exibe completamente seu belo topete quando está excitado ou ao cantar.\n\nVive em bordas de matas secundárias, cerrados, campos, cafezais e pomares, geralmente em locais sombreados, capoeiras ralas e baixas.\n\nO tico-tico-rei é eventualmente capturado e criado como ave de cativeiro. Sua sorte é que seu canto não é tão belo quanto sua plumagem e por isso não é tão valorizado entre os criadores de aves. Porém, ainda persiste uma cultura de caça e aprisionamento em gaiola.\n\nVivem solitários a maior parte do ano, eventualmente juntando-se a bandos mistos de espécies granívoras (que comem sementes); mas na época da reprodução, que costuma coincidir com os meses quentes do ano, formam casais.",
     "dist_geo": "Presente, no Brasil, em duas regiões disjuntas: Leste do Pará (subespécie L. c. cucullatus); e do Mato Grosso e Goiás ao oeste de Minas Gerais, Rio de Janeiro, São Paulo, Paraná, Santa Catarina e Rio Grande do Sul (subespécie L. c. rubescens)",
-    "alimentacao": "Alimenta-se de sementes, brotos, frutas, insetos. Aprecia os frutos da fruta-do-sabiá ou marianeira (Acnistus arborescens).\n\nDesloca-se pulando no solo ou entre moitas e arbustos onde procura sementes, frutos e insetos para se alimentar."
+    "alimentacao": "Alimenta-se de sementes, brotos, frutas, insetos. Aprecia os frutos da fruta-do-sabiá ou marianeira (Acnistus arborescens).\n\nDesloca-se pulando no solo ou entre moitas e arbustos onde procura sementes, frutos e insetos para se alimentar.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"marrom\", \"vermelho\", \"branco\", \"preto\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['sementes', 'frutas', 'insetos']}\n```  \n",
+    "habitat_llm": "```json\n{'habitat': ['cerrado', 'campo natural', 'capoeira', 'plantação']}\n```",
+    "behavior_llm": "```json\n{'locomocao': ' ', 'sociabilidade': 'solitária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3617,
@@ -14781,7 +14987,11 @@
     "reproducao": "Na época da reprodução, o macho exibe para a fêmea as manchas brancas que ele tem embaixo das asas, abrindo-as e fechando-as diante de um rival. Faz um ninho grosseiro, em formato de xícara, localizado em arbustos baixos. Põe de 2 a 3 ovos cor-de-ferrugem-clara com pintas marrons chocados por 13 dias. Tem em média 2 ninhadas por estação.",
     "habitos": "É localmente comum em clareiras, bordas arbustivas de florestas e outros locais com vegetação arbórea, principalmente em áreas úmidas e próximas à água, longe das cidades. Vive quase sempre aos pares, nos estratos baixo e médio da vegetação, raramente juntando-se a bandos mistos. Boa voadora, é capaz de pairar no ar para apanhar um frutinha ou um inseto.",
     "dist_geo": "Presente em toda a região Norte, localmente em áreas mais abertas, não florestadas. Também na região Centro Oeste e Nordeste, e boa parte do Sudeste, até São Paulo. Encontrada também na Nicarágua, Costa Rica, Panamá, Colômbia, Venezuela, Guianas, Peru, Bolívia, Paraguai e Argentina. Também ocorre na ilha Margarita na Venezuela e em Trinidad e Tobago no Caribe. \nNão ocorre nos Estados do sul do Brasil.",
-    "alimentacao": "Alimenta-se de frutinhas, folhas, botões de flor e néctar, às vezes vai também ao solo, em busca de insetos, adora bananas e mamões maduros, em comedouros artificiais pode se alimentar de xerém (milho moído). Acompanha bandos mistos de outros pássaros em busca de comida."
+    "alimentacao": "Alimenta-se de frutinhas, folhas, botões de flor e néctar, às vezes vai também ao solo, em busca de insetos, adora bananas e mamões maduros, em comedouros artificiais pode se alimentar de xerém (milho moído). Acompanha bandos mistos de outros pássaros em busca de comida.",
+    "morfologia_llm": "```json\n{'bico': 'heterogénic (Nectarívoro) ', 'asa': '', 'pata': '', 'cores': [\"preto\", \"branco\", \"marrom\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutinhas', 'folhas', 'insetos', 'botões de flor', 'néctar']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'área alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3621,
@@ -14798,7 +15008,11 @@
     "reproducao": "Atinge a maturidade sexual aos 10 meses. Nidifica durante quase todo ano na Amazônia oriental. No sudoeste amazônico nidifica comumente em ambientes ambientes abertos com pomares, próximo a atividades antrópicas (Lima et al. 2019, Lima & Guilherme 2020). Os ninhos têm formato de xícara construídos em forquilhas, na base de folhas de palmeiras ou lateralmente entre dois ou mais galhos. Cada ninhada geralmente tem entre 2 e 3 ovos brancos com manchas marrom escuras, incubados por cerca de 13 dias, tendo de 2 a 3 ninhadas por temporada. Os filhotes permanecem no ninho por 12 dias (ver Lima & Guilherme 2020).",
     "habitos": "No baixo Amazonas, costuma ser a espécie mais abundante, influindo consideravelmente nesta impressão o hábito de viver em pequenos grupos.",
     "dist_geo": "Espécie amplamente distribuída na Amazônia, é um pássaro comum nas capoeiras do Norte do Brasil e países vizinhos, distribuindo desde as Guianas e Venezuela até a Bolívia, Paraguai e Brasil Amazônico, estendendo-se do leste até o Piauí e para o sul pelo Brasil central até o oeste do Paraná e sul de Mato Grosso do Sul.",
-    "alimentacao": "Frequenta arbustos e cerrados próximos a esses ambientes, sempre na caça de invertebrados, em especial insetos dipteros. Alimenta-se também de frutos. Pode tanto estar em bandos próprios, como associado a outras espécies. Acompanha as formigas de correição para apanhar as presas escapando delas."
+    "alimentacao": "Frequenta arbustos e cerrados próximos a esses ambientes, sempre na caça de invertebrados, em especial insetos dipteros. Alimenta-se também de frutos. Pode tanto estar em bandos próprios, como associado a outras espécies. Acompanha as formigas de correição para apanhar as presas escapando delas.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['negro', 'avermelhado', 'marrom'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'frutas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['capoeira']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3622,
@@ -14815,7 +15029,11 @@
     "reproducao": "Vive em pares espalhados durante o período reprodutivo. Tem de 2 a 4 ninhadas por ano, com 2 a 3 ovos em cada uma. \nComo nas demais espécies do grupo, o macho demarca o território, cabendo à fêmea toda a tarefa reprodutiva.",
     "habitos": "É localmente comum em clareiras arbustivas, plantações, campos abertos, campos cultivados, bordas de capoeiras e áreas com gramíneas altas, principalmente nas proximidades da água. Costuma formar bandos mistos com outros papa-capins no período de descanso. Sobe nos pendões de gramíneas para comer as sementes.\nDevido ao canto, é ave apreciada e a captura para o comércio ilegal, que, junto com as alterações ambientais, acabaram por reduzir seus números em boa parte do país, especialmente no Nordeste.",
     "dist_geo": "Presente no Brasil, como residente, nos estados do Paraná, São Paulo, Mato Grosso, Goiás, Espírito Santo e Bahia. Durante o inverno da região sul migra para a Amazônia e para os estados do Nordeste, principalmente para os estados do Rio Grande do Norte e Ceará. No Espírito Santo e Paraná aparece em dezembro para nidificar e desaparece em março e abril, começando a surgir no leste do Maranhão e Piauí a partir de maio. No sul de Minas Gerais e São Paulo a espécie aparece em novembro, desaparecendo no desenrolar do mês de abril. Encontrado também na Argentina, Paraguai e Bolívia, como residente, e nos demais países da Amazônia - Guianas, Venezuela, Colômbia, Equador, Peru e Bolívia, como migrante durante o inverno.",
-    "alimentacao": "Alimenta-se basicamente de sementes, e é atraído facilmente com milho triturado (quirera)."
+    "alimentacao": "Alimenta-se basicamente de sementes, e é atraído facilmente com milho triturado (quirera).",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': 'Anizodáctilo', 'cores': ['branco', 'negro', 'cinza claro', 'pardo', 'amarelado'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'milho']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['plantação', 'campo natural', 'área com gramíneas altas']}\n``` \n",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3627,
@@ -14832,7 +15050,11 @@
     "reproducao": "Faz ninho na forma de uma xícara aberta e rala. Cada ninhada geralmente tem entre 2 e 3 ovos, tendo de 2 a 4 ninhadas por temporada. Os filhotes nascem após 13 dias.",
     "habitos": "Varia de incomum a localmente comum em campos com gramíneas altas, cerrados, vegetação à beira de rios, buritizais e outros locais pantanosos. Vive em pequenos grupos, às vezes associados com outros pássaros que se alimentam de sementes.",
     "dist_geo": "Presente em duas regiões disjuntas:",
-    "alimentacao": "Essencialmente granívoro mas em certas situações também pode alimentar-se de insetos."
+    "alimentacao": "Essencialmente granívoro mas em certas situações também pode alimentar-se de insetos.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['cinza-azulado', 'pardo', 'amarelo'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'cerrado', 'área alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3631,
@@ -14849,7 +15071,11 @@
     "reproducao": "Faz o ninho em formato de taça. Cada ninhada geralmente tem entre 2 e 3 ovos, tendo de 2 a 4 ninhadas por temporada. Os filhotes nascem após 13 dias.",
     "habitos": "Vive nos pântanos de vegetação alta. Gosta de esfregar os lados da cabeça acima dos olhos, mantendo-os fechados. Dorme em capinzais altos, taboais e canaviais.",
     "dist_geo": "Ocorre do Espírito Santo ao Rio Grande do Sul, Goiás, Mato Grosso, Paraguai, Uruguai e Argentina.",
-    "alimentacao": "Alimenta-se de grãos e sementes."
+    "alimentacao": "Alimenta-se de grãos e sementes.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': [\"preto\", \"branco\", \"amarelado-canela\", \"cinza\", \"pardo\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['grãos', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['pantanal']}\n``` \n",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3633,
@@ -14866,7 +15092,11 @@
     "reproducao": "Vive em pares espalhados durante o período reprodutivo. Faz ninho de gramíneas, em formato de xícara, com paredes finas, localizado em arbustos baixos ou árvores pequenas. Põe 2 ou 3 ovos esverdeados ou amarelados com muitos pontos marrons, tendo de 2 a 4 ninhadas por temporada. Os filhotes nascem após 13 dias e atingem a maturidade sexual aos 10 meses.",
     "habitos": "Vive em campos abertos, clareiras arbustivas, campos de cultivo, beiras de estradas e capinzais altos. Bastante apreciado por gaioleiros como ave cantora. Reúne-se em grupos fora do período reprodutivo, misturando-se frequentemente a outros pássaros que se alimentam de sementes.",
     "dist_geo": "Presente em grande parte do Brasil, em direção sul até o Paraná, vem expandindo sua área de distribuição na Amazônia Central, e para nordeste, até o Amapá. Encontrado também da Costa Rica ao Panamá e na Guiana, Suriname, Venezuela, Colômbia, Equador, Peru, Bolívia e Argentina.",
-    "alimentacao": "Granívoro. Costuma frequentar comedouros com sementes e quirera de milho."
+    "alimentacao": "Granívoro. Costuma frequentar comedouros com sementes e quirera de milho.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': [], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'milho']}\n``` \n",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'plantação', 'área alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3634,
@@ -14883,7 +15113,11 @@
     "reproducao": "Ver S.caerulescens Reprodução",
     "habitos": "Costuma se misturar a bandos de outros Sporophila e passa despercebido.",
     "dist_geo": "Ocorre nos estados de Minas Gerais, São Paulo, Espírito Santo, Rio de Janeiro, Goiás e Bahia. Espécie encontrada também na Venezuela.",
-    "alimentacao": "Ver S.caerulescens Alimentação"
+    "alimentacao": "Ver S.caerulescens Alimentação",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['branco', 'cinza-escuro'], 'tamanho': ''}\n```  \n",
+    "food_llm": "```json\n{'tipo': '', 'itens': []}\n``` \n",
+    "habitat_llm": "```json\n{'habitat': []}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3635,
@@ -14900,7 +15134,11 @@
     "reproducao": "No período reprodutivo (outubro a fevereiro), o casal afasta-se do grupo e estabelece seu território.\nNo início, o ninho é construído pelo macho e todas as demais tarefas correspondem à fêmea, ficando o macho com a atribuição de cantar para afastar outros coleiros da área.\nApesar de viver nas áreas abertas, procura árvores da borda das matas nos horários quentes do dia e nidifica em árvores e arbustos do contato mata/campo aberto.\nO ninho, feito à base de gramíneas, raízes e outras fibras vegetais, é construído em forma de tigela rasa sobre arbustos a poucos metros do solo. A fêmea põe geralmente 2 ovos, que são incubados por cerca de duas semanas ou menos; cada fêmea choca 3 ou 4 vezes por ano. Os filhotes abandonam o ninho após 13 dias de vida e, com 35 dias, já estão aptos a comerem sozinhos, atingindo a maturidade sexual logo no primeiro ano de vida. Pode viver em média de 10 a 12 anos.",
     "habitos": "Fora do período reprodutivo, é uma ave de comportamento gregário, vivendo em grupos de 6 a 20 indivíduos, inclusive às vezes formando grupos mistos com outras espécies de papa-capins e tizius. O peso e tamanho reduzidos permitem a esta ave alcançar as sementes de gramíneas trepando pela haste das plantas. Assim como outras aves, o coleirinho foi beneficiado pela introdução de algumas gramíneas africanas, especialmente da braquiária, que parece ser a base de sua alimentação em áreas alteradas pelo homem. As populações mais meridionais são migratórias e deslocam-se para latitudes mais baixas nos meses mais frios.",
     "dist_geo": "Seu habitat são campos abertos e capinzais, ocorrendo praticamente em todo o Brasil ao sul do rio Amazonas, com exceção da parte florestal da Região Amazônica (onde vem expandindo sua área de distribuição se aproveitando da abertura de pastagens e plantações), ocorrendo também em áreas urbanas.",
-    "alimentacao": "Congrega-se nos capinzais soltando grãos e usa o bico forte para quebrar as sementes. O nome papa-arroz vem do hábito de também usar plantações de arroz como fonte de alimentação.\nAlém do arroz, adaptou-se às várias gramíneas trazidas da África e acompanhou a expansão da pecuária nas áreas anteriormente florestadas. Aprecia os frutos do tapiá ou tanheiro (Alchornea glandulosa). Costuma frequentar comedouros com sementes e quirera de milho."
+    "alimentacao": "Congrega-se nos capinzais soltando grãos e usa o bico forte para quebrar as sementes. O nome papa-arroz vem do hábito de também usar plantações de arroz como fonte de alimentação.\nAlém do arroz, adaptou-se às várias gramíneas trazidas da África e acompanhou a expansão da pecuária nas áreas anteriormente florestadas. Aprecia os frutos do tapiá ou tanheiro (Alchornea glandulosa). Costuma frequentar comedouros com sementes e quirera de milho.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['branco', 'preto', 'amarelado', 'cinza-esverdeado', 'amarelo'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'grãos', 'arroz']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'plantação', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3637,
@@ -14917,7 +15155,11 @@
     "reproducao": "Os Chorões se reproduzem após um ano de idade. O período de acasalamento no Brasil vai de setembro até o fim de março.\nTem 2 ou 3 ninhadas por estação, com 2 ou 3 ovos em cada uma. A eclosão ocorre cerca de 13 dias após o inicio do choco.",
     "habitos": "É espécie comum, que habita áreas de gramíneas com arbustos e emaranhados de vegetação, quase sempre próximo à água, em áreas pantanosas e margens de rios e lagos. Vive solitário ou em pares espalhados, é uma ave discreta e raramente se associa a outras espécies.",
     "dist_geo": "Presente nas ilhas da foz do rio Amazonas e leste do Pará, Maranhão, Piauí e Pernambuco, em direção sudeste até Minas Gerais, Rio de Janeiro e São Paulo, e em direção oeste até Goiás e Mato Grosso. Encontrado também no Suriname, Peru, Bolívia, Argentina e Paraguai",
-    "alimentacao": "Granívoro. Como outras aves do Gênero, pode frequentar comedouros onde é oferecida quirera."
+    "alimentacao": "Granívoro. Como outras aves do Gênero, pode frequentar comedouros onde é oferecida quirera.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['cinza', 'branco', 'marrom-olivácea', 'bege-amarronzada', 'pardo'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['quirera', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['área alagada', 'mata ciliar']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': 'solitária', 'atividade': ['']}\n```"
   },
   {
     "Unnamed: 0": 3640,
@@ -14934,7 +15176,11 @@
     "reproducao": "Hábitos reprodutivos…",
     "habitos": "É localmente comum em campos com gramíneas altas, cerrados abertos e áreas pantanosas. Fora do período reprodutivo, vive em grupos, frequentemente em meio a outras espécies que também se alimentam de sementes de gramíneas.",
     "dist_geo": "A espécie ocorria somente no sul do Brasil, do extremo oeste de São Paulo, Minas Gerais, Goiás e sul do Mato Grosso do Sul até o leste do Paraguai e nordeste da Argentina. Sua distribuição, porém, vêm aumentando e se expandindo cada vez mais ao norte, agora sendo encontrado também no extremo sul do Mato Grosso, boa parte de Tocantins e já foi observado em Espírito Santo.",
-    "alimentacao": "Granívoros. Se alimentam de sementes de gramíneas."
+    "alimentacao": "Granívoros. Se alimentam de sementes de gramíneas.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': [\"branco pardacenta\", \"escuro\", \"branco\", \"marrom-olivácea\", \"branco-amarelada\"], 'tamanho': 'Pequeno'}  \n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'área pantanosa', 'cerrado']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3642,
@@ -14951,7 +15197,11 @@
     "reproducao": "Em estudo sobre a história natural da espécie no Planalto Meridional Brasileiro, Franz (2012) relatou que o período reprodutivo inicia na primeira semana de novembro, onde os machos chegam primeiro e logo iniciam o estabelecimento e defesa de territórios esperando as fêmeas que chegam em seguida. O fim do período reprodutivo se dá no final de fevereiro ou em março.",
     "habitos": "Vive em campos limpos e campos sujos, nas proximidades de áreas úmidas ou banhados. Durante o período de descanso reprodutivo, é visto em pequenos bandos associados a outros congêneres em migração.",
     "dist_geo": "Ocorre nos estados de Goiás, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Paraná, Rio Grande do Sul, Santa Catarina e São Paulo. Torna-se raro no Sudeste e Sul com a destruição de seu habitat.",
-    "alimentacao": "Granívoro."
+    "alimentacao": "Granívoro.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['acinzentado', 'preto', 'branco'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural']}  \n```\n",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3648,
@@ -14968,7 +15218,11 @@
     "reproducao": "Procria na Argentina, Uruguai, sul do Paraguai e no Brasil ao largo da divisa entre o Rio Grande do Sul e o Uruguai. Migra durante o inverno para o norte do Brasil Central até o sul do Pará. Cada ninhada geralmente tem entre 2 e 3 ovos, tendo de 2 a 4 ninhadas por temporada. Os filhotes nascem após 13 dias.",
     "habitos": "Vive em capinzais, campos limpos e campos alagáveis. A população da espécie encontra-se em declínio pela perda do habitat, situação comum também a outras espécies do gênero Sporophila.",
     "dist_geo": "Ocorre no Rio Grande do Sul, Santa Catarina, Paraná, São Paulo, Mato Grosso do Sul, Minas Gerais e Goiás. Também ocorre na Argentina, Paraguai e Uruguai.",
-    "alimentacao": "Granívoro."
+    "alimentacao": "Granívoro.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': [], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['caatinga', 'campo natural', 'área alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3650,
@@ -14985,7 +15239,11 @@
     "reproducao": "Faz um ninho de paredes finas, em formato de xícara. Põe 2 ovos branco-esverdeados com muitas manchas marrons e a eclosão ocorre cerca de 13 dias após a postura.\nPassados 30 dias do nascimento, os filhotes já estão prontos para sair do ninho. \nAtingem a maturidade após um ano de idade. O período de acasalamento inicia-se no final do inverno e dura até o término do verão.",
     "habitos": "Os seus habitats naturais são: florestas subtropicais ou tropicais úmidas de baixa altitude e florestas secundárias altamente degradadas.",
     "dist_geo": "Encontra-se distribuído em quase todo território nacional, da Região Amazônica ao Rio Grande do Sul, passando por estados da região Centro-Oeste. Encontrado também em quase todos os países da América do Sul, com exceção do Chile. Habita as regiões litorâneas brasileiras e principalmente o litoral paulista.",
-    "alimentacao": "Alimenta-se basicamente de alguns insetos, várias sementes em especial a semente do capim navalha, subindo nos pendões de capim ou catando-as no chão."
+    "alimentacao": "Alimenta-se basicamente de alguns insetos, várias sementes em especial a semente do capim navalha, subindo nos pendões de capim ou catando-as no chão.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['preto', 'acinzentado', 'castanho', 'branco', 'parda'], 'tamanho': 'Pequeno'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta','floresta subtropicais ou tropicais úmidas de baixa altitude', 'floresta secundárias']}\n``` \n",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']} \n```  \n"
   },
   {
     "Unnamed: 0": 3655,
@@ -15002,7 +15260,11 @@
     "reproducao": "No período reprodutivo (julho a novembro), canta de maneira semelhante ao canário-da-terra-verdadeiro, origem do nome comum.",
     "habitos": "Vive solitário, em pares no período reprodutivo. Em agosto e setembro formam-se grupamentos de até 8 aves, podendo tratar-se de migrantes em passagem pelo Pantanal e dirigindo-se para o sul. Entretanto, pouco é conhecido de sua biologia, não se sabendo a razão desse gregarismo ocasional.\nVive em formações florestais secundárias e até mesmo em cidades bem arborizadas. Ocupa os estratos mais altos e médios da floresta, raramente indo ao chão.\nLocomove-se de forma típica, subindo pela ramaria em zigue-zague e em seguida praticamente soltando o corpo e caindo em direção ao tronco da próxima árvore.",
     "dist_geo": "Possui ampla distribuição na América do Sul e em boa parte do Brasil nas regiões NE, CO, SE e S. No Norte é mais restrito aos ambientes de várzea do rio Solimões e alguns de seus grandes afluentes como o Madeira (AM, RO). Também nos países vizinhos da Colômbia, Equador, Peru, Bolívia, Paraguai, e o NE da Argentina. A ssp. orinocensis é restrita à calha do rio Orinoco, na Venezuela.",
-    "alimentacao": "Alimenta-se de frutos, sementes e insetos capturados na folhagem."
+    "alimentacao": "Alimenta-se de frutos, sementes e insetos capturados na folhagem.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['amarelo-alaranjado', 'cinza-esverdeado'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'sementes', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'área urbana']} \n```",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'solitária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3658,
@@ -15019,7 +15281,11 @@
     "reproducao": "Constrói o ninho apenas 1-2 metros do solo e feita de gramíneas tecido. O tamanho da ninhada figura de 3-4 ovos de cor azulada, salpicada com manchas marrons ou pretas. Jovens nascidos na última temporada de acasalamento ajudam a cuidar do ninho e dos filhotes(reprodução cooperativa).",
     "habitos": "Habita áreas abertas como pastagens com árvores baixas. Vivem em grupos territoriais de três a seis indivíduos. Seguem bandos mistos à procura de insetos no solo ou próximo dele e mantém uma sentinela empoleirada mais acima do solo como acontece a Neothraupis fasciata, seu vizinho em muitos locais. Sobretudo ao amanhecer, o casal dá um dueto forte e sonoro, a fêmea dá uma matraqueado contínuo, em tom mais baixo, enquanto o macho emite uma frase vigorosa e melódica, como “Tchi-dudidu…”, repetida muitas vezes, que constitui uma das vozes do cerrado.",
     "dist_geo": "Ocorre do Nordeste do Brasil ao estado do Mato Grosso (Sick), e também, no Amapá e Suriname (Ridgely e Tudor). A espécie foi registrada em enclave de Cerrado presente no Rio Grande do Norte (Pichorim et al. 2014).",
-    "alimentacao": "Alimenta-se de insetos no chão, na grama ou lança-se para pegá-los em vôo, principalmente besouros, grilos e gafanhotos, e ocasionalmente frutas, larvas e pequenas lagartas."
+    "alimentacao": "Alimenta-se de insetos no chão, na grama ou lança-se para pegá-los em vôo, principalmente besouros, grilos e gafanhotos, e ocasionalmente frutas, larvas e pequenas lagartas.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['preto', 'branco', 'rufo'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'frutas', 'larvas', 'lagartas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural','cerrado']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'territorial', 'atividade': ['diurna', 'crepuscular']}\n```"
   },
   {
     "Unnamed: 0": 3664,
@@ -15036,7 +15302,11 @@
     "reproducao": "Constrói o ninho em galhos de arvores a uma altura de 3 a 45 m pondo uma média de 3 ovos.",
     "habitos": "Vive aos pares ou em pequenos grupos, freqüentemente participando de bandos mistos de copa, o que o torna difícil de ser observado. Às vezes descem até o solo em bando, para forragear em espaços abertos. Habita florestas, capoeiras, parques e jardins.",
     "dist_geo": "Presente em Roraima e grande parte da região ao sul do rio Amazonas, e no restante do País. Encontrado também em todos os demais países amazônicos (Guianas, Venezuela, Colômbia, Equador, Peru e Bolívia), Paraguai e Argentina.",
-    "alimentacao": "Anda em casais ou pequenos grupos, sempre à procura de insetos no meio da folhas. Adora verificar as pequenas folhas das árvores leguminosas, como as do angico vermelho (Anadenanthera colubrina), percorrendo cada uma delas na busca de lagartas."
+    "alimentacao": "Anda em casais ou pequenos grupos, sempre à procura de insetos no meio da folhas. Adora verificar as pequenas folhas das árvores leguminosas, como as do angico vermelho (Anadenanthera colubrina), percorrendo cada uma delas na busca de lagartas.",
+    "morfologia_llm": "```json\n{'bico': 'Nectarívoro', 'asa': '', 'pata': '', 'cores': ['cinza azulado', 'marrom avermelhado', 'verde', 'cinza claro'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'insetívoro', 'itens': ['insetos', 'lagartas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'área urbana', 'campo natural']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3668,
@@ -15053,7 +15323,11 @@
     "reproducao": "Faz ninhos cobertos, na forma de uma cestinha, em lugares que variam desde uma caveira de boi até bambus perfurados. Frequentemente utiliza ninhos abandonados de outros pássaros, sobretudo do joão-de-barro. Pode fazer ninhos em forma de cesta em plantas epífitas (orquídeas e bromélias), em buracos de telhas e outros locais que ofereçam proteção. A fêmea põe em média 4 ovos, que são chocados por 14 ou 15 dias.",
     "habitos": "Vive em campos secos, campos de cultura e caatinga, bordas de matas, áreas de cerrado, campos naturais, pastagens abandonadas, plantações e jardins gramados, sendo mais numeroso em regiões áridas.\n\nCostuma ficar em bandos quando não está em período de acasalamento. Vive em grupos, às vezes de dezenas de indivíduos. O macho tem um canto de madrugada bem extenso e áspero, diferente do canto diurno. O canto de corte é melodioso e baixo, acompanhado de um display parecido com uma dança em volta da fêmea.",
     "dist_geo": "Está presente do Maranhão ao sul até o Rio Grande do Sul e a oeste até o Mato Grosso, bem como nas ilhas do litoral de São Paulo e do Rio de Janeiro. Encontrado localmente também nas Guianas, Venezuela, Colômbia, Equador, Peru, Bolívia, Paraguai, Uruguai e Argentina.",
-    "alimentacao": "Alimenta-se de sementes no chão. É uma espécie predominantemente granívora (come sementes). O formato do bico é eficiente em esmagar e seccionar as sementes, sendo, portanto, considerada predadora e não dispersora de sementes. Ocasionalmente alimenta-se de insetos. Costuma frequentar comedouros com sementes e quirera de milho."
+    "alimentacao": "Alimenta-se de sementes no chão. É uma espécie predominantemente granívora (come sementes). O formato do bico é eficiente em esmagar e seccionar as sementes, sendo, portanto, considerada predadora e não dispersora de sementes. Ocasionalmente alimenta-se de insetos. Costuma frequentar comedouros com sementes e quirera de milho.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': [\"amarelo-olivácea\", \"enegrecidas\", \"cinza-oliva\", \"preto\", \"rosada\", \"olivácea\", \"parda\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'plantação', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna', 'crepuscular']}\n```"
   },
   {
     "Unnamed: 0": 3670,
@@ -15070,7 +15344,11 @@
     "reproducao": "Nidifica em grupos. Cada ninhada geralmente tem entre 3 e 4 ovos, tendo de 3 a 4 ninhadas por temporada. Os filhotes nascem após 13 dias.",
     "habitos": "Vive nos campos limpos, tanto secos quanto úmidos e até em áreas urbanizadas. Corre pelo chão sempre em bandos, mesmo na época de reprodução. Quando migra, reúnem-se às centenas em moitas de taquara para dormir.",
     "dist_geo": "No Brasil tem distribuição mais oriental, desde o Piauí até o Rio Grande do Sul. Também na parte leste da região CO. Na Amazônia existe apenas em certas áreas campestres, como por exemplo Marajó e o médio e baixo Amazonas, ou nos lavrados ao redor de Boa Vista (RR). Ocorre do México e América Central áté a Argentina. Nos Andes, até a 3000 metros de altitude.",
-    "alimentacao": "É uma espécie granívora. Alimenta-se de sementes."
+    "alimentacao": "É uma espécie granívora. Alimenta-se de sementes.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['amarelo', 'acinzentado'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural']}\n``` \n",
+    "behavior_llm": "```json\n{'locomocao': 'corredora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n``` \n"
   },
   {
     "Unnamed: 0": 3674,
@@ -15087,7 +15365,11 @@
     "reproducao": "O ninho é confeccionado com musgos, a cerca de 15 a 20 metros\nde altura, escondido entre epífitas, sobre um ramo de árvore.",
     "habitos": "Habita florestas, restingas e às vezes em paisagens semi-abertas. São vistas sozinhas ou em casais. Fazem parte do grande número de pássaros que se reúnem nas árvores frutíferas se destacando pelo seu colorido.",
     "dist_geo": "Ocorre de Pernambuco ao Rio Grande do Sul, ocorrendo, também, no Uruguai, Argentina, Paraguai e a encosta interna dos Andes, chegando ao nordeste do Amazonas e Venezuela.",
-    "alimentacao": "Alimenta-se de frutos, insetos e sementes de alguns tipos de ervas daninhas que são colhidos no topo das árvores, no tronco e nos galhos. Aprecia muito o fruto de NESPERAS (Eriobotrya japonica ). Capturam borboletas através de voo curto e rápido em pleno ar."
+    "alimentacao": "Alimenta-se de frutos, insetos e sementes de alguns tipos de ervas daninhas que são colhidos no topo das árvores, no tronco e nos galhos. Aprecia muito o fruto de NESPERAS (Eriobotrya japonica ). Capturam borboletas através de voo curto e rápido em pleno ar.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"azul-claro\", \"preto\", \"amarelo-ferrugíneo\", \"azul esverdeado\", \"cinza\"], 'tamanho': 'Pequeno'}\n``` \n",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'insetos', 'sementes']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta', 'restinga', 'paisagem semi-aberta']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3676,
@@ -15104,7 +15386,11 @@
     "reproducao": "Nidifica em outubro e novembro, fazendo um ninho em forma de taça, chocando 3 ovos em média. Nos cuidados com a prole, o casal pode receber auxílio de indivíduos juvenis nascidos no ano anterior.",
     "habitos": "Espécie endêmica do bioma Cerrado, vive aos pares ou em grupos de três à sete indivíduos nos cerrados, cerradões e campos limpos. Chega a ocupar áreas alteradas de cerrado próximo à áreas urbanas. Um membro do grupo atua como sentinela, pousado em um galho exposto, enquanto os outros membros se alimentam no solo. Frequentemente estão juntos a outras espécies de aves, que podem se beneficiar de seu comportamento de sentinela. Comunicam-se por meio de chamados curtos “tsipé-tsipá”. Esse chamado é semelhante ao do graveteiro, mais alto e mais longo que nesse último. O macho só canta durante a época de reprodução e defende seu território agressivamente contra intrusos.",
     "dist_geo": "Presente no Brasil nos estados do Amapá, Mato Grosso, Goiás, Tocantins, Ceará, Distrito Federal, Maranhão, Piauí, Bahia, Minas Gerais, São Paulo, Paraná e Mato Grosso do Sul. Também ocorre na Bolívia e Paraguai.",
-    "alimentacao": "Alimenta-se de insetos, sementes e frutos, normalmente no chão ou em arbustos."
+    "alimentacao": "Alimenta-se de insetos, sementes e frutos, normalmente no chão ou em arbustos.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': [\"preto\", \"cinza\", \"branco\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'sementes', 'frutas']} \n```",
+    "habitat_llm": "```json\n{'habitat': ['cerrado', 'cerradões', 'campos limpos', 'áreas alteradas de cerrado']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'trepadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```  \n"
   },
   {
     "Unnamed: 0": 3680,
@@ -15121,7 +15407,11 @@
     "reproducao": "Tem em média 2 ninhadas por estação com 3 ovos cada uma.",
     "habitos": "É comum em bordas de florestas, capoeiras arbustivas com árvores esparsas e florestas de galeria, no estrato médio ou na copa. Vive aos pares ou em pequenos bandos bastante barulhentos, pousando com frequência no alto de árvores em áreas abertas. Raramente junta-se a bandos mistos.",
     "dist_geo": "Presente na Amazônia brasileira principalmente ao sul do rio Amazonas, desde o extremo oeste até o Maranhão e o Piauí, e de Pernambuco ao Rio Grande do Sul. Encontrado também no Paraguai, Argentina e nos demais países amazônicos - Guianas, Venezuela, Colômbia, Equador, Peru e Bolívia.",
-    "alimentacao": "Alimenta-se basicamente de frutos e alguns insetos, aprecia especialmente bananas e goiabas."
+    "alimentacao": "Alimenta-se basicamente de frutos e alguns insetos, aprecia especialmente bananas e goiabas.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['preto', 'branco'], 'tamanho': 'Pequeno'} \n``` \n",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['frutas', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['floresta aberta', 'área alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3681,
@@ -15138,7 +15428,11 @@
     "reproducao": "Costuma fazer seu ninho no capim, a pouca altura ou no chão. Faz ninho tipo taça. Atinge a maturidade sexual aos 12 meses. Cada ninhada geralmente tem entre 2 e 3 ovos, tendo de 2 a 3 ninhadas por temporada. Os filhotes nascem após 13 dias.\nEm Santo Antônio do Monte/MG foi observado um espécime provavelmente híbrido com Schistochlamys ruficapillus \n .",
     "habitos": "Habita a mata baixa ribeirinha, pântanos, cerrado, restinga, campo sujo. Prefere áreas baixas mas em Roraima pode ser encontrado até 1800m de alitude, no Monte Roraima. Limpa o bico, esfregando-o em um galho.",
     "dist_geo": "Ocorre numa vasta área do Brasil, desde Roraima até o Paraná. No NE mais restrito à parte litorânea. Ocorre também no vizinhos Venezuela, Guianas, Colômbia, Equador, Peru, Bolívia e Paraguai.",
-    "alimentacao": "Alimenta-se predominantemente de vegetais: frutinhas das árvores e arbustos, frutinhas de cipós, frutas maiores e seu suco, folhas, botões e néctar."
+    "alimentacao": "Alimenta-se predominantemente de vegetais: frutinhas das árvores e arbustos, frutinhas de cipós, frutas maiores e seu suco, folhas, botões e néctar.",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': ['cinzento', 'preto', 'verde-olivácea'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'frugívoro', 'itens': ['frutinhas', 'frutas', 'folhas', 'néctar']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['mata ciliar', 'pantanal', 'cerrado', 'area alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3682,
@@ -15155,7 +15449,11 @@
     "reproducao": "Ocorrem 2 ou 3 posturas por temporada. Põe 2 ou 3 ovos. O período de incubação leva cerca de 13 dias. Os filhotes ficam independentes entre 35 e 40 dias.",
     "habitos": "Pode ser encontrado em cerrados, caatingas, campos de altitude, campos sujos, jardins e acima da linha de florestas.\n\nVive solitário ou aos pares, pousado em arbustos baixos, com frequência em áreas bastante abertas. Junta-se a bandos mistos eventualmente. Pousa no topo de pequenas árvores para cantar e olhar.",
     "dist_geo": "No Brasil, ocorre nos estados do Maranhão, Pará, Bahia, Pernambuco, Tocantins e Piauí. Na Região Centro-Oeste, nos estados de Mato Grosso e Goiás. No Sudeste ocorre em Minas Gerais, São Paulo, Rio de Janeiro e Espírito Santo. Na Região Sul, somente no Paraná. Varia de localmente comum a incomum nas diversas regiões onde habita.\n\nAlgumas fontes afirmam que existem populações isoladas no Paraguai e na Argentina.\n\nPela ampla área de distribuição e quantidade de indivíduos registrados, essa espécie é considerada como Pouco Preocupante (LC) de extinção na natureza.",
-    "alimentacao": "Granívoro. Alimenta-se também de frutos, algumas flores e pequenos insetos. Aprecia muito os frutos do tapiá ou tamanqueiro (Alchornea glandulosa)."
+    "alimentacao": "Granívoro. Alimenta-se também de frutos, algumas flores e pequenos insetos. Aprecia muito os frutos do tapiá ou tamanqueiro (Alchornea glandulosa).",
+    "morfologia_llm": "```json\n{'bico': 'Generalista', 'asa': '', 'pata': '', 'cores': [\"azul-acinzentada\", \"preto\", \"acanelados\", \"branco-acinzentado\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['sementes', 'frutas', 'insetos', 'flores']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['cerrado', 'caatinga', 'campo natural', 'área alagada']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '...', 'sociabilidade': 'territorial', 'atividade': ['diurna']}\n``` \n"
   },
   {
     "Unnamed: 0": 3684,
@@ -15172,7 +15470,11 @@
     "reproducao": "Durante a reprodução vive estritamente aos casais, sendo extremamente fiéis a um território, defendido pelo macho. Atinge a maturidade sexual aos 10 meses.\nCada ninhada geralmente tem entre 2 e 3 ovos, tendo de 2 a 4 ninhadas por temporada; na região da caatinga nordestina só se reproduz uma vez no ano, no período chuvoso. Os filhotes nascem após 13 dias.\n\nCostuma cantar logo ao alvorecer, fazendo verdadeiras alvoradas matinais, embora este comportamento só seja observado durante o período reprodutivo.",
     "habitos": "Habita mata baixa rala e bem ensolarada (caatinga) e beira de rios (cerrado). Um dos pássaros mais típicos do interior do Nordeste do Brasil.",
     "dist_geo": "Ocorre especialmente nas regiões Nordeste e Sudeste, assim como em Goiás e Tocantins. \nFoi introduzido pelo homem em várias partes do Sudeste ao longo das décadas, onde inicialmente ocorria.",
-    "alimentacao": "Predominantemente granívoro com adaptação para consumo de sementes muito amargas em padrões humanos e frutas da região Nordeste, como por exemplo seriguela (Spondias purpurea) e caju (Anacardium occidentale).\nEsmaga a semente. Semente preferida= gramínea. Temporária e\nocasionalmente se torna insetívoro.Pode se alimentar de frutas em comedouros (observação pessoal, João de Almeida Prado).\nPara comer, anda e saltita catando sementes no próprio colmo do solo. \nAprende a comer em comedouros artificiais e pode se tornar muito dócil quando acostumado."
+    "alimentacao": "Predominantemente granívoro com adaptação para consumo de sementes muito amargas em padrões humanos e frutas da região Nordeste, como por exemplo seriguela (Spondias purpurea) e caju (Anacardium occidentale).\nEsmaga a semente. Semente preferida= gramínea. Temporária e\nocasionalmente se torna insetívoro.Pode se alimentar de frutas em comedouros (observação pessoal, João de Almeida Prado).\nPara comer, anda e saltita catando sementes no próprio colmo do solo. \nAprende a comer em comedouros artificiais e pode se tornar muito dócil quando acostumado.",
+    "morfologia_llm": "```json\n{'bico': 'Granívoro', 'asa': '', 'pata': '', 'cores': ['vermelho', 'cinza', 'preto', 'branco', 'pardo-anegado', 'ferrugíneo'], 'tamanho': 'Pequeno'} \n```  \n",
+    "food_llm": "```json\n{'tipo': 'granívoro', 'itens': ['sementes', 'frutas']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['caatinga', 'cerrado']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': '', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3695,
@@ -15189,7 +15491,11 @@
     "reproducao": "O ninho, construído pelo casal, é compacto, feito de pequenas raízes, musgos e pecíolos foliares, com um diâmetro externo de cerca de 11 centímetros. Fica escondido na vegetação densa, numa forquilha de árvore, em alturas variáveis. Há alguns registros de ninhos em edificações, como galpões ou garagens.\nA fêmea põe de 2 a 3 ovos de cor branca, pintados de marrom, semelhantes ao dos sabiás, só que menores, e é responsável pela incubação, que dura de 12 a 14 dias. O casal alimenta os filhotes, que deixam o ninho após 20 dias de idade.",
     "habitos": "Habita matas abertas, capões, matas ciliares, zonas de cultivo, matas degradadas ou em recuperação, e até mesmo jardins e parques urbanos, tolerando climas de úmidos a semiáridos. Vive na copa ou entre as árvores à busca de alimentos. Frequenta comedouros com frutas. Quando um macho apronta-se para agredir outro, seu canto torna-se rouco e monótono. Anda quase sempre em casais ou pequenos bandos. Também é visto junto com outra espécie de sua família, como o sanhaco-do-coqueiro, cujo canto é bem parecido.\nÉ bem ativo. Costuma ter medo de humanos, assim se assustando e voando desesperadamente.",
     "dist_geo": "Ocorre nas regiões tropicais e subtropicais ao sul da Amazônia e a leste dos Andes.",
-    "alimentacao": "Frutos, costuma consumir muito o fruto da aroeira-mansa, amoras, folhas, brotos, flores de eucaliptos e insetos, entre estes os alados de cupim “siriris”) capturados em voo. Vive normalmente na copa das árvores em busca dos frutos maduros, mas é intrépido o suficiente para apanhar também os caídos, preferindo até os que já estejam infestados de larvas e desfrutando-os com outras aves, como a saíra-amarela e o sabiá-da-praia. Aprecia muito os frutos do tapiá ou tanheiro (Alchornea glandulosa)  e os frutos/sementes da aroeira-do-campo (Schinus lentiscifolius). Costuma frequentar comedouros com frutas, como a banana e laranja. Foi observado em Jaú-SP um sanhaço-cinzento alimentando-se das flores de um ipê-amarelo (João de Almeida Prado).\nAlimenta-se de manga, do tipo carlotinha. Quando em casal, o macho, com o alimento no bico, alimenta a fêmea."
+    "alimentacao": "Frutos, costuma consumir muito o fruto da aroeira-mansa, amoras, folhas, brotos, flores de eucaliptos e insetos, entre estes os alados de cupim “siriris”) capturados em voo. Vive normalmente na copa das árvores em busca dos frutos maduros, mas é intrépido o suficiente para apanhar também os caídos, preferindo até os que já estejam infestados de larvas e desfrutando-os com outras aves, como a saíra-amarela e o sabiá-da-praia. Aprecia muito os frutos do tapiá ou tanheiro (Alchornea glandulosa)  e os frutos/sementes da aroeira-do-campo (Schinus lentiscifolius). Costuma frequentar comedouros com frutas, como a banana e laranja. Foi observado em Jaú-SP um sanhaço-cinzento alimentando-se das flores de um ipê-amarelo (João de Almeida Prado).\nAlimenta-se de manga, do tipo carlotinha. Quando em casal, o macho, com o alimento no bico, alimenta a fêmea.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"cinza\", \"azul turquesa\", \"cinza escuro\", \"esverdeado\", \"branco\"], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'insetos', 'folhas', 'brotos', 'flores']}\n``` \n",
+    "habitat_llm": "```json\n{'habitat': ['capoe', 'mata ciliar', 'zona de cultivo', 'mata degradadas', 'jardins', 'parques urbanos']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```\n\n\n"
   },
   {
     "Unnamed: 0": 3697,
@@ -15206,7 +15512,11 @@
     "reproducao": "Possui um chamado de notas agudas e assobiadas. É emitido o ano todo, com mais intensidade no período reprodutivo.\nO ninho em forma de taça, escondido no meio da folhagem densa ou então nas bainhas foliares de palmeiras, é construído pelo macho e pela fêmea. Eles utilizam folhas largas e secas, revestindo externamente com fibras vegetais. Os ovos, em geral 2, são cremes ou brancos com manchas cinzas, pardas ou negras e são incubados pela fêmea durante 14 dias. Os filhotes, que permanecem no ninho de 17 a 21 dias, são alimentados pelo casal, possivelmente por regurgitação.",
     "habitos": "Muito ativo, vive em casais e pequenos grupos, provavelmente familiares. Está sempre movimentando-se nas horas frescas do dia, lançando-se em voos longos sobre os rios ou áreas abertas. Ocasionalmente, está na parte baixa da vegetação.\nEmbora prefira os ambientes florestados, também visita capões de cerrado e áreas com adensamento dessa vegetação. Acostuma-se a pomares e ambientes urbanos bem arborizados. Pode ser visto em jardins, onde vai nos comedouros para aves para alimentar-se de frutos. Encontrado também nas cidades e até nos parques dos grandes centros urbanos do país.\n\nTem-se observado na cidade do Rio de Janeiro, a confecção de ninho em caixas protetoras de ar condicionado em edifícios de apartamentos (observação pessoal - usuário Alcir Meireles).",
     "dist_geo": "Ocorre em todo o Brasil e também na América Central ( a partir da Nicarágua ) e a maioria dos países sul americanos, desde as Guianas até o Paraguai.\n.",
-    "alimentacao": "Caça insetos no meio das folhas, às vezes ficando de cabeça para baixo nessa busca. Também apanha insetos em voo, especialmente cupins e formigas aladas, saindo de um poleiro exposto e, meio desajeitado quando comparado como o suiriri e outros mestres desse tipo de captura, volta ao pouso original ou próximo.\nAlém de insetos, complementa a dieta com néctar e frutos, especialmente da embaúba. Costuma frequentar comedouros com frutas."
+    "alimentacao": "Caça insetos no meio das folhas, às vezes ficando de cabeça para baixo nessa busca. Também apanha insetos em voo, especialmente cupins e formigas aladas, saindo de um poleiro exposto e, meio desajeitado quando comparado como o suiriri e outros mestres desse tipo de captura, volta ao pouso original ou próximo.\nAlém de insetos, complementa a dieta com néctar e frutos, especialmente da embaúba. Costuma frequentar comedouros com frutas.",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': ['verde', 'amarelada'], 'tamanho': 'Pequeno'}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['insetos', 'frutos', 'néctar']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['campo natural', 'floresta aberta', 'área urbana']}\n```",
+    "behavior_llm": "```json\n{'locomocao': 'voadora', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   },
   {
     "Unnamed: 0": 3704,
@@ -15223,6 +15533,10 @@
     "reproducao": "O ninho, em forma de taça aberta, é feito com folhas, raízes e capins e envolto por finas raízes. Ele é colocado em ramos com folhas a cerca de 2 m do solo, em árvores baixas e isoladas. A postura consta normalmente de 2 ou 3 ovos. Os ovos são esbranquiçados, azul-pálidos ou branco-pardos com manchas pardas num dos pólos. A fêmea, embora auxiliada pelo macho, é a responsável pela maior parte da construção do ninho, incuba os ovos e aquece os filhotes. Durante este período o macho permanece nas proximidades do ninho e alguns podem alimentar a fêmea. O macho auxilia também na alimentação dos filhotes.",
     "habitos": "Habita capoeiras, matas abertas e ciliares, áreas cultivadas, parques e jardins. Vive aos pares ou em pequenos grupos.",
     "dist_geo": "A espécie é dividida em dois grupos:",
-    "alimentacao": "Essa saíra se alimenta de frutos e insetos como cupins e vespas. Costuma freqüentar comedouros e árvores com frutos maduros, como a aroeira-vermelha(Schinus terebinthifolia), Magnólias(Magnolia spp) e Tapiá ou Tanheiro (Alchornea glandulosa)."
+    "alimentacao": "Essa saíra se alimenta de frutos e insetos como cupins e vespas. Costuma freqüentar comedouros e árvores com frutos maduros, como a aroeira-vermelha(Schinus terebinthifolia), Magnólias(Magnolia spp) e Tapiá ou Tanheiro (Alchornea glandulosa).",
+    "morfologia_llm": "```json\n{'bico': '', 'asa': '', 'pata': '', 'cores': [\"amarelo-dourada\", \"preto\", \"amarelo\"], 'tamanho': ''}\n```",
+    "food_llm": "```json\n{'tipo': 'onívoro', 'itens': ['frutas', 'insetos']}\n```",
+    "habitat_llm": "```json\n{'habitat': ['capoeira', 'área ciliar', 'área urbana', 'plantação']}\n```",
+    "behavior_llm": "```json\n{'locomocao': '', 'sociabilidade': 'gregária', 'atividade': ['diurna']}\n```"
   }
 ]
