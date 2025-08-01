@@ -82,7 +82,7 @@ def scraper_wikiaves(url):
 
 
 if __name__ == "__main__":
-    path_json = "result_scraper_wikiaves_udi.json"
+    path_json = "../data/oficial/result_scraper_wikiaves_udi.json"
 
     with open(path_json) as file:
         data = json.load(file)

@@ -65,7 +65,7 @@ TPM = 15000
 TPD = 500000
 
 if __name__ == "__main__":
-    path_json = "result_llm_wikiaves_udi.json"
+    path_json = "../data/oficial/result_llm_wikiaves_udi.json"
     model = "gemma2-9b-it"
 
     with open(path_json) as file:
