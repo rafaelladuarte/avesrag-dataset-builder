@@ -72,17 +72,22 @@ def scraper_wikiaves(url):
                     result[chave_atual] = text
                     chave_atual = None
 
+            img_element = page.query_selector("#FOTOPRINCIPAL img")
+            if img_element:
+                link_img = img_element.get_attribute("src")
+
+            result["url_image"] = link_img
             browser.close()
 
             return result
     except Exception as e:
         print(e)
-        sleep(random.uniform(5, 20))
+        sleep(random.uniform(20, 60))
         return {}
 
 
 if __name__ == "__main__":
-    path_json = "../data/oficial/result_scraper_wikiaves_udi.json"
+    path_json = "data/treat/dedup_result_scraper_wikiaves_udi.json"
 
     with open(path_json) as file:
         data = json.load(file)
@@ -94,7 +99,7 @@ if __name__ == "__main__":
         tax = d["taxonomia"]
 
         print(f"{i}/{n} - {tax}")
-        if d["caracteristicas"] is None:
+        if d.get("url_image") is None:
 
             increment_dataset = scraper_wikiaves(url)
 
@@ -107,8 +112,9 @@ if __name__ == "__main__":
             d["dist_geo"] = increment_dataset.get(
                 "Distribuição Geográfica", None
             )
+            d["url_image"] = increment_dataset.get("url_image", None)
 
-            sleep(random.uniform(1, 5))
+            sleep(random.uniform(3, 10))
 
             j += 1
 
@@ -116,7 +122,7 @@ if __name__ == "__main__":
         else:
             print("Information for bird is exists")
 
-        if j == 20:
+        if j == 5:
             with open(
                 path_json,
                 "w",

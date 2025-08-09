@@ -90,8 +90,3 @@ O dataset gerado por este pipeline será utilizado no **AvesRAG**, um sistema ba
 ├── README.md
 └── requirements.txt
 ```
-
-## 📫 Contato
-
-Para dúvidas ou contribuições, entre em contato com \[Seu Nome ou GitHub] ou envie uma issue!
-
