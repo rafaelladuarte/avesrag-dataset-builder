@@ -80,13 +80,7 @@ O dataset gerado por este pipeline será utilizado no **AvesRAG**, um sistema ba
 │   ├── raw/                    # Dados brutos (CBRO, HTMLs do WikiAves, etc)
 │   ├── treat/                  # Dados tratados e enriquecidos
 │   ├── oficial/                # Dados normalizados e validados
-├── scripts/
-│   ├── etl_00_merge_cbro_wikiaves.ipynb   # Extração da lista CBRO
-│   ├── etl_01_scraper_wikiaves.py      # Scraper de descrições do WikiAves
-│   ├── etl_02_extraction_info_llm.py     # Extração com LLM (via API GROQ)
-│   ├── etl_03_parameterization_info_llm.ipynb     # Parametrização dos dados extraidos com LLM
-│   ├── etl_04_dataset_graph.ipynb     # Normalização dos dados para grafos
-│   └── XXXXXXX
+├── scripts/                    # Scripts e Notebooks de extração, tratamento e validação dos dados.
 ├── README.md
 └── requirements.txt
 ```

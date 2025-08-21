@@ -8,6 +8,13 @@ import os
 import re
 
 
+def tem_caracter_chines(texto):
+    import re
+    # Regex para caracteres chineses (CJK Unified Ideographs)
+    padrao = r'[\u4e00-\u9fff]'
+    return bool(re.search(padrao, texto))
+
+
 def save_resut(path_json, data):
     with open(
         path_json,
@@ -64,7 +71,8 @@ TPD = 500000
 
 if __name__ == "__main__":
     path_json = "data/treat/dedup2_result_scraper_wikiaves_udi.json"
-    model = "deepseek-r1-distill-llama-70b"
+    # model = "deepseek-r1-distill-llama-70b"
+    model = "llama-3.1-8b-instant"
 
     with open(path_json) as file:
         list_birds = json.load(file)
@@ -87,7 +95,7 @@ if __name__ == "__main__":
 
             print(f"{i+1}/{n} - {tax}")
 
-            if bird.get("resumo_llm", None) is None:
+            if tem_caracter_chines(bird.get("resumo_llm")):
 
                 prompt_mor = formatted_resume_prompt(
                     tax,
@@ -97,8 +105,9 @@ if __name__ == "__main__":
 
                 return_llm = get_info_llm(model, prompt_mor)
 
-                match = re.search(r'</think>(.*)', return_llm, re.DOTALL)
-                group = match.group(0)
+                # match = re.search(r'</think>(.*)', return_llm, re.DOTALL)
+                # group = match.group(0)
+                group = return_llm.strip()
                 if group:
                     resume = group.replace('\n', '').strip()
                     resume = resume.replace('</think>', '')
