@@ -139,3 +139,55 @@ def formatted_morphology_prompt(
     """
 
     return prompt
+
+
+def formatted_color_prompt(
+        order: str = None, family: str = None,
+        genre: str = None, specie: str = None,
+        feature: str = None
+) -> str:
+
+    example_output = {
+        "cores": ["lista das principais cores observadas na plumagem"],
+    }
+    prompt = f"""
+        [INSTRUÇÃO]
+        Você é um ornitólogo especializado em morfologia de aves. Sua tarefa é
+        extrair as **principais cores predominantes** da plumagem a partir de um texto descritivo,
+        preenchendo os campos abaixo com base nas categorias pré-definidas.
+
+        ⚠️ IMPORTANTE:
+        - Todas as classificações devem ser escolhidas **exclusivamente entre as cores listadas abaixo**.  
+        - Considere apenas as cores **mais predominantes** na plumagem. Ignore manchas, detalhes pequenos ou cores secundárias.  
+        Exemplo: se a descrição de uma pomba for “cinza e marrom, com algumas manchas azuis”, o resultado deve ser `["cinza", "marrom"]`.  
+        - Retorne **até 5 cores no máximo**.
+        - Se a informação não estiver presente ou não puder ser inferida com base no texto e nas características diagnósticas universais da espécie, retorne uma **string vazia `""`**.  
+        - A resposta deve conter **somente JSON válido**. Não inclua comentários ou texto adicional.
+
+        * **cores** (lista):
+        Liste até 5 cores predominantes da plumagem.
+        Escolha somente entre:  
+        ["preto", "branco", "cinza", "marrom", "bege", "amarelo", "laranja", "vermelho", "rosa", "roxo", "azul", "verde", "dourado", "prateado"]
+
+        ### Formato da resposta (JSON obrigatório):
+        ```json
+        {str(example_output)}
+        ````
+        [CONTEXTO]
+        Ordem: {order}
+        Família: {family}
+        Gênero: {genre}
+        Espécie: {specie}
+
+        Texto descritivo:
+        {feature}
+
+        [SAÍDA ESPERADA]
+        ⚠️ A resposta deve ser exclusivamente no formato JSON abaixo,
+        sem nenhum texto adicional antes ou depois:
+        ```json
+        {str(example_output)}
+        ```
+    """
+
+    return prompt

@@ -42,7 +42,8 @@
     "qtd_registros": 21.0,
     "frequencia_normalizada": 0.1307189542,
     "cores2": [
-      "cinza"
+      "cinza",
+      "marrom"
     ]
   },
   {
@@ -74,8 +75,8 @@
     "qtd_registros": 8.0,
     "frequencia_normalizada": 0.045751634,
     "cores2": [
-      "cinza",
-      "marrom"
+      "branco",
+      "porcelana"
     ]
   },
   {
@@ -113,7 +114,11 @@
     "qtd_registros": 16.0,
     "frequencia_normalizada": 0.0980392157,
     "cores2": [
-      "marrom"
+      "marrom",
+      "avermelhado",
+      "acinzentado",
+      "vermelho",
+      "rosáceo"
     ]
   },
   {
@@ -159,7 +164,12 @@
     "qtd_registros": 4.0,
     "frequencia_normalizada": 0.0196078431,
     "cores2": [
-      "marrom"
+      "marrom",
+      "bege",
+      "claro",
+      "cinza",
+      "branco",
+      "verde"
     ]
   },
   {
@@ -198,8 +208,9 @@
     "frequencia_normalizada": 0.1176470588,
     "cores2": [
       "marrom",
-      "amarelo",
-      "branco"
+      "amarado",
+      "branco",
+      "laranja"
     ]
   },
   {
@@ -234,7 +245,8 @@
     "frequencia_normalizada": 0.0196078431,
     "cores2": [
       "preto",
-      "branco"
+      "branco",
+      "marrom"
     ]
   },
   {
@@ -278,7 +290,8 @@
       "branco",
       "preto",
       "marrom",
-      "bege"
+      "bege",
+      "cinza"
     ]
   },
   {
@@ -317,10 +330,12 @@
     "qtd_registros": 29.0,
     "frequencia_normalizada": 0.1830065359,
     "cores2": [
-      "cinza",
       "preto",
       "branco",
-      "vermelho"
+      "vermelho",
+      "cinzenta",
+      "marrom",
+      "roxo"
     ]
   },
   {
@@ -364,11 +379,7 @@
       "crepuscular"
     ],
     "qtd_registros": 31.0,
-    "frequencia_normalizada": 0.1960784314,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1960784314
   },
   {
     "taxonomia": "Sarkidiornis sylvicola",
@@ -399,11 +410,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "marrom",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Amazonetta brasiliensis",
@@ -437,10 +444,7 @@
       "crepuscular"
     ],
     "qtd_registros": null,
-    "frequencia_normalizada": null,
-    "cores2": [
-      ""
-    ]
+    "frequencia_normalizada": null
   },
   {
     "taxonomia": "Nomonyx dominicus",
@@ -466,11 +470,7 @@
       "diurna"
     ],
     "qtd_registros": 17.0,
-    "frequencia_normalizada": 0.1045751634,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1045751634
   },
   {
     "taxonomia": "Penelope superciliaris",
@@ -506,12 +506,7 @@
       "diurna"
     ],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "vermelho",
-      "cinza",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Crax fasciolata",
@@ -549,14 +544,7 @@
       "diurna"
     ],
     "qtd_registros": 56.0,
-    "frequencia_normalizada": 0.3594771242,
-    "cores2": [
-      "preto",
-      "branco",
-      "bege",
-      "azul",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.3594771242
   },
   {
     "taxonomia": "Tachybaptus dominicus",
@@ -593,13 +581,7 @@
       "noturna"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "preto",
-      "pardo-acinzentada",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "Columba livia",
@@ -626,11 +608,7 @@
       "diurna"
     ],
     "qtd_registros": 31.0,
-    "frequencia_normalizada": 0.1960784314,
-    "cores2": [
-      "pretos",
-      "brancos"
-    ]
+    "frequencia_normalizada": 0.1960784314
   },
   {
     "taxonomia": "Patagioenas picazuro",
@@ -671,12 +649,7 @@
       "diurna"
     ],
     "qtd_registros": 84.0,
-    "frequencia_normalizada": 0.5424836601,
-    "cores2": [
-      "marrom",
-      "branco",
-      "roxo"
-    ]
+    "frequencia_normalizada": 0.5424836601
   },
   {
     "taxonomia": "Patagioenas cayennensis",
@@ -709,11 +682,7 @@
       "diurna"
     ],
     "qtd_registros": 23.0,
-    "frequencia_normalizada": 0.1437908497,
-    "cores2": [
-      "vinosa",
-      "cinza-azulado"
-    ]
+    "frequencia_normalizada": 0.1437908497
   },
   {
     "taxonomia": "Leptotila verreauxi",
@@ -749,14 +718,7 @@
       "diurna"
     ],
     "qtd_registros": 17.0,
-    "frequencia_normalizada": 0.1045751634,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "azul",
-      "vermelho-ferrugem",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1045751634
   },
   {
     "taxonomia": "Leptotila rufaxilla",
@@ -793,12 +755,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "branco",
-      "rosa",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Zenaida auriculata",
@@ -837,12 +794,7 @@
       "diurna"
     ],
     "qtd_registros": 133.0,
-    "frequencia_normalizada": 0.862745098,
-    "cores2": [
-      "marrom",
-      "preto",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.862745098
   },
   {
     "taxonomia": "Claravis pretiosa",
@@ -877,13 +829,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "cinza-azulada",
-      "pardo",
-      "castanho",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Columbina minuta",
@@ -911,14 +857,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "pardo-escuro",
-      "cinza",
-      "azul",
-      "vermelho",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Columbina talpacoti",
@@ -953,14 +892,7 @@
       "diurna"
     ],
     "qtd_registros": 42.0,
-    "frequencia_normalizada": 0.2679738562,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "preto",
-      "branco",
-      "pardo"
-    ]
+    "frequencia_normalizada": 0.2679738562
   },
   {
     "taxonomia": "Columbina squammata",
@@ -995,12 +927,7 @@
       "diurna"
     ],
     "qtd_registros": 42.0,
-    "frequencia_normalizada": 0.2679738562,
-    "cores2": [
-      "marrom-acinzentada",
-      "cinza-rosado",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.2679738562
   },
   {
     "taxonomia": "Guira guira",
@@ -1047,12 +974,7 @@
       "crepuscular"
     ],
     "qtd_registros": 64.0,
-    "frequencia_normalizada": 0.4117647059,
-    "cores2": [
-      "ocre-amarelada",
-      "amarelo",
-      "alaranjada"
-    ]
+    "frequencia_normalizada": 0.4117647059
   },
   {
     "taxonomia": "Crotophaga ani",
@@ -1089,10 +1011,7 @@
       "diurna"
     ],
     "qtd_registros": 65.0,
-    "frequencia_normalizada": 0.4183006536,
-    "cores2": [
-      "preto"
-    ]
+    "frequencia_normalizada": 0.4183006536
   },
   {
     "taxonomia": "Tapera naevia",
@@ -1129,12 +1048,7 @@
       "diurna"
     ],
     "qtd_registros": 13.0,
-    "frequencia_normalizada": 0.0784313725,
-    "cores2": [
-      "castanho",
-      "canela",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0784313725
   },
   {
     "taxonomia": "Piaya cayana",
@@ -1173,12 +1087,7 @@
       "diurna"
     ],
     "qtd_registros": 61.0,
-    "frequencia_normalizada": 0.3921568627,
-    "cores2": [
-      "ferrugíneo",
-      "acinzentado",
-      "escuro"
-    ]
+    "frequencia_normalizada": 0.3921568627
   },
   {
     "taxonomia": "Coccyzus melacoryphus",
@@ -1220,14 +1129,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "alaranjado",
-      "acinzentado",
-      "preto",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Coccyzus americanus",
@@ -1264,13 +1166,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "preto",
-      "amarelo",
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Nyctibius griseus",
@@ -1300,12 +1196,7 @@
       "noturna"
     ],
     "qtd_registros": 21.0,
-    "frequencia_normalizada": 0.1307189542,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.1307189542
   },
   {
     "taxonomia": "Nyctidromus albicollis",
@@ -1347,13 +1238,7 @@
       "diurna"
     ],
     "qtd_registros": 17.0,
-    "frequencia_normalizada": 0.1045751634,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1045751634
   },
   {
     "taxonomia": "Hydropsalis parvula",
@@ -1382,12 +1267,7 @@
       "noturna"
     ],
     "qtd_registros": 10.0,
-    "frequencia_normalizada": 0.0588235294,
-    "cores2": [
-      "branco",
-      "amarelo",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0588235294
   },
   {
     "taxonomia": "Hydropsalis anomala",
@@ -1416,12 +1296,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "branco",
-      "amarinho",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Hydropsalis maculicaudus",
@@ -1452,12 +1327,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "preto",
-      "branco",
-      "roxo"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Hydropsalis torquata",
@@ -1489,11 +1359,7 @@
       "noturna"
     ],
     "qtd_registros": 5.0,
-    "frequencia_normalizada": 0.0261437908,
-    "cores2": [
-      "marrom",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0261437908
   },
   {
     "taxonomia": "nullnochordeiles pusillus",
@@ -1531,13 +1397,7 @@
       "noturna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "marrom",
-      "branco-acinzentado",
-      "castanho",
-      "camurça-pálido"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Podager nacunda",
@@ -1568,11 +1428,7 @@
       "crepuscular"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Chordeiles minor",
@@ -1608,12 +1464,7 @@
       "crepuscular"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "branco",
-      "branca",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Cypseloides fumigatus",
@@ -1642,10 +1493,7 @@
       "noturna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Cypseloides senex",
@@ -1671,10 +1519,7 @@
       "diurna"
     ],
     "qtd_registros": 14.0,
-    "frequencia_normalizada": 0.0849673203,
-    "cores2": [
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0849673203
   },
   {
     "taxonomia": "Streptoprocne zonaris",
@@ -1705,11 +1550,7 @@
       "diurna"
     ],
     "qtd_registros": 7.0,
-    "frequencia_normalizada": 0.0392156863,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0392156863
   },
   {
     "taxonomia": "Chaetura meridionalis",
@@ -1739,11 +1580,7 @@
       "noturna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "branco",
-      "bege"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Tachornis squamata",
@@ -1774,11 +1611,7 @@
       "diurna"
     ],
     "qtd_registros": 33.0,
-    "frequencia_normalizada": 0.2091503268,
-    "cores2": [
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.2091503268
   },
   {
     "taxonomia": "Florisuga fusca",
@@ -1813,10 +1646,7 @@
       "diurna"
     ],
     "qtd_registros": 11.0,
-    "frequencia_normalizada": 0.0653594771,
-    "cores2": [
-      "verde"
-    ]
+    "frequencia_normalizada": 0.0653594771
   },
   {
     "taxonomia": "Phaethornis pretrei",
@@ -1854,11 +1684,7 @@
       "diurna"
     ],
     "qtd_registros": 20.0,
-    "frequencia_normalizada": 0.1241830065,
-    "cores2": [
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1241830065
   },
   {
     "taxonomia": "Colibri serrirostris",
@@ -1898,12 +1724,7 @@
       "crepuscular"
     ],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "verde",
-      "roxo",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Heliactin bilophus",
@@ -1939,14 +1760,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "vermelho",
-      "azul",
-      "dourado",
-      "bronze",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Anthracothorax nigricollis",
@@ -1974,11 +1788,7 @@
       "diurna"
     ],
     "qtd_registros": 28.0,
-    "frequencia_normalizada": 0.1764705882,
-    "cores2": [
-      "verde",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.1764705882
   },
   {
     "taxonomia": "Heliomaster squamosus",
@@ -2012,13 +1822,7 @@
       "diurna"
     ],
     "qtd_registros": 38.0,
-    "frequencia_normalizada": 0.2418300654,
-    "cores2": [
-      "vermelho",
-      "azul",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.2418300654
   },
   {
     "taxonomia": "Heliomaster furcifer",
@@ -2050,13 +1854,7 @@
       "diurna"
     ],
     "qtd_registros": 17.0,
-    "frequencia_normalizada": 0.1045751634,
-    "cores2": [
-      "azul",
-      "verde",
-      "rosa",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1045751634
   },
   {
     "taxonomia": "Calliphlox amethystina",
@@ -2095,11 +1893,7 @@
       "noturna"
     ],
     "qtd_registros": 10.0,
-    "frequencia_normalizada": 0.0588235294,
-    "cores2": [
-      "azul",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0588235294
   },
   {
     "taxonomia": "Chlorostilbon lucidus",
@@ -2136,13 +1930,7 @@
       "diurna"
     ],
     "qtd_registros": 51.0,
-    "frequencia_normalizada": 0.3267973856,
-    "cores2": [
-      "verde",
-      "dourado",
-      "azul",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.3267973856
   },
   {
     "taxonomia": "Thalurania furcata",
@@ -2180,13 +1968,7 @@
       "diurna"
     ],
     "qtd_registros": 51.0,
-    "frequencia_normalizada": 0.3267973856,
-    "cores2": [
-      "verde",
-      "azul-violeta",
-      "cinza",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.3267973856
   },
   {
     "taxonomia": "Eupetomena macroura",
@@ -2224,11 +2006,7 @@
       "diurna"
     ],
     "qtd_registros": 92.0,
-    "frequencia_normalizada": 0.5947712418,
-    "cores2": [
-      "azul violeta",
-      "azul-escuro"
-    ]
+    "frequencia_normalizada": 0.5947712418
   },
   {
     "taxonomia": "Aphantochroa cirrochloris",
@@ -2263,14 +2041,7 @@
       "diurna"
     ],
     "qtd_registros": 22.0,
-    "frequencia_normalizada": 0.137254902,
-    "cores2": [
-      "preto",
-      "verde",
-      "azul",
-      "branco",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.137254902
   },
   {
     "taxonomia": "Chrysuronia versicolor",
@@ -2304,14 +2075,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "esverdeada",
-      "verde",
-      "azul",
-      "vermelho",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Chionomesa fimbriata",
@@ -2343,12 +2107,7 @@
       "diurna"
     ],
     "qtd_registros": 40.0,
-    "frequencia_normalizada": 0.2549019608,
-    "cores2": [
-      "verde",
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.2549019608
   },
   {
     "taxonomia": "Chionomesa lactea",
@@ -2384,13 +2143,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "verde",
-      "azul",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Hylocharis chrysura",
@@ -2427,14 +2180,7 @@
       "diurna"
     ],
     "qtd_registros": 5.0,
-    "frequencia_normalizada": 0.0261437908,
-    "cores2": [
-      "verde",
-      "ouro",
-      "branco",
-      "vermelho",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0261437908
   },
   {
     "taxonomia": "Aramus guarauna",
@@ -2468,12 +2214,7 @@
       "diurna"
     ],
     "qtd_registros": 14.0,
-    "frequencia_normalizada": 0.0849673203,
-    "cores2": [
-      "pardo-escuro",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0849673203
   },
   {
     "taxonomia": "Porphyrio martinica",
@@ -2509,11 +2250,7 @@
       "diurna"
     ],
     "qtd_registros": 19.0,
-    "frequencia_normalizada": 0.1176470588,
-    "cores2": [
-      "marrom",
-      "roxo"
-    ]
+    "frequencia_normalizada": 0.1176470588
   },
   {
     "taxonomia": "Rufirallus viridis",
@@ -2546,14 +2283,7 @@
       "diurna"
     ],
     "qtd_registros": 18.0,
-    "frequencia_normalizada": 0.1111111111,
-    "cores2": [
-      "marrom",
-      "amarelo",
-      "vermelho",
-      "preto",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.1111111111
   },
   {
     "taxonomia": "Laterallus melanophaius",
@@ -2592,14 +2322,7 @@
       "diurna"
     ],
     "qtd_registros": 18.0,
-    "frequencia_normalizada": 0.1111111111,
-    "cores2": [
-      "cinza",
-      "olivácea",
-      "marrom",
-      "amarelo",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1111111111
   },
   {
     "taxonomia": "Laterallus exilis",
@@ -2635,14 +2358,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "verde",
-      "vermelho",
-      "castanha",
-      "cinza",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Micropygia schomburgkii",
@@ -2677,13 +2393,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "marrom",
-      "branco",
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Mustelirallus albicollis",
@@ -2719,13 +2429,7 @@
       ""
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "preto",
-      "marrom",
-      "bege",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Pardirallus nigricans",
@@ -2763,14 +2467,7 @@
       "noturna"
     ],
     "qtd_registros": 11.0,
-    "frequencia_normalizada": 0.0653594771,
-    "cores2": [
-      "marrom",
-      "branco",
-      "cinza",
-      "verde",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0653594771
   },
   {
     "taxonomia": "Amaurolimnas concolor",
@@ -2800,11 +2497,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "preto",
-      "acinzento"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Aramides cajaneus",
@@ -2848,12 +2541,7 @@
       "crepuscular"
     ],
     "qtd_registros": 43.0,
-    "frequencia_normalizada": 0.2745098039,
-    "cores2": [
-      "marrom",
-      "verde",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.2745098039
   },
   {
     "taxonomia": "Gallinula galeata",
@@ -2889,13 +2577,7 @@
       "crepuscular"
     ],
     "qtd_registros": 7.0,
-    "frequencia_normalizada": 0.0392156863,
-    "cores2": [
-      "cinza",
-      "branco",
-      "vermelho",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0392156863
   },
   {
     "taxonomia": "Heliornis fulica",
@@ -2938,11 +2620,7 @@
       "noturna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Vanellus chilensis",
@@ -2977,12 +2655,7 @@
       "diurna"
     ],
     "qtd_registros": 76.0,
-    "frequencia_normalizada": 0.4901960784,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinzento"
-    ]
+    "frequencia_normalizada": 0.4901960784
   },
   {
     "taxonomia": "Gallinago undulata",
@@ -3014,12 +2687,7 @@
       "noturna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "amarelo",
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Gallinago paraguaiae",
@@ -3054,12 +2722,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "cinza",
-      "amarelo",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Actitis macularius",
@@ -3103,13 +2766,7 @@
       "crepuscular"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "marrom",
-      "bege",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Tringa solitaria",
@@ -3141,13 +2798,7 @@
       "diurna"
     ],
     "qtd_registros": 9.0,
-    "frequencia_normalizada": 0.0522875817,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.0522875817
   },
   {
     "taxonomia": "Jacana jacana",
@@ -3182,14 +2833,7 @@
       "diurna"
     ],
     "qtd_registros": 16.0,
-    "frequencia_normalizada": 0.0980392157,
-    "cores2": [
-      "preto",
-      "marrom",
-      "amarillo",
-      "vermelho",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.0980392157
   },
   {
     "taxonomia": "Jabiru mycteria",
@@ -3225,12 +2869,7 @@
       "diurna"
     ],
     "qtd_registros": 5.0,
-    "frequencia_normalizada": 0.0261437908,
-    "cores2": [
-      "branco",
-      "preto",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0261437908
   },
   {
     "taxonomia": "Mycteria americana",
@@ -3261,13 +2900,7 @@
     ],
     "atividade": [],
     "qtd_registros": 28.0,
-    "frequencia_normalizada": 0.1764705882,
-    "cores2": [
-      "preto",
-      "branco",
-      "preto",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.1764705882
   },
   {
     "taxonomia": "Anhinga anhinga",
@@ -3301,11 +2934,7 @@
       "crepuscular"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "nullnopterum brasilianum",
@@ -3353,11 +2982,7 @@
       "diurna"
     ],
     "qtd_registros": 45.0,
-    "frequencia_normalizada": 0.2875816993,
-    "cores2": [
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.2875816993
   },
   {
     "taxonomia": "Tigrisoma lineatum",
@@ -3398,14 +3023,7 @@
       "crepuscular"
     ],
     "qtd_registros": 19.0,
-    "frequencia_normalizada": 0.1176470588,
-    "cores2": [
-      "preto",
-      "vermelho",
-      "branco",
-      "marrom",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.1176470588
   },
   {
     "taxonomia": "Nycticorax nycticorax",
@@ -3449,12 +3067,7 @@
       "crepuscular"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "preto",
-      "cinza",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "Butorides striata",
@@ -3490,11 +3103,7 @@
       "crepuscular"
     ],
     "qtd_registros": 24.0,
-    "frequencia_normalizada": 0.1503267974,
-    "cores2": [
-      "azul",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1503267974
   },
   {
     "taxonomia": "Bubulcus ibis",
@@ -3539,14 +3148,7 @@
       "diurna"
     ],
     "qtd_registros": 13.0,
-    "frequencia_normalizada": 0.0784313725,
-    "cores2": [
-      "laranja",
-      "branco",
-      "preto",
-      "amarelo",
-      "rosa"
-    ]
+    "frequencia_normalizada": 0.0784313725
   },
   {
     "taxonomia": "Ardea cocoi",
@@ -3584,11 +3186,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "cinza",
-      "acastanhado preto"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Ardea alba",
@@ -3631,12 +3229,7 @@
       "diurna"
     ],
     "qtd_registros": 37.0,
-    "frequencia_normalizada": 0.2352941176,
-    "cores2": [
-      "branco",
-      "amarelo",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.2352941176
   },
   {
     "taxonomia": "Syrigma sibilatrix",
@@ -3681,14 +3274,7 @@
       "crepuscular"
     ],
     "qtd_registros": 55.0,
-    "frequencia_normalizada": 0.3529411765,
-    "cores2": [
-      "cinza",
-      "amarelo",
-      "azul-clara",
-      "roxo",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.3529411765
   },
   {
     "taxonomia": "Pilherodius pileatus",
@@ -3731,13 +3317,7 @@
       "diurna"
     ],
     "qtd_registros": 21.0,
-    "frequencia_normalizada": 0.1307189542,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1307189542
   },
   {
     "taxonomia": "Egretta thula",
@@ -3780,12 +3360,7 @@
       "diurna"
     ],
     "qtd_registros": 25.0,
-    "frequencia_normalizada": 0.1568627451,
-    "cores2": [
-      "branco",
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1568627451
   },
   {
     "taxonomia": "Mesembrinibis cayennensis",
@@ -3827,13 +3402,7 @@
       "diurna"
     ],
     "qtd_registros": 47.0,
-    "frequencia_normalizada": 0.3006535948,
-    "cores2": [
-      "preto",
-      "verde",
-      "azul",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.3006535948
   },
   {
     "taxonomia": "Phimosus infuscatus",
@@ -3871,11 +3440,7 @@
       "diurna"
     ],
     "qtd_registros": 16.0,
-    "frequencia_normalizada": 0.0980392157,
-    "cores2": [
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0980392157
   },
   {
     "taxonomia": "Theristicus caudatus",
@@ -3914,11 +3479,7 @@
       "crepuscular"
     ],
     "qtd_registros": 119.0,
-    "frequencia_normalizada": 0.7712418301,
-    "cores2": [
-      "cinza",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.7712418301
   },
   {
     "taxonomia": "Platalea ajaja",
@@ -3955,13 +3516,7 @@
       "diurna"
     ],
     "qtd_registros": 7.0,
-    "frequencia_normalizada": 0.0392156863,
-    "cores2": [
-      "rosa",
-      "branco",
-      "cinzento",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0392156863
   },
   {
     "taxonomia": "Sarcoramphus papa",
@@ -3998,14 +3553,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "preto",
-      "branco",
-      "amarelo",
-      "vermelho",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Coragyps atratus",
@@ -4042,10 +3590,7 @@
       "diurna"
     ],
     "qtd_registros": 63.0,
-    "frequencia_normalizada": 0.4052287582,
-    "cores2": [
-      "preto"
-    ]
+    "frequencia_normalizada": 0.4052287582
   },
   {
     "taxonomia": "Cathartes aura",
@@ -4080,11 +3625,7 @@
       "crepuscular"
     ],
     "qtd_registros": 23.0,
-    "frequencia_normalizada": 0.1437908497,
-    "cores2": [
-      "vermelho",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1437908497
   },
   {
     "taxonomia": "Cathartes burrovianus",
@@ -4118,11 +3659,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "marrom",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Pandion haliaetus",
@@ -4160,12 +3697,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "marrom",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Gampsonyx swainsonii",
@@ -4203,14 +3735,7 @@
       "diurna"
     ],
     "qtd_registros": 34.0,
-    "frequencia_normalizada": 0.2156862745,
-    "cores2": [
-      "branco",
-      "cinza",
-      "creme-amarelo",
-      "castanho",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.2156862745
   },
   {
     "taxonomia": "Elanus leucurus",
@@ -4247,13 +3772,7 @@
       "diurna"
     ],
     "qtd_registros": 27.0,
-    "frequencia_normalizada": 0.1699346405,
-    "cores2": [
-      "branco",
-      "cinza-clara",
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1699346405
   },
   {
     "taxonomia": "Chondrohierax uncinatus",
@@ -4286,13 +3805,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Leptodon cayanensis",
@@ -4327,13 +3840,7 @@
       "diurna"
     ],
     "qtd_registros": 11.0,
-    "frequencia_normalizada": 0.0653594771,
-    "cores2": [
-      "cinza",
-      "preto",
-      "branco",
-      "negro"
-    ]
+    "frequencia_normalizada": 0.0653594771
   },
   {
     "taxonomia": "Elanoides forficatus",
@@ -4365,11 +3872,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Spizaetus tyrannus",
@@ -4405,11 +3908,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Busarellus nigricollis",
@@ -4450,14 +3949,7 @@
       "crepuscular"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "marrom",
-      "laranja",
-      "preto",
-      "branco",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Rostrhamus sociabilis",
@@ -4495,14 +3987,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "cinza",
-      "branco",
-      "laranja",
-      "preto",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Harpagus diodon",
@@ -4540,14 +4025,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "cinza",
-      "cinza-escuro",
-      "marrom",
-      "amarelo",
-      "castanho"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Ictinia plumbea",
@@ -4585,14 +4063,7 @@
       "diurna"
     ],
     "qtd_registros": 39.0,
-    "frequencia_normalizada": 0.2483660131,
-    "cores2": [
-      "cinza",
-      "castanho",
-      "vermelho",
-      "alaranjado",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.2483660131
   },
   {
     "taxonomia": "Circus buffoni",
@@ -4623,10 +4094,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Accipiter striatus",
@@ -4664,13 +4132,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "verde",
-      "preto",
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Accipiter bicolor",
@@ -4705,12 +4167,7 @@
       "diurna"
     ],
     "qtd_registros": 16.0,
-    "frequencia_normalizada": 0.0980392157,
-    "cores2": [
-      "cinza",
-      "azul",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.0980392157
   },
   {
     "taxonomia": "Geranospiza caerulescens",
@@ -4760,13 +4217,7 @@
       "diurna"
     ],
     "qtd_registros": 15.0,
-    "frequencia_normalizada": 0.091503268,
-    "cores2": [
-      "cinza",
-      "preto",
-      "branco",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.091503268
   },
   {
     "taxonomia": "Heterospizias meridionalis",
@@ -4811,10 +4262,7 @@
       "noturna"
     ],
     "qtd_registros": 54.0,
-    "frequencia_normalizada": 0.3464052288,
-    "cores2": [
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.3464052288
   },
   {
     "taxonomia": "Urubitinga urubitinga",
@@ -4850,11 +4298,7 @@
     ],
     "atividade": [],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Urubitinga coronata",
@@ -4886,10 +4330,7 @@
       "diurna"
     ],
     "qtd_registros": 31.0,
-    "frequencia_normalizada": 0.1960784314,
-    "cores2": [
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.1960784314
   },
   {
     "taxonomia": "Rupornis magnirostris",
@@ -4930,14 +4371,7 @@
       "diurna"
     ],
     "qtd_registros": 95.0,
-    "frequencia_normalizada": 0.614379085,
-    "cores2": [
-      "marrom",
-      "branco",
-      "preto",
-      "ferruginoso",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.614379085
   },
   {
     "taxonomia": "Parabuteo unicinctus",
@@ -4981,12 +4415,7 @@
       "crepuscular"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "castanho-escura",
-      "castanho-avermelhado",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Geranoaetus albicaudatus",
@@ -5024,11 +4453,7 @@
       "diurna"
     ],
     "qtd_registros": 46.0,
-    "frequencia_normalizada": 0.2941176471,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.2941176471
   },
   {
     "taxonomia": "Buteo nitidus",
@@ -5065,13 +4490,7 @@
       "diurna"
     ],
     "qtd_registros": 20.0,
-    "frequencia_normalizada": 0.1241830065,
-    "cores2": [
-      "cinza",
-      "branco",
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1241830065
   },
   {
     "taxonomia": "Buteo brachyurus",
@@ -5106,12 +4525,7 @@
       "diurna"
     ],
     "qtd_registros": 43.0,
-    "frequencia_normalizada": 0.2745098039,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.2745098039
   },
   {
     "taxonomia": "Tyto furcata",
@@ -5148,8 +4562,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": []
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Megascops choliba",
@@ -5191,12 +4604,7 @@
       "noturna"
     ],
     "qtd_registros": 13.0,
-    "frequencia_normalizada": 0.0784313725,
-    "cores2": [
-      "cinza",
-      "amarelo",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0784313725
   },
   {
     "taxonomia": "Bubo virginianus",
@@ -5224,11 +4632,7 @@
       "noturna"
     ],
     "qtd_registros": 7.0,
-    "frequencia_normalizada": 0.0392156863,
-    "cores2": [
-      "preto",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0392156863
   },
   {
     "taxonomia": "Strix virgata",
@@ -5264,11 +4668,7 @@
       "noturna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "bege",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Glaucidium brasilianum",
@@ -5306,11 +4706,7 @@
       "crepuscular"
     ],
     "qtd_registros": 33.0,
-    "frequencia_normalizada": 0.2091503268,
-    "cores2": [
-      "cinza",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.2091503268
   },
   {
     "taxonomia": "Athene cunicularia",
@@ -5349,11 +4745,7 @@
       "crepuscular"
     ],
     "qtd_registros": 154.0,
-    "frequencia_normalizada": 1.0,
-    "cores2": [
-      "marrom",
-      "bege"
-    ]
+    "frequencia_normalizada": 1.0
   },
   {
     "taxonomia": "Asio clamator",
@@ -5399,13 +4791,7 @@
       "crepuscular"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "bege",
-      "marrom",
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Asio stygius",
@@ -5446,11 +4832,7 @@
       "noturna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Asio flammeus",
@@ -5484,11 +4866,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "preto",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Trogon surrucura",
@@ -5532,15 +4910,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "azul",
-      "preto",
-      "laranja",
-      "cinza",
-      "amarelo",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Baryphthengus ruficapillus",
@@ -5578,12 +4948,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "verde",
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Momotus momota",
@@ -5622,12 +4987,7 @@
       "diurna"
     ],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "verde",
-      "azul",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Megaceryle torquata",
@@ -5673,12 +5033,7 @@
       "noturna"
     ],
     "qtd_registros": 22.0,
-    "frequencia_normalizada": 0.137254902,
-    "cores2": [
-      "canela",
-      "azul",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.137254902
   },
   {
     "taxonomia": "Chloroceryle amazona",
@@ -5719,14 +5074,7 @@
       "diurna"
     ],
     "qtd_registros": 29.0,
-    "frequencia_normalizada": 0.1830065359,
-    "cores2": [
-      "verde",
-      "branco",
-      "ferrugíneo",
-      "verde-garrafa",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1830065359
   },
   {
     "taxonomia": "Chloroceryle americana",
@@ -5761,14 +5109,7 @@
       "diurna"
     ],
     "qtd_registros": 25.0,
-    "frequencia_normalizada": 0.1568627451,
-    "cores2": [
-      "verde-escuro",
-      "branco",
-      "castanho",
-      "amarelo",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.1568627451
   },
   {
     "taxonomia": "Galbula ruficauda",
@@ -5808,12 +5149,7 @@
       "diurna"
     ],
     "qtd_registros": 110.0,
-    "frequencia_normalizada": 0.7124183007,
-    "cores2": [
-      "verde",
-      "marrom",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.7124183007
   },
   {
     "taxonomia": "Chelidoptera tenebrosa",
@@ -5845,12 +5181,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "cinza",
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Monasa nigrifrons",
@@ -5885,10 +5216,7 @@
       "crepuscular"
     ],
     "qtd_registros": 34.0,
-    "frequencia_normalizada": 0.2156862745,
-    "cores2": [
-      "cinza-escuro"
-    ]
+    "frequencia_normalizada": 0.2156862745
   },
   {
     "taxonomia": "Nonnula rubecula",
@@ -5926,12 +5254,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "marrom",
-      "azul",
-      "cinzento"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Nystalus maculatus",
@@ -5968,13 +5291,7 @@
       "diurna"
     ],
     "qtd_registros": 17.0,
-    "frequencia_normalizada": 0.1045751634,
-    "cores2": [
-      "cinza",
-      "marrom",
-      "amarelo",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.1045751634
   },
   {
     "taxonomia": "Nystalus chacuru",
@@ -6008,14 +5325,7 @@
       "crepuscular"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "preto",
-      "cinza-amarronzado",
-      "branco",
-      "amarelo",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "Ramphastos toco",
@@ -6051,12 +5361,7 @@
       "diurna"
     ],
     "qtd_registros": 99.0,
-    "frequencia_normalizada": 0.6405228758,
-    "cores2": [
-      "negro",
-      "branco",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.6405228758
   },
   {
     "taxonomia": "Pteroglossus castanotis",
@@ -6096,14 +5401,7 @@
       "diurna"
     ],
     "qtd_registros": 30.0,
-    "frequencia_normalizada": 0.1895424837,
-    "cores2": [
-      "preto",
-      "marrom",
-      "verde-escuro",
-      "vermelho",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1895424837
   },
   {
     "taxonomia": "Picumnus albosquamatus",
@@ -6134,13 +5432,7 @@
       "diurna"
     ],
     "qtd_registros": 78.0,
-    "frequencia_normalizada": 0.5032679739,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.5032679739
   },
   {
     "taxonomia": "Melanerpes candidus",
@@ -6181,14 +5473,7 @@
       "diurna"
     ],
     "qtd_registros": 42.0,
-    "frequencia_normalizada": 0.2679738562,
-    "cores2": [
-      "preto",
-      "marrom",
-      "branco",
-      "amarelo",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.2679738562
   },
   {
     "taxonomia": "Melanerpes flavifrons",
@@ -6223,11 +5508,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "verde",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Veniliornis passerinus",
@@ -6266,13 +5547,7 @@
       "diurna"
     ],
     "qtd_registros": 47.0,
-    "frequencia_normalizada": 0.3006535948,
-    "cores2": [
-      "verde-amarelada",
-      "amarelo",
-      "cinza",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.3006535948
   },
   {
     "taxonomia": "Veniliornis mixtus",
@@ -6311,12 +5586,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "pardo-escuras",
-      "negras",
-      "vermelha"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Campephilus melanoleucos",
@@ -6356,12 +5626,7 @@
       "diurna"
     ],
     "qtd_registros": 48.0,
-    "frequencia_normalizada": 0.3071895425,
-    "cores2": [
-      "vermelho",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.3071895425
   },
   {
     "taxonomia": "Dryocopus lineatus",
@@ -6395,12 +5660,7 @@
       "diurna"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "preto",
-      "branco",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "Celeus flavescens",
@@ -6436,10 +5696,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Colaptes melanochloros",
@@ -6477,13 +5734,7 @@
       "diurna"
     ],
     "qtd_registros": 81.0,
-    "frequencia_normalizada": 0.522875817,
-    "cores2": [
-      "verde",
-      "vermelho",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.522875817
   },
   {
     "taxonomia": "Colaptes campestris",
@@ -6518,13 +5769,7 @@
       "diurna"
     ],
     "qtd_registros": 48.0,
-    "frequencia_normalizada": 0.3071895425,
-    "cores2": [
-      "amarelo",
-      "preto",
-      "azul",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.3071895425
   },
   {
     "taxonomia": "Cariama cristata",
@@ -6563,12 +5808,7 @@
       "crepuscular"
     ],
     "qtd_registros": 53.0,
-    "frequencia_normalizada": 0.339869281,
-    "cores2": [
-      "cinza",
-      "amarelo",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.339869281
   },
   {
     "taxonomia": "Herpetotheres cachinnulls",
@@ -6604,13 +5844,7 @@
       "crepuscular"
     ],
     "qtd_registros": 30.0,
-    "frequencia_normalizada": 0.1895424837,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1895424837
   },
   {
     "taxonomia": "Micrastur semitorquatus",
@@ -6647,12 +5881,7 @@
       "noturna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "preto",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Caracara plancus",
@@ -6690,12 +5919,7 @@
       "crepuscular"
     ],
     "qtd_registros": 131.0,
-    "frequencia_normalizada": 0.8496732026,
-    "cores2": [
-      "preto",
-      "vermelho",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.8496732026
   },
   {
     "taxonomia": "Milvago chimachima",
@@ -6740,13 +5964,7 @@
       "diurna"
     ],
     "qtd_registros": 28.0,
-    "frequencia_normalizada": 0.1764705882,
-    "cores2": [
-      "branco-amarelada",
-      "marrom-escuro",
-      "preta",
-      "marrom-escura"
-    ]
+    "frequencia_normalizada": 0.1764705882
   },
   {
     "taxonomia": "Falco sparverius",
@@ -6782,13 +6000,7 @@
       "diurna"
     ],
     "qtd_registros": 64.0,
-    "frequencia_normalizada": 0.4117647059,
-    "cores2": [
-      "cinza",
-      "branco",
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.4117647059
   },
   {
     "taxonomia": "Falco rufigularis",
@@ -6824,13 +6036,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "cinza",
-      "marrom",
-      "amarelo",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Falco femoralis",
@@ -6866,13 +6072,7 @@
       "diurna"
     ],
     "qtd_registros": 58.0,
-    "frequencia_normalizada": 0.3725490196,
-    "cores2": [
-      "cinza",
-      "branco",
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.3725490196
   },
   {
     "taxonomia": "Falco peregrinus",
@@ -6908,14 +6108,7 @@
       "diurna"
     ],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "preto",
-      "azul",
-      "cinza",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Brotogeris chiriri",
@@ -6953,12 +6146,7 @@
       "diurna"
     ],
     "qtd_registros": 120.0,
-    "frequencia_normalizada": 0.7777777778,
-    "cores2": [
-      "amarelo",
-      "verde",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.7777777778
   },
   {
     "taxonomia": "Alipiopsitta xanthops",
@@ -6988,11 +6176,7 @@
       "diurna"
     ],
     "qtd_registros": 23.0,
-    "frequencia_normalizada": 0.1437908497,
-    "cores2": [
-      "amarelo",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1437908497
   },
   {
     "taxonomia": "Amazona aestiva",
@@ -7029,14 +6213,7 @@
       "diurna"
     ],
     "qtd_registros": 34.0,
-    "frequencia_normalizada": 0.2156862745,
-    "cores2": [
-      "amarelo",
-      "vermelho",
-      "azul",
-      "amar",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.2156862745
   },
   {
     "taxonomia": "Amazona amazonica",
@@ -7073,11 +6250,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "verde",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Forpus xanthopterygius",
@@ -7117,11 +6290,7 @@
       "diurna"
     ],
     "qtd_registros": 29.0,
-    "frequencia_normalizada": 0.1830065359,
-    "cores2": [
-      "verde",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1830065359
   },
   {
     "taxonomia": "Eupsittula aurea",
@@ -7161,14 +6330,7 @@
       "diurna"
     ],
     "qtd_registros": 83.0,
-    "frequencia_normalizada": 0.5359477124,
-    "cores2": [
-      "verde",
-      "azul",
-      "pêssego",
-      "laranja",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.5359477124
   },
   {
     "taxonomia": "Aratinga auricapillus",
@@ -7201,12 +6363,7 @@
       "diurna"
     ],
     "qtd_registros": 18.0,
-    "frequencia_normalizada": 0.1111111111,
-    "cores2": [
-      "verde",
-      "azul",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1111111111
   },
   {
     "taxonomia": "Orthopsittaca manilatus",
@@ -7240,13 +6397,7 @@
       "diurna"
     ],
     "qtd_registros": 44.0,
-    "frequencia_normalizada": 0.2810457516,
-    "cores2": [
-      "verde",
-      "amarelo",
-      "azul",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.2810457516
   },
   {
     "taxonomia": "Ara ararauna",
@@ -7281,12 +6432,7 @@
       "diurna"
     ],
     "qtd_registros": 29.0,
-    "frequencia_normalizada": 0.1830065359,
-    "cores2": [
-      "azul",
-      "amarelo-dourado",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1830065359
   },
   {
     "taxonomia": "Diopsittaca nobilis",
@@ -7327,14 +6473,7 @@
       "diurna"
     ],
     "qtd_registros": 74.0,
-    "frequencia_normalizada": 0.477124183,
-    "cores2": [
-      "azul",
-      "vermelho",
-      "azul",
-      "oliva",
-      "dourado"
-    ]
+    "frequencia_normalizada": 0.477124183
   },
   {
     "taxonomia": "Psittacara leucophthalmus",
@@ -7368,12 +6507,7 @@
       "diurna"
     ],
     "qtd_registros": 76.0,
-    "frequencia_normalizada": 0.4901960784,
-    "cores2": [
-      "verde",
-      "vermelho",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.4901960784
   },
   {
     "taxonomia": "Formicivora rufa",
@@ -7409,13 +6543,7 @@
       "diurna"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "marrom",
-      "preto",
-      "branco",
-      "acizentado"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "Herpsilochmus longirostris",
@@ -7445,12 +6573,7 @@
       "diurna"
     ],
     "qtd_registros": 100.0,
-    "frequencia_normalizada": 0.6470588235,
-    "cores2": [
-      "marrom",
-      "azul",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.6470588235
   },
   {
     "taxonomia": "Herpsilochmus atricapillus",
@@ -7483,14 +6606,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza",
-      "marrom",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Thamnophilus doliatus",
@@ -7522,11 +6638,7 @@
       "diurna"
     ],
     "qtd_registros": 90.0,
-    "frequencia_normalizada": 0.5816993464,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.5816993464
   },
   {
     "taxonomia": "Thamnophilus torquatus",
@@ -7556,13 +6668,7 @@
     "dieta_principal": [],
     "atividade": [],
     "qtd_registros": 19.0,
-    "frequencia_normalizada": 0.1176470588,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1176470588
   },
   {
     "taxonomia": "Thamnophilus pelzelni",
@@ -7592,11 +6698,7 @@
       "diurna"
     ],
     "qtd_registros": 18.0,
-    "frequencia_normalizada": 0.1111111111,
-    "cores2": [
-      "marrom",
-      "bege"
-    ]
+    "frequencia_normalizada": 0.1111111111
   },
   {
     "taxonomia": "Thamnophilus caerulescens",
@@ -7636,12 +6738,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "cinza",
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Taraba major",
@@ -7678,12 +6775,7 @@
       "diurna"
     ],
     "qtd_registros": 35.0,
-    "frequencia_normalizada": 0.2222222222,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.2222222222
   },
   {
     "taxonomia": "Melanopareia torquata",
@@ -7713,12 +6805,7 @@
     ],
     "atividade": [],
     "qtd_registros": 16.0,
-    "frequencia_normalizada": 0.0980392157,
-    "cores2": [
-      "preto",
-      "amarelo",
-      "ferrugíneo"
-    ]
+    "frequencia_normalizada": 0.0980392157
   },
   {
     "taxonomia": "Conopophaga lineata",
@@ -7757,11 +6844,7 @@
       "noturna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Dendrocolaptes platyrostris",
@@ -7800,13 +6883,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Lepidocolaptes angustirostris",
@@ -7841,10 +6918,7 @@
       "diurna"
     ],
     "qtd_registros": 76.0,
-    "frequencia_normalizada": 0.4901960784,
-    "cores2": [
-      "branco"
-    ]
+    "frequencia_normalizada": 0.4901960784
   },
   {
     "taxonomia": "Xenops rutilans",
@@ -7877,11 +6951,7 @@
       ""
     ],
     "qtd_registros": 5.0,
-    "frequencia_normalizada": 0.0261437908,
-    "cores2": [
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0261437908
   },
   {
     "taxonomia": "Berlepschia rikeri",
@@ -7913,12 +6983,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "preto",
-      "branco",
-      "castanho"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Furnarius figulus",
@@ -7952,11 +7017,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "marrom-avermelhada",
-      "cinzas"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Furnarius rufus",
@@ -7996,12 +7057,7 @@
       "diurna"
     ],
     "qtd_registros": 76.0,
-    "frequencia_normalizada": 0.4901960784,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.4901960784
   },
   {
     "taxonomia": "Lochmias nematura",
@@ -8035,14 +7091,7 @@
     ],
     "atividade": [],
     "qtd_registros": 10.0,
-    "frequencia_normalizada": 0.0588235294,
-    "cores2": [
-      "marrom",
-      "preto",
-      "branco",
-      "rosa",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0588235294
   },
   {
     "taxonomia": "Syndactyla dimidiata",
@@ -8072,11 +7121,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "ruiva",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Clibanornis rectirostris",
@@ -8105,11 +7150,7 @@
       "diurna"
     ],
     "qtd_registros": 31.0,
-    "frequencia_normalizada": 0.1960784314,
-    "cores2": [
-      "ferrugíneo",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1960784314
   },
   {
     "taxonomia": "Phacellodomus ruber",
@@ -8147,8 +7188,7 @@
       "diurna"
     ],
     "qtd_registros": 51.0,
-    "frequencia_normalizada": 0.3267973856,
-    "cores2": null
+    "frequencia_normalizada": 0.3267973856
   },
   {
     "taxonomia": "Anumbius annumbi",
@@ -8186,14 +7226,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "marrom",
-      "branco",
-      "cinza",
-      "marrom-escuro",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Cranioleuca vulpina",
@@ -8225,11 +7258,7 @@
       "diurna"
     ],
     "qtd_registros": 14.0,
-    "frequencia_normalizada": 0.0849673203,
-    "cores2": [
-      "marrom",
-      "bege"
-    ]
+    "frequencia_normalizada": 0.0849673203
   },
   {
     "taxonomia": "Certhiaxis cinnamomeus",
@@ -8262,12 +7291,7 @@
       "diurna"
     ],
     "qtd_registros": 29.0,
-    "frequencia_normalizada": 0.1830065359,
-    "cores2": [
-      "pardo-ferrugíneo",
-      "branco",
-      "esbranquiçado"
-    ]
+    "frequencia_normalizada": 0.1830065359
   },
   {
     "taxonomia": "Synallaxis scutata",
@@ -8300,12 +7324,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Synallaxis hypospodia",
@@ -8334,14 +7353,7 @@
       "diurna"
     ],
     "qtd_registros": 25.0,
-    "frequencia_normalizada": 0.1568627451,
-    "cores2": [
-      "cinza",
-      "amarelo",
-      "vermelho",
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1568627451
   },
   {
     "taxonomia": "Synallaxis spixi",
@@ -8375,11 +7387,7 @@
       "diurna"
     ],
     "qtd_registros": 5.0,
-    "frequencia_normalizada": 0.0261437908,
-    "cores2": [
-      "marrom",
-      "amarronzada"
-    ]
+    "frequencia_normalizada": 0.0261437908
   },
   {
     "taxonomia": "Synallaxis albescens",
@@ -8412,14 +7420,7 @@
       "diurna"
     ],
     "qtd_registros": 11.0,
-    "frequencia_normalizada": 0.0653594771,
-    "cores2": [
-      "castanho",
-      "cinza",
-      "branco",
-      "escura",
-      "castanha"
-    ]
+    "frequencia_normalizada": 0.0653594771
   },
   {
     "taxonomia": "Synallaxis frontalis",
@@ -8462,11 +7463,7 @@
       "diurna"
     ],
     "qtd_registros": 35.0,
-    "frequencia_normalizada": 0.2222222222,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.2222222222
   },
   {
     "taxonomia": "Neopelma pallescens",
@@ -8496,11 +7493,7 @@
       "diurna"
     ],
     "qtd_registros": 7.0,
-    "frequencia_normalizada": 0.0392156863,
-    "cores2": [
-      "amarelo",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0392156863
   },
   {
     "taxonomia": "Antilophia galeata",
@@ -8534,12 +7527,7 @@
       "diurna"
     ],
     "qtd_registros": 76.0,
-    "frequencia_normalizada": 0.4901960784,
-    "cores2": [
-      "vermelho",
-      "preto",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.4901960784
   },
   {
     "taxonomia": "Pipra fasciicauda",
@@ -8573,14 +7561,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "preto",
-      "vermelho",
-      "amarelo",
-      "branco",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Tityra inquisitor",
@@ -8615,14 +7596,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "preto",
-      "cinza",
-      "branco",
-      "amarronzada",
-      "ruivo"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Tityra cayana",
@@ -8660,13 +7634,7 @@
       "crepuscular"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "preto",
-      "branco",
-      "rosa",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Pachyramphus viridis",
@@ -8702,14 +7670,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "preto",
-      "amarelo",
-      "esverdeado",
-      "olivácea",
-      "castanhas"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Pachyramphus polychopterus",
@@ -8744,13 +7705,7 @@
       "diurna"
     ],
     "qtd_registros": 10.0,
-    "frequencia_normalizada": 0.0588235294,
-    "cores2": [
-      "cinza",
-      "preto",
-      "branco",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.0588235294
   },
   {
     "taxonomia": "Pachyramphus validus",
@@ -8786,13 +7741,7 @@
       "diurna"
     ],
     "qtd_registros": 5.0,
-    "frequencia_normalizada": 0.0261437908,
-    "cores2": [
-      "preto",
-      "cinza",
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0261437908
   },
   {
     "taxonomia": "Platyrinchus mystaceus",
@@ -8819,11 +7768,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Mionectes rufiventris",
@@ -8852,14 +7797,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "cinza",
-      "verde-oliva",
-      "marrom",
-      "cinza-escuro",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Leptopogon amaurocephalus",
@@ -8888,11 +7826,7 @@
       "diurna"
     ],
     "qtd_registros": 14.0,
-    "frequencia_normalizada": 0.0849673203,
-    "cores2": [
-      "verde",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0849673203
   },
   {
     "taxonomia": "Corythopis delalandi",
@@ -8923,12 +7857,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "preto",
-      "branco",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Tolmomyias sulphurescens",
@@ -8965,13 +7894,7 @@
       "diurna"
     ],
     "qtd_registros": 35.0,
-    "frequencia_normalizada": 0.2222222222,
-    "cores2": [
-      "branco",
-      "amarelo",
-      "acizentada",
-      "rosa"
-    ]
+    "frequencia_normalizada": 0.2222222222
   },
   {
     "taxonomia": "Todirostrum cinereum",
@@ -9004,14 +7927,7 @@
       "diurna"
     ],
     "qtd_registros": 69.0,
-    "frequencia_normalizada": 0.4444444444,
-    "cores2": [
-      "cinza",
-      "azul",
-      "amarelo",
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.4444444444
   },
   {
     "taxonomia": "Poecilotriccus latirostris",
@@ -9047,14 +7963,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "cinza",
-      "marrom",
-      "verde",
-      "pardo",
-      "acinzentado"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Hemitriccus margaritaceiventer",
@@ -9100,14 +8009,7 @@
       "crepuscular"
     ],
     "qtd_registros": 16.0,
-    "frequencia_normalizada": 0.0980392157,
-    "cores2": [
-      "verde-oliva",
-      "marrom",
-      "azul",
-      "amarela",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0980392157
   },
   {
     "taxonomia": "Hirundinea ferruginea",
@@ -9137,14 +8039,7 @@
       "diurna"
     ],
     "qtd_registros": 10.0,
-    "frequencia_normalizada": 0.0588235294,
-    "cores2": [
-      "ferrugem",
-      "azul",
-      "vermelho",
-      "cinza",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0588235294
   },
   {
     "taxonomia": "Camptostoma obsoletum",
@@ -9177,14 +8072,7 @@
       "diurna"
     ],
     "qtd_registros": 24.0,
-    "frequencia_normalizada": 0.1503267974,
-    "cores2": [
-      "levemente acinzentada",
-      "esverdeadas",
-      "branqueado",
-      "amarelada",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1503267974
   },
   {
     "taxonomia": "Elaenia flavogaster",
@@ -9219,14 +8107,7 @@
       "diurna"
     ],
     "qtd_registros": 20.0,
-    "frequencia_normalizada": 0.1241830065,
-    "cores2": [
-      "oliváceo",
-      "branco",
-      "acicentado",
-      "amarelado",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.1241830065
   },
   {
     "taxonomia": "Elaenia spectabilis",
@@ -9257,8 +8138,7 @@
       "diurna"
     ],
     "qtd_registros": 29.0,
-    "frequencia_normalizada": 0.1830065359,
-    "cores2": null
+    "frequencia_normalizada": 0.1830065359
   },
   {
     "taxonomia": "Elaenia parvirostris",
@@ -9295,13 +8175,7 @@
       "noturna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "verde",
-      "branco",
-      "cinza",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Elaenia mesoleuca",
@@ -9337,14 +8211,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "verde-oliva",
-      "cisne-escuro",
-      "branco",
-      "cinza-escuro",
-      "escuro"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Elaenia cristata",
@@ -9377,11 +8244,7 @@
       "diurna"
     ],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "acintozado",
-      "amarelado"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Elaenia chiriquensis",
@@ -9416,11 +8279,7 @@
       "diurna"
     ],
     "qtd_registros": 17.0,
-    "frequencia_normalizada": 0.1045751634,
-    "cores2": [
-      "cinza",
-      "oliváceo"
-    ]
+    "frequencia_normalizada": 0.1045751634
   },
   {
     "taxonomia": "Elaenia obscura",
@@ -9449,10 +8308,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Suiriri suiriri",
@@ -9486,11 +8342,7 @@
       "diurna"
     ],
     "qtd_registros": 22.0,
-    "frequencia_normalizada": 0.137254902,
-    "cores2": [
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.137254902
   },
   {
     "taxonomia": "Myiopagis gaimardii",
@@ -9524,11 +8376,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "cinza",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Myiopagis caniceps",
@@ -9562,8 +8410,7 @@
       "diurna"
     ],
     "qtd_registros": 14.0,
-    "frequencia_normalizada": 0.0849673203,
-    "cores2": null
+    "frequencia_normalizada": 0.0849673203
   },
   {
     "taxonomia": "Myiopagis viridicata",
@@ -9597,11 +8444,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "amarelo",
-      "ruiva"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Capsiempis flaveola",
@@ -9640,11 +8483,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "amarelo",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Phaeomyias murina",
@@ -9680,13 +8519,7 @@
       "diurna"
     ],
     "qtd_registros": 21.0,
-    "frequencia_normalizada": 0.1307189542,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "amarelo",
-      "rosa"
-    ]
+    "frequencia_normalizada": 0.1307189542
   },
   {
     "taxonomia": "Phyllomyias fasciatus",
@@ -9719,13 +8552,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "cinza",
-      "branco",
-      "olivácea",
-      "amarelo-clara"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Culicivora caudacuta",
@@ -9756,12 +8583,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "marrom",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Polystictus pectoralis",
@@ -9793,12 +8615,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Serpophaga nigricans",
@@ -9837,10 +8654,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Serpophaga subcristata",
@@ -9871,13 +8685,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "cinza",
-      "amarelo",
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Legatus leucophaius",
@@ -9915,14 +8723,7 @@
       "diurna"
     ],
     "qtd_registros": 5.0,
-    "frequencia_normalizada": 0.0261437908,
-    "cores2": [
-      "branco",
-      "esbranquiçado",
-      "azul",
-      "cinza",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0261437908
   },
   {
     "taxonomia": "Myiarchus swainsoni",
@@ -9948,12 +8749,7 @@
       "diurna"
     ],
     "qtd_registros": 14.0,
-    "frequencia_normalizada": 0.0849673203,
-    "cores2": [
-      "marrom",
-      "verde",
-      "bege"
-    ]
+    "frequencia_normalizada": 0.0849673203
   },
   {
     "taxonomia": "Myiarchus ferox",
@@ -9988,12 +8784,7 @@
       "diurna"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "cinza",
-      "amarelo",
-      "escuro"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "Myiarchus tyrannulus",
@@ -10030,11 +8821,7 @@
       "diurna"
     ],
     "qtd_registros": 32.0,
-    "frequencia_normalizada": 0.2026143791,
-    "cores2": [
-      "marrom",
-      "alaranjado"
-    ]
+    "frequencia_normalizada": 0.2026143791
   },
   {
     "taxonomia": "Casiornis rufus",
@@ -10070,12 +8857,7 @@
       "noturna"
     ],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "vermelho",
-      "bege",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Pitangus sulphuratus",
@@ -10116,14 +8898,7 @@
       "diurna"
     ],
     "qtd_registros": 119.0,
-    "frequencia_normalizada": 0.7712418301,
-    "cores2": [
-      "preto",
-      "vermelho",
-      "branco",
-      "marrom",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.7712418301
   },
   {
     "taxonomia": "Philohydor lictor",
@@ -10153,8 +8928,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": null
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Machetornis rixosa",
@@ -10187,13 +8961,7 @@
       "crepuscular"
     ],
     "qtd_registros": 51.0,
-    "frequencia_normalizada": 0.3267973856,
-    "cores2": [
-      "amarelo",
-      "cinza",
-      "marrom",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.3267973856
   },
   {
     "taxonomia": "Myiodynastes maculatus",
@@ -10229,14 +8997,7 @@
       "diurna"
     ],
     "qtd_registros": 43.0,
-    "frequencia_normalizada": 0.2745098039,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom",
-      "verde",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.2745098039
   },
   {
     "taxonomia": "Megarynchus pitangua",
@@ -10267,12 +9028,7 @@
       "diurna"
     ],
     "qtd_registros": 33.0,
-    "frequencia_normalizada": 0.2091503268,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.2091503268
   },
   {
     "taxonomia": "Myiozetetes cayanensis",
@@ -10315,11 +9071,7 @@
       "noturna"
     ],
     "qtd_registros": 35.0,
-    "frequencia_normalizada": 0.2222222222,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.2222222222
   },
   {
     "taxonomia": "Myiozetetes similis",
@@ -10359,12 +9111,7 @@
       "diurna"
     ],
     "qtd_registros": 35.0,
-    "frequencia_normalizada": 0.2222222222,
-    "cores2": [
-      "marrom",
-      "amarelo",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.2222222222
   },
   {
     "taxonomia": "Tyrannus albogularis",
@@ -10400,12 +9147,7 @@
       "diurna"
     ],
     "qtd_registros": 37.0,
-    "frequencia_normalizada": 0.2352941176,
-    "cores2": [
-      "marrom",
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.2352941176
   },
   {
     "taxonomia": "Tyrannus melancholicus",
@@ -10441,11 +9183,7 @@
       "crepuscular"
     ],
     "qtd_registros": 70.0,
-    "frequencia_normalizada": 0.4509803922,
-    "cores2": [
-      "cinza",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.4509803922
   },
   {
     "taxonomia": "Tyrannus savana",
@@ -10481,13 +9219,7 @@
       "diurna"
     ],
     "qtd_registros": 51.0,
-    "frequencia_normalizada": 0.3267973856,
-    "cores2": [
-      "preto",
-      "amarelo",
-      "branco",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.3267973856
   },
   {
     "taxonomia": "Griseotyrannus aurantioatrocristatus",
@@ -10524,11 +9256,7 @@
       "diurna"
     ],
     "qtd_registros": 63.0,
-    "frequencia_normalizada": 0.4052287582,
-    "cores2": [
-      "cinza",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.4052287582
   },
   {
     "taxonomia": "Empidonomus varius",
@@ -10561,10 +9289,7 @@
       "diurna"
     ],
     "qtd_registros": 53.0,
-    "frequencia_normalizada": 0.339869281,
-    "cores2": [
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.339869281
   },
   {
     "taxonomia": "Guyramemua affine",
@@ -10602,13 +9327,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "acastanhado",
-      "cinza",
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Sublegatus modestus",
@@ -10640,12 +9359,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "cinza",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Colonia colonus",
@@ -10680,11 +9394,7 @@
       "crepuscular"
     ],
     "qtd_registros": 30.0,
-    "frequencia_normalizada": 0.1895424837,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1895424837
   },
   {
     "taxonomia": "Arundinicola leucocephala",
@@ -10717,14 +9427,7 @@
       "diurna"
     ],
     "qtd_registros": 15.0,
-    "frequencia_normalizada": 0.091503268,
-    "cores2": [
-      "branco",
-      "preto",
-      "acinzentado",
-      "bege",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.091503268
   },
   {
     "taxonomia": "Fluvicola albiventer",
@@ -10757,11 +9460,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Fluvicola nengeta",
@@ -10798,12 +9497,7 @@
       "diurna"
     ],
     "qtd_registros": 88.0,
-    "frequencia_normalizada": 0.568627451,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.568627451
   },
   {
     "taxonomia": "Pyrocephalus rubinus",
@@ -10839,12 +9533,7 @@
       "diurna"
     ],
     "qtd_registros": 70.0,
-    "frequencia_normalizada": 0.4509803922,
-    "cores2": [
-      "vermelho",
-      "preto",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.4509803922
   },
   {
     "taxonomia": "Gubernetes yetapa",
@@ -10877,13 +9566,7 @@
       "diurna"
     ],
     "qtd_registros": 35.0,
-    "frequencia_normalizada": 0.2222222222,
-    "cores2": [
-      "cinza",
-      "preto",
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.2222222222
   },
   {
     "taxonomia": "Alectrurus tricolor",
@@ -10915,11 +9598,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "branco",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Myiophobus fasciatus",
@@ -10955,12 +9634,7 @@
       "diurna"
     ],
     "qtd_registros": 19.0,
-    "frequencia_normalizada": 0.1176470588,
-    "cores2": [
-      "vermelho",
-      "amarelo",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1176470588
   },
   {
     "taxonomia": "Cnemotriccus fuscatus",
@@ -10990,12 +9664,7 @@
       "diurna"
     ],
     "qtd_registros": 13.0,
-    "frequencia_normalizada": 0.0784313725,
-    "cores2": [
-      "marrom",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0784313725
   },
   {
     "taxonomia": "Lathrotriccus euleri",
@@ -11028,12 +9697,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "bege",
-      "marrom",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Contopus cinereus",
@@ -11062,10 +9726,7 @@
       "diurna"
     ],
     "qtd_registros": 3.0,
-    "frequencia_normalizada": 0.0130718954,
-    "cores2": [
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0130718954
   },
   {
     "taxonomia": "Satrapa icterophrys",
@@ -11100,11 +9761,7 @@
       "diurna"
     ],
     "qtd_registros": 10.0,
-    "frequencia_normalizada": 0.0588235294,
-    "cores2": [
-      "verde-oliváceo",
-      "amarela"
-    ]
+    "frequencia_normalizada": 0.0588235294
   },
   {
     "taxonomia": "Knipolegus lophotes",
@@ -11132,12 +9789,7 @@
       "diurna"
     ],
     "qtd_registros": 31.0,
-    "frequencia_normalizada": 0.1960784314,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1960784314
   },
   {
     "taxonomia": "Knipolegus cyanirostris",
@@ -11171,11 +9823,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Xolmis velatus",
@@ -11205,12 +9853,7 @@
       "diurna"
     ],
     "qtd_registros": 31.0,
-    "frequencia_normalizada": 0.1960784314,
-    "cores2": [
-      "branco",
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1960784314
   },
   {
     "taxonomia": "Nengetus cinereus",
@@ -11244,11 +9887,7 @@
       "noturna"
     ],
     "qtd_registros": 46.0,
-    "frequencia_normalizada": 0.2941176471,
-    "cores2": [
-      "cinza",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.2941176471
   },
   {
     "taxonomia": "Cyclarhis gujanensis",
@@ -11290,12 +9929,7 @@
       "diurna"
     ],
     "qtd_registros": 44.0,
-    "frequencia_normalizada": 0.2810457516,
-    "cores2": [
-      "acinzentadas",
-      "marrom-avermelhada",
-      "pardo-esverdeado"
-    ]
+    "frequencia_normalizada": 0.2810457516
   },
   {
     "taxonomia": "Hylophilus pectoralis",
@@ -11330,13 +9964,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "cinza",
-      "branco",
-      "verde",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Vireo chivi",
@@ -11365,12 +9993,7 @@
       "diurna"
     ],
     "qtd_registros": 7.0,
-    "frequencia_normalizada": 0.0392156863,
-    "cores2": [
-      "verde",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0392156863
   },
   {
     "taxonomia": "Cyanocorax cristatellus",
@@ -11412,12 +10035,7 @@
       "diurna"
     ],
     "qtd_registros": 27.0,
-    "frequencia_normalizada": 0.1699346405,
-    "cores2": [
-      "azul",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1699346405
   },
   {
     "taxonomia": "Cyanocorax cyanopogon",
@@ -11454,12 +10072,7 @@
       "diurna"
     ],
     "qtd_registros": 38.0,
-    "frequencia_normalizada": 0.2418300654,
-    "cores2": [
-      "preto",
-      "branco",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.2418300654
   },
   {
     "taxonomia": "Pygochelidon cyanoleuca",
@@ -11488,11 +10101,7 @@
       "noturna"
     ],
     "qtd_registros": 32.0,
-    "frequencia_normalizada": 0.2026143791,
-    "cores2": [
-      "azul-metálica",
-      "preta"
-    ]
+    "frequencia_normalizada": 0.2026143791
   },
   {
     "taxonomia": "Pygochelidon melanoleuca",
@@ -11529,11 +10138,7 @@
       "diurna"
     ],
     "qtd_registros": 11.0,
-    "frequencia_normalizada": 0.0653594771,
-    "cores2": [
-      "azul",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0653594771
   },
   {
     "taxonomia": "Stelgidopteryx ruficollis",
@@ -11571,12 +10176,7 @@
       "crepuscular"
     ],
     "qtd_registros": 39.0,
-    "frequencia_normalizada": 0.2483660131,
-    "cores2": [
-      "amarelo",
-      "fuligem",
-      "canela-avermelhada"
-    ]
+    "frequencia_normalizada": 0.2483660131
   },
   {
     "taxonomia": "Progne tapera",
@@ -11610,11 +10210,7 @@
       "noturna"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "Progne chalybea",
@@ -11650,11 +10246,7 @@
       "crepuscular"
     ],
     "qtd_registros": 7.0,
-    "frequencia_normalizada": 0.0392156863,
-    "cores2": [
-      "preto",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.0392156863
   },
   {
     "taxonomia": "Tachycineta albiventer",
@@ -11690,11 +10282,7 @@
       "noturna"
     ],
     "qtd_registros": 27.0,
-    "frequencia_normalizada": 0.1699346405,
-    "cores2": [
-      "verde",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1699346405
   },
   {
     "taxonomia": "Tachycineta leucorrhoa",
@@ -11736,12 +10324,7 @@
       "noturna"
     ],
     "qtd_registros": 13.0,
-    "frequencia_normalizada": 0.0784313725,
-    "cores2": [
-      "branco",
-      "azul",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.0784313725
   },
   {
     "taxonomia": "Hirundo rustica",
@@ -11770,10 +10353,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "azul"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Petrochelidon pyrrhonota",
@@ -11809,13 +10389,7 @@
       "diurna"
     ],
     "qtd_registros": 5.0,
-    "frequencia_normalizada": 0.0261437908,
-    "cores2": [
-      "azul",
-      "marrom",
-      "branco",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0261437908
   },
   {
     "taxonomia": "Troglodytes musculus",
@@ -11853,10 +10427,7 @@
       "crepuscular"
     ],
     "qtd_registros": 19.0,
-    "frequencia_normalizada": 0.1176470588,
-    "cores2": [
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1176470588
   },
   {
     "taxonomia": "Pheugopedius genibarbis",
@@ -11887,11 +10458,7 @@
       "diurna"
     ],
     "qtd_registros": 9.0,
-    "frequencia_normalizada": 0.0522875817,
-    "cores2": [
-      "marrom",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.0522875817
   },
   {
     "taxonomia": "Cantorchilus leucotis",
@@ -11932,14 +10499,7 @@
       "crepuscular"
     ],
     "qtd_registros": 57.0,
-    "frequencia_normalizada": 0.3660130719,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "preto",
-      "branco",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.3660130719
   },
   {
     "taxonomia": "Polioptila dumicola",
@@ -11971,12 +10531,7 @@
       ""
     ],
     "qtd_registros": 81.0,
-    "frequencia_normalizada": 0.522875817,
-    "cores2": [
-      "cinza",
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.522875817
   },
   {
     "taxonomia": "Donacobius atricapilla",
@@ -12012,12 +10567,7 @@
       "diurna"
     ],
     "qtd_registros": 21.0,
-    "frequencia_normalizada": 0.1307189542,
-    "cores2": [
-      "preto",
-      "amarilo",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1307189542
   },
   {
     "taxonomia": "Catharus fuscescens",
@@ -12053,12 +10603,7 @@
     ],
     "atividade": [],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "marrom",
-      "branco",
-      "amarelado"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Turdus leucomelas",
@@ -12107,12 +10652,7 @@
       "crepuscular"
     ],
     "qtd_registros": 59.0,
-    "frequencia_normalizada": 0.3790849673,
-    "cores2": [
-      "cinza",
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.3790849673
   },
   {
     "taxonomia": "Turdus rufiventris",
@@ -12150,13 +10690,7 @@
       "diurna"
     ],
     "qtd_registros": 43.0,
-    "frequencia_normalizada": 0.2745098039,
-    "cores2": [
-      "parda",
-      "vermelho",
-      "amarelo",
-      "rosa-cinzento"
-    ]
+    "frequencia_normalizada": 0.2745098039
   },
   {
     "taxonomia": "Turdus amaurochalinus",
@@ -12195,11 +10729,7 @@
       "noturna"
     ],
     "qtd_registros": 80.0,
-    "frequencia_normalizada": 0.5163398693,
-    "cores2": [
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.5163398693
   },
   {
     "taxonomia": "Turdus subalaris",
@@ -12225,12 +10755,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "marrom",
-      "preto",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Mimus saturninus",
@@ -12280,12 +10805,7 @@
       "diurna"
     ],
     "qtd_registros": 79.0,
-    "frequencia_normalizada": 0.5098039216,
-    "cores2": [
-      "cinza",
-      "branco",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.5098039216
   },
   {
     "taxonomia": "Estrilda astrild",
@@ -12319,11 +10839,7 @@
       "diurna"
     ],
     "qtd_registros": 31.0,
-    "frequencia_normalizada": 0.1960784314,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1960784314
   },
   {
     "taxonomia": "Passer domesticus",
@@ -12361,12 +10877,7 @@
       "noturna"
     ],
     "qtd_registros": 49.0,
-    "frequencia_normalizada": 0.3137254902,
-    "cores2": [
-      "cinza",
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.3137254902
   },
   {
     "taxonomia": "Anthus chii",
@@ -12406,11 +10917,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": [
-      "cinza",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Cyanophonia cyanocephala",
@@ -12443,12 +10950,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "preto",
-      "amarelo",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Euphonia chlorotica",
@@ -12481,12 +10983,7 @@
       "diurna"
     ],
     "qtd_registros": 68.0,
-    "frequencia_normalizada": 0.4379084967,
-    "cores2": [
-      "verde",
-      "amarelo",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.4379084967
   },
   {
     "taxonomia": "Euphonia violacea",
@@ -12522,11 +11019,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "azul-metálicas",
-      "verde-oliváceas"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Ammodramus humeralis",
@@ -12561,12 +11054,7 @@
       "diurna"
     ],
     "qtd_registros": 22.0,
-    "frequencia_normalizada": 0.137254902,
-    "cores2": [
-      "amarelo",
-      "cinza",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.137254902
   },
   {
     "taxonomia": "Arremon flavirostris",
@@ -12611,14 +11099,7 @@
       "crepuscular"
     ],
     "qtd_registros": 21.0,
-    "frequencia_normalizada": 0.1307189542,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza",
-      "verde",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.1307189542
   },
   {
     "taxonomia": "Zonotrichia capensis",
@@ -12657,13 +11138,7 @@
       "crepuscular"
     ],
     "qtd_registros": 16.0,
-    "frequencia_normalizada": 0.0980392157,
-    "cores2": [
-      "marrom",
-      "cinza",
-      "preto",
-      "vermelho-ferrugínea"
-    ]
+    "frequencia_normalizada": 0.0980392157
   },
   {
     "taxonomia": "Leistes superciliaris",
@@ -12695,11 +11170,7 @@
       "diurna"
     ],
     "qtd_registros": 38.0,
-    "frequencia_normalizada": 0.2418300654,
-    "cores2": [
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.2418300654
   },
   {
     "taxonomia": "Psarocolius decumanus",
@@ -12732,11 +11203,7 @@
       "diurna"
     ],
     "qtd_registros": 20.0,
-    "frequencia_normalizada": 0.1241830065,
-    "cores2": [
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1241830065
   },
   {
     "taxonomia": "Cacicus solitarius",
@@ -12774,11 +11241,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Cacicus cela",
@@ -12810,12 +11273,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "verde",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Cacicus haemorrhous",
@@ -12844,13 +11302,7 @@
       "diurna"
     ],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "negra",
-      "azul",
-      "amarelo",
-      "vermelha"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Icterus jamacaii",
@@ -12892,11 +11344,7 @@
       "diurna"
     ],
     "qtd_registros": 30.0,
-    "frequencia_normalizada": 0.1895424837,
-    "cores2": [
-      "laranja",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1895424837
   },
   {
     "taxonomia": "Icterus pyrrhopterus",
@@ -12928,12 +11376,7 @@
       "diurna"
     ],
     "qtd_registros": 78.0,
-    "frequencia_normalizada": 0.5032679739,
-    "cores2": [
-      "amarelo",
-      "castanho",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.5032679739
   },
   {
     "taxonomia": "Molothrus rufoaxillaris",
@@ -12967,10 +11410,7 @@
       "diurna"
     ],
     "qtd_registros": 18.0,
-    "frequencia_normalizada": 0.1111111111,
-    "cores2": [
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1111111111
   },
   {
     "taxonomia": "Molothrus oryzivorus",
@@ -12998,12 +11438,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "preto",
-      "branco",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Molothrus bonariensis",
@@ -13039,11 +11474,7 @@
       "noturna"
     ],
     "qtd_registros": 72.0,
-    "frequencia_normalizada": 0.4640522876,
-    "cores2": [
-      "preto",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.4640522876
   },
   {
     "taxonomia": "Gnorimopsar chopi",
@@ -13079,10 +11510,7 @@
       "diurna"
     ],
     "qtd_registros": 82.0,
-    "frequencia_normalizada": 0.5294117647,
-    "cores2": [
-      "preto"
-    ]
+    "frequencia_normalizada": 0.5294117647
   },
   {
     "taxonomia": "Chrysomus ruficapillus",
@@ -13122,12 +11550,7 @@
       "diurna"
     ],
     "qtd_registros": 22.0,
-    "frequencia_normalizada": 0.137254902,
-    "cores2": [
-      "preto",
-      "vermelho",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.137254902
   },
   {
     "taxonomia": "Pseudoleistes guirahuro",
@@ -13160,11 +11583,7 @@
       "diurna"
     ],
     "qtd_registros": 22.0,
-    "frequencia_normalizada": 0.137254902,
-    "cores2": [
-      "amarelo",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.137254902
   },
   {
     "taxonomia": "Geothlypis aequinoctialis",
@@ -13196,11 +11615,7 @@
       "diurna"
     ],
     "qtd_registros": 20.0,
-    "frequencia_normalizada": 0.1241830065,
-    "cores2": [
-      "cinza",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1241830065
   },
   {
     "taxonomia": "Setophaga pitiayumi",
@@ -13246,12 +11661,7 @@
       "noturna"
     ],
     "qtd_registros": 7.0,
-    "frequencia_normalizada": 0.0392156863,
-    "cores2": [
-      "amarelo",
-      "alaranjado",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0392156863
   },
   {
     "taxonomia": "Myiothlypis leucophrys",
@@ -13288,14 +11698,7 @@
       "crepuscular"
     ],
     "qtd_registros": 35.0,
-    "frequencia_normalizada": 0.2222222222,
-    "cores2": [
-      "verde",
-      "preto",
-      "branco",
-      "amarelo",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.2222222222
   },
   {
     "taxonomia": "Myiothlypis flaveola",
@@ -13326,14 +11729,7 @@
       "diurna"
     ],
     "qtd_registros": 21.0,
-    "frequencia_normalizada": 0.1307189542,
-    "cores2": [
-      "amarelo",
-      "oliváceo",
-      "laranja",
-      "amarelo",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.1307189542
   },
   {
     "taxonomia": "Basileuterus culicivorus",
@@ -13365,14 +11761,7 @@
       "diurna"
     ],
     "qtd_registros": 25.0,
-    "frequencia_normalizada": 0.1568627451,
-    "cores2": [
-      "verde-oliváceo",
-      "amarelo",
-      "cinza",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1568627451
   },
   {
     "taxonomia": "Piranga flava",
@@ -13411,8 +11800,7 @@
       "diurna"
     ],
     "qtd_registros": 8.0,
-    "frequencia_normalizada": 0.045751634,
-    "cores2": null
+    "frequencia_normalizada": 0.045751634
   },
   {
     "taxonomia": "Cyanoloxia brissonii",
@@ -13449,12 +11837,7 @@
       "noturna"
     ],
     "qtd_registros": 44.0,
-    "frequencia_normalizada": 0.2810457516,
-    "cores2": [
-      "azul-escura",
-      "pardo",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.2810457516
   },
   {
     "taxonomia": "Charitospiza eucosma",
@@ -13489,13 +11872,7 @@
       "crepuscular"
     ],
     "qtd_registros": 14.0,
-    "frequencia_normalizada": 0.0849673203,
-    "cores2": [
-      "preto",
-      "branco",
-      "bege",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.0849673203
   },
   {
     "taxonomia": "Nemosia pileata",
@@ -13532,14 +11909,7 @@
       "diurna"
     ],
     "qtd_registros": 46.0,
-    "frequencia_normalizada": 0.2941176471,
-    "cores2": [
-      "preto",
-      "amarelo",
-      "branco",
-      "marrom",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.2941176471
   },
   {
     "taxonomia": "Emberizoides herbicola",
@@ -13573,12 +11943,7 @@
       "diurna"
     ],
     "qtd_registros": 11.0,
-    "frequencia_normalizada": 0.0653594771,
-    "cores2": [
-      "preto",
-      "amarelo",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0653594771
   },
   {
     "taxonomia": "Hemithraupis guira",
@@ -13613,13 +11978,7 @@
       "diurna"
     ],
     "qtd_registros": 20.0,
-    "frequencia_normalizada": 0.1241830065,
-    "cores2": [
-      "preto",
-      "amarelo",
-      "laranja",
-      "bege"
-    ]
+    "frequencia_normalizada": 0.1241830065
   },
   {
     "taxonomia": "Tersina viridis",
@@ -13654,12 +12013,7 @@
       "diurna"
     ],
     "qtd_registros": 49.0,
-    "frequencia_normalizada": 0.3137254902,
-    "cores2": [
-      "azul",
-      "verde",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.3137254902
   },
   {
     "taxonomia": "Cyanerpes cyaneus",
@@ -13693,13 +12047,7 @@
       "diurna"
     ],
     "qtd_registros": 2.0,
-    "frequencia_normalizada": 0.0065359477,
-    "cores2": [
-      "azul",
-      "amarelo",
-      "verde",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0065359477
   },
   {
     "taxonomia": "Dacnis cayana",
@@ -13737,13 +12085,7 @@
       "noturna"
     ],
     "qtd_registros": 72.0,
-    "frequencia_normalizada": 0.4640522876,
-    "cores2": [
-      "azul",
-      "vermelho",
-      "verde",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.4640522876
   },
   {
     "taxonomia": "Saltatricula atricollis",
@@ -13777,14 +12119,7 @@
       "diurna"
     ],
     "qtd_registros": 18.0,
-    "frequencia_normalizada": 0.1111111111,
-    "cores2": [
-      "preto",
-      "cinza",
-      "branco",
-      "cinza-amarelado",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1111111111
   },
   {
     "taxonomia": "Saltator maximus",
@@ -13820,13 +12155,7 @@
       "diurna"
     ],
     "qtd_registros": 47.0,
-    "frequencia_normalizada": 0.3006535948,
-    "cores2": [
-      "verde",
-      "cinza",
-      "branco",
-      "vermelho"
-    ]
+    "frequencia_normalizada": 0.3006535948
   },
   {
     "taxonomia": "Saltator similis",
@@ -13867,13 +12196,7 @@
       "crepuscular"
     ],
     "qtd_registros": 28.0,
-    "frequencia_normalizada": 0.1764705882,
-    "cores2": [
-      "verde",
-      "cinza",
-      "branco",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.1764705882
   },
   {
     "taxonomia": "Coereba flaveola",
@@ -13913,14 +12236,7 @@
       "diurna"
     ],
     "qtd_registros": 62.0,
-    "frequencia_normalizada": 0.3986928105,
-    "cores2": [
-      "marrom",
-      "amarelo",
-      "preto",
-      "branco",
-      "cinzento"
-    ]
+    "frequencia_normalizada": 0.3986928105
   },
   {
     "taxonomia": "Volatinia jacarina",
@@ -13956,13 +12272,7 @@
       "diurna"
     ],
     "qtd_registros": 72.0,
-    "frequencia_normalizada": 0.4640522876,
-    "cores2": [
-      "preto",
-      "azul",
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.4640522876
   },
   {
     "taxonomia": "Eucometis penicillata",
@@ -14000,14 +12310,7 @@
       "diurna"
     ],
     "qtd_registros": 33.0,
-    "frequencia_normalizada": 0.2091503268,
-    "cores2": [
-      "oliveira",
-      "cinza",
-      "rosa",
-      "amarelo",
-      "pardo"
-    ]
+    "frequencia_normalizada": 0.2091503268
   },
   {
     "taxonomia": "Coryphospingus cucullatus",
@@ -14045,13 +12348,7 @@
       "diurna"
     ],
     "qtd_registros": 57.0,
-    "frequencia_normalizada": 0.3660130719,
-    "cores2": [
-      "marrom",
-      "vermelho",
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.3660130719
   },
   {
     "taxonomia": "Tachyphonus rufus",
@@ -14095,12 +12392,7 @@
       "diurna"
     ],
     "qtd_registros": 23.0,
-    "frequencia_normalizada": 0.1437908497,
-    "cores2": [
-      "preto",
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1437908497
   },
   {
     "taxonomia": "Ramphocelus carbo",
@@ -14131,12 +12423,7 @@
       "diurna"
     ],
     "qtd_registros": 38.0,
-    "frequencia_normalizada": 0.2418300654,
-    "cores2": [
-      "preto",
-      "avermelhado",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.2418300654
   },
   {
     "taxonomia": "Sporophila lineola",
@@ -14174,12 +12461,7 @@
       "diurna"
     ],
     "qtd_registros": 75.0,
-    "frequencia_normalizada": 0.4836601307,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.4836601307
   },
   {
     "taxonomia": "Sporophila plumbea",
@@ -14223,13 +12505,7 @@
       "noturna"
     ],
     "qtd_registros": 23.0,
-    "frequencia_normalizada": 0.1437908497,
-    "cores2": [
-      "cinza",
-      "pardo",
-      "preto",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.1437908497
   },
   {
     "taxonomia": "Sporophila collaris",
@@ -14262,11 +12538,7 @@
       "diurna"
     ],
     "qtd_registros": 23.0,
-    "frequencia_normalizada": 0.1437908497,
-    "cores2": [
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1437908497
   },
   {
     "taxonomia": "Sporophila nigricollis",
@@ -14303,11 +12575,7 @@
       "crepuscular"
     ],
     "qtd_registros": 90.0,
-    "frequencia_normalizada": 0.5816993464,
-    "cores2": [
-      "amarelo",
-      "verde"
-    ]
+    "frequencia_normalizada": 0.5816993464
   },
   {
     "taxonomia": "Sporophila ardesiaca",
@@ -14334,12 +12602,7 @@
       "diurna"
     ],
     "qtd_registros": 16.0,
-    "frequencia_normalizada": 0.0980392157,
-    "cores2": [
-      "branco",
-      "cinza",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0980392157
   },
   {
     "taxonomia": "Sporophila caerulescens",
@@ -14372,12 +12635,7 @@
       "cripuscular"
     ],
     "qtd_registros": 18.0,
-    "frequencia_normalizada": 0.1111111111,
-    "cores2": [
-      "preto",
-      "bege",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1111111111
   },
   {
     "taxonomia": "Sporophila leucoptera",
@@ -14414,13 +12672,7 @@
       "diurna"
     ],
     "qtd_registros": 30.0,
-    "frequencia_normalizada": 0.1895424837,
-    "cores2": [
-      "cinza",
-      "branco",
-      "marrom",
-      "bege"
-    ]
+    "frequencia_normalizada": 0.1895424837
   },
   {
     "taxonomia": "Sporophila pileata",
@@ -14450,13 +12702,7 @@
       "diurna"
     ],
     "qtd_registros": 10.0,
-    "frequencia_normalizada": 0.0588235294,
-    "cores2": [
-      "branco",
-      "marrom",
-      "cinza",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0588235294
   },
   {
     "taxonomia": "Sporophila hypoxantha",
@@ -14486,11 +12732,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "bege",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Sporophila cinnamomea",
@@ -14517,11 +12759,7 @@
       ""
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "marrom",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Sporophila angolensis",
@@ -14556,12 +12794,7 @@
       "diurna"
     ],
     "qtd_registros": 23.0,
-    "frequencia_normalizada": 0.1437908497,
-    "cores2": [
-      "preto",
-      "branco",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.1437908497
   },
   {
     "taxonomia": "Thlypopsis sordida",
@@ -14595,13 +12828,7 @@
       "diurna"
     ],
     "qtd_registros": 12.0,
-    "frequencia_normalizada": 0.0718954248,
-    "cores2": [
-      "amarelo-alaranjado",
-      "preto",
-      "esverdeado",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0718954248
   },
   {
     "taxonomia": "Cypsnagra hirundinacea",
@@ -14637,14 +12864,7 @@
       "crepuscular"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "preto",
-      "branco",
-      "vermelho",
-      "azul",
-      "amarelo"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Conirostrum speciosum",
@@ -14677,14 +12897,7 @@
       "diurna"
     ],
     "qtd_registros": 10.0,
-    "frequencia_normalizada": 0.0588235294,
-    "cores2": [
-      "cinza",
-      "marrom",
-      "azarado",
-      "verde",
-      "azul"
-    ]
+    "frequencia_normalizada": 0.0588235294
   },
   {
     "taxonomia": "Sicalis flaveola",
@@ -14729,11 +12942,7 @@
       "diurna"
     ],
     "qtd_registros": 129.0,
-    "frequencia_normalizada": 0.8366013072,
-    "cores2": [
-      "amarelo",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.8366013072
   },
   {
     "taxonomia": "Sicalis luteola",
@@ -14763,12 +12972,7 @@
       "diurna"
     ],
     "qtd_registros": 18.0,
-    "frequencia_normalizada": 0.1111111111,
-    "cores2": [
-      "amarelo",
-      "cinza",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.1111111111
   },
   {
     "taxonomia": "Pipraeidea melanonota",
@@ -14804,11 +13008,7 @@
       "diurna"
     ],
     "qtd_registros": 1.0,
-    "frequencia_normalizada": 0.0,
-    "cores2": [
-      "vermelho",
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0
   },
   {
     "taxonomia": "Neothraupis fasciata",
@@ -14843,12 +13043,7 @@
       "diurna"
     ],
     "qtd_registros": 6.0,
-    "frequencia_normalizada": 0.0326797386,
-    "cores2": [
-      "preto",
-      "branco",
-      "cinza"
-    ]
+    "frequencia_normalizada": 0.0326797386
   },
   {
     "taxonomia": "Cissopis leverianus",
@@ -14879,11 +13074,7 @@
       "diurna"
     ],
     "qtd_registros": 4.0,
-    "frequencia_normalizada": 0.0196078431,
-    "cores2": [
-      "preto",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0196078431
   },
   {
     "taxonomia": "Schistochlamys melanopis",
@@ -14918,11 +13109,7 @@
       "diurna"
     ],
     "qtd_registros": 26.0,
-    "frequencia_normalizada": 0.1633986928,
-    "cores2": [
-      "cinzento",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.1633986928
   },
   {
     "taxonomia": "Schistochlamys ruficapillus",
@@ -14957,11 +13144,7 @@
     ],
     "atividade": [],
     "qtd_registros": 11.0,
-    "frequencia_normalizada": 0.0653594771,
-    "cores2": [
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.0653594771
   },
   {
     "taxonomia": "Paroaria dominicana",
@@ -14995,10 +13178,7 @@
       "diurna"
     ],
     "qtd_registros": 13.0,
-    "frequencia_normalizada": 0.0784313725,
-    "cores2": [
-      "marrom"
-    ]
+    "frequencia_normalizada": 0.0784313725
   },
   {
     "taxonomia": "Thraupis sayaca",
@@ -15034,11 +13214,7 @@
       "diurna"
     ],
     "qtd_registros": 36.0,
-    "frequencia_normalizada": 0.2287581699,
-    "cores2": [
-      "marrom",
-      "branco"
-    ]
+    "frequencia_normalizada": 0.2287581699
   },
   {
     "taxonomia": "Thraupis palmarum",
@@ -15071,12 +13247,7 @@
       "diurna"
     ],
     "qtd_registros": 44.0,
-    "frequencia_normalizada": 0.2810457516,
-    "cores2": [
-      "verde",
-      "amarelo",
-      "laranja"
-    ]
+    "frequencia_normalizada": 0.2810457516
   },
   {
     "taxonomia": "Stilpnia cayana",
@@ -15113,11 +13284,6 @@
       "diurna"
     ],
     "qtd_registros": 58.0,
-    "frequencia_normalizada": 0.3725490196,
-    "cores2": [
-      "amarelo",
-      "dourado",
-      "preto"
-    ]
+    "frequencia_normalizada": 0.3725490196
   }
 ]
