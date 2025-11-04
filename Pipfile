@@ -5,19 +5,9 @@ name = "pypi"
 
 [packages]
 pandas = "*"
-requests = "*"
-beautifulsoup4 = "*"
-playwright = "*"
-pytest-playwright = "*"
-groq = "*"
-transformers = "*"
-networkx = "*"
-plotly = "*"
-scipy = "*"
-nbformat = "*"
+openpyxl = "*"
 
 [dev-packages]
-ipykernel = "*"
 
 [requires]
-python_version = "3.12"
+python_version = "3.13"
