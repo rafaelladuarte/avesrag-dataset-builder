@@ -244,7 +244,7 @@ def extrair_dados_html(html: str) -> dict:
 
 def main():
     csv_path = "data/raw/wikiaves_especies.csv"
-    MAX_ESPECIES = 500  # MODO DE TESTE MANDATÓRIO
+    MAX_ESPECIES = 1500  # MODO DE TESTE MANDATÓRIO
 
     if not Path(csv_path).exists():
         print(f"Erro: Arquivo '{csv_path}' não encontrado.")
