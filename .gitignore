@@ -195,4 +195,4 @@ cython_debug/
 
 *.env
 
-old_main/
+.~lock.*

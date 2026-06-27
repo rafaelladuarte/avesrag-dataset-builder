@@ -1,14 +1,10 @@
-"""
-src/extractors/avonet.py
-Carrega traits morfológicos do AVONET para o MongoDB.
-"""
 import os
 import pandas as pd
 from datetime import datetime
 from pymongo import UpdateOne
 from pymongo.errors import BulkWriteError
-from src.extractors.base import BaseExtractor
-from src.database.conexoes import DatabaseConnection
+from scr.ingestion.base import BaseExtractor
+from scr.database.connection import DatabaseConnection
 
 COLUNAS = {
     "Species1": "nome_cientifico",
@@ -22,7 +18,7 @@ COLUNAS = {
     "Wing.Length": "asa_comprimento_mm",
     "Kipps.Distance": "kipps_distancia_mm",
     "Secondary1": "secundaria1_mm",
-    "Hand.Wing.Index": "indice_asa_mao",
+    "Hand-Wing.Index": "indice_asa_mao",
     "Tail.Length": "cauda_comprimento_mm",
     "Mass": "massa_corporal_g",
     "Habitat": "habitat_avonet",
@@ -33,17 +29,21 @@ COLUNAS = {
     "Range.Size": "area_distribuicao_km2",
 }
 
-class AvonetExtractor(BaseExtractor):
+class AvonetIngestion(BaseExtractor):
     def __init__(self):
         super().__init__()
-        self.csv_path = os.environ.get("AVONET_CSV", "dados/AVONET_BirdLife.csv")
+        self.csv_path = os.environ.get("AVONET_CSV", "data/AVONET_BirdLife.xlsx")
         self.db_connection = DatabaseConnection()
 
     def extract(self):
         if not os.path.exists(self.csv_path):
-            self.logger.error(f"AVONET CSV não encontrado: {self.csv_path}")
+            self.logger.error(f"AVONET arquivo não encontrado: {self.csv_path}")
             return pd.DataFrame()
-        return pd.read_csv(self.csv_path, encoding="utf-8")
+
+        if self.csv_path.lower().endswith('.xlsx'):
+            return pd.read_excel(self.csv_path, sheet_name='AVONET1_BirdLife')
+        else:
+            return pd.read_csv(self.csv_path, encoding="utf-8")
 
     def transform(self, raw_data, especies_alvo: set = None):
         if raw_data.empty:
@@ -59,19 +59,18 @@ class AvonetExtractor(BaseExtractor):
         for _, row in df.iterrows():
             doc = row.dropna().to_dict()
             doc["fontes"] = ["avonet"]
-            doc["atualizado_em"] = datetime.utcnow()
-            doc["wikiaves_url"] = (
-                "https://www.wikiaves.com.br/wiki/"
-                + doc["nome_cientifico"].lower().replace(" ", "-")
-            )
+            doc["atualizado_em"] = datetime.now()
             docs.append(doc)
         return docs
 
-    def load(self, transformed_data):
+    def load(self, transformed_data, db_connection=None):
         if not transformed_data:
             return set()
 
-        db = self.db_connection.get_mongo_db()
+        # Obtém o client a partir do get_mongo_db() e seleciona o banco 'avesrag'
+        db_padrao = self.db_connection.get_mongo_db()
+        db_avesrag = db_padrao.client["avesrag"]
+        
         ops = []
         carregadas = set()
 
@@ -85,14 +84,14 @@ class AvonetExtractor(BaseExtractor):
 
         if ops:
             try:
-                db.especies.bulk_write(ops, ordered=False)
-                self.logger.info(f"AVONET: {len(ops)} espécies carregadas no MongoDB.")
+                db_avesrag.avonet.bulk_write(ops, ordered=False)
+                self.logger.info(f"AVONET: {len(ops)} espécies carregadas na collection 'avonet' do MongoDB (banco 'avesrag').")
             except BulkWriteError as e:
                 self.logger.error(f"AVONET bulk_write error: {e.details}")
 
         return carregadas
 
-    def run(self, db_connection, especies_alvo: set = None):
+    def run(self, db_connection=None, especies_alvo: set = None):
         self.logger.info("Iniciando processo de Extração AVONET...")
         raw_data = self.extract()
         
@@ -100,11 +99,11 @@ class AvonetExtractor(BaseExtractor):
         clean_data = self.transform(raw_data, especies_alvo)
         
         self.logger.info("Iniciando processo de Carga (Load)...")
-        carregadas = self.load(clean_data, db_connection)
+        carregadas = self.load(clean_data)
         
         return carregadas
 
 
 if __name__ == "__main__":
-    extractor = AvonetExtractor()
+    extractor = AvonetIngestion()
     extractor.run()

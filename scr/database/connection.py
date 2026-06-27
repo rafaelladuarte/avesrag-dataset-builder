@@ -8,6 +8,9 @@ import psycopg2
 from pymongo import MongoClient
 from contextlib import contextmanager
 from psycopg2.extras import execute_values
+from dotenv import load_dotenv
+
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +25,7 @@ class DatabaseConnection:
         self.pg_uri = os.environ.get("POSTGRES_URI", "postgresql://aves:aves@localhost:5432/aves_brasil")
         
         # Configurações do MongoDB
-        self.mongo_uri = os.environ.get("MONGODB_URI", "mongodb://localhost:27017")
+        self.mongo_uri = os.environ.get("MONGODB_URI", "mongodb://admin:password123@localhost:27017/?authSource=admin")
         self.mongo_db_name = "aves_brasil"
 
     @contextmanager

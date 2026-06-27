@@ -1,19 +1,19 @@
 [tool.poetry]
 name = "avesrag-dataset-builder"
 version = "0.1.0"
-description = "AvesRAG Dataset Builder"
-authors = ["Rafaella Duarte <rafaella.d.d.carvalho@gmail.com>"]
-readme = "README.md"
+description = "Pipeline de construção de dataset para o AvesRAG"
+authors = []
+packages = [{include = "scr"}]
 
 [tool.poetry.dependencies]
 python = "^3.13"
-pandas = "^3.0.2"
-pymongo = "^4.17.0"
-psycopg2-binary = "^2.9.12"
-requests = "^2.33.1"
-rasterio = "^1.5.0"
-numpy = "^2.4.4"
-
+pandas = "*"
+pymongo = "*"
+psycopg2-binary = "*"
+python-dotenv = "*"
+openpyxl = "^3.1.5"
+playwright = "^1.60.0"
+beautifulsoup4 = "^4.15.0"
 
 [build-system]
 requires = ["poetry-core"]
