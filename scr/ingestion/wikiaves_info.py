@@ -250,6 +250,21 @@ def main():
         print(f"Erro: Arquivo '{csv_path}' não encontrado.")
         sys.exit(1)
 
+    print("Conectando ao MongoDB para recuperar espécies já extraídas...")
+    db_connection = DatabaseConnection()
+    db_padrao = db_connection.get_mongo_db()
+    db_avesrag = db_padrao.client["avesrag"]
+
+    especies_existentes = set()
+    for doc in db_avesrag.wikiaves.find({}, {"nome_cientifico": 1}):
+        nc = doc.get("nome_cientifico")
+        if isinstance(nc, dict):
+            especies_existentes.add(nc.get("nome"))
+        elif isinstance(nc, str):
+            especies_existentes.add(nc)
+
+    print(f"Encontradas {len(especies_existentes)} espécies já cadastradas na base.")
+
     resultados = []
 
     print(f"Iniciando extração dinâmica via Playwright para as primeiras {MAX_ESPECIES} espécies...")
@@ -266,6 +281,11 @@ def main():
                     break
 
                 nome = row.get("nome_cientifico", f"Espécie {i+1}")
+                
+                if nome in especies_existentes:
+                    print(f"[{i+1}/{MAX_ESPECIES}] Espécie '{nome}' já existe no MongoDB. Pulando...")
+                    continue
+                    
                 url_path = row.get("url", "")
 
                 if not url_path:
@@ -297,10 +317,7 @@ def main():
         return
 
     print("Conectando ao MongoDB para inserção (BulkWrite)...")
-    db_connection = DatabaseConnection()
-    db_padrao = db_connection.get_mongo_db()
-    db_avesrag = db_padrao.client["avesrag"]
-
+    # A conexão já foi estabelecida acima
     ops = []
     for doc in resultados:
         nome_cientifico = doc.get("nome_cientifico", {}).get("nome")

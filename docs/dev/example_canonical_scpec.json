@@ -1,0 +1,119 @@
+{
+    "species_id": "9f3c2a1b-7c2d-4d8e-9f4a-1c2d3e4f5a6b",
+    "scientific_name": "Pitangus sulphuratus",
+    "common_names": {
+        "pt": "Bem-te-vi",
+        "en": "Great Kiskadee"
+    },
+    "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Aves",
+        "order": "Passeriformes",
+        "family": "Tyrannidae",
+        "genus": "Pitangus"
+    },
+    "morphology": {
+        "size_cm": {
+            "min": 20,
+            "max": 25
+        },
+        "weight_g": {
+            "min": 50,
+            "max": 70
+        },
+        "color_primary": [
+            "yellow",
+            "brown",
+            "black"
+        ],
+        "color_secondary": [
+            "white"
+        ],
+        "beak_type": "strong_straight",
+        "beak_size": "medium",
+        "wing_shape": "rounded",
+        "tail_shape": "medium_forked",
+        "distinctive_features": [
+            "yellow belly",
+            "black and white head mask",
+            "loud vocalization resembling 'bem-te-vi'"
+        ]
+    },
+    "description": {
+        "short": "Medium-sized passerine bird widely distributed in South America, known for its loud and characteristic call.",
+        "detailed": "The Great Kiskadee (Bem-te-vi) is one of the most recognizable birds in Brazil, commonly found in urban and rural environments. It is highly adaptable, aggressive when defending territory, and feeds on insects, fruits, small vertebrates and human food scraps.",
+        "behavior": [
+            "territorial",
+            "diurnal",
+            "aggressive",
+            "opportunistic_feeder",
+            "urban_adapted"
+        ],
+        "diet": [
+            "insectivore",
+            "omnivore",
+            "frugivore"
+        ]
+    },
+    "habitat": {
+        "primary": [
+            "urban_areas",
+            "forest_edges",
+            "savanna",
+            "wetlands"
+        ],
+        "secondary": [
+            "farmlands",
+            "parks",
+            "riverbanks"
+        ],
+        "altitude_range_m": {
+            "min": 0,
+            "max": 2000
+        }
+    },
+    "occurrence": {
+        "countries": [
+            "Brazil",
+            "Argentina",
+            "Paraguay",
+            "Uruguay",
+            "Bolivia"
+        ],
+        "biomes": [
+            "Amazonia",
+            "Cerrado",
+            "Mata Atlantica",
+            "Pantanal",
+            "Pampa"
+        ],
+        "endemism": "native_widespread",
+        "range_type": "very_broad"
+    },
+    "ecology": {
+        "activity_pattern": "diurnal",
+        "social_structure": "solitary_or_pairs",
+        "migration": "resident"
+    },
+    "rag": {
+        "embedding_text": "bem-te-vi great kiskadee yellow belly black head loud bird urban Brazil aggressive passerine tyrannidae common adaptable bird South America",
+        "keywords": [
+            "yellow belly bird",
+            "urban Brazilian bird",
+            "loud call bem te vi",
+            "black and white head bird"
+        ],
+        "difficulty_identification": "easy"
+    },
+    "data_quality": {
+        "confidence_score": 0.95,
+        "sources": [
+            "AVONET",
+            "eBird",
+            "GBIF",
+            "WikiAves"
+        ],
+        "last_updated": "2026-06-24"
+    }
+}
