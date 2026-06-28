@@ -1,119 +1,154 @@
 {
-    "species_id": "9f3c2a1b-7c2d-4d8e-9f4a-1c2d3e4f5a6b",
-    "scientific_name": "Pitangus sulphuratus",
-    "common_names": {
-        "pt": "Bem-te-vi",
-        "en": "Great Kiskadee"
-    },
-    "taxonomy": {
-        "kingdom": "Animalia",
-        "phylum": "Chordata",
-        "class": "Aves",
-        "order": "Passeriformes",
-        "family": "Tyrannidae",
-        "genus": "Pitangus"
-    },
-    "morphology": {
-        "size_cm": {
-            "min": 20,
-            "max": 25
-        },
-        "weight_g": {
-            "min": 50,
-            "max": 70
-        },
-        "color_primary": [
-            "yellow",
-            "brown",
-            "black"
-        ],
-        "color_secondary": [
-            "white"
-        ],
-        "beak_type": "strong_straight",
-        "beak_size": "medium",
-        "wing_shape": "rounded",
-        "tail_shape": "medium_forked",
-        "distinctive_features": [
-            "yellow belly",
-            "black and white head mask",
-            "loud vocalization resembling 'bem-te-vi'"
-        ]
-    },
-    "description": {
-        "short": "Medium-sized passerine bird widely distributed in South America, known for its loud and characteristic call.",
-        "detailed": "The Great Kiskadee (Bem-te-vi) is one of the most recognizable birds in Brazil, commonly found in urban and rural environments. It is highly adaptable, aggressive when defending territory, and feeds on insects, fruits, small vertebrates and human food scraps.",
-        "behavior": [
-            "territorial",
-            "diurnal",
-            "aggressive",
-            "opportunistic_feeder",
-            "urban_adapted"
-        ],
-        "diet": [
-            "insectivore",
-            "omnivore",
-            "frugivore"
-        ]
-    },
-    "habitat": {
-        "primary": [
-            "urban_areas",
-            "forest_edges",
-            "savanna",
-            "wetlands"
-        ],
-        "secondary": [
-            "farmlands",
-            "parks",
-            "riverbanks"
-        ],
-        "altitude_range_m": {
-            "min": 0,
-            "max": 2000
+    "_id": null,
+    "identificacao": {
+        "id_especie": "pitangus_sulphuratus",
+        "nome_cientifico": "Pitangus sulphuratus",
+        "autoridade": "Linnaeus, 1766",
+        "nomes_comuns": {
+            "pt": [
+                "bem-te-vi"
+            ],
+            "en": [
+                "Great Kiskadee"
+            ]
         }
     },
-    "occurrence": {
-        "countries": [
-            "Brazil",
-            "Argentina",
-            "Paraguay",
-            "Uruguay",
-            "Bolivia"
+    "taxonomia": {
+        "reino": "Animalia",
+        "filo": "Chordata",
+        "classe": "Aves",
+        "ordem": "Passeriformes",
+        "familia": "Tyrannidae",
+        "genero": "Pitangus",
+        "especie": "sulphuratus"
+    },
+    "descricao": {
+        "texto": "Ave de porte médio, muito comum em áreas urbanas e abertas, conhecida pela vocalização forte e marcante que lembra seu nome popular.",
+        "identificacao": "Reconhecida pela máscara preta na região ocular, ventre amarelo intenso, dorso acastanhado esverdeado e comportamento vocal conspícuo."
+    },
+    "morfologia": {
+        "comprimento_cm": {
+            "minimo": 22,
+            "maximo": 25
+        },
+        "peso_g": {
+            "minimo": 55,
+            "maximo": 65,
+            "medio": 60
+        },
+        "cores": [
+            "amarelo",
+            "preto",
+            "marrom",
+            "branco",
+            "oliva"
         ],
-        "biomes": [
-            "Amazonia",
+        "bico": {
+            "formato": "robusto e levemente curvado",
+            "descricao": "bico forte adaptado a dieta oportunista (insetos, frutos e pequenos vertebrados)",
+            "culmen_mm": null,
+            "nares_mm": null,
+            "largura_mm": null,
+            "profundidade_mm": null
+        },
+        "asa": {
+            "formato": "arredondada",
+            "comprimento_mm": null,
+            "indice_asa_mao": null,
+            "distancia_kipps_mm": null
+        },
+        "cauda": {
+            "formato": "ligeiramente entalhada",
+            "comprimento_mm": null
+        },
+        "tarso_mm": null,
+        "dimorfismo_sexual": "não significativo; machos e fêmeas são semelhantes",
+        "descricao_juvenil": "Semelhante ao adulto, porém com cores menos intensas e plumagem mais opaca",
+        "caracteristicas": [
+            "máscara preta evidente",
+            "ventre amarelo vivo",
+            "coroa com leve padrão escondido",
+            "vocalização forte e repetitiva"
+        ]
+    },
+    "alimentacao": {
+        "guilda": "onívoro oportunista",
+        "nivel_trofico": "consumidor secundário",
+        "nicho_trofico": "generalista",
+        "itens": [
+            "insetos",
+            "frutos",
+            "pequenos vertebrados",
+            "peixes pequenos ocasionalmente"
+        ],
+        "descricao": "Alimentação altamente oportunista, consumindo desde insetos e frutos até pequenos vertebrados e restos alimentares em ambientes urbanos."
+    },
+    "habitat": {
+        "habitat_funcional": "generalista",
+        "ambientes": [
+            "áreas urbanas",
+            "bordas de floresta",
+            "campos abertos",
+            "margens de rios"
+        ],
+        "biomas": [
+            "Amazônia",
             "Cerrado",
-            "Mata Atlantica",
+            "Mata Atlântica",
             "Pantanal",
-            "Pampa"
+            "Caatinga"
         ],
-        "endemism": "native_widespread",
-        "range_type": "very_broad"
+        "faixa_altitudinal_m": {
+            "minimo": 0,
+            "maximo": 2000
+        },
+        "descricao": "Ocorre em praticamente todos os tipos de ambientes abertos e semiabertos, com alta adaptação a áreas urbanizadas."
     },
-    "ecology": {
-        "activity_pattern": "diurnal",
-        "social_structure": "solitary_or_pairs",
-        "migration": "resident"
-    },
-    "rag": {
-        "embedding_text": "bem-te-vi great kiskadee yellow belly black head loud bird urban Brazil aggressive passerine tyrannidae common adaptable bird South America",
-        "keywords": [
-            "yellow belly bird",
-            "urban Brazilian bird",
-            "loud call bem te vi",
-            "black and white head bird"
+    "distribuicao": {
+        "area_km2": null,
+        "paises": [
+            "Brasil",
+            "Argentina",
+            "Paraguai",
+            "Uruguai",
+            "Bolívia",
+            "Colômbia",
+            "Venezuela",
+            "México"
         ],
-        "difficulty_identification": "easy"
+        "estados": [],
+        "municipios": [],
+        "endemica": false
     },
-    "data_quality": {
-        "confidence_score": 0.95,
-        "sources": [
-            "AVONET",
-            "eBird",
-            "GBIF",
-            "WikiAves"
-        ],
-        "last_updated": "2026-06-24"
+    "ecologia": {
+        "migracao": "não migratório na maior parte da distribuição",
+        "estilo_vida": "solitário ou em pares",
+        "atividade": "diurna",
+        "comportamento": "territorial, agressivo na defesa de alimento e ninho",
+        "vocalizacao": "chamada forte e repetitiva que origina o nome popular",
+        "reproducao": "constrói ninhos fechados em árvores ou estruturas humanas, postura de 2 a 4 ovos"
+    },
+    "conservacao": {
+        "status_iucn": "LC",
+        "tendencia_populacional": "estável",
+        "descricao": "Espécie amplamente distribuída e adaptável, tolerante à presença humana."
+    },
+    "identificadores": {
+        "wikiaves": "",
+        "avonet": "",
+        "ebird": "",
+        "gbif": "",
+        "birdlife": "",
+        "iucn": ""
+    },
+    "fontes": {
+        "wikiaves": true,
+        "avonet": true,
+        "ebird": true
+    },
+    "metadados": {
+        "versao_schema": "1.0",
+        "ultima_atualizacao": "2026-06-28",
+        "indice_confianca": 0.93
     }
 }
