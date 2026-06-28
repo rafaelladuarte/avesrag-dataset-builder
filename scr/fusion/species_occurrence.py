@@ -1,7 +1,12 @@
-from pymongo import MongoClient, UpdateOne
-from collections import defaultdict
-import logging
+import os
 import sys
+import logging
+from pathlib import Path
+
+from pymongo import MongoClient, UpdateOne
+from dotenv import load_dotenv
+
+load_dotenv()
 
 logging.basicConfig(
     level=logging.INFO,
@@ -12,8 +17,8 @@ log = logging.getLogger(__name__)
 
 # ─── Configuração ────────────────────────────────────────────────────────────
 
-MONGO_URI = "mongodb://localhost:27017"
-DATABASE = "avesrag"
+MONGO_URI = os.environ.get("MONGODB_URI", "mongodb://localhost:27017")
+DATABASE = os.getenv("MONGO_DB", "avesrag")
 SOURCE_COLLECTION = "ebird"
 TARGET_COLLECTION = "ocorrencias_especies"
 
