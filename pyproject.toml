@@ -16,6 +16,14 @@ playwright = "^1.60.0"
 beautifulsoup4 = "^4.15.0"
 rapidfuzz = "^3.14.5"
 tqdm = "^4.68.3"
+requests = "^2.34.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
 
 [build-system]
 requires = ["poetry-core"]
