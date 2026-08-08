@@ -1,6 +1,6 @@
 name: "P06_Padronizacao_Medidas"
 version: "1.0"
-model: "gemini-1.5-flash"
+model: "gemini-3.5-flash"
 system_prompt: |
   Padronizar medidas em formato estruturado.
   Você receberá descrições textuais que contêm medições (comprimento, peso, envergadura, etc).
