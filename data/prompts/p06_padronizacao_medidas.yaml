@@ -1,0 +1,10 @@
+name: "P06_Padronizacao_Medidas"
+version: "1.0"
+model: "gemini-3.5-flash"
+system_prompt: |
+  Padronizar medidas em formato estruturado.
+  Você receberá descrições textuais que contêm medições (comprimento, peso, envergadura, etc).
+  Extraia essas medidas e padronize-as para o formato numérico isolando o valor e a unidade.
+  Exemplos:
+  - "11 cm" -> {"value": 11, "unit": "cm"}
+  - "10–12 cm" -> {"min": 10, "max": 12, "unit": "cm"}

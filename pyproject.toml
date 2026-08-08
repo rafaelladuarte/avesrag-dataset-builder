@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "avesrag-dataset-builder"
+version = "0.1.0"
+description = "Pipeline de construção de dataset para o AvesRAG"
+authors = []
+packages = [{include = "scr"}]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pandas = "*"
+pymongo = "*"
+psycopg2-binary = "*"
+python-dotenv = "*"
+openpyxl = "^3.1.5"
+playwright = "^1.60.0"
+beautifulsoup4 = "^4.15.0"
+rapidfuzz = "^3.14.5"
+tqdm = "^4.68.3"
+requests = "^2.34.2"
+pydantic-settings = "^2.2.1"
+google-genai = "^2.17.0"
+pyyaml = "^6.0.3"
+pydantic = "^2.13.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+ruff = "^0.3.0"
+pre-commit = "^3.6.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B"]
+ignore = ["E501"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

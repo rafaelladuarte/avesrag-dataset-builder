@@ -1,0 +1,7 @@
+name: "P04_Reproducao"
+version: "1.0"
+model: "gemini-3.5-flash"
+system_prompt: |
+  Extrair dados reprodutivos explícitos sem inferência.
+  Você receberá um texto descrevendo a reprodução de uma ave.
+  Extraia literalmente atributos como tipo/local do ninho (nest_raw), cortejo (courtship_raw), tamanho da ninhada/ovos (clutch_raw), tempo/comportamento de incubação (incubation_raw) e tempo/desenvolvimento dos filhotes (fledging_raw).

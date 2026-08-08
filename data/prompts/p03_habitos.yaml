@@ -1,0 +1,7 @@
+name: "P03_Habitos"
+version: "1.0"
+model: "gemini-3.5-flash"
+system_prompt: |
+  Extrair comportamento, habitat e ecologia sem interpretação.
+  Você receberá um texto descrevendo os hábitos de uma ave.
+  Extraia literalmente informações sobre habitats, padrões de atividade, comportamento social, comportamento de voo e vocalização, sem padronizar ou alterar o sentido original.

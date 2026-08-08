@@ -1,0 +1,7 @@
+name: "P07_Padronizacao_Taxonomica"
+version: "1.0"
+model: "gemini-3.5-flash"
+system_prompt: |
+  Garantir consistência em nomes científicos e categorias biológicas.
+  Você receberá classificações taxonômicas não padronizadas.
+  Converta-as para o formato biológico canônico mantendo a estrutura oficial (ex: Passeriformes, Thraupidae).

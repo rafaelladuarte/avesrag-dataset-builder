@@ -1,0 +1,3 @@
+Geocódigo	Nome	UF	Bioma
+5200050	Abadia de Goiás	GO	Cerrado
+3150539	Pingo d'Água	MG	Mata Atlântica

@@ -1,0 +1,154 @@
+{
+    "_id": null,
+    "identificacao": {
+        "id_especie": "pitangus_sulphuratus",
+        "nome_cientifico": "Pitangus sulphuratus",
+        "autoridade": "Linnaeus, 1766",
+        "nomes_comuns": {
+            "pt": [
+                "bem-te-vi"
+            ],
+            "en": [
+                "Great Kiskadee"
+            ]
+        }
+    },
+    "taxonomia": {
+        "reino": "Animalia",
+        "filo": "Chordata",
+        "classe": "Aves",
+        "ordem": "Passeriformes",
+        "familia": "Tyrannidae",
+        "genero": "Pitangus",
+        "especie": "sulphuratus"
+    },
+    "descricao": {
+        "texto": "Ave de porte médio, muito comum em áreas urbanas e abertas, conhecida pela vocalização forte e marcante que lembra seu nome popular.",
+        "identificacao": "Reconhecida pela máscara preta na região ocular, ventre amarelo intenso, dorso acastanhado esverdeado e comportamento vocal conspícuo."
+    },
+    "morfologia": {
+        "comprimento_cm": {
+            "minimo": 22,
+            "maximo": 25
+        },
+        "peso_g": {
+            "minimo": 55,
+            "maximo": 65,
+            "medio": 60
+        },
+        "cores": [
+            "amarelo",
+            "preto",
+            "marrom",
+            "branco",
+            "oliva"
+        ],
+        "bico": {
+            "formato": "robusto e levemente curvado",
+            "descricao": "bico forte adaptado a dieta oportunista (insetos, frutos e pequenos vertebrados)",
+            "culmen_mm": null,
+            "nares_mm": null,
+            "largura_mm": null,
+            "profundidade_mm": null
+        },
+        "asa": {
+            "formato": "arredondada",
+            "comprimento_mm": null,
+            "indice_asa_mao": null,
+            "distancia_kipps_mm": null
+        },
+        "cauda": {
+            "formato": "ligeiramente entalhada",
+            "comprimento_mm": null
+        },
+        "tarso_mm": null,
+        "dimorfismo_sexual": "não significativo; machos e fêmeas são semelhantes",
+        "descricao_juvenil": "Semelhante ao adulto, porém com cores menos intensas e plumagem mais opaca",
+        "caracteristicas": [
+            "máscara preta evidente",
+            "ventre amarelo vivo",
+            "coroa com leve padrão escondido",
+            "vocalização forte e repetitiva"
+        ]
+    },
+    "alimentacao": {
+        "guilda": "onívoro oportunista",
+        "nivel_trofico": "consumidor secundário",
+        "nicho_trofico": "generalista",
+        "itens": [
+            "insetos",
+            "frutos",
+            "pequenos vertebrados",
+            "peixes pequenos ocasionalmente"
+        ],
+        "descricao": "Alimentação altamente oportunista, consumindo desde insetos e frutos até pequenos vertebrados e restos alimentares em ambientes urbanos."
+    },
+    "habitat": {
+        "habitat_funcional": "generalista",
+        "ambientes": [
+            "áreas urbanas",
+            "bordas de floresta",
+            "campos abertos",
+            "margens de rios"
+        ],
+        "biomas": [
+            "Amazônia",
+            "Cerrado",
+            "Mata Atlântica",
+            "Pantanal",
+            "Caatinga"
+        ],
+        "faixa_altitudinal_m": {
+            "minimo": 0,
+            "maximo": 2000
+        },
+        "descricao": "Ocorre em praticamente todos os tipos de ambientes abertos e semiabertos, com alta adaptação a áreas urbanizadas."
+    },
+    "distribuicao": {
+        "area_km2": null,
+        "paises": [
+            "Brasil",
+            "Argentina",
+            "Paraguai",
+            "Uruguai",
+            "Bolívia",
+            "Colômbia",
+            "Venezuela",
+            "México"
+        ],
+        "estados": [],
+        "municipios": [],
+        "endemica": false
+    },
+    "ecologia": {
+        "migracao": "não migratório na maior parte da distribuição",
+        "estilo_vida": "solitário ou em pares",
+        "atividade": "diurna",
+        "comportamento": "territorial, agressivo na defesa de alimento e ninho",
+        "vocalizacao": "chamada forte e repetitiva que origina o nome popular",
+        "reproducao": "constrói ninhos fechados em árvores ou estruturas humanas, postura de 2 a 4 ovos"
+    },
+    "conservacao": {
+        "status_iucn": "LC",
+        "tendencia_populacional": "estável",
+        "descricao": "Espécie amplamente distribuída e adaptável, tolerante à presença humana."
+    },
+    "identificadores": {
+        "wikiaves": "",
+        "avonet": "",
+        "ebird": "",
+        "gbif": "",
+        "birdlife": "",
+        "iucn": ""
+    },
+    "fontes": {
+        "wikiaves": true,
+        "avonet": true,
+        "ebird": true
+    },
+    "metadados": {
+        "versao_schema": "1.0",
+        "ultima_atualizacao": "2026-06-28",
+        "indice_confianca": 0.93
+    }
+}
