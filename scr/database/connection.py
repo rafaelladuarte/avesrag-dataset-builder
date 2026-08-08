@@ -21,12 +21,12 @@ class DatabaseConnection:
     _mongo_client = None
 
     def __init__(self):
-        # Configurações do PostgreSQL
-        self.pg_uri = os.environ.get("POSTGRES_URI", "postgresql://aves:aves@localhost:5432/aves_brasil")
+        # Configurações do PostgreSQL (falha explicitamente se não definida)
+        self.pg_uri = os.environ.get("POSTGRES_URI")
         
-        # Configurações do MongoDB
-        self.mongo_uri = os.environ.get("MONGODB_URI", "mongodb://admin:password123@localhost:27017/?authSource=admin")
-        self.mongo_db_name = "aves_brasil"
+        # Configurações do MongoDB (falha explicitamente se não definida)
+        self.mongo_uri = os.environ["MONGODB_URI"]
+        self.mongo_db_name = "avesrag"
 
     @contextmanager
     def get_pg_connection(self):

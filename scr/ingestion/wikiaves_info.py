@@ -1,4 +1,5 @@
 import sys
+import os
 import json
 import re
 import csv
@@ -244,7 +245,7 @@ def extrair_dados_html(html: str) -> dict:
 
 def main():
     csv_path = "data/raw/wikiaves_especies.csv"
-    MAX_ESPECIES = 2000  # MODO DE TESTE MANDATÓRIO
+    MAX_ESPECIES = int(os.environ.get("MAX_ESPECIES", "0")) or None  # 0 ou ausente = sem limite
 
     if not Path(csv_path).exists():
         print(f"Erro: Arquivo '{csv_path}' não encontrado.")
@@ -252,8 +253,7 @@ def main():
 
     print("Conectando ao MongoDB para recuperar espécies já extraídas...")
     db_connection = DatabaseConnection()
-    db_padrao = db_connection.get_mongo_db()
-    db_avesrag = db_padrao.client["avesrag"]
+    db_avesrag = db_connection.get_mongo_db()
 
     especies_existentes = set()
     for doc in db_avesrag.wikiaves.find({}, {"nome_cientifico": 1}):
@@ -267,7 +267,8 @@ def main():
 
     resultados = []
 
-    print(f"Iniciando extração dinâmica via Playwright para as primeiras {MAX_ESPECIES} espécies...")
+    limite_str = f"as primeiras {MAX_ESPECIES}" if MAX_ESPECIES else "todas as"
+    print(f"Iniciando extração dinâmica via Playwright para {limite_str} espécies...")
 
     with open(csv_path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -277,7 +278,7 @@ def main():
             page = context.new_page()
 
             for i, row in enumerate(reader):
-                if i >= MAX_ESPECIES:
+                if MAX_ESPECIES is not None and i >= MAX_ESPECIES:
                     break
 
                 nome = row.get("nome_cientifico", f"Espécie {i+1}")

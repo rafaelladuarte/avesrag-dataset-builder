@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-EBIRD_API_KEY: str = os.environ["EBIRD_API_KEY"]
+EBIRD_API_KEY: str = os.environ.get("EBIRD_API_KEY", "")
 MONGO_URI: str     = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
 MONGO_DB: str      = os.getenv("MONGO_DB", "avesrag")
 
@@ -358,6 +358,12 @@ def save_unmatched_report(unmatched: list[dict]) -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    if not EBIRD_API_KEY:
+        raise ValueError(
+            "Variável de ambiente EBIRD_API_KEY não definida. "
+            "Consulte .env.example para configuração."
+        )
+
     log.info("=" * 60)
     log.info("eBird × IBGE — início da coleta")
     log.info("=" * 60)

@@ -67,9 +67,7 @@ class AvonetIngestion(BaseExtractor):
         if not transformed_data:
             return set()
 
-        # Obtém o client a partir do get_mongo_db() e seleciona o banco 'avesrag'
-        db_padrao = self.db_connection.get_mongo_db()
-        db_avesrag = db_padrao.client["avesrag"]
+        db = self.db_connection.get_mongo_db()
         
         ops = []
         carregadas = set()
@@ -84,7 +82,7 @@ class AvonetIngestion(BaseExtractor):
 
         if ops:
             try:
-                db_avesrag.avonet.bulk_write(ops, ordered=False)
+                db.avonet.bulk_write(ops, ordered=False)
                 self.logger.info(f"AVONET: {len(ops)} espécies carregadas na collection 'avonet' do MongoDB (banco 'avesrag').")
             except BulkWriteError as e:
                 self.logger.error(f"AVONET bulk_write error: {e.details}")

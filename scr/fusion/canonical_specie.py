@@ -1,10 +1,12 @@
 import os
+import re
 import csv
 from uuid import uuid4
-from datetime import datetime
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 
-from pymongo import MongoClient
+from pymongo import MongoClient, UpdateOne
+from pymongo.errors import BulkWriteError
 
 load_dotenv()
 
@@ -22,18 +24,6 @@ COLLECTION_AVONET = "avonet"
 COLLECTION_CANONICAL = "canonical_species"
 
 
-client = MongoClient(MONGO_URI)
-
-db = client[DATABASE]
-
-wikiaves = db[COLLECTION_WIKIAVES]
-avonet = db[COLLECTION_AVONET]
-canonical = db[COLLECTION_CANONICAL]
-
-
-canonical.create_index("scientific_name", unique=True)
-
-
 # ==========================================================
 # Utilidades
 # ==========================================================
@@ -43,8 +33,6 @@ def get_size(text):
     Extrai:
     Mede 8,6 centímetros
     """
-
-    import re
 
     if not text:
         return {"min": None, "max": None}
@@ -68,8 +56,6 @@ def get_weight(text):
     pesa de 1,8 a 2,2 gramas
     """
 
-    import re
-
     if not text:
         return {"min": None, "max": None}
 
@@ -92,256 +78,281 @@ def get_weight(text):
 # Merge
 # ==========================================================
 
-CSV_PATH = "data/raw/wikiaves_especies.csv"
+def main():
+    client = MongoClient(MONGO_URI)
 
-with open(CSV_PATH, "r", encoding="utf-8") as f:
-    reader = csv.DictReader(f)
-    for row in reader:
+    db = client[DATABASE]
 
-        scientific_name = row["nome_cientifico"]
+    wikiaves = db[COLLECTION_WIKIAVES]
+    avonet = db[COLLECTION_AVONET]
+    canonical = db[COLLECTION_CANONICAL]
 
-        avo = avonet.find_one({"nome_cientifico": scientific_name}) or {}
+    canonical.create_index("scientific_name", unique=True)
 
-        wiki = wikiaves.find_one({
-            "nome_cientifico.nome": scientific_name
-        })
+    CSV_PATH = "data/raw/wikiaves_especies.csv"
 
-        morphology_text = ""
+    operations = []
 
-        if wiki:
-            morphology_text = wiki.get("caracteristicas", "")
+    with open(CSV_PATH, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
 
-        size = get_size(morphology_text)
-        weight = get_weight(morphology_text)
+            scientific_name = row["nome_cientifico"]
 
-        document = {
+            avo = avonet.find_one({"nome_cientifico": scientific_name}) or {}
 
-            "species_id": str(uuid4()),
+            wiki = wikiaves.find_one({
+                "nome_cientifico.nome": scientific_name
+            })
 
-            "scientific_name": scientific_name,
+            morphology_text = ""
 
-            "authority": (
-                wiki.get("nome_cientifico", {}).get("autoridade")
-                if wiki else None
-            ),
+            if wiki:
+                morphology_text = wiki.get("caracteristicas", "")
 
-            "common_names": {
-                "pt": [
-                    wiki.get("meta_nome_comum")
-                ] if wiki else [],
-                "en": [
-                    wiki.get("nome_ingles")
-                ] if wiki else []
-            },
+            size = get_size(morphology_text)
+            weight = get_weight(morphology_text)
 
-            "taxonomy": {
+            document = {
 
-                "kingdom": (
-                    wiki.get("classificacao_cientifica", {}).get("Reino")
+                "species_id": str(uuid4()),
+
+                "scientific_name": scientific_name,
+
+                "authority": (
+                    wiki.get("nome_cientifico", {}).get("autoridade")
                     if wiki else None
                 ),
 
-                "phylum": (
-                    wiki.get("classificacao_cientifica", {}).get("Filo")
-                    if wiki else None
-                ),
-
-                "class": (
-                    wiki.get("classificacao_cientifica", {}).get("Classe")
-                    if wiki else None
-                ),
-
-                "order": avo.get("ordem"),
-
-                "family": avo.get("familia"),
-
-                "genus": scientific_name.split()[0],
-
-                "species": scientific_name
-            },
-
-            "morphology": {
-
-                "size_cm": size,
-
-                "weight_g": {
-                    "min": weight["min"],
-                    "max": weight["max"],
-                    "mean": avo.get("massa_corporal_g")
+                "common_names": {
+                    "pt": [
+                        wiki.get("meta_nome_comum")
+                    ] if wiki else [],
+                    "en": [
+                        wiki.get("nome_ingles")
+                    ] if wiki else []
                 },
 
-                "colors": [],
+                "taxonomy": {
 
-                "beak": {
+                    "kingdom": (
+                        wiki.get("classificacao_cientifica", {}).get("Reino")
+                        if wiki else None
+                    ),
 
-                    "shape": "",
+                    "phylum": (
+                        wiki.get("classificacao_cientifica", {}).get("Filo")
+                        if wiki else None
+                    ),
 
-                    "culmen_mm": avo.get("bico_comprimento_culmen_mm"),
+                    "class": (
+                        wiki.get("classificacao_cientifica", {}).get("Classe")
+                        if wiki else None
+                    ),
 
-                    "nares_mm": avo.get("bico_comprimento_nares_mm"),
+                    "order": avo.get("ordem"),
 
-                    "width_mm": avo.get("bico_largura_mm"),
+                    "family": avo.get("familia"),
 
-                    "depth_mm": avo.get("bico_profundidade_mm")
+                    "genus": scientific_name.split()[0],
+
+                    "species": scientific_name
                 },
 
-                "wing": {
+                "morphology": {
 
-                    "shape": "",
+                    "size_cm": size,
 
-                    "length_mm": avo.get("asa_comprimento_mm"),
+                    "weight_g": {
+                        "min": weight["min"],
+                        "max": weight["max"],
+                        "mean": avo.get("massa_corporal_g")
+                    },
 
-                    "hand_wing_index": avo.get("indice_asa_mao"),
+                    "colors": [],
 
-                    "kipps_distance_mm": avo.get("kipps_distancia_mm")
+                    "beak": {
+
+                        "shape": "",
+
+                        "culmen_mm": avo.get("bico_comprimento_culmen_mm"),
+
+                        "nares_mm": avo.get("bico_comprimento_nares_mm"),
+
+                        "width_mm": avo.get("bico_largura_mm"),
+
+                        "depth_mm": avo.get("bico_profundidade_mm")
+                    },
+
+                    "wing": {
+
+                        "shape": "",
+
+                        "length_mm": avo.get("asa_comprimento_mm"),
+
+                        "hand_wing_index": avo.get("indice_asa_mao"),
+
+                        "kipps_distance_mm": avo.get("kipps_distancia_mm")
+                    },
+
+                    "tail": {
+
+                        "shape": "",
+
+                        "length_mm": avo.get("cauda_comprimento_mm")
+                    },
+
+                    "tarsus_mm": avo.get("tarso_comprimento_mm"),
+
+                    "sexual_dimorphism": "",
+
+                    "juvenile_description": "",
+
+                    "distinctive_features": []
                 },
 
-                "tail": {
+                "description": {
 
-                    "shape": "",
+                    "short": "",
 
-                    "length_mm": avo.get("cauda_comprimento_mm")
+                    "detailed": (
+                        wiki.get("caracteristicas")
+                        if wiki else ""
+                    ),
+
+                    "behavior": [],
+
+                    "identification": ""
                 },
 
-                "tarsus_mm": avo.get("tarso_comprimento_mm"),
+                "diet": {
 
-                "sexual_dimorphism": "",
+                    "guilds": [
+                        avo.get("nicho_trofico")
+                    ] if avo.get("nicho_trofico") else [],
 
-                "juvenile_description": "",
+                    "food_items": []
+                },
 
-                "distinctive_features": []
-            },
+                "habitat": {
 
-            "description": {
+                    "primary": [
+                        avo.get("habitat_avonet")
+                    ] if avo.get("habitat_avonet") else [],
 
-                "short": "",
+                    "secondary": [],
 
-                "detailed": (
-                    wiki.get("caracteristicas")
-                    if wiki else ""
-                ),
+                    "altitude_range_m": {
+                        "min": None,
+                        "max": None
+                    }
+                },
 
-                "behavior": [],
+                "occurrence": {
 
-                "identification": ""
-            },
+                    "countries": [],
 
-            "diet": {
+                    "states": [],
 
-                "guilds": [
-                    avo.get("nicho_trofico")
-                ] if avo.get("nicho_trofico") else [],
+                    "municipalities": [],
 
-                "food_items": []
-            },
+                    "biomes": [],
 
-            "habitat": {
+                    "range_area_km2": avo.get("area_distribuicao_km2"),
 
-                "primary": [
-                    avo.get("habitat_avonet")
-                ] if avo.get("habitat_avonet") else [],
+                    "endemism": "",
 
-                "secondary": [],
+                    "range_type": ""
+                },
 
-                "altitude_range_m": {
-                    "min": None,
-                    "max": None
+                "ecology": {
+
+                    "activity_pattern": "",
+
+                    "social_structure": "",
+
+                    "migration": avo.get("migracao"),
+
+                    "primary_lifestyle": avo.get("estilo_vida_primario"),
+
+                    "trophic_level": avo.get("nivel_trofico"),
+
+                    "trophic_niche": avo.get("nicho_trofico"),
+
+                    "reproduction": ""
+                },
+
+                "conservation": {
+
+                    "iucn_status": (
+                        wiki.get("estado_de_conservacao")
+                        if wiki else ""
+                    ),
+
+                    "population_trend": "",
+
+                    "cites": ""
+                },
+
+                "external_ids": {
+
+                    "wikiaves": (
+                        wiki.get("meta_id")
+                        if wiki else None
+                    ),
+
+                    "gbif": None,
+
+                    "ebird": None,
+
+                    "iucn": None,
+
+                    "birdlife": None
+                },
+
+                "data_quality": {
+
+                    "confidence_score": None,
+
+                    "sources": [
+
+                        "AVONET" if avo else None,
+
+                        "WikiAves" if wiki else None
+
+                    ],
+
+                    "schema_version": "1.0",
+
+                    "pipeline_version": "1.0",
+
+                    "last_updated": datetime.now(timezone.utc)
                 }
-            },
 
-            "occurrence": {
-
-                "countries": [],
-
-                "states": [],
-
-                "municipalities": [],
-
-                "biomes": [],
-
-                "range_area_km2": avo.get("area_distribuicao_km2"),
-
-                "endemism": "",
-
-                "range_type": ""
-            },
-
-            "ecology": {
-
-                "activity_pattern": "",
-
-                "social_structure": "",
-
-                "migration": avo.get("migracao"),
-
-                "primary_lifestyle": avo.get("estilo_vida_primario"),
-
-                "trophic_level": avo.get("nivel_trofico"),
-
-                "trophic_niche": avo.get("nicho_trofico"),
-
-                "reproduction": ""
-            },
-
-            "conservation": {
-
-                "iucn_status": (
-                    wiki.get("estado_de_conservacao")
-                    if wiki else ""
-                ),
-
-                "population_trend": "",
-
-                "cites": ""
-            },
-
-            "external_ids": {
-
-                "wikiaves": (
-                    wiki.get("meta_id")
-                    if wiki else None
-                ),
-
-                "gbif": None,
-
-                "ebird": None,
-
-                "iucn": None,
-
-                "birdlife": None
-            },
-
-            "data_quality": {
-
-                "confidence_score": None,
-
-                "sources": [
-
-                    "AVONET" if avo else None,
-
-                    "WikiAves" if wiki else None
-
-                ],
-
-                "schema_version": "1.0",
-
-                "pipeline_version": "1.0",
-
-                "last_updated": datetime.utcnow()
             }
 
-        }
+            document["data_quality"]["sources"] = [
+                s for s in document["data_quality"]["sources"] if s
+            ]
 
-        document["data_quality"]["sources"] = [
-            s for s in document["data_quality"]["sources"] if s
-        ]
+            operations.append(UpdateOne(
+                {"scientific_name": scientific_name},
+                {"$set": document},
+                upsert=True
+            ))
 
-        canonical.replace_one(
-            {
-                "scientific_name": scientific_name
-            },
-            document,
-            upsert=True
-        )
+    if operations:
+        try:
+            result = canonical.bulk_write(operations, ordered=False)
+            print(f"Canonical species criadas com sucesso: "
+                  f"{result.upserted_count} inseridas, {result.modified_count} atualizadas.")
+        except BulkWriteError as e:
+            print(f"Erro no bulk_write: {e.details}")
+    else:
+        print("Nenhuma espécie para processar.")
 
-print("Canonical species criadas com sucesso.")
+    client.close()
+
+
+if __name__ == "__main__":
+    main()

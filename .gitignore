@@ -196,3 +196,7 @@ cython_debug/
 *.env
 
 .~lock.*
+
+# Artefatos de execução do pipeline
+ebird_coleta.log
+municipios_sem_match.txt
