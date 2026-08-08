@@ -1,11 +1,9 @@
 import logging
-import os
 import sys
 
-from dotenv import load_dotenv
 from pymongo import MongoClient, UpdateOne
 
-load_dotenv()
+from scr.core.config import settings
 
 logging.basicConfig(
     level=logging.INFO,
@@ -16,8 +14,8 @@ log = logging.getLogger(__name__)
 
 # ─── Configuração ────────────────────────────────────────────────────────────
 
-MONGO_URI = os.environ.get("MONGODB_URI", "mongodb://localhost:27017")
-DATABASE = os.getenv("MONGO_DB", "avesrag")
+MONGO_URI = str(settings.MONGODB_URI)
+DATABASE = settings.MONGODB_DATABASE
 SOURCE_COLLECTION = "ebird"
 TARGET_COLLECTION = "ocorrencias_especies"
 

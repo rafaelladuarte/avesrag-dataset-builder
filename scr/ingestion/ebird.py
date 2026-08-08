@@ -1,27 +1,25 @@
 import logging
-import os
 import time
 import unicodedata
 from pathlib import Path
 from typing import Optional
 
 import requests
-from dotenv import load_dotenv
 from openpyxl import load_workbook
 from pymongo import MongoClient, UpdateOne
 from pymongo.errors import BulkWriteError
 from rapidfuzz import fuzz, process
 from tqdm import tqdm
 
+from scr.core.config import settings
+
 # ---------------------------------------------------------------------------
 # Configuração
 # ---------------------------------------------------------------------------
 
-load_dotenv()
-
-EBIRD_API_KEY: str = os.environ.get("EBIRD_API_KEY", "")
-MONGO_URI: str = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
-MONGO_DB: str = os.getenv("MONGO_DB", "avesrag")
+EBIRD_API_KEY: str = settings.EBIRD_API_KEY or ""
+MONGO_URI: str = str(settings.MONGODB_URI)
+MONGO_DB: str = settings.MONGODB_DATABASE
 
 # Caminho para o xlsx do IBGE — ajuste se necessário
 IBGE_XLSX: Path = Path("data/raw/Bioma_Predominante_por_Municipio_2024.xlsx")

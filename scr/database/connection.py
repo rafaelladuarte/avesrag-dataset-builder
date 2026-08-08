@@ -4,13 +4,14 @@ Gerencia conexões com MongoDB e PostGIS de forma estruturada.
 """
 
 import logging
-import os
 from contextlib import contextmanager
 
 import psycopg2
 from dotenv import load_dotenv
 from psycopg2.extras import execute_values
 from pymongo import MongoClient
+
+from scr.core.config import settings
 
 load_dotenv()
 
@@ -26,11 +27,11 @@ class DatabaseConnection:
 
     def __init__(self):
         # Configurações do PostgreSQL (falha explicitamente se não definida)
-        self.pg_uri = os.environ.get("POSTGRES_URI")
+        self.pg_uri = str(settings.POSTGRES_URI) if settings.POSTGRES_URI else None
 
         # Configurações do MongoDB (falha explicitamente se não definida)
-        self.mongo_uri = os.environ["MONGODB_URI"]
-        self.mongo_db_name = "avesrag"
+        self.mongo_uri = str(settings.MONGODB_URI)
+        self.mongo_db_name = settings.MONGODB_DATABASE
 
     @contextmanager
     def get_pg_connection(self):

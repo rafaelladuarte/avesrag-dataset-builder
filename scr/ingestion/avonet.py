@@ -35,7 +35,9 @@ COLUNAS = {
 class AvonetIngestion(BaseExtractor):
     def __init__(self):
         super().__init__()
-        self.csv_path = os.environ.get("AVONET_CSV", "data/AVONET_BirdLife.xlsx")
+        from scr.core.config import settings
+
+        self.csv_path = settings.AVONET_CSV
         self.db_connection = DatabaseConnection()
 
     def extract(self):

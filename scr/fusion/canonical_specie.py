@@ -1,22 +1,20 @@
 import csv
-import os
 import re
 from datetime import datetime, timezone
 from uuid import uuid4
 
-from dotenv import load_dotenv
 from pymongo import MongoClient, UpdateOne
 from pymongo.errors import BulkWriteError
 
-load_dotenv()
+from scr.core.config import settings
 
 # ===========================
 # Configuração MongoDB
 # ===========================
 
-MONGO_URI = os.environ.get("MONGODB_URI", "mongodb://localhost:27017")
+MONGO_URI = str(settings.MONGODB_URI)
 
-DATABASE = "avesrag"
+DATABASE = settings.MONGODB_DATABASE
 
 COLLECTION_WIKIAVES = "wikiaves"
 COLLECTION_AVONET = "avonet"

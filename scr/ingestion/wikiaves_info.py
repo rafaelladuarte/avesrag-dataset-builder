@@ -1,5 +1,4 @@
 import csv
-import os
 import random
 import re
 import sys
@@ -248,7 +247,9 @@ def extrair_dados_html(html: str) -> dict:
 
 def main():
     csv_path = "data/raw/wikiaves_especies.csv"
-    MAX_ESPECIES = int(os.environ.get("MAX_ESPECIES", "0")) or None  # 0 ou ausente = sem limite
+    from scr.core.config import settings
+
+    MAX_ESPECIES = settings.MAX_ESPECIES or None  # 0 ou ausente = sem limite
 
     if not Path(csv_path).exists():
         print(f"Erro: Arquivo '{csv_path}' não encontrado.")
