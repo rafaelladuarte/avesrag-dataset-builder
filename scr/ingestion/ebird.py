@@ -1,4 +1,3 @@
-import logging
 import time
 import unicodedata
 from pathlib import Path
@@ -12,6 +11,7 @@ from rapidfuzz import fuzz, process
 from tqdm import tqdm
 
 from scr.core.config import settings
+from scr.core.logging import get_logger
 
 # ---------------------------------------------------------------------------
 # Configuração
@@ -42,20 +42,7 @@ TAXONOMY_LOCALE: str = "pt"
 BASE_URL = "https://api.ebird.org/v2"
 
 # Handler para o arquivo de log (sempre ativo)
-_file_handler = logging.FileHandler("ebird_coleta.log", encoding="utf-8")
-_file_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
-
-# Handler para o console — usamos tqdm.write nos pontos críticos para não
-# quebrar a barra de progresso; aqui só capturamos o restante.
-_console_handler = logging.StreamHandler()
-_console_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[_console_handler, _file_handler],
-)
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -84,38 +71,16 @@ def ebird_get(path: str, params: Optional[dict] = None) -> list | dict:
             if r.status_code == 429:
                 # Backoff exponencial: 10s → 20s → 40s → 80s
                 wait = 10 * (2**attempt)
-                msg = f"Rate limit atingido (tentativa {attempt + 1}/4). Aguardando {wait}s…"
-                # Usa tqdm.write para não corromper a barra de progresso no console
-                tqdm.write(f"[WARNING] {msg}")
-                # Registra também no arquivo de log sem duplicar no console
-                _file_handler.emit(
-                    logging.makeLogRecord(
-                        {
-                            "levelno": logging.WARNING,
-                            "levelname": "WARNING",
-                            "msg": msg,
-                            "args": (),
-                            "name": __name__,
-                        }
-                    )
+                msg = (
+                    f"Rate limit excedido em {url}. Aguardando {wait}s... (Tentativa {attempt + 1})"
                 )
+                log.warning(msg)
                 time.sleep(wait)
             else:
                 raise
         except requests.RequestException as e:
             err_msg = f"Erro na requisição {url}: {e}. Tentativa {attempt + 1}/4"
-            tqdm.write(f"[ERROR] {err_msg}")
-            _file_handler.emit(
-                logging.makeLogRecord(
-                    {
-                        "levelno": logging.ERROR,
-                        "levelname": "ERROR",
-                        "msg": err_msg,
-                        "args": (),
-                        "name": __name__,
-                    }
-                )
-            )
+            log.error(err_msg)
             time.sleep(3)
     raise RuntimeError(f"Falha ao acessar {url} após 4 tentativas")
 

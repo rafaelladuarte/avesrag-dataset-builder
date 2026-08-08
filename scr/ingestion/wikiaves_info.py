@@ -11,7 +11,10 @@ from playwright.sync_api import sync_playwright
 from pymongo import UpdateOne
 from pymongo.errors import BulkWriteError
 
+from scr.core.logging import get_logger
 from scr.database.connection import DatabaseConnection
+
+logger = get_logger(__name__)
 
 # ═══════════════════════════════════════════════════════════════
 # Funções de Evasão e Resiliência
@@ -79,7 +82,7 @@ def navegar_com_retry(page, url: str, max_tentativas: int = 3) -> str | None:
 
             if response and response.status in (429, 403):
                 backoff = (2**tentativa) + random.uniform(0, 2)
-                print(
+                logger.warning(
                     f"  -> HTTP {response.status}. Aguardando {backoff:.1f}s antes de tentar novamente..."
                 )
                 time.sleep(backoff)
@@ -90,7 +93,7 @@ def navegar_com_retry(page, url: str, max_tentativas: int = 3) -> str | None:
 
         except Exception as e:  # noqa: BLE001
             backoff = (2**tentativa) + random.uniform(0, 2)
-            print(
+            logger.warning(
                 f"  -> Tentativa {tentativa}/{max_tentativas} falhou: {e}. Aguardando {backoff:.1f}s..."
             )
             time.sleep(backoff)
@@ -252,10 +255,10 @@ def main():
     MAX_ESPECIES = settings.MAX_ESPECIES or None  # 0 ou ausente = sem limite
 
     if not Path(csv_path).exists():
-        print(f"Erro: Arquivo '{csv_path}' não encontrado.")
+        logger.error(f"Arquivo '{csv_path}' não encontrado.")
         sys.exit(1)
 
-    print("Conectando ao MongoDB para recuperar espécies já extraídas...")
+    logger.info("Conectando ao MongoDB para recuperar espécies já extraídas...")
     db_connection = DatabaseConnection()
     db_avesrag = db_connection.get_mongo_db()
 
@@ -267,12 +270,12 @@ def main():
         elif isinstance(nc, str):
             especies_existentes.add(nc)
 
-    print(f"Encontradas {len(especies_existentes)} espécies já cadastradas na base.")
+    logger.info(f"Encontradas {len(especies_existentes)} espécies já cadastradas na base.")
 
     resultados = []
 
     limite_str = f"as primeiras {MAX_ESPECIES}" if MAX_ESPECIES else "todas as"
-    print(f"Iniciando extração dinâmica via Playwright para {limite_str} espécies...")
+    logger.info(f"Iniciando extração dinâmica via Playwright para {limite_str} espécies...")
 
     with open(csv_path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -288,7 +291,7 @@ def main():
                 nome = row.get("nome_cientifico", f"Espécie {i+1}")
 
                 if nome in especies_existentes:
-                    print(
+                    logger.info(
                         f"[{i+1}/{MAX_ESPECIES}] Espécie '{nome}' já existe no MongoDB. Pulando..."
                     )
                     continue
@@ -296,18 +299,18 @@ def main():
                 url_path = row.get("url", "")
 
                 if not url_path:
-                    print(f"URL ausente para {nome}, pulando...")
+                    logger.warning(f"URL ausente para {nome}, pulando...")
                     continue
 
                 full_url = "https://www.wikiaves.com.br" + (
                     url_path if url_path.startswith("/") else "/" + url_path
                 )
 
-                print(f"[{i+1}/{MAX_ESPECIES}] Acessando {nome}: {full_url}")
+                logger.info(f"[{i+1}/{MAX_ESPECIES}] Acessando {nome}: {full_url}")
 
                 html = navegar_com_retry(page, full_url)
                 if html is None:
-                    print(f"  -> Desistindo de {nome} após todas as tentativas.")
+                    logger.error(f"  -> Desistindo de {nome} após todas as tentativas.")
                     continue
 
                 dados_extraidos = extrair_dados_html(html)
@@ -322,10 +325,10 @@ def main():
             browser.close()
 
     if not resultados:
-        print("Nenhum resultado para inserir no MongoDB.")
+        logger.warning("Nenhum resultado para inserir no MongoDB.")
         return
 
-    print("Conectando ao MongoDB para inserção (BulkWrite)...")
+    logger.info("Conectando ao MongoDB para inserção (BulkWrite)...")
     # A conexão já foi estabelecida acima
     ops = []
     for doc in resultados:
@@ -344,16 +347,16 @@ def main():
                 )
             )
         else:
-            print(f"Documento sem nome científico, ignorando: {doc}")
+            logger.warning(f"Documento sem nome científico, ignorando: {doc}")
 
     if ops:
         try:
             db_avesrag.wikiaves.bulk_write(ops, ordered=False)
-            print(
+            logger.info(
                 f"Extração finalizada com sucesso! {len(ops)} espécies carregadas na collection 'wikiaves' do MongoDB (banco 'avesrag')."
             )
         except BulkWriteError as e:
-            print(f"Erro de bulk_write no MongoDB: {e.details}")
+            logger.error(f"Erro de bulk_write no MongoDB: {e.details}")
 
 
 if __name__ == "__main__":

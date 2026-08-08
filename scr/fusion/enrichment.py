@@ -1,12 +1,10 @@
-import logging
-
 from pymongo import MongoClient
 
 from scr.core.config import settings
+from scr.core.logging import get_logger
 from scr.llm.pipeline import EnrichmentPipeline
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def main():
@@ -31,7 +29,14 @@ def main():
             # Atualiza o banco com a nova camada
             db.wikiaves.update_one(
                 {"_id": doc["_id"]},
-                {"$set": {"species_raw": enriched_data, "_pipeline_processed": True}},
+                {
+                    "$set": {
+                        "species_raw": enriched_data["species_raw"],
+                        "species_normalized": enriched_data["species_normalized"],
+                        "canonical_species": enriched_data["canonical_species"],
+                        "_pipeline_processed": True,
+                    }
+                },
             )
             logger.info(f"✅ Sucesso para: {nome}")
         except Exception as e:

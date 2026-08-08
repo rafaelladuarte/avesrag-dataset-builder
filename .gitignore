@@ -200,3 +200,4 @@ cython_debug/
 # Artefatos de execução do pipeline
 ebird_coleta.log
 municipios_sem_match.txt
+avesrag.log

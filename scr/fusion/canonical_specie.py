@@ -7,6 +7,9 @@ from pymongo import MongoClient, UpdateOne
 from pymongo.errors import BulkWriteError
 
 from scr.core.config import settings
+from scr.core.logging import get_logger
+
+logger = get_logger(__name__)
 
 # ===========================
 # Configuração MongoDB
@@ -215,14 +218,14 @@ def main():
     if operations:
         try:
             result = canonical.bulk_write(operations, ordered=False)
-            print(
+            logger.info(
                 f"Canonical species criadas com sucesso: "
                 f"{result.upserted_count} inseridas, {result.modified_count} atualizadas."
             )
         except BulkWriteError as e:
-            print(f"Erro no bulk_write: {e.details}")
+            logger.error(f"Erro no bulk_write: {e.details}")
     else:
-        print("Nenhuma espécie para processar.")
+        logger.warning("Nenhuma espécie para processar.")
 
     client.close()
 

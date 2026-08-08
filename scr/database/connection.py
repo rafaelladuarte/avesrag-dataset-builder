@@ -3,7 +3,6 @@ src/database/conexoes.py
 Gerencia conexões com MongoDB e PostGIS de forma estruturada.
 """
 
-import logging
 from contextlib import contextmanager
 
 import psycopg2
@@ -12,10 +11,11 @@ from psycopg2.extras import execute_values
 from pymongo import MongoClient
 
 from scr.core.config import settings
+from scr.core.logging import get_logger
 
 load_dotenv()
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 class DatabaseConnection:

@@ -6,7 +6,10 @@ from pydantic import BaseModel
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 from scr.core.config import settings
+from scr.core.logging import get_logger
 from scr.llm.prompt_manager import PromptManager
+
+logger = get_logger(__name__)
 
 
 class GeminiClient:
@@ -42,7 +45,7 @@ class GeminiClient:
             data_dict = parsed_data.model_dump()
         except Exception as e:
             # Fallback/Log em caso de falha bizarra
-            print(f"Falha ao fazer parse da resposta do Gemini: {e}")
+            logger.error(f"Falha ao fazer parse da resposta do Gemini: {e}")
             data_dict = json.loads(response.text) if response.text else {}
 
         # Injetar bloco de auditoria

@@ -55,3 +55,38 @@ class SpeciesRaw(BaseModel):
     alimentacao: Optional[P02Alimentacao] = None
     habitos: Optional[P03Habitos] = None
     reproducao: Optional[P04Reproducao] = None
+
+
+class P05NormalizacaoSemantica(BaseModel):
+    normalized_data: dict[str, list[str]] = Field(default_factory=dict)
+    _audit: Optional[LLMAudit] = None
+
+
+class Measurement(BaseModel):
+    value: Optional[float] = None
+    min_value: Optional[float] = None
+    max_value: Optional[float] = None
+    unit: Optional[str] = None
+
+
+class P06PadronizacaoMedidas(BaseModel):
+    measurements: list[Measurement] = Field(default_factory=list)
+    _audit: Optional[LLMAudit] = None
+
+
+class P07PadronizacaoTaxonomica(BaseModel):
+    reino: Optional[str] = None
+    filo: Optional[str] = None
+    classe: Optional[str] = None
+    ordem: Optional[str] = None
+    familia: Optional[str] = None
+    genero: Optional[str] = None
+    especie: Optional[str] = None
+    _audit: Optional[LLMAudit] = None
+
+
+class P08EstruturaCanonica(BaseModel):
+    identificacao: Optional[str] = None
+    descricao_curta: Optional[str] = None
+    caracteristicas_diagnosticas: list[str] = Field(default_factory=list)
+    _audit: Optional[LLMAudit] = None

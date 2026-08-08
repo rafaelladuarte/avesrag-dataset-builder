@@ -3,8 +3,9 @@ src/extractors/base.py
 Interface comum para coletores de dados.
 """
 
-import logging
 from abc import ABC, abstractmethod
+
+from scr.core.logging import get_logger
 
 
 class BaseExtractor(ABC):
@@ -13,7 +14,7 @@ class BaseExtractor(ABC):
     """
 
     def __init__(self):
-        self.logger = logging.getLogger(self.__class__.__name__)
+        self.logger = get_logger(self.__class__.__name__)
 
     @abstractmethod
     def extract(self, *args, **kwargs):

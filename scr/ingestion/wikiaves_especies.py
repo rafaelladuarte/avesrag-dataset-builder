@@ -4,6 +4,10 @@ import re
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
+from scr.core.logging import get_logger
+
+logger = get_logger(__name__)
+
 URL = "https://www.wikiaves.com.br/especies.php?t=t"
 OUTPUT_CSV = "data/raw/wikiaves_especies.csv"
 
@@ -77,7 +81,7 @@ def salvar_csv(especies: list[dict], caminho: str):
 
 
 def main():
-    print(f"Acessando {URL} ...")
+    logger.info(f"Acessando {URL} ...")
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -90,15 +94,15 @@ def main():
         html = page.content()
         browser.close()
 
-    print("Página carregada. Extraindo dados...")
+    logger.info("Página carregada. Extraindo dados...")
     especies = extrair_especies(html)
 
     if not especies:
-        print("Nenhuma espécie encontrada.")
+        logger.warning("Nenhuma espécie encontrada.")
         return
 
     salvar_csv(especies, OUTPUT_CSV)
-    print(f"{len(especies)} espécies salvas em '{OUTPUT_CSV}'.")
+    logger.info(f"{len(especies)} espécies salvas em '{OUTPUT_CSV}'.")
 
 
 if __name__ == "__main__":

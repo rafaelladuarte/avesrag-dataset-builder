@@ -1,16 +1,9 @@
-import logging
-import sys
-
 from pymongo import MongoClient, UpdateOne
 
 from scr.core.config import settings
+from scr.core.logging import get_logger
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[logging.StreamHandler(sys.stdout)],
-)
-log = logging.getLogger(__name__)
+log = get_logger(__name__)
 
 # ─── Configuração ────────────────────────────────────────────────────────────
 
