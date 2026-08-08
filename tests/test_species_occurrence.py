@@ -1,6 +1,7 @@
 """Testes para scr.fusion.species_occurrence."""
-import pytest
+
 from unittest.mock import MagicMock
+
 from scr.fusion.species_occurrence import _add_unique, extrair_e_transformar
 
 
@@ -44,15 +45,15 @@ class TestExtrairETransformar:
         return col
 
     def test_documento_unico_uma_especie(self):
-        docs = [{
-            "geocodigo": "3550308",
-            "nome": "São Paulo",
-            "uf": "SP",
-            "bioma": "Mata Atlântica",
-            "especies": [
-                {"speciesCode": "grkis1", "sciName": "Pitangus sulphuratus"}
-            ],
-        }]
+        docs = [
+            {
+                "geocodigo": "3550308",
+                "nome": "São Paulo",
+                "uf": "SP",
+                "bioma": "Mata Atlântica",
+                "especies": [{"speciesCode": "grkis1", "sciName": "Pitangus sulphuratus"}],
+            }
+        ]
         col = self._make_mock_collection(docs)
         result = extrair_e_transformar(col)
 
@@ -66,12 +67,16 @@ class TestExtrairETransformar:
     def test_mesma_especie_dois_municipios(self):
         docs = [
             {
-                "geocodigo": "3550308", "nome": "São Paulo", "uf": "SP",
+                "geocodigo": "3550308",
+                "nome": "São Paulo",
+                "uf": "SP",
                 "bioma": "Mata Atlântica",
                 "especies": [{"speciesCode": "grkis1", "sciName": "Pitangus sulphuratus"}],
             },
             {
-                "geocodigo": "3304557", "nome": "Rio de Janeiro", "uf": "RJ",
+                "geocodigo": "3304557",
+                "nome": "Rio de Janeiro",
+                "uf": "RJ",
                 "bioma": "Mata Atlântica",
                 "especies": [{"speciesCode": "grkis1", "sciName": "Pitangus sulphuratus"}],
             },

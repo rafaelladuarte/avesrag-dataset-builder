@@ -1,10 +1,10 @@
+import csv
 import os
 import re
-import csv
-from uuid import uuid4
 from datetime import datetime, timezone
-from dotenv import load_dotenv
+from uuid import uuid4
 
+from dotenv import load_dotenv
 from pymongo import MongoClient, UpdateOne
 from pymongo.errors import BulkWriteError
 
@@ -28,6 +28,7 @@ COLLECTION_CANONICAL = "canonical_species"
 # Utilidades
 # ==========================================================
 
+
 def get_size(text):
     """
     Extrai:
@@ -44,10 +45,7 @@ def get_size(text):
 
     value = float(m.group(1).replace(",", "."))
 
-    return {
-        "min": value,
-        "max": value
-    }
+    return {"min": value, "max": value}
 
 
 def get_weight(text):
@@ -59,24 +57,18 @@ def get_weight(text):
     if not text:
         return {"min": None, "max": None}
 
-    m = re.search(
-        r"pesa\s+de\s+([\d,]+)\s+a\s+([\d,]+)",
-        text,
-        flags=re.IGNORECASE
-    )
+    m = re.search(r"pesa\s+de\s+([\d,]+)\s+a\s+([\d,]+)", text, flags=re.IGNORECASE)
 
     if not m:
         return {"min": None, "max": None}
 
-    return {
-        "min": float(m.group(1).replace(",", ".")),
-        "max": float(m.group(2).replace(",", "."))
-    }
+    return {"min": float(m.group(1).replace(",", ".")), "max": float(m.group(2).replace(",", "."))}
 
 
 # ==========================================================
 # Merge
 # ==========================================================
+
 
 def main():
     client = MongoClient(MONGO_URI)
@@ -96,14 +88,11 @@ def main():
     with open(CSV_PATH, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-
             scientific_name = row["nome_cientifico"]
 
             avo = avonet.find_one({"nome_cientifico": scientific_name}) or {}
 
-            wiki = wikiaves.find_one({
-                "nome_cientifico.nome": scientific_name
-            })
+            wiki = wikiaves.find_one({"nome_cientifico.nome": scientific_name})
 
             morphology_text = ""
 
@@ -114,238 +103,124 @@ def main():
             weight = get_weight(morphology_text)
 
             document = {
-
                 "species_id": str(uuid4()),
-
                 "scientific_name": scientific_name,
-
-                "authority": (
-                    wiki.get("nome_cientifico", {}).get("autoridade")
-                    if wiki else None
-                ),
-
+                "authority": (wiki.get("nome_cientifico", {}).get("autoridade") if wiki else None),
                 "common_names": {
-                    "pt": [
-                        wiki.get("meta_nome_comum")
-                    ] if wiki else [],
-                    "en": [
-                        wiki.get("nome_ingles")
-                    ] if wiki else []
+                    "pt": [wiki.get("meta_nome_comum")] if wiki else [],
+                    "en": [wiki.get("nome_ingles")] if wiki else [],
                 },
-
                 "taxonomy": {
-
                     "kingdom": (
-                        wiki.get("classificacao_cientifica", {}).get("Reino")
-                        if wiki else None
+                        wiki.get("classificacao_cientifica", {}).get("Reino") if wiki else None
                     ),
-
                     "phylum": (
-                        wiki.get("classificacao_cientifica", {}).get("Filo")
-                        if wiki else None
+                        wiki.get("classificacao_cientifica", {}).get("Filo") if wiki else None
                     ),
-
                     "class": (
-                        wiki.get("classificacao_cientifica", {}).get("Classe")
-                        if wiki else None
+                        wiki.get("classificacao_cientifica", {}).get("Classe") if wiki else None
                     ),
-
                     "order": avo.get("ordem"),
-
                     "family": avo.get("familia"),
-
                     "genus": scientific_name.split()[0],
-
-                    "species": scientific_name
+                    "species": scientific_name,
                 },
-
                 "morphology": {
-
                     "size_cm": size,
-
                     "weight_g": {
                         "min": weight["min"],
                         "max": weight["max"],
-                        "mean": avo.get("massa_corporal_g")
+                        "mean": avo.get("massa_corporal_g"),
                     },
-
                     "colors": [],
-
                     "beak": {
-
                         "shape": "",
-
                         "culmen_mm": avo.get("bico_comprimento_culmen_mm"),
-
                         "nares_mm": avo.get("bico_comprimento_nares_mm"),
-
                         "width_mm": avo.get("bico_largura_mm"),
-
-                        "depth_mm": avo.get("bico_profundidade_mm")
+                        "depth_mm": avo.get("bico_profundidade_mm"),
                     },
-
                     "wing": {
-
                         "shape": "",
-
                         "length_mm": avo.get("asa_comprimento_mm"),
-
                         "hand_wing_index": avo.get("indice_asa_mao"),
-
-                        "kipps_distance_mm": avo.get("kipps_distancia_mm")
+                        "kipps_distance_mm": avo.get("kipps_distancia_mm"),
                     },
-
-                    "tail": {
-
-                        "shape": "",
-
-                        "length_mm": avo.get("cauda_comprimento_mm")
-                    },
-
+                    "tail": {"shape": "", "length_mm": avo.get("cauda_comprimento_mm")},
                     "tarsus_mm": avo.get("tarso_comprimento_mm"),
-
                     "sexual_dimorphism": "",
-
                     "juvenile_description": "",
-
-                    "distinctive_features": []
+                    "distinctive_features": [],
                 },
-
                 "description": {
-
                     "short": "",
-
-                    "detailed": (
-                        wiki.get("caracteristicas")
-                        if wiki else ""
-                    ),
-
+                    "detailed": (wiki.get("caracteristicas") if wiki else ""),
                     "behavior": [],
-
-                    "identification": ""
+                    "identification": "",
                 },
-
                 "diet": {
-
-                    "guilds": [
-                        avo.get("nicho_trofico")
-                    ] if avo.get("nicho_trofico") else [],
-
-                    "food_items": []
+                    "guilds": [avo.get("nicho_trofico")] if avo.get("nicho_trofico") else [],
+                    "food_items": [],
                 },
-
                 "habitat": {
-
-                    "primary": [
-                        avo.get("habitat_avonet")
-                    ] if avo.get("habitat_avonet") else [],
-
+                    "primary": [avo.get("habitat_avonet")] if avo.get("habitat_avonet") else [],
                     "secondary": [],
-
-                    "altitude_range_m": {
-                        "min": None,
-                        "max": None
-                    }
+                    "altitude_range_m": {"min": None, "max": None},
                 },
-
                 "occurrence": {
-
                     "countries": [],
-
                     "states": [],
-
                     "municipalities": [],
-
                     "biomes": [],
-
                     "range_area_km2": avo.get("area_distribuicao_km2"),
-
                     "endemism": "",
-
-                    "range_type": ""
+                    "range_type": "",
                 },
-
                 "ecology": {
-
                     "activity_pattern": "",
-
                     "social_structure": "",
-
                     "migration": avo.get("migracao"),
-
                     "primary_lifestyle": avo.get("estilo_vida_primario"),
-
                     "trophic_level": avo.get("nivel_trofico"),
-
                     "trophic_niche": avo.get("nicho_trofico"),
-
-                    "reproduction": ""
+                    "reproduction": "",
                 },
-
                 "conservation": {
-
-                    "iucn_status": (
-                        wiki.get("estado_de_conservacao")
-                        if wiki else ""
-                    ),
-
+                    "iucn_status": (wiki.get("estado_de_conservacao") if wiki else ""),
                     "population_trend": "",
-
-                    "cites": ""
+                    "cites": "",
                 },
-
                 "external_ids": {
-
-                    "wikiaves": (
-                        wiki.get("meta_id")
-                        if wiki else None
-                    ),
-
+                    "wikiaves": (wiki.get("meta_id") if wiki else None),
                     "gbif": None,
-
                     "ebird": None,
-
                     "iucn": None,
-
-                    "birdlife": None
+                    "birdlife": None,
                 },
-
                 "data_quality": {
-
                     "confidence_score": None,
-
-                    "sources": [
-
-                        "AVONET" if avo else None,
-
-                        "WikiAves" if wiki else None
-
-                    ],
-
+                    "sources": ["AVONET" if avo else None, "WikiAves" if wiki else None],
                     "schema_version": "1.0",
-
                     "pipeline_version": "1.0",
-
-                    "last_updated": datetime.now(timezone.utc)
-                }
-
+                    "last_updated": datetime.now(timezone.utc),
+                },
             }
 
             document["data_quality"]["sources"] = [
                 s for s in document["data_quality"]["sources"] if s
             ]
 
-            operations.append(UpdateOne(
-                {"scientific_name": scientific_name},
-                {"$set": document},
-                upsert=True
-            ))
+            operations.append(
+                UpdateOne({"scientific_name": scientific_name}, {"$set": document}, upsert=True)
+            )
 
     if operations:
         try:
             result = canonical.bulk_write(operations, ordered=False)
-            print(f"Canonical species criadas com sucesso: "
-                  f"{result.upserted_count} inseridas, {result.modified_count} atualizadas.")
+            print(
+                f"Canonical species criadas com sucesso: "
+                f"{result.upserted_count} inseridas, {result.modified_count} atualizadas."
+            )
         except BulkWriteError as e:
             print(f"Erro no bulk_write: {e.details}")
     else:

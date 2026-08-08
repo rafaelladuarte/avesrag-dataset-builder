@@ -1,19 +1,18 @@
-import sys
-import os
-import json
-import re
 import csv
-import time
+import os
 import random
-from datetime import datetime
+import re
+import sys
+import time
+from datetime import datetime, timezone
 from pathlib import Path
+
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
-
 from pymongo import UpdateOne
 from pymongo.errors import BulkWriteError
-from scr.database.connection import DatabaseConnection
 
+from scr.database.connection import DatabaseConnection
 
 # ═══════════════════════════════════════════════════════════════
 # Funções de Evasão e Resiliência
@@ -80,17 +79,21 @@ def navegar_com_retry(page, url: str, max_tentativas: int = 3) -> str | None:
             response = page.goto(url, wait_until="domcontentloaded", timeout=30_000)
 
             if response and response.status in (429, 403):
-                backoff = (2 ** tentativa) + random.uniform(0, 2)
-                print(f"  -> HTTP {response.status}. Aguardando {backoff:.1f}s antes de tentar novamente...")
+                backoff = (2**tentativa) + random.uniform(0, 2)
+                print(
+                    f"  -> HTTP {response.status}. Aguardando {backoff:.1f}s antes de tentar novamente..."
+                )
                 time.sleep(backoff)
                 continue
 
             scroll_suave(page)
             return page.content()
 
-        except Exception as e:
-            backoff = (2 ** tentativa) + random.uniform(0, 2)
-            print(f"  -> Tentativa {tentativa}/{max_tentativas} falhou: {e}. Aguardando {backoff:.1f}s...")
+        except Exception as e:  # noqa: BLE001
+            backoff = (2**tentativa) + random.uniform(0, 2)
+            print(
+                f"  -> Tentativa {tentativa}/{max_tentativas} falhou: {e}. Aguardando {backoff:.1f}s..."
+            )
             time.sleep(backoff)
 
     return None
@@ -149,7 +152,7 @@ def extrair_nome_ingles(soup: BeautifulSoup) -> str | None:
             for sib in h2.next_siblings:
                 if getattr(sib, "name", None) == "h2":
                     break
-                texto = getattr(sib, "get_text", lambda **k: str(sib))(strip=True)
+                texto = sib.get_text(strip=True) if hasattr(sib, "get_text") else str(sib).strip()
                 if texto:
                     return texto
     return None
@@ -272,7 +275,7 @@ def main():
 
     with open(csv_path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        
+
         with sync_playwright() as p:
             browser, context = criar_browser_stealth(p)
             page = context.new_page()
@@ -282,19 +285,23 @@ def main():
                     break
 
                 nome = row.get("nome_cientifico", f"Espécie {i+1}")
-                
+
                 if nome in especies_existentes:
-                    print(f"[{i+1}/{MAX_ESPECIES}] Espécie '{nome}' já existe no MongoDB. Pulando...")
+                    print(
+                        f"[{i+1}/{MAX_ESPECIES}] Espécie '{nome}' já existe no MongoDB. Pulando..."
+                    )
                     continue
-                    
+
                 url_path = row.get("url", "")
 
                 if not url_path:
                     print(f"URL ausente para {nome}, pulando...")
                     continue
 
-                full_url = "https://www.wikiaves.com.br" + (url_path if url_path.startswith("/") else "/" + url_path)
-                
+                full_url = "https://www.wikiaves.com.br" + (
+                    url_path if url_path.startswith("/") else "/" + url_path
+                )
+
                 print(f"[{i+1}/{MAX_ESPECIES}] Acessando {nome}: {full_url}")
 
                 html = navegar_com_retry(page, full_url)
@@ -306,7 +313,7 @@ def main():
                 dados_extraidos["meta_id"] = row.get("id")
                 dados_extraidos["meta_nome_comum"] = row.get("nome_comum")
                 dados_extraidos["fontes"] = ["wikiaves"]
-                dados_extraidos["atualizado_em"] = datetime.now()
+                dados_extraidos["atualizado_em"] = datetime.now(timezone.utc)
                 resultados.append(dados_extraidos)
 
                 espera_humana()
@@ -325,21 +332,25 @@ def main():
         if not nome_cientifico:
             # Caso fallback para nome_cientifico seja diferente
             nome_cientifico = row.get("nome_cientifico")
-            
+
         if nome_cientifico:
             # Reestrutura chave para bater com o padrão de busca, se preferir salvar string
-            ops.append(UpdateOne(
-                {"nome_cientifico": nome_cientifico},
-                {"$set": doc},
-                upsert=True,
-            ))
+            ops.append(
+                UpdateOne(
+                    {"nome_cientifico": nome_cientifico},
+                    {"$set": doc},
+                    upsert=True,
+                )
+            )
         else:
             print(f"Documento sem nome científico, ignorando: {doc}")
 
     if ops:
         try:
             db_avesrag.wikiaves.bulk_write(ops, ordered=False)
-            print(f"Extração finalizada com sucesso! {len(ops)} espécies carregadas na collection 'wikiaves' do MongoDB (banco 'avesrag').")
+            print(
+                f"Extração finalizada com sucesso! {len(ops)} espécies carregadas na collection 'wikiaves' do MongoDB (banco 'avesrag')."
+            )
         except BulkWriteError as e:
             print(f"Erro de bulk_write no MongoDB: {e.details}")
 

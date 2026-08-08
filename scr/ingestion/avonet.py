@@ -1,10 +1,12 @@
 import os
-import pandas as pd
 from datetime import datetime
+
+import pandas as pd
 from pymongo import UpdateOne
 from pymongo.errors import BulkWriteError
-from scr.ingestion.base import BaseExtractor
+
 from scr.database.connection import DatabaseConnection
+from scr.ingestion.base import BaseExtractor
 
 COLUNAS = {
     "Species1": "nome_cientifico",
@@ -29,6 +31,7 @@ COLUNAS = {
     "Range.Size": "area_distribuicao_km2",
 }
 
+
 class AvonetIngestion(BaseExtractor):
     def __init__(self):
         super().__init__()
@@ -40,8 +43,8 @@ class AvonetIngestion(BaseExtractor):
             self.logger.error(f"AVONET arquivo não encontrado: {self.csv_path}")
             return pd.DataFrame()
 
-        if self.csv_path.lower().endswith('.xlsx'):
-            return pd.read_excel(self.csv_path, sheet_name='AVONET1_BirdLife')
+        if self.csv_path.lower().endswith(".xlsx"):
+            return pd.read_excel(self.csv_path, sheet_name="AVONET1_BirdLife")
         else:
             return pd.read_csv(self.csv_path, encoding="utf-8")
 
@@ -68,22 +71,26 @@ class AvonetIngestion(BaseExtractor):
             return set()
 
         db = self.db_connection.get_mongo_db()
-        
+
         ops = []
         carregadas = set()
 
         for doc in transformed_data:
             carregadas.add(doc["nome_cientifico"])
-            ops.append(UpdateOne(
-                {"nome_cientifico": doc["nome_cientifico"]},
-                {"$set": doc},
-                upsert=True,
-            ))
+            ops.append(
+                UpdateOne(
+                    {"nome_cientifico": doc["nome_cientifico"]},
+                    {"$set": doc},
+                    upsert=True,
+                )
+            )
 
         if ops:
             try:
                 db.avonet.bulk_write(ops, ordered=False)
-                self.logger.info(f"AVONET: {len(ops)} espécies carregadas na collection 'avonet' do MongoDB (banco 'avesrag').")
+                self.logger.info(
+                    f"AVONET: {len(ops)} espécies carregadas na collection 'avonet' do MongoDB (banco 'avesrag')."
+                )
             except BulkWriteError as e:
                 self.logger.error(f"AVONET bulk_write error: {e.details}")
 
@@ -92,13 +99,13 @@ class AvonetIngestion(BaseExtractor):
     def run(self, db_connection=None, especies_alvo: set = None):
         self.logger.info("Iniciando processo de Extração AVONET...")
         raw_data = self.extract()
-        
+
         self.logger.info("Iniciando processo de Transformação...")
         clean_data = self.transform(raw_data, especies_alvo)
-        
+
         self.logger.info("Iniciando processo de Carga (Load)...")
         carregadas = self.load(clean_data)
-        
+
         return carregadas
 
 

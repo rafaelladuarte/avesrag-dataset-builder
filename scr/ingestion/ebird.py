@@ -1,17 +1,17 @@
+import logging
 import os
 import time
 import unicodedata
-import logging
 from pathlib import Path
 from typing import Optional
 
 import requests
+from dotenv import load_dotenv
 from openpyxl import load_workbook
 from pymongo import MongoClient, UpdateOne
 from pymongo.errors import BulkWriteError
-from rapidfuzz import process, fuzz
+from rapidfuzz import fuzz, process
 from tqdm import tqdm
-from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------------
 # Configuração
@@ -20,17 +20,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 EBIRD_API_KEY: str = os.environ.get("EBIRD_API_KEY", "")
-MONGO_URI: str     = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
-MONGO_DB: str      = os.getenv("MONGO_DB", "avesrag")
+MONGO_URI: str = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
+MONGO_DB: str = os.getenv("MONGO_DB", "avesrag")
 
 # Caminho para o xlsx do IBGE — ajuste se necessário
 IBGE_XLSX: Path = Path("data/raw/Bioma_Predominante_por_Municipio_2024.xlsx")
 
 # Coluna exata do xlsx (case-sensitive). Ajuste se os cabeçalhos forem diferentes.
 COL_GEOCODIGO = "Geocódigo"
-COL_NOME      = "Nome do município"
-COL_UF        = "Sigla da UF"
-COL_BIOMA     = "Bioma predominante"
+COL_NOME = "Nome do município"
+COL_UF = "Sigla da UF"
+COL_BIOMA = "Bioma predominante"
 
 # Intervalo entre chamadas à API (segundos) — respeite o rate limit do eBird
 SLEEP_BETWEEN_REQUESTS: float = 0.6
@@ -63,6 +63,7 @@ log = logging.getLogger(__name__)
 # Helpers
 # ---------------------------------------------------------------------------
 
+
 def normalize(text: str) -> str:
     """Lowercase, remove acentos e apóstrofos para comparação."""
     text = text.strip().lower()
@@ -81,34 +82,42 @@ def ebird_get(path: str, params: Optional[dict] = None) -> list | dict:
             r = requests.get(url, headers=headers, params=params, timeout=30)
             r.raise_for_status()
             return r.json()
-        except requests.HTTPError as e:
+        except requests.HTTPError:
             if r.status_code == 429:
                 # Backoff exponencial: 10s → 20s → 40s → 80s
-                wait = 10 * (2 ** attempt)
+                wait = 10 * (2**attempt)
                 msg = f"Rate limit atingido (tentativa {attempt + 1}/4). Aguardando {wait}s…"
                 # Usa tqdm.write para não corromper a barra de progresso no console
                 tqdm.write(f"[WARNING] {msg}")
                 # Registra também no arquivo de log sem duplicar no console
-                _file_handler.emit(logging.makeLogRecord({
-                    "levelno": logging.WARNING,
-                    "levelname": "WARNING",
-                    "msg": msg,
-                    "args": (),
-                    "name": __name__,
-                }))
+                _file_handler.emit(
+                    logging.makeLogRecord(
+                        {
+                            "levelno": logging.WARNING,
+                            "levelname": "WARNING",
+                            "msg": msg,
+                            "args": (),
+                            "name": __name__,
+                        }
+                    )
+                )
                 time.sleep(wait)
             else:
                 raise
         except requests.RequestException as e:
             err_msg = f"Erro na requisição {url}: {e}. Tentativa {attempt + 1}/4"
             tqdm.write(f"[ERROR] {err_msg}")
-            _file_handler.emit(logging.makeLogRecord({
-                "levelno": logging.ERROR,
-                "levelname": "ERROR",
-                "msg": err_msg,
-                "args": (),
-                "name": __name__,
-            }))
+            _file_handler.emit(
+                logging.makeLogRecord(
+                    {
+                        "levelno": logging.ERROR,
+                        "levelname": "ERROR",
+                        "msg": err_msg,
+                        "args": (),
+                        "name": __name__,
+                    }
+                )
+            )
             time.sleep(3)
     raise RuntimeError(f"Falha ao acessar {url} após 4 tentativas")
 
@@ -117,35 +126,43 @@ def ebird_get(path: str, params: Optional[dict] = None) -> list | dict:
 # Etapa 1 — Ler base IBGE
 # ---------------------------------------------------------------------------
 
+
 def load_ibge(path: Path) -> list[dict]:
     """Carrega o xlsx do IBGE e retorna lista de dicts."""
     log.info(f"Lendo {path}…")
     wb = load_workbook(path, read_only=True, data_only=True)
     ws = wb.active
 
-    headers = [str(cell.value).strip() if cell.value else "" for cell in next(ws.iter_rows(min_row=2, max_row=2))]
+    headers = [
+        str(cell.value).strip() if cell.value else ""
+        for cell in next(ws.iter_rows(min_row=2, max_row=2))
+    ]
     idx = {h: i for i, h in enumerate(headers)}
 
     required = [COL_GEOCODIGO, COL_NOME, COL_UF, COL_BIOMA]
     missing = [c for c in required if c not in idx]
     if missing:
-        raise ValueError(f"Colunas não encontradas no xlsx: {missing}\nColunas disponíveis: {headers}")
+        raise ValueError(
+            f"Colunas não encontradas no xlsx: {missing}\nColunas disponíveis: {headers}"
+        )
 
     municipios = []
     for row in ws.iter_rows(min_row=3, values_only=True):
         geocodigo = str(row[idx[COL_GEOCODIGO]]).strip() if row[idx[COL_GEOCODIGO]] else None
-        nome      = str(row[idx[COL_NOME]]).strip()      if row[idx[COL_NOME]]      else None
-        uf        = str(row[idx[COL_UF]]).strip()        if row[idx[COL_UF]]        else None
-        bioma     = str(row[idx[COL_BIOMA]]).strip()     if row[idx[COL_BIOMA]]     else None
+        nome = str(row[idx[COL_NOME]]).strip() if row[idx[COL_NOME]] else None
+        uf = str(row[idx[COL_UF]]).strip() if row[idx[COL_UF]] else None
+        bioma = str(row[idx[COL_BIOMA]]).strip() if row[idx[COL_BIOMA]] else None
 
         if nome and uf:
-            municipios.append({
-                "geocodigo": geocodigo,
-                "nome": nome,
-                "uf": uf,
-                "bioma": bioma,
-                "nome_norm": normalize(nome),
-            })
+            municipios.append(
+                {
+                    "geocodigo": geocodigo,
+                    "nome": nome,
+                    "uf": uf,
+                    "bioma": bioma,
+                    "nome_norm": normalize(nome),
+                }
+            )
 
     wb.close()
     log.info(f"  → {len(municipios)} municípios carregados")
@@ -155,6 +172,7 @@ def load_ibge(path: Path) -> list[dict]:
 # ---------------------------------------------------------------------------
 # Etapa 2 — Buscar municípios do eBird por UF e cruzar com IBGE
 # ---------------------------------------------------------------------------
+
 
 def fetch_ebird_municipios(uf: str) -> list[dict]:
     """Retorna lista [{code, name, name_norm}] para a UF dada."""
@@ -216,6 +234,7 @@ def crossmatch(ibge_list: list[dict]) -> tuple[list[dict], list[dict]]:
 # Etapa 3 — Taxonomia eBird (cache único)
 # ---------------------------------------------------------------------------
 
+
 def fetch_taxonomy(locale: str = TAXONOMY_LOCALE) -> dict[str, dict]:
     """Baixa a taxonomia completa e retorna dict keyed by speciesCode."""
     log.info("Baixando taxonomia eBird (cache único)…")
@@ -224,12 +243,12 @@ def fetch_taxonomy(locale: str = TAXONOMY_LOCALE) -> dict[str, dict]:
     for t in data:
         taxonomy[t["speciesCode"]] = {
             "speciesCode": t["speciesCode"],
-            "comName":     t.get("comName", ""),
-            "sciName":     t.get("sciName", ""),
-            "order":       t.get("order", ""),
+            "comName": t.get("comName", ""),
+            "sciName": t.get("sciName", ""),
+            "order": t.get("order", ""),
             "familyComName": t.get("familyComName", ""),
             "familySciName": t.get("familySciName", ""),
-            "category":    t.get("category", ""),
+            "category": t.get("category", ""),
         }
     log.info(f"  → {len(taxonomy)} táxons carregados")
     return taxonomy
@@ -238,6 +257,7 @@ def fetch_taxonomy(locale: str = TAXONOMY_LOCALE) -> dict[str, dict]:
 # ---------------------------------------------------------------------------
 # Etapa 4 — Buscar espécies por município
 # ---------------------------------------------------------------------------
+
 
 def fetch_species_for_municipio(ebird_code: str, taxonomy: dict) -> list[dict]:
     """
@@ -264,6 +284,7 @@ def fetch_species_for_municipio(ebird_code: str, taxonomy: dict) -> list[dict]:
 # Etapa 5 — Persistência no MongoDB
 # ---------------------------------------------------------------------------
 
+
 def get_collection(db_name: str, collection_name: str):
     client = MongoClient(MONGO_URI)
     db = client[db_name]
@@ -281,15 +302,15 @@ def save_municipio(col, municipio: dict, species: list[dict]) -> None:
     }
     """
     doc = {
-        "geocodigo":    municipio["geocodigo"],
-        "nome":         municipio["nome"],
-        "uf":           municipio["uf"],
-        "bioma":        municipio["bioma"],
-        "ebird_code":   municipio.get("ebird_code"),
-        "ebird_name":   municipio.get("ebird_name"),
-        "match_type":   municipio.get("match_type"),
+        "geocodigo": municipio["geocodigo"],
+        "nome": municipio["nome"],
+        "uf": municipio["uf"],
+        "bioma": municipio["bioma"],
+        "ebird_code": municipio.get("ebird_code"),
+        "ebird_name": municipio.get("ebird_name"),
+        "match_type": municipio.get("match_type"),
         "total_especies": len(species),
-        "especies":     species,
+        "especies": species,
     }
     col.update_one(
         {"geocodigo": municipio["geocodigo"]},
@@ -315,25 +336,29 @@ def bulk_save_batch(col, batch: list[tuple[dict, list[dict]]]) -> None:
     ops = []
     for municipio, species in batch:
         doc = {
-            "geocodigo":      municipio["geocodigo"],
-            "nome":           municipio["nome"],
-            "uf":             municipio["uf"],
-            "bioma":          municipio["bioma"],
-            "ebird_code":     municipio.get("ebird_code"),
-            "ebird_name":     municipio.get("ebird_name"),
-            "match_type":     municipio.get("match_type"),
+            "geocodigo": municipio["geocodigo"],
+            "nome": municipio["nome"],
+            "uf": municipio["uf"],
+            "bioma": municipio["bioma"],
+            "ebird_code": municipio.get("ebird_code"),
+            "ebird_name": municipio.get("ebird_name"),
+            "match_type": municipio.get("match_type"),
             "total_especies": len(species),
-            "especies":       species,
+            "especies": species,
         }
-        ops.append(UpdateOne(
-            {"geocodigo": municipio["geocodigo"]},
-            {"$set": doc},
-            upsert=True,
-        ))
+        ops.append(
+            UpdateOne(
+                {"geocodigo": municipio["geocodigo"]},
+                {"$set": doc},
+                upsert=True,
+            )
+        )
 
     try:
         result = col.bulk_write(ops, ordered=False)
-        log.info(f"  Lote persistido: {result.upserted_count} inseridos, {result.modified_count} atualizados")
+        log.info(
+            f"  Lote persistido: {result.upserted_count} inseridos, {result.modified_count} atualizados"
+        )
     except BulkWriteError as e:
         log.error(f"Erro no bulk_write do lote: {e.details}")
 
@@ -341,6 +366,7 @@ def bulk_save_batch(col, batch: list[tuple[dict, list[dict]]]) -> None:
 # ---------------------------------------------------------------------------
 # Etapa 6 — Salvar relatório de municípios sem match
 # ---------------------------------------------------------------------------
+
 
 def save_unmatched_report(unmatched: list[dict]) -> None:
     if not unmatched:
@@ -356,6 +382,7 @@ def save_unmatched_report(unmatched: list[dict]) -> None:
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main() -> None:
     if not EBIRD_API_KEY:
@@ -387,8 +414,10 @@ def main() -> None:
     ja_coletados = {
         doc["geocodigo"]
         for doc in col.find(
-            {"total_especies": {"$gt": 0}},  # considera apenas os que realmente tiveram dados coletados
-            {"geocodigo": 1, "_id": 0}
+            {
+                "total_especies": {"$gt": 0}
+            },  # considera apenas os que realmente tiveram dados coletados
+            {"geocodigo": 1, "_id": 0},
         )
     }
     pendentes = [m for m in matched if m["geocodigo"] not in ja_coletados]
@@ -401,30 +430,36 @@ def main() -> None:
         batch: list[tuple[dict, list[dict]]] = []
         total_processados = 0
 
-        log.info(f"Iniciando coleta de espécies para {len(pendentes)} municípios pendentes (lotes de {BATCH_SIZE})…")
+        log.info(
+            f"Iniciando coleta de espécies para {len(pendentes)} municípios pendentes (lotes de {BATCH_SIZE})…"
+        )
         for mun in tqdm(pendentes, desc="Municípios"):
             species = fetch_species_for_municipio(mun["ebird_code"], taxonomy)
             batch.append((mun, species))
 
             if len(batch) >= BATCH_SIZE:
-                tqdm.write(f"[INFO] Persistindo lote ({total_processados + 1}–{total_processados + len(batch)})…")
-                log.info(f"Persistindo lote ({total_processados + 1}–{total_processados + len(batch)})…")
+                tqdm.write(
+                    f"[INFO] Persistindo lote ({total_processados + 1}–{total_processados + len(batch)})…"
+                )
+                log.info(
+                    f"Persistindo lote ({total_processados + 1}–{total_processados + len(batch)})…"
+                )
                 bulk_save_batch(col, batch)
                 total_processados += len(batch)
                 batch = []
 
         # Persiste o lote final (menor que BATCH_SIZE)
         if batch:
-            log.info(f"Persistindo lote final ({total_processados + 1}–{total_processados + len(batch)})…")
+            log.info(
+                f"Persistindo lote final ({total_processados + 1}–{total_processados + len(batch)})…"
+            )
             bulk_save_batch(col, batch)
             total_processados += len(batch)
 
         log.info(f"  Municípios processados nesta execução: {total_processados}")
 
     # Persistir também os sem-match (sem espécies) que ainda não existem
-    sem_match_pendentes = [
-        mun for mun in unmatched if mun["geocodigo"] not in ja_coletados
-    ]
+    sem_match_pendentes = [mun for mun in unmatched if mun["geocodigo"] not in ja_coletados]
     if sem_match_pendentes:
         log.info(f"Persistindo {len(sem_match_pendentes)} municípios sem match…")
         bulk_save_batch(col, [(mun, []) for mun in sem_match_pendentes])

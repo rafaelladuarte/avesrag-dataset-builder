@@ -1,8 +1,11 @@
 """Testes para scr.ingestion.avonet — método transform."""
-import pytest
-import pandas as pd
+
 from unittest.mock import patch
-from scr.ingestion.avonet import AvonetIngestion, COLUNAS
+
+import pandas as pd
+import pytest
+
+from scr.ingestion.avonet import COLUNAS, AvonetIngestion
 
 
 class TestAvonetTransform:
@@ -59,10 +62,12 @@ class TestAvonetTransform:
         assert result == []
 
     def test_transform_filtra_especies_alvo(self, extractor):
-        df = self._make_df([
-            self._make_full_row("Especie A"),
-            self._make_full_row("Especie B"),
-        ])
+        df = self._make_df(
+            [
+                self._make_full_row("Especie A"),
+                self._make_full_row("Especie B"),
+            ]
+        )
         result = extractor.transform(df, especies_alvo={"Especie A"})
         assert len(result) == 1
         assert result[0]["nome_cientifico"] == "Especie A"
@@ -81,11 +86,13 @@ class TestAvonetTransform:
         assert doc["nome_cientifico"] == "Teste"
 
     def test_transform_multiplas_especies(self, extractor):
-        df = self._make_df([
-            self._make_full_row("Especie A"),
-            self._make_full_row("Especie B"),
-            self._make_full_row("Especie C"),
-        ])
+        df = self._make_df(
+            [
+                self._make_full_row("Especie A"),
+                self._make_full_row("Especie B"),
+                self._make_full_row("Especie C"),
+            ]
+        )
         result = extractor.transform(df)
         assert len(result) == 3
         nomes = {doc["nome_cientifico"] for doc in result}

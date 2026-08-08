@@ -1,5 +1,5 @@
 """Testes para scr.ingestion.ebird — função normalize."""
-import pytest
+
 from scr.ingestion.ebird import normalize
 
 

@@ -2,28 +2,32 @@
 src/database/conexoes.py
 Gerencia conexões com MongoDB e PostGIS de forma estruturada.
 """
-import os
+
 import logging
-import psycopg2
-from pymongo import MongoClient
+import os
 from contextlib import contextmanager
-from psycopg2.extras import execute_values
+
+import psycopg2
 from dotenv import load_dotenv
+from psycopg2.extras import execute_values
+from pymongo import MongoClient
 
 load_dotenv()
 
 logger = logging.getLogger(__name__)
 
+
 class DatabaseConnection:
     """
     Classe para gerenciar conexões com MongoDB e PostgreSQL.
     """
+
     _mongo_client = None
 
     def __init__(self):
         # Configurações do PostgreSQL (falha explicitamente se não definida)
         self.pg_uri = os.environ.get("POSTGRES_URI")
-        
+
         # Configurações do MongoDB (falha explicitamente se não definida)
         self.mongo_uri = os.environ["MONGODB_URI"]
         self.mongo_db_name = "avesrag"

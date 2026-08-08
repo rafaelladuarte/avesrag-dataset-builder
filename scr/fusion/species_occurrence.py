@@ -1,10 +1,9 @@
+import logging
 import os
 import sys
-import logging
-from pathlib import Path
 
-from pymongo import MongoClient, UpdateOne
 from dotenv import load_dotenv
+from pymongo import MongoClient, UpdateOne
 
 load_dotenv()
 
@@ -24,6 +23,7 @@ TARGET_COLLECTION = "ocorrencias_especies"
 
 # ─── Helpers ─────────────────────────────────────────────────────────────────
 
+
 def _add_unique(lst: list, value: str) -> None:
     """Adiciona valor à lista apenas se ainda não existir (ordem de inserção)."""
     if value and value not in lst:
@@ -31,6 +31,7 @@ def _add_unique(lst: list, value: str) -> None:
 
 
 # ─── Etapa 1: Extração e transformação em memória ────────────────────────────
+
 
 def extrair_e_transformar(source_col) -> dict:
     """
@@ -69,9 +70,9 @@ def extrair_e_transformar(source_col) -> dict:
                 especies[code] = {
                     "nome_cientifico": sp.get("sciName", ""),
                     # listas ordenadas (inserção determinística via sort do cursor)
-                    "paises": ["Brasil"],          # fonte é 100% BR
+                    "paises": ["Brasil"],  # fonte é 100% BR
                     "estados": [],
-                    "municipios": [],              # lista de objetos {geocodigo, nome, uf}
+                    "municipios": [],  # lista de objetos {geocodigo, nome, uf}
                     "biomas": [],
                     "contagem_ocorrencias": 0,
                 }
@@ -98,6 +99,7 @@ def extrair_e_transformar(source_col) -> dict:
 
 # ─── Etapa 2: Carga (upsert determinístico) ──────────────────────────────────
 
+
 def carregar(target_col, especies: dict) -> None:
     """
     Faz upsert em lote usando speciesCode como chave natural.
@@ -114,7 +116,7 @@ def carregar(target_col, especies: dict) -> None:
         ops.append(
             UpdateOne(
                 {"nome_cientifico": doc["nome_cientifico"]},  # filtro (chave natural)
-                {"$set": doc},                                 # substitui campos
+                {"$set": doc},  # substitui campos
                 upsert=True,
             )
         )
@@ -139,6 +141,7 @@ def carregar(target_col, especies: dict) -> None:
 
 # ─── Etapa 3: Índices ────────────────────────────────────────────────────────
 
+
 def criar_indices(target_col) -> None:
     target_col.create_index("nome_cientifico", unique=True)
     target_col.create_index("estados")
@@ -148,6 +151,7 @@ def criar_indices(target_col) -> None:
 
 
 # ─── Ponto de entrada ────────────────────────────────────────────────────────
+
 
 def main():
     client = MongoClient(MONGO_URI)

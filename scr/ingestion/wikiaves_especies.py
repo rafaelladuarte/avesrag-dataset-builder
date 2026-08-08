@@ -1,8 +1,8 @@
-from playwright.sync_api import sync_playwright
-from bs4 import BeautifulSoup
 import csv
 import re
 
+from bs4 import BeautifulSoup
+from playwright.sync_api import sync_playwright
 
 URL = "https://www.wikiaves.com.br/especies.php?t=t"
 OUTPUT_CSV = "data/raw/wikiaves_especies.csv"
@@ -13,7 +13,9 @@ def extrair_especies(html: str) -> list[dict]:
     table = soup.find("table", class_="wa-table-sp")
 
     if not table or not table.tbody:
-        raise RuntimeError("Tabela de espécies não encontrada. A página pode não ter carregado corretamente.")
+        raise RuntimeError(
+            "Tabela de espécies não encontrada. A página pode não ter carregado corretamente."
+        )
 
     rows = table.tbody.find_all("tr")
     especies = []
@@ -26,7 +28,6 @@ def extrair_especies(html: str) -> list[dict]:
         cols = row.find_all("td")
         if len(cols) < 5:
             continue
-
 
         fam_text = cols[0].get_text(strip=True)
         if fam_text and fam_text != "\xa0":
@@ -51,17 +52,19 @@ def extrair_especies(html: str) -> list[dict]:
         id_especie = id_match.group(1) if id_match else ""
 
         if nome_cientifico:
-            especies.append({
-                "id": id_especie,
-                "familia": familia_atual,
-                "nome_cientifico": nome_cientifico,
-                "nome_comum": nome_comum,
-                "sons": sons,
-                "fotos": fotos,
-                "url": url_especie,
-                "url_sons": url_sons,
-                "url_fotos": url_fotos,
-            })
+            especies.append(
+                {
+                    "id": id_especie,
+                    "familia": familia_atual,
+                    "nome_cientifico": nome_cientifico,
+                    "nome_comum": nome_comum,
+                    "sons": sons,
+                    "fotos": fotos,
+                    "url": url_especie,
+                    "url_sons": url_sons,
+                    "url_fotos": url_fotos,
+                }
+            )
 
     return especies
 

@@ -1,17 +1,19 @@
 """Testes para extractors do WikiAves (wikiaves_info + wikiaves_especies)."""
+
 import pytest
 from bs4 import BeautifulSoup
+
+from scr.ingestion.wikiaves_especies import extrair_especies
 from scr.ingestion.wikiaves_info import (
     extrair_classificacao_cientifica,
-    extrair_nome_cientifico,
-    extrair_nome_ingles,
+    extrair_dados_html,
     extrair_estado_conservacao,
     extrair_foto_indicada,
-    get_section_text,
     extrair_galeria,
-    extrair_dados_html,
+    extrair_nome_cientifico,
+    extrair_nome_ingles,
+    get_section_text,
 )
-from scr.ingestion.wikiaves_especies import extrair_especies
 
 
 class TestExtrairClassificacao:
@@ -35,7 +37,9 @@ class TestExtrairNomeCientifico:
         assert result["autoridade"] == "(Linnaeus, 1766)"
 
     def test_fallback_titulo(self):
-        html = "<html><head><title>WikiAves - (Turdus rufiventris)</title></head><body></body></html>"
+        html = (
+            "<html><head><title>WikiAves - (Turdus rufiventris)</title></head><body></body></html>"
+        )
         soup = BeautifulSoup(html, "html.parser")
         result = extrair_nome_cientifico(soup)
         assert result["nome"] == "Turdus rufiventris"

@@ -1,5 +1,5 @@
 """Testes para scr.fusion.canonical_specie — funções get_size e get_weight."""
-import pytest
+
 from scr.fusion.canonical_specie import get_size, get_weight
 
 
