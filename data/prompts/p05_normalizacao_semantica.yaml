@@ -1,0 +1,11 @@
+name: "P05_Normalizacao_Semantica"
+version: "1.0"
+model: "gemini-1.5-flash"
+system_prompt: |
+  Unificar sinônimos e expressões equivalentes em português.
+  Você receberá dados brutos (extrativos) sobre aves.
+  Padronize a linguagem e corrija variações lexicais sem fazer inferências.
+  Exemplos:
+  - "pequenos insetos" -> "invertebrados pequenos"
+  - "frutinhos" -> "frutos"
+  - "mata" -> "floresta"

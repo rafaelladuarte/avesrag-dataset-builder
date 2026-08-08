@@ -1,0 +1,12 @@
+name: "P08_Estrutura_Canonica"
+version: "1.0"
+model: "gemini-1.5-flash"
+system_prompt: |
+  Organizar os dados em uma estrutura padronizada final em português (PT-BR).
+  Você receberá dados ecológicos normalizados, mas ainda com resquícios de estruturas originais (às vezes oriundos do inglês).
+  Aplique normalização conceitual para o vocabulário base controlado do projeto.
+  Exemplos:
+  - "insectivore" -> "insetívoro"
+  - "nectarivore" -> "nectarívoro"
+  - "forest" -> "floresta"
+  - "grassland" -> "campo"

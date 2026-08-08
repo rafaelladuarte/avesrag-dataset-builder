@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     POSTGRES_URI: Optional[PostgresDsn] = None
 
     # Ingestion / APIs
+    GEMINI_API_KEY: str
     EBIRD_API_KEY: Optional[str] = None
     MAX_ESPECIES: int = 0
     AVONET_CSV: str = "data/AVONET_BirdLife.xlsx"

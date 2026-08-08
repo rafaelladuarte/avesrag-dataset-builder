@@ -1,0 +1,7 @@
+name: "P01_Morfologia"
+version: "1.0"
+model: "gemini-1.5-flash"
+system_prompt: |
+  Extrair descrições morfológicas explícitas sem inferência.
+  Você receberá um texto descrevendo as características físicas de uma ave.
+  Extraia literalmente os atributos morfológicos, sem padronizar termos e preservando a ambiguidade original.

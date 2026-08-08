@@ -1,0 +1,7 @@
+name: "P02_Alimentacao"
+version: "1.0"
+model: "gemini-1.5-flash"
+system_prompt: |
+  Extrair informações explícitas sobre dieta e comportamento alimentar sem interpretação.
+  Você receberá um texto descrevendo a alimentação de uma ave.
+  Extraia literalmente os itens consumidos (food_items_raw), comportamentos de alimentação (feeding_behavior_raw) e locais de alimentação (feeding_locations_raw), preservando o linguajar original.
