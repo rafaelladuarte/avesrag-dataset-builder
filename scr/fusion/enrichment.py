@@ -16,7 +16,7 @@ def main():
     pipeline = EnrichmentPipeline()
 
     # Busca até 5 espécies que ainda não foram processadas
-    docs = db.wikiaves.find({"_pipeline_processed": {"$ne": True}}).limit(5)
+    docs = db.wikiaves.find({"_pipeline_processed": {"$ne": True}}).limit(20)
 
     for doc in docs:
         nome = doc.get("nome_cientifico", {}).get("nome", "Desconhecido")
@@ -38,9 +38,9 @@ def main():
                     }
                 },
             )
-            logger.info(f"✅ Sucesso para: {nome}")
+            logger.info(f"[OK] Sucesso para: {nome}")
         except Exception as e:
-            logger.error(f"❌ Erro ao processar {nome}: {e}")
+            logger.error(f"[ERROR] Erro ao processar {nome}: {e}")
 
 
 if __name__ == "__main__":
