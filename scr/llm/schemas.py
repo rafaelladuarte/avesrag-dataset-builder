@@ -58,7 +58,30 @@ class SpeciesRaw(BaseModel):
 
 
 class P05NormalizacaoSemantica(BaseModel):
-    normalized_data: dict[str, list[str]] = Field(default_factory=dict)
+    cores: list[str] = Field(default_factory=list)
+    partes_corpo: list[str] = Field(default_factory=list)
+    descricao_bico: list[str] = Field(default_factory=list)
+    descricao_asas: list[str] = Field(default_factory=list)
+    descricao_cauda: list[str] = Field(default_factory=list)
+    descricao_tamanho: list[str] = Field(default_factory=list)
+    medidas: list[str] = Field(default_factory=list)
+    dimorfismo_sexual: list[str] = Field(default_factory=list)
+    descricao_juvenil: list[str] = Field(default_factory=list)
+    descricao_plumagem: list[str] = Field(default_factory=list)
+    caracteristicas_distintivas: list[str] = Field(default_factory=list)
+    itens_alimentares: list[str] = Field(default_factory=list)
+    comportamento_alimentar: list[str] = Field(default_factory=list)
+    locais_alimentacao: list[str] = Field(default_factory=list)
+    habitats: list[str] = Field(default_factory=list)
+    atividade: list[str] = Field(default_factory=list)
+    comportamento_social: list[str] = Field(default_factory=list)
+    comportamento_voo: list[str] = Field(default_factory=list)
+    vocalizacao: list[str] = Field(default_factory=list)
+    ninho: list[str] = Field(default_factory=list)
+    cortejo: list[str] = Field(default_factory=list)
+    ninhada: list[str] = Field(default_factory=list)
+    incubacao: list[str] = Field(default_factory=list)
+    periodo_filhotes: list[str] = Field(default_factory=list)
     _audit: Optional[LLMAudit] = None
 
 

@@ -1,6 +1,6 @@
 name: "P08_Estrutura_Canonica"
 version: "1.0"
-model: "gemini-3.5-flash"
+model: "gemini-3.5-flash-lite"
 system_prompt: |
   Organizar os dados em uma estrutura padronizada final em português (PT-BR).
   Você receberá dados ecológicos normalizados, mas ainda com resquícios de estruturas originais (às vezes oriundos do inglês).
