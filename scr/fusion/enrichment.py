@@ -16,7 +16,7 @@ def main():
     pipeline = EnrichmentPipeline()
 
     # Busca até 5 espécies que ainda não foram processadas
-    docs = db.wikiaves.find({"_pipeline_processed": {"$ne": True}}).limit(20)
+    docs = db.wikiaves.find({"_pipeline_processed": {"$ne": True}}).limit(50)
 
     for doc in docs:
         nome = doc.get("nome_cientifico", {}).get("nome", "Desconhecido")
