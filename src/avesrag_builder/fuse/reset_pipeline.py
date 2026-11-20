@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
-from scr.core.config import settings
-from scr.core.logging import get_logger
+from avesrag_builder.core.config import settings
+from avesrag_builder.core.logging import get_logger
 
 logger = get_logger(__name__)
 

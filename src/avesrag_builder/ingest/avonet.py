@@ -5,8 +5,8 @@ import pandas as pd
 from pymongo import UpdateOne
 from pymongo.errors import BulkWriteError
 
-from scr.database.connection import DatabaseConnection
-from scr.ingestion.base import BaseExtractor
+from avesrag_builder.db.connection import DatabaseConnection
+from avesrag_builder.ingest.base import BaseExtractor
 
 COLUNAS = {
     "Species1": "nome_cientifico",
@@ -35,7 +35,7 @@ COLUNAS = {
 class AvonetIngestion(BaseExtractor):
     def __init__(self):
         super().__init__()
-        from scr.core.config import settings
+        from avesrag_builder.core.config import settings
 
         self.csv_path = settings.AVONET_CSV
         self.db_connection = DatabaseConnection()

@@ -4,7 +4,7 @@ from typing import Optional
 from pydantic import MongoDsn, PostgresDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+ROOT_DIR = Path(__file__).resolve().parents[3]
 
 
 class Settings(BaseSettings):

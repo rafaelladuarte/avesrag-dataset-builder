@@ -6,10 +6,10 @@ from google.genai import errors
 from pydantic import BaseModel
 from tenacity import retry, retry_if_not_exception_type, stop_after_attempt, wait_exponential
 
-from scr.core.config import settings
-from scr.core.logging import get_logger
-from scr.llm.prompt_manager import PromptManager
-from scr.llm.rate_limiter import RateLimiter, RateLimitExceededError
+from avesrag_builder.core.config import settings
+from avesrag_builder.core.logging import get_logger
+from avesrag_builder.llm.prompt_manager import PromptManager
+from avesrag_builder.llm.rate_limiter import RateLimiter, RateLimitExceededError
 
 logger = get_logger(__name__)
 

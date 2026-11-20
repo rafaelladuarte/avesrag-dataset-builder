@@ -1,7 +1,7 @@
 import json
 
-from scr.llm.client import GeminiClient
-from scr.llm.schemas import (
+from avesrag_builder.llm.client import GeminiClient
+from avesrag_builder.llm.schemas import (
     P01Morfologia,
     P02Alimentacao,
     P03Habitos,

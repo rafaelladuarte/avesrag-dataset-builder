@@ -1,11 +1,11 @@
 """
-src/extractors/base.py
+avesrag_builder/ingest/base.py
 Interface comum para coletores de dados.
 """
 
 from abc import ABC, abstractmethod
 
-from scr.core.logging import get_logger
+from avesrag_builder.core.logging import get_logger
 
 
 class BaseExtractor(ABC):

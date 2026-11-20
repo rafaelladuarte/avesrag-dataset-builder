@@ -4,7 +4,7 @@ import re
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
-from scr.core.logging import get_logger
+from avesrag_builder.core.logging import get_logger
 
 logger = get_logger(__name__)
 

@@ -1,18 +1,18 @@
-"""Testes para scr.ingestion.avonet — método transform."""
+"""Testes para avesrag_builder.ingest.avonet — método transform."""
 
 from unittest.mock import patch
 
 import pandas as pd
 import pytest
 
-from scr.ingestion.avonet import COLUNAS, AvonetIngestion
+from avesrag_builder.ingest.avonet import COLUNAS, AvonetIngestion
 
 
 class TestAvonetTransform:
     @pytest.fixture
     def extractor(self):
         """AvonetIngestion com DatabaseConnection mockada."""
-        with patch("scr.ingestion.avonet.DatabaseConnection"):
+        with patch("avesrag_builder.ingest.avonet.DatabaseConnection"):
             return AvonetIngestion()
 
     def _make_df(self, rows: list[dict]) -> pd.DataFrame:

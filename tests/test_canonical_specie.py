@@ -1,6 +1,6 @@
-"""Testes para scr.fusion.canonical_specie — funções get_size e get_weight."""
+"""Testes para avesrag_builder.fuse.canonical_specie — funções get_size e get_weight."""
 
-from scr.fusion.canonical_specie import get_size, get_weight
+from avesrag_builder.fuse.canonical_specie import get_size, get_weight
 
 
 class TestGetSize:

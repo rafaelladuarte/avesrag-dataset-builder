@@ -1,6 +1,6 @@
-"""Testes para scr.ingestion.ebird — função normalize."""
+"""Testes para avesrag_builder.ingest.ebird — função normalize."""
 
-from scr.ingestion.ebird import normalize
+from avesrag_builder.ingest.ebird import normalize
 
 
 class TestNormalize:

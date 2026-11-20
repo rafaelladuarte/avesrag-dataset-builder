@@ -1,5 +1,5 @@
 """
-src/database/conexoes.py
+avesrag_builder/db/connection.py
 Gerencia conexões com MongoDB e PostGIS de forma estruturada.
 """
 
@@ -10,8 +10,8 @@ from dotenv import load_dotenv
 from psycopg2.extras import execute_values
 from pymongo import MongoClient
 
-from scr.core.config import settings
-from scr.core.logging import get_logger
+from avesrag_builder.core.config import settings
+from avesrag_builder.core.logging import get_logger
 
 load_dotenv()
 

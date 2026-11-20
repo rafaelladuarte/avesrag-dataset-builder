@@ -11,8 +11,8 @@ from playwright.sync_api import sync_playwright
 from pymongo import UpdateOne
 from pymongo.errors import BulkWriteError
 
-from scr.core.logging import get_logger
-from scr.database.connection import DatabaseConnection
+from avesrag_builder.core.logging import get_logger
+from avesrag_builder.db.connection import DatabaseConnection
 
 logger = get_logger(__name__)
 
@@ -250,7 +250,7 @@ def extrair_dados_html(html: str) -> dict:
 
 def main():
     csv_path = "data/raw/wikiaves_especies.csv"
-    from scr.core.config import settings
+    from avesrag_builder.core.config import settings
 
     MAX_ESPECIES = settings.MAX_ESPECIES or None  # 0 ou ausente = sem limite
 
