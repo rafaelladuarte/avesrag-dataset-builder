@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str
     EBIRD_API_KEY: Optional[str] = None
     MAX_ESPECIES: int = 0
-    AVONET_CSV: str = "data/AVONET_BirdLife.xlsx"
+    AVONET_CSV: str = "data/raw/AVONET Supplementary dataset 1.xlsx"
 
     # Gemini Rate Limiting
     GEMINI_RPM: int = 10  # Requests per minute
