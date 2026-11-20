@@ -28,7 +28,7 @@ class BaseExtractor(ABC):
 
     @abstractmethod
     def load(self, transformed_data, db_connection):
-        """Grava os dados transformados no MongoDB e/ou PostGIS."""
+        """Grava os dados transformados no MongoDB."""
         pass
 
     def run(self, db_connection, *args, **kwargs):
