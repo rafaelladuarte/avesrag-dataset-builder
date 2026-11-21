@@ -201,3 +201,5 @@ cython_debug/
 avesrag.log
 reports/*
 !reports/.gitkeep
+
+*.ua/
