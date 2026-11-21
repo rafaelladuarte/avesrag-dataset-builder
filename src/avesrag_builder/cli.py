@@ -112,7 +112,20 @@ def ingest(
 @app.command()
 def resolve() -> None:
     """[etapa 2] raw_* -> species_registry: um species_id estável por espécie do WikiAves."""
-    nao_implementado("resolve", "3")
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.settings import MissingSettingError
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.resolve.registry import executar
+
+    try:
+        resultado, cobertura = executar(get_db())
+    except (MissingSettingError, PyMongoError, ValueError) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    typer.echo(resultado.resumo())
+    for linha in cobertura.linhas():
+        typer.echo(linha)
 
 
 @app.command()

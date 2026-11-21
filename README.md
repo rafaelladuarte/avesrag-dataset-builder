@@ -17,7 +17,7 @@ fontes ──ingest──► raw_* ──resolve──► species_registry ─�
 | # | Comando | Lê | Escreve | Marco |
 | --- | --- | --- | --- | --- |
 | 1 | `ingest <fonte>` | sites, APIs e planilhas | `raw_wikiaves`, `raw_avonet`, `raw_birdbase`, `raw_cbro`, `raw_ebird`, `raw_ibge` | pronto |
-| 2 | `resolve` | `raw_*` | `species_registry` | 3 |
+| 2 | `resolve` | `raw_*` | `species_registry` | pronto |
 | 3 | `extract` | `raw_wikiaves`, `species_registry` | `species_extractions` | 4 |
 | 4 | `fuse` | registry, extractions, `raw_*` | `species`, `species_occurrence` | 5 |
 | 5 | `validate` | `species` | `_meta.dq_status` + relatório em `reports/` | 5 |
@@ -46,6 +46,14 @@ poetry run avesrag-builder ingest wikiaves --piloto
 ```
 
 A ordem importa só no fim: o `wikiaves --piloto` escolhe as páginas a partir de `raw_ebird` e usa as pontes de nomes do `raw_birdbase` e do `raw_avonet`. Sem `--piloto`, o `ebird` percorre todos os municípios (~1 a 2 h) e o `wikiaves`, todas as 1.975 páginas (~4 h). Os dois retomam de onde pararam; `--refazer` baixa tudo de novo e `--limite N` (wikiaves) para depois de N páginas.
+
+### Registry
+
+```bash
+poetry run avesrag-builder resolve   # 1.975 espécies, ~2 s, sem rede
+```
+
+Um documento por espécie do WikiAves em `species_registry`, com `species_id` = slug do nome científico (índice único; o `_id` é o ObjectId do Mongo). Cada fonte guarda a chave do seu `raw_*` (`_id` do doc, ou o `speciesCode` no eBird) e o tipo de casamento: `exato`, `ponte` (correspondência do AVONET), `genero` (mesmo epíteto e família, gênero trocado) ou `sem_match`. Rodar de novo só grava o que mudou; espécies que saem do WikiAves não são apagadas. Relatórios em `reports/`: `resolve_sem_match.tsv` (por fonte), `resolve_piloto.tsv` (espécies do eBird do município do piloto fora do registry ou casadas por aproximação) e `resolve_orfaos.txt`.
 
 ## Pré-requisitos
 

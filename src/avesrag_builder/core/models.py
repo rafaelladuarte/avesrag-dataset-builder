@@ -29,7 +29,9 @@ SCHEMA_VERSION = "2.0"
 EMBEDDING_DIM = 3072  # text-embedding-3-large
 
 FonteChave = Literal["cbro", "avonet", "birdbase", "ebird"]
-MatchTipo = Literal["exato", "sem_match"]
+# exato: mesmo nome; ponte: pela correspondência do AVONET (eBird);
+# genero: mesmo epíteto e família equivalente, com outro gênero (eBird).
+MatchTipo = Literal["exato", "ponte", "genero", "sem_match"]
 DqStatus = Literal["apta", "incompleta", "bloqueada"]
 Dominio = Literal["aparencia", "comportamento_ambiente", "voz_habitos"]
 
@@ -141,6 +143,7 @@ class SpeciesRegistry(MongoModel):
     chaves: Chaves
     match: dict[FonteChave, MatchTipo] = Field(default_factory=dict)
     criado_em: datetime
+    atualizado_em: datetime | None = None
 
     @model_validator(mode="after")
     def _consistencia(self) -> SpeciesRegistry:

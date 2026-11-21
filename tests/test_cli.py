@@ -56,7 +56,6 @@ def test_ingest_fonte_invalida():
 @pytest.mark.parametrize(
     "args, marco",
     [
-        (["resolve"], "Marco 3"),
         (["extract", "--piloto"], "Marco 4"),
         (["fuse"], "Marco 5"),
         (["validate"], "Marco 5"),
@@ -111,3 +110,32 @@ def test_ingest_rejeita_opcao_que_nao_se_aplica():
     result = runner.invoke(app, ["ingest", "cbro", "--refazer"])
     assert result.exit_code == 2
     assert "--refazer não se aplica a cbro" in result.output
+
+
+def test_resolve_imprime_resumo_e_cobertura(monkeypatch):
+    from avesrag_builder.db import connection
+    from avesrag_builder.ingest.base import ResultadoIngestao
+    from avesrag_builder.resolve import registry
+
+    resultado = ResultadoIngestao(fonte="resolve", collection="species_registry", inseridos=2)
+    cobertura = registry.Cobertura(2, {"cbro": 2, "avonet": 1, "birdbase": 1, "ebird": 2}, 4, 3)
+    monkeypatch.setattr(registry, "executar", lambda db: (resultado, cobertura))
+    monkeypatch.setattr(connection, "get_db", lambda: None)
+    result = runner.invoke(app, ["resolve"])
+    assert result.exit_code == 0, result.output
+    assert "2 inseridos" in result.output
+    assert "piloto: 3 de 4" in result.output
+
+
+def test_resolve_reporta_falha(monkeypatch):
+    from avesrag_builder.db import connection
+    from avesrag_builder.resolve import registry
+
+    def falha(db):
+        raise ValueError("raw_wikiaves está vazia")
+
+    monkeypatch.setattr(registry, "executar", falha)
+    monkeypatch.setattr(connection, "get_db", lambda: None)
+    result = runner.invoke(app, ["resolve"])
+    assert result.exit_code == 1
+    assert "Falhou: raw_wikiaves está vazia" in result.output
