@@ -75,3 +75,34 @@ def test_log_level_invalido():
     result = runner.invoke(app, ["--log-level", "barulhento", "resolve"])
     assert result.exit_code == 2
     assert "nível de log inválido" in result.output
+
+
+def test_index_sem_verificar_ainda_nao_implementado():
+    result = runner.invoke(app, ["index"])
+    assert result.exit_code == 2
+    assert "Marco 6" in result.output
+
+
+def test_index_verificar_reporta_falha(monkeypatch):
+    from avesrag_builder.db import busca, connection
+
+    def falha(db):
+        raise busca.BuscaIndisponivel("sem mongot")
+
+    monkeypatch.setattr(busca, "verificar_busca", falha)
+    monkeypatch.setattr(connection, "get_db", lambda: None)
+    result = runner.invoke(app, ["index", "--verificar"])
+    assert result.exit_code == 1
+    assert "Falhou: sem mongot" in result.output
+
+
+def test_index_verificar_ok(monkeypatch):
+    from avesrag_builder.db import busca, connection
+
+    monkeypatch.setattr(
+        busca, "verificar_busca", lambda db: busca.ResultadoVerificacao("8.3.17", ["a"], ["c"])
+    )
+    monkeypatch.setattr(connection, "get_db", lambda: None)
+    result = runner.invoke(app, ["index", "--verificar"])
+    assert result.exit_code == 0
+    assert "MongoDB 8.3.17 aceita" in result.output

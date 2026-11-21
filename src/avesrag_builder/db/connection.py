@@ -5,25 +5,42 @@ cada etapa do pipeline é responsável pelas suas.
 """
 
 from pymongo import MongoClient
+from pymongo.database import Database
 
 from avesrag_builder.core.logging import get_logger
 from avesrag_builder.core.settings import get_settings
 
 logger = get_logger(__name__)
 
+SERVER_SELECTION_TIMEOUT_MS = 5000
+
+_client: MongoClient | None = None
+
+
+def get_client() -> MongoClient:
+    """Cliente MongoDB compartilhado, criado na primeira chamada."""
+    global _client
+    if _client is None:
+        _client = MongoClient(
+            get_settings().MONGODB_URI, serverSelectionTimeoutMS=SERVER_SELECTION_TIMEOUT_MS
+        )
+    return _client
+
+
+def get_db() -> Database:
+    """Banco configurado em MONGODB_DATABASE."""
+    return get_client()[get_settings().MONGODB_DATABASE]
+
+
+def close() -> None:
+    global _client
+    if _client is not None:
+        _client.close()
+        _client = None
+
 
 class DatabaseConnection:
-    """Gerencia um cliente MongoDB reutilizável."""
+    """Interface usada pelas ingestões da v1 (substituída por get_db no Marco 2)."""
 
-    _mongo_client = None
-
-    def __init__(self):
-        settings = get_settings()
-        self.mongo_uri = settings.MONGODB_URI
-        self.mongo_db_name = settings.MONGODB_DATABASE
-
-    def get_mongo_db(self):
-        """Retorna o banco configurado, criando o cliente na primeira chamada."""
-        if DatabaseConnection._mongo_client is None:
-            DatabaseConnection._mongo_client = MongoClient(self.mongo_uri)
-        return DatabaseConnection._mongo_client[self.mongo_db_name]
+    def get_mongo_db(self) -> Database:
+        return get_db()

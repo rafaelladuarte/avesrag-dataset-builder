@@ -1,33 +1,30 @@
-version: '3.8'
+# MongoDB local com busca vetorial ($vectorSearch) e textual ($search).
+# A imagem mongodb-atlas-local traz o mongod e o mongot; roda como replica set
+# de um nó, por isso a URI usa ?directConnection=true.
+#
+# O nome do projeto (avesrag-builder) é diferente do usado na v1
+# (avesrag-dataset-builder): os volumes novos não se misturam com o volume do
+# MongoDB 7.0 antigo, que fica intocado para a migração (ver README).
+name: avesrag-builder
 
 services:
   mongodb:
-    image: mongo:7.0
-    container_name: mongodb_avesrag
-    restart: always
+    image: mongodb/mongodb-atlas-local:8.3.17
+    container_name: avesrag-mongodb
+    restart: unless-stopped
     ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-admin}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-password123}
+      - "${MONGODB_PORT:-27017}:27017"
     volumes:
-      - mongodb_data:/data/db
-
-  mongo-express:
-    image: mongo-express:latest
-    container_name: mongo-express_avesrag
-    restart: always
-    ports:
-      - "8081:8081"
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME:-admin}
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-password123}
-      ME_CONFIG_MONGODB_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-admin}:${MONGO_INITDB_ROOT_PASSWORD:-password123}@mongodb:27017/?authSource=admin
-      ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_EXPRESS_USERNAME:-admin}
-      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_EXPRESS_PASSWORD:-admin123}
-    depends_on:
-      - mongodb
+      - atlas_data:/data/db
+      - atlas_config:/data/configdb
+    healthcheck:
+      # mesmo teste da imagem, com intervalo menor
+      test: ["CMD", "/usr/local/bin/runner", "healthcheck"]
+      interval: 10s
+      timeout: 30s
+      start_period: 60s
+      retries: 12
 
 volumes:
-  mongodb_data:
-    driver: local
+  atlas_data:
+  atlas_config:

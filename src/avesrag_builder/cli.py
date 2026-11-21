@@ -94,9 +94,29 @@ def docs(piloto: bool = OPCAO_PILOTO) -> None:
 
 
 @app.command()
-def index() -> None:
+def index(
+    verificar: bool = typer.Option(
+        False,
+        "--verificar",
+        help="Só confere se o MongoDB aceita índices de busca (collection temporária).",
+    ),
+) -> None:
     """[etapa 7] Cria os índices $vectorSearch e $search em species_retrieval_docs."""
-    nao_implementado("index", "6")
+    if not verificar:
+        nao_implementado("index", "6 (use --verificar para testar o MongoDB)")
+
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.db.busca import BuscaIndisponivel, verificar_busca
+    from avesrag_builder.db.connection import get_db
+
+    typer.echo("Verificando $vectorSearch e $search no MongoDB…")
+    try:
+        resultado = verificar_busca(get_db())
+    except (BuscaIndisponivel, PyMongoError) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    typer.echo(f"OK: MongoDB {resultado.versao_servidor} aceita índices $vectorSearch e $search.")
 
 
 @app.command()
