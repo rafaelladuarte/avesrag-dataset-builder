@@ -4,7 +4,7 @@ Pipeline que monta a base de espécies do [AvesRAG](https://github.com/rafaellad
 
 Para cada espécie, o builder entrega uma ficha canônica validada (`species`) e três documentos de busca com embedding (`species_retrieval_docs`). A base é reconstruída do zero com um comando, uma chave da OpenAI e uma do eBird.
 
-> **Estado:** v2 em construção. Prontos: o Marco 1 (estrutura, CLI, settings, modelos, vocabulário e MongoDB com busca vetorial) e o Marco 2 (ingestão das seis fontes). As demais etapas chegam nos marcos seguintes (tabela abaixo).
+> **Estado:** v2 em construção. Prontos: o Marco 1 (estrutura, CLI, settings, modelos, vocabulário e MongoDB com busca vetorial), o Marco 2 (ingestão das seis fontes) e o Marco 3 (registry de espécies). As demais etapas chegam nos marcos seguintes (tabela abaixo).
 
 ## Como funciona
 
@@ -121,15 +121,18 @@ src/avesrag_builder/
 ├── cli.py                # avesrag-builder
 ├── core/                 # settings, logging, modelos Pydantic, vocabulário
 ├── db/                   # conexão, nomes das collections, verificação de busca
-├── ingest/               # fontes (scripts da v1 até o Marco 2)
-├── resolve/ llm/ extract/ fuse/ validate/ docs/
+├── ingest/               # uma ingestão por fonte, no envelope raw_*
+├── resolve/              # species_registry
+├── fuse/                 # species_occurrence.py da v1, a adaptar no Marco 5
+└── llm/                  # cliente do LLM (Marco 4)
+                          # extract/, validate/ e docs/ chegam nos Marcos 4 a 6
 data/raw/                 # planilhas AVONET, BIRDBASE, CBRO, IBGE e lista do WikiAves
 reports/                  # relatórios gerados (fora do git)
 tests/
 docs/legado/              # documentação e dados tratados da v1
 ```
 
-O vocabulário e as regras se validam ao carregar: um valor inexistente num mapeamento, um sinônimo que aponta para dois valores ou um tipo de bico sem perfil faz o carregamento falhar com o caminho do erro. Entradas marcadas `PROPOSTA` nos YAMLs ainda precisam de revisão.
+O vocabulário e as regras se validam ao carregar: um valor inexistente num mapeamento, um sinônimo que aponta para dois valores ou um tipo de bico sem perfil faz o carregamento falhar com o caminho do erro. Os mapeamentos foram revisados em 21/11/2026 com os dados do piloto.
 
 ## Testes
 
