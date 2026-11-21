@@ -1,18 +1,12 @@
-import csv
+"""Navegação (Playwright) e parser das páginas de espécie do WikiAves."""
+
 import random
 import re
-import sys
 import time
-from datetime import datetime, timezone
-from pathlib import Path
 
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright
-from pymongo import UpdateOne
-from pymongo.errors import BulkWriteError
 
 from avesrag_builder.core.logging import get_logger
-from avesrag_builder.db.connection import DatabaseConnection
 
 logger = get_logger(__name__)
 
@@ -246,119 +240,3 @@ def extrair_dados_html(html: str) -> dict:
         "distribuicao_geografica": get_section_text(soup, "distribuicao_geografica"),
         "galeria_fotos_primeiras_2": extrair_galeria(soup, n=2),
     }
-
-
-def main():
-    from avesrag_builder.core.settings import get_settings
-
-    settings = get_settings()
-    csv_path = str(settings.WIKIAVES_CSV)
-    MAX_ESPECIES = settings.WIKIAVES_MAX_ESPECIES or None  # 0 ou ausente = sem limite
-
-    if not Path(csv_path).exists():
-        logger.error(f"Arquivo '{csv_path}' não encontrado.")
-        sys.exit(1)
-
-    logger.info("Conectando ao MongoDB para recuperar espécies já extraídas...")
-    db_connection = DatabaseConnection()
-    db_avesrag = db_connection.get_mongo_db()
-
-    especies_existentes = set()
-    for doc in db_avesrag.wikiaves.find({}, {"nome_cientifico": 1}):
-        nc = doc.get("nome_cientifico")
-        if isinstance(nc, dict):
-            especies_existentes.add(nc.get("nome"))
-        elif isinstance(nc, str):
-            especies_existentes.add(nc)
-
-    logger.info(f"Encontradas {len(especies_existentes)} espécies já cadastradas na base.")
-
-    resultados = []
-
-    limite_str = f"as primeiras {MAX_ESPECIES}" if MAX_ESPECIES else "todas as"
-    logger.info(f"Iniciando extração dinâmica via Playwright para {limite_str} espécies...")
-
-    with open(csv_path, "r", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-
-        with sync_playwright() as p:
-            browser, context = criar_browser_stealth(p)
-            page = context.new_page()
-
-            for i, row in enumerate(reader):
-                if MAX_ESPECIES is not None and i >= MAX_ESPECIES:
-                    break
-
-                nome = row.get("nome_cientifico", f"Espécie {i + 1}")
-
-                if nome in especies_existentes:
-                    logger.info(
-                        f"[{i + 1}/{MAX_ESPECIES}] Espécie '{nome}' já existe no MongoDB. Pulando..."
-                    )
-                    continue
-
-                url_path = row.get("url", "")
-
-                if not url_path:
-                    logger.warning(f"URL ausente para {nome}, pulando...")
-                    continue
-
-                full_url = "https://www.wikiaves.com.br" + (
-                    url_path if url_path.startswith("/") else "/" + url_path
-                )
-
-                logger.info(f"[{i + 1}/{MAX_ESPECIES}] Acessando {nome}: {full_url}")
-
-                html = navegar_com_retry(page, full_url)
-                if html is None:
-                    logger.error(f"  -> Desistindo de {nome} após todas as tentativas.")
-                    continue
-
-                dados_extraidos = extrair_dados_html(html)
-                dados_extraidos["meta_id"] = row.get("id")
-                dados_extraidos["meta_nome_comum"] = row.get("nome_comum")
-                dados_extraidos["fontes"] = ["wikiaves"]
-                dados_extraidos["atualizado_em"] = datetime.now(timezone.utc)
-                resultados.append(dados_extraidos)
-
-                espera_humana()
-
-            browser.close()
-
-    if not resultados:
-        logger.warning("Nenhum resultado para inserir no MongoDB.")
-        return
-
-    logger.info("Conectando ao MongoDB para inserção (BulkWrite)...")
-    # A conexão já foi estabelecida acima
-    ops = []
-    for doc in resultados:
-        nome_cientifico = doc.get("nome_cientifico", {}).get("nome")
-        if not nome_cientifico:
-            # Caso fallback para nome_cientifico seja diferente
-            nome_cientifico = row.get("nome_cientifico")
-
-        if nome_cientifico:
-            # Reestrutura chave para bater com o padrão de busca, se preferir salvar string
-            ops.append(
-                UpdateOne(
-                    {"nome_cientifico": nome_cientifico},
-                    {"$set": doc},
-                    upsert=True,
-                )
-            )
-        else:
-            logger.warning(f"Documento sem nome científico, ignorando: {doc}")
-
-    if ops:
-        try:
-            db_avesrag.wikiaves.bulk_write(ops, ordered=False)
-            logger.info(
-                f"Extração finalizada com sucesso! {len(ops)} espécies carregadas na collection 'wikiaves' do MongoDB (banco 'avesrag')."
-            )
-        except BulkWriteError as e:
-            logger.error(f"Erro de bulk_write no MongoDB: {e.details}")
-
-
-if __name__ == "__main__":
-    main()

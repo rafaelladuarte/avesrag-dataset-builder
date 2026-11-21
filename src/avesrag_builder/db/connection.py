@@ -37,10 +37,3 @@ def close() -> None:
     if _client is not None:
         _client.close()
         _client = None
-
-
-class DatabaseConnection:
-    """Interface usada pelas ingestões da v1 (substituída por get_db no Marco 2)."""
-
-    def get_mongo_db(self) -> Database:
-        return get_db()

@@ -4,7 +4,7 @@ Pipeline que monta a base de espécies do [AvesRAG](https://github.com/rafaellad
 
 Para cada espécie, o builder entrega uma ficha canônica validada (`species`) e três documentos de busca com embedding (`species_retrieval_docs`). A base é reconstruída do zero com um comando, uma chave da OpenAI e uma do eBird.
 
-> **Estado:** v2 em construção. O Marco 1 (fundação) está pronto: estrutura, CLI, settings, modelos, vocabulário e MongoDB com busca vetorial. As etapas do pipeline chegam nos marcos seguintes (tabela abaixo). Os scripts da v1 continuam em `src/avesrag_builder/ingest/` até o Marco 2.
+> **Estado:** v2 em construção. Prontos: o Marco 1 (estrutura, CLI, settings, modelos, vocabulário e MongoDB com busca vetorial) e o Marco 2 (ingestão das seis fontes). As demais etapas chegam nos marcos seguintes (tabela abaixo).
 
 ## Como funciona
 
@@ -16,7 +16,7 @@ fontes ──ingest──► raw_* ──resolve──► species_registry ─�
 
 | # | Comando | Lê | Escreve | Marco |
 | --- | --- | --- | --- | --- |
-| 1 | `ingest <fonte>` | sites, APIs e planilhas | `raw_wikiaves`, `raw_avonet`, `raw_birdbase`, `raw_cbro`, `raw_ebird`, `raw_ibge` | 2 |
+| 1 | `ingest <fonte>` | sites, APIs e planilhas | `raw_wikiaves`, `raw_avonet`, `raw_birdbase`, `raw_cbro`, `raw_ebird`, `raw_ibge` | pronto |
 | 2 | `resolve` | `raw_*` | `species_registry` | 3 |
 | 3 | `extract` | `raw_wikiaves`, `species_registry` | `species_extractions` | 4 |
 | 4 | `fuse` | registry, extractions, `raw_*` | `species`, `species_occurrence` | 5 |
@@ -26,6 +26,26 @@ fontes ──ingest──► raw_* ──resolve──► species_registry ─�
 | — | `run [--piloto]` | — | etapas 2 a 7 | 6 |
 
 Cada etapa lê só das anteriores, pode ser rodada sozinha e é idempotente. O LLM aparece só no `extract`; o resto é determinístico, guiado pelos arquivos de `config/`.
+
+### Ingestão
+
+Cada fonte vira uma collection `raw_<fonte>` com o formato `{_id, dados, ingerido_em, source_hash}`: `_id` é a chave na fonte e `dados` é o registro como veio. Um documento só é regravado quando o `source_hash` muda, então rodar de novo sem mudança na fonte não grava nada.
+
+```bash
+# planilhas de data/raw/ (sem rede, ~1 min no total)
+poetry run avesrag-builder ingest cbro       # 1.971 espécies (id #CBRO)
+poetry run avesrag-builder ingest ibge       # 5.572 municípios (id = geocódigo)
+poetry run avesrag-builder ingest birdbase   # 11.589 espécies (id = IOC 15.1)
+poetry run avesrag-builder ingest avonet     # abas BirdLife e eBird + correspondência entre elas
+
+# eBird: taxonomia (pt_BR) + espécies registradas no município do piloto (3 chamadas)
+poetry run avesrag-builder ingest ebird --piloto
+
+# WikiAves: lista completa + páginas das espécies do piloto (~1 h, ~7 s por página)
+poetry run avesrag-builder ingest wikiaves --piloto
+```
+
+A ordem importa só no fim: o `wikiaves --piloto` escolhe as páginas a partir de `raw_ebird` e usa as pontes de nomes do `raw_birdbase` e do `raw_avonet`. Sem `--piloto`, o `ebird` percorre todos os municípios (~1 a 2 h) e o `wikiaves`, todas as 1.975 páginas (~4 h). Os dois retomam de onde pararam; `--refazer` baixa tudo de novo e `--limite N` (wikiaves) para depois de N páginas.
 
 ## Pré-requisitos
 

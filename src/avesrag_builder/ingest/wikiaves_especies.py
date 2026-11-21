@@ -1,15 +1,14 @@
-import csv
+"""Parser da tabela de espécies do WikiAves (especies.php)."""
+
 import re
 
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright
 
 from avesrag_builder.core.logging import get_logger
 
 logger = get_logger(__name__)
 
 URL = "https://www.wikiaves.com.br/especies.php?t=t"
-OUTPUT_CSV = "data/raw/wikiaves_especies.csv"
 
 
 def extrair_especies(html: str) -> list[dict]:
@@ -52,7 +51,8 @@ def extrair_especies(html: str) -> list[dict]:
         fotos = fotos_link.get_text(strip=True) if fotos_link else "0"
         url_fotos = fotos_link["href"] if fotos_link else ""
 
-        id_match = re.search(r"s=(\d+)", url_sons)
+        # O id vem do link de sons; espécies sem som (93 em 2026) só têm o de fotos.
+        id_match = re.search(r"s=(\d+)", url_sons) or re.search(r"s=(\d+)", url_fotos)
         id_especie = id_match.group(1) if id_match else ""
 
         if nome_cientifico:
@@ -71,39 +71,3 @@ def extrair_especies(html: str) -> list[dict]:
             )
 
     return especies
-
-
-def salvar_csv(especies: list[dict], caminho: str):
-    with open(caminho, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=especies[0].keys())
-        writer.writeheader()
-        writer.writerows(especies)
-
-
-def main():
-    logger.info(f"Acessando {URL} ...")
-
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
-
-        page.goto(URL, wait_until="domcontentloaded", timeout=30_000)
-
-        page.wait_for_selector("table.wa-table-sp tbody tr", timeout=15_000, state="attached")
-
-        html = page.content()
-        browser.close()
-
-    logger.info("Página carregada. Extraindo dados...")
-    especies = extrair_especies(html)
-
-    if not especies:
-        logger.warning("Nenhuma espécie encontrada.")
-        return
-
-    salvar_csv(especies, OUTPUT_CSV)
-    logger.info(f"{len(especies)} espécies salvas em '{OUTPUT_CSV}'.")
-
-
-if __name__ == "__main__":
-    main()
