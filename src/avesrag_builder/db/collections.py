@@ -1,5 +1,8 @@
 """Nomes das collections do builder (Modelo de Dados > Documentos)."""
 
+from pymongo import ASCENDING
+from pymongo.database import Database
+
 RAW_WIKIAVES = "raw_wikiaves"
 RAW_AVONET = "raw_avonet"
 RAW_BIRDBASE = "raw_birdbase"
@@ -24,3 +27,16 @@ BUILDER_COLLECTIONS = (
     SPECIES,
     SPECIES_RETRIEVAL_DOCS,
 )
+
+# Collections com um doc por espécie: `_id` é ObjectId e o slug fica em `species_id`.
+POR_ESPECIE = (SPECIES_REGISTRY, SPECIES)
+
+
+def garantir_indices(db: Database) -> None:
+    """Índice único em `species_id` nas collections por espécie (idempotente).
+
+    Chamado pelo `resolve` e pelo `fuse` antes de gravar: sem ele, dois upserts
+    pelo mesmo `species_id` poderiam criar documentos duplicados.
+    """
+    for nome in POR_ESPECIE:
+        db[nome].create_index([("species_id", ASCENDING)], unique=True, name="species_id_unico")

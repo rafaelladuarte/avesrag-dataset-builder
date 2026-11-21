@@ -13,7 +13,7 @@ import json
 import re
 import unicodedata
 from datetime import UTC, datetime
-from typing import Annotated, Any, ClassVar, Literal
+from typing import Annotated, Any, ClassVar, Literal, Self
 
 from pydantic import (
     BaseModel,
@@ -87,6 +87,13 @@ class MongoModel(BaseModel):
     def to_mongo(self) -> dict[str, Any]:
         return self.model_dump(by_alias=True, exclude_none=self.EXCLUDE_NONE)
 
+    @classmethod
+    def from_mongo(cls, doc: dict[str, Any]) -> Self:
+        """Valida um doc lido do Mongo; descarta o `_id` (ObjectId) se o modelo não o declara."""
+        if "_id" in doc and not any(f.alias == "_id" for f in cls.model_fields.values()):
+            doc = {k: v for k, v in doc.items() if k != "_id"}
+        return cls.model_validate(doc)
+
 
 # ---------------------------------------------------------------------------
 # Bruto (raw_*)
@@ -125,7 +132,10 @@ class Chaves(MongoModel):
 
 
 class SpeciesRegistry(MongoModel):
-    id: SpeciesId = Field(alias="_id")
+    """Um doc por espécie do WikiAves. O `_id` é o ObjectId do Mongo (interno);
+    as outras collections referenciam a espécie pelo `species_id` (slug, índice único)."""
+
+    species_id: SpeciesId
     nome_cientifico: TextoNaoVazio
     nome_comum: str | None = None
     chaves: Chaves
@@ -135,8 +145,10 @@ class SpeciesRegistry(MongoModel):
     @model_validator(mode="after")
     def _consistencia(self) -> SpeciesRegistry:
         esperado = slug_species_id(self.nome_cientifico)
-        if self.id != esperado:
-            raise ValueError(f"_id {self.id!r} difere do slug do nome científico ({esperado!r})")
+        if self.species_id != esperado:
+            raise ValueError(
+                f"species_id {self.species_id!r} difere do slug do nome científico ({esperado!r})"
+            )
         for fonte, tipo in self.match.items():
             chave = getattr(self.chaves, fonte)
             if (chave is None) != (tipo == "sem_match"):
@@ -235,7 +247,7 @@ class Meta(MongoModel):
 class Species(MongoModel):
     EXCLUDE_NONE: ClassVar[bool] = True
 
-    id: SpeciesId = Field(alias="_id")
+    species_id: SpeciesId  # mesmo do registry; `_id` é o ObjectId do Mongo
     nome_cientifico: TextoNaoVazio
     nomes: Nomes
     taxonomia: Taxonomia = Field(default_factory=Taxonomia)

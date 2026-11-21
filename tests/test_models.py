@@ -9,6 +9,7 @@ import copy
 import csv
 
 import pytest
+from bson import ObjectId
 from pydantic import ValidationError
 
 from avesrag_builder.core.models import (
@@ -23,7 +24,7 @@ from avesrag_builder.core.models import (
 from avesrag_builder.core.settings import get_settings
 
 REGISTRY = {
-    "_id": "sp_pitangus_sulphuratus",
+    "species_id": "sp_pitangus_sulphuratus",
     "nome_cientifico": "Pitangus sulphuratus",
     "nome_comum": "bem-te-vi",
     "chaves": {
@@ -38,7 +39,7 @@ REGISTRY = {
 }
 
 SPECIES = {
-    "_id": "sp_pitangus_sulphuratus",
+    "species_id": "sp_pitangus_sulphuratus",
     "nome_cientifico": "Pitangus sulphuratus",
     "nomes": {"pt": ["bem-te-vi"], "en": ["Great Kiskadee"]},
     "taxonomia": {"ordem": "Passeriformes", "familia": "Tyrannidae", "genero": "Pitangus"},
@@ -141,8 +142,17 @@ class TestRawEnvelope:
 
 class TestSpeciesRegistry:
     def test_exemplo_do_modelo(self):
-        reg = SpeciesRegistry.model_validate(REGISTRY)
-        assert reg.to_mongo()["_id"] == "sp_pitangus_sulphuratus"
+        doc = SpeciesRegistry.model_validate(REGISTRY).to_mongo()
+        assert doc["species_id"] == "sp_pitangus_sulphuratus"
+        assert "_id" not in doc  # o Mongo gera o ObjectId
+
+    def test_from_mongo_descarta_object_id(self):
+        reg = SpeciesRegistry.from_mongo({"_id": ObjectId(), **REGISTRY})
+        assert reg.species_id == "sp_pitangus_sulphuratus"
+
+    def test_rejeita_id_slug_antigo(self):
+        with pytest.raises(ValidationError):
+            SpeciesRegistry.model_validate({"_id": "sp_pitangus_sulphuratus", **REGISTRY})
 
     def test_sem_match_guarda_null(self):
         data = copy.deepcopy(REGISTRY)
@@ -159,13 +169,13 @@ class TestSpeciesRegistry:
 
     def test_id_diferente_do_slug(self):
         data = copy.deepcopy(REGISTRY)
-        data["_id"] = "sp_pitangus"
+        data["species_id"] = "sp_pitangus"
         with pytest.raises(ValidationError, match="slug"):
             SpeciesRegistry.model_validate(data)
 
     def test_id_fora_do_padrao(self):
         data = copy.deepcopy(REGISTRY)
-        data["_id"] = "Pitangus sulphuratus"
+        data["species_id"] = "Pitangus sulphuratus"
         with pytest.raises(ValidationError):
             SpeciesRegistry.model_validate(data)
 
@@ -176,6 +186,12 @@ class TestSpecies:
         doc = sp.to_mongo()
         assert doc["_prov"]["atributos.cores"]["ref"] == "b01_aparencia@2.0"
         assert doc["_meta"]["dq_status"] == "apta"
+        assert doc["species_id"] == "sp_pitangus_sulphuratus"
+        assert "_id" not in doc
+
+    def test_from_mongo_descarta_object_id(self):
+        sp = Species.from_mongo({"_id": ObjectId(), **SPECIES})
+        assert sp.species_id == "sp_pitangus_sulphuratus"
 
     def test_campos_sem_valor_ficam_de_fora(self):
         data = copy.deepcopy(SPECIES)
