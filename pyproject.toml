@@ -27,6 +27,8 @@ pre-commit = "^3.6.0"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = ["slow: lê as planilhas grandes de data/raw/"]
+addopts = "-m 'not slow'"
 
 [tool.ruff]
 line-length = 100

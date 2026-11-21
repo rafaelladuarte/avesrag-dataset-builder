@@ -1,0 +1,286 @@
+# Vocabulário de atributos do AvesRAG.
+#
+# Fonte única dos valores aceitos pelo builder (prompts, fusão, validação) e
+# pelo extrator do chat. Critério para um valor existir: um leigo percebe em
+# campo, ele separa grupos de espécies e as fontes permitem preenchê-lo.
+# Ver "Modelo de Dados > Vocabulário de atributos".
+#
+# Regras verificadas por core/vocabulario.py ao carregar:
+#   - valores em snake_case ASCII (siglas IUCN em maiúsculas);
+#   - um sinônimo (sem acento, sem caixa, hífen = espaço) não aponta para dois
+#     valores do mesmo atributo;
+#   - todo alvo de `mapeamentos` existe no atributo de destino.
+#
+# A comparação de termos ignora acento, caixa e hífen. Termos compostos
+# ("cinza-escuro", "marrom avermelhado") caem no primeiro termo reconhecido.
+#
+# Sinônimos de cor: semeados com os 268 termos do dataset v1 do assistant.
+# "PROPOSTA" marca escolhas que precisam de revisão.
+
+versao: "1.0"
+
+atributos:
+  tamanho:
+    descricao: Tamanho percebido, com o corpo humano como referência (decisão M4).
+    multiplo: true # perto dos cortes (20 e 70 cm) a espécie recebe as duas faixas
+    valores:
+      pequeno:
+        descricao: Cabe numa mão; até cerca de 20 cm.
+        sinonimos: [pequena, pequenino, pequenina, pequenininho, pequenininha, miudo, miuda]
+      medio:
+        descricao: Do tamanho de um braço; de cerca de 20 a 70 cm.
+        sinonimos: [media, mediano, mediana]
+      grande:
+        descricao: Do tamanho das pernas ou mais; acima de cerca de 70 cm.
+        sinonimos: [grandona, grandao, enorme, grauda, graudo]
+
+  cores:
+    descricao: Cores da plumagem e das partes nuas, reduzidas à cor base.
+    multiplo: true
+    valores:
+      preto:
+        descricao: Preto ou quase preto.
+        sinonimos: [preta, negro, negra, enegrecido, enegrecida, anegrado, fuligem, fuliginoso, carvao]
+      branco:
+        descricao: Branco ou esbranquiçado.
+        sinonimos: [branca, esbranquicado, esbranquicada, brancacento, brancacenta, alvo, alva, niveo]
+      cinza:
+        descricao: Cinza em qualquer tom, inclusive chumbo e prateado.
+        sinonimos: [cinzento, cinzenta, acinzentado, acinzentada, acinzentadas, plumbeo, chumbo, ardosia, grafite, prateado, prateada]
+      marrom:
+        descricao: Marrom, castanho ou pardo.
+        sinonimos: [marron, castanho, castanha, pardo, parda, acastanhado, acastanhada, amarronzado, amarronzada, pardacento, pardacenta, cor de terra, chocolate, terroso]
+      bege:
+        descricao: Bege, creme ou ocre.
+        sinonimos: [creme, ocre, canela, areia, cor de areia, camurca, palha]
+      amarelo:
+        descricao: Amarelo, inclusive dourado e limão.
+        sinonimos: [amarela, amarelado, amarelada, dourado, dourada, limao, sulfureo]
+      laranja:
+        descricao: Laranja e ferrugem.
+        # PROPOSTA: ferrugem/ruivo/rufo ficam em laranja, não em marrom.
+        sinonimos: [alaranjado, alaranjada, ferrugem, ferrugineo, ferruginea, ferruginoso, ferruginosa, ruivo, ruiva, rufo, rufa, cor de tijolo]
+      vermelho:
+        descricao: Vermelho, inclusive escarlate e vinho.
+        sinonimos: [vermelha, avermelhado, avermelhada, escarlate, carmim, rubro, rubra, encarnado, vinho]
+      verde:
+        descricao: Verde, inclusive oliváceo.
+        sinonimos: [esverdeado, esverdeada, oliva, olivaceo, olivacea, esmeralda]
+      azul:
+        descricao: Azul, inclusive turquesa e azul-metálico.
+        sinonimos: [azulado, azulada, turquesa, anil, celeste, cobalto]
+      roxo:
+        descricao: Roxo, violeta ou lilás.
+        sinonimos: [roxa, arroxeado, arroxeada, violeta, purpura, lilas, ametista]
+      rosa:
+        descricao: Rosa ou rosado.
+        sinonimos: [rosado, rosada, roseo, rosea, cor de rosa]
+
+  marcas:
+    descricao: Marcas visíveis, agrupadas por região do corpo (decisão M5).
+    multiplo: true
+    grupos: [cabeca, pescoco_peito, corpo, asas_cauda]
+    valores:
+      mascara:
+        grupo: cabeca
+        descricao: Faixa escura que passa pelos olhos.
+        sinonimos: [mascarado, mascarada, faixa no olho, faixa nos olhos, faixa preta no olho]
+      sobrancelha:
+        grupo: cabeca
+        descricao: Listra clara ou colorida acima do olho.
+        sinonimos: [supercilio, listra acima do olho, risco acima do olho]
+      topete:
+        grupo: cabeca
+        descricao: Penas eretas no alto da cabeça.
+        sinonimos: [penacho, crista, topetinho]
+      capuz:
+        grupo: cabeca
+        descricao: Cabeça inteira de uma cor que contrasta com o corpo.
+        sinonimos: [cabeca toda preta, cabeca toda escura, encapuzado]
+      anel_no_olho:
+        grupo: cabeca
+        descricao: Anel claro ou colorido em volta do olho.
+        sinonimos: [anel ocular, anel em volta do olho, olho de oculos]
+      coleira:
+        grupo: pescoco_peito
+        descricao: Faixa em volta do pescoço ou no alto do peito.
+        sinonimos: [colar, gola, coleirinha]
+      garganta_contrastante:
+        grupo: pescoco_peito
+        descricao: Garganta de cor diferente da do peito.
+        sinonimos: [babador, garganta branca, garganta colorida]
+      mancha_no_peito:
+        grupo: pescoco_peito
+        descricao: Mancha bem definida no peito.
+        sinonimos: [mancha peitoral, mancha preta no peito]
+      listrado:
+        grupo: corpo
+        descricao: Listras ou barras no corpo (inclui barrado).
+        sinonimos: [listrada, barrado, barrada, riscado, riscada, estriado, estriada, rajado, rajada]
+      pintado:
+        grupo: corpo
+        descricao: Pintas ou manchas pequenas no corpo.
+        sinonimos: [pintada, pintadinho, pintadinha, manchado, manchada, salpicado, salpicada, pintalgado]
+      faixa_na_asa:
+        grupo: asas_cauda
+        descricao: Faixa clara ou colorida na asa.
+        sinonimos: [barra na asa, espelho na asa, faixa branca na asa]
+      cauda_com_branco:
+        grupo: asas_cauda
+        descricao: Branco visível na cauda (pontas ou laterais).
+        sinonimos: [rabo com branco, ponta do rabo branca, rabo com pontas brancas]
+
+  bico_tipo:
+    descricao: >-
+      Tipo de bico pela alimentação. O usuário descreve a forma; o chat compara
+      com o perfil visual de cada tipo (regras_bico.yaml).
+    multiplo: false
+    valores:
+      generalista: { descricao: "Médio, intermediário, reto e pontiagudo (bem-te-vi)." }
+      insetivoro: { descricao: "Curto a médio, fino e reto." }
+      granivoro: { descricao: "Curto, grosso e cônico (tico-tico)." }
+      quebrador: { descricao: "Curto, muito grosso, em gancho (papagaio, arara)." }
+      frugivoro: { descricao: "Médio a enorme e largo (tucano)." }
+      nectarivoro: { descricao: "Longo e fino, reto ou curvo (beija-flor)." }
+      insetos_em_troncos: { descricao: "Longo, rígido e reto (pica-pau)." }
+      raptorial: { descricao: "Curto, robusto, em gancho (gavião, coruja)." }
+      carniceiro: { descricao: "Grande, forte e curvo (urubu)." }
+      pescador: { descricao: "Longo, forte, reto e pontudo (garça, martim-pescador)." }
+      filtrador: { descricao: "Médio, largo e achatado (pato, marreca)." }
+      limicola_sondador:
+        descricao: Longo a muito longo, fino, reto ou levemente curvo (maçarico).
+        sinonimos: [sondador, limicola] # termos do dataset v1
+
+  cauda:
+    descricao: Forma e comprimento da cauda.
+    multiplo: true
+    valores:
+      curta: { descricao: "Cauda curta.", sinonimos: [rabo curto, coto, cotoco] }
+      longa: { descricao: "Cauda longa.", sinonimos: [comprida, rabo comprido, rabo longo, cauda comprida] }
+      bifurcada: { descricao: "Cauda em forquilha.", sinonimos: [tesoura, rabo de tesoura, forcada, forquilha] }
+      em_leque: { descricao: "Cauda aberta em leque.", sinonimos: [leque, rabo em leque, abanico] }
+
+  ambiente:
+    descricao: Ambiente onde a ave costuma ser vista.
+    multiplo: true
+    valores:
+      area_urbana: { descricao: "Cidades, ruas e construções.", sinonimos: [cidade, urbano, urbana, rua, predio, telhado] }
+      parque_jardim: { descricao: "Parques, praças, jardins e quintais.", sinonimos: [parque, jardim, praca, quintal] }
+      mata: { descricao: "Floresta ou mata fechada.", sinonimos: [floresta, mata fechada, bosque] }
+      borda_de_mata: { descricao: "Borda de mata e clareiras.", sinonimos: [borda da mata, orla da mata, clareira] }
+      cerrado_campo: { descricao: "Cerrado e campos abertos.", sinonimos: [cerrado, campo, campo aberto, campo natural, savana] }
+      brejo: { descricao: "Áreas alagadas e várzeas.", sinonimos: [alagado, banhado, pantano, varzea, area umida] }
+      beira_de_agua: { descricao: "Margens de rios, lagos e represas.", sinonimos: [rio, lago, lagoa, represa, margem, beira do rio, praia] }
+      pasto_plantacao: { descricao: "Pastos, lavouras e áreas rurais.", sinonimos: [pasto, pastagem, plantacao, lavoura, roca, fazenda] }
+
+  onde_estava:
+    descricao: Onde a ave estava no momento da observação.
+    multiplo: true
+    valores:
+      chao: { descricao: "No chão ou no gramado.", sinonimos: [no chao, gramado, solo, na grama] }
+      vegetacao_baixa: { descricao: "Em arbustos ou capim alto.", sinonimos: [arbusto, moita, capim alto, vegetacao baixa] }
+      meio_da_arvore: { descricao: "Em galhos no meio da árvore.", sinonimos: [galho, no galho, meio da arvore] }
+      copa: { descricao: "No alto da árvore.", sinonimos: [alto da arvore, topo da arvore, copa da arvore] }
+      no_ar: { descricao: "Em voo.", sinonimos: [voando, no ceu, em voo] }
+      na_agua: { descricao: "Na água.", sinonimos: [boiando, na lagoa] }
+
+  o_que_fazia:
+    descricao: O que a ave fazia.
+    multiplo: true
+    valores:
+      andando_no_chao: { descricao: "Andando ou pulando no chão.", sinonimos: [andando, caminhando, ciscando, pulando no chao] }
+      pousada: { descricao: "Pousada num galho, fio ou poste.", sinonimos: [pousado, parada, parado, empoleirada, empoleirado] }
+      escalando_tronco: { descricao: "Subindo pelo tronco.", sinonimos: [subindo no tronco, subindo na arvore, bicando o tronco] }
+      parada_no_ar: { descricao: "Parada no ar batendo as asas.", sinonimos: [pairando, peneirando, parado no ar] }
+      planando: { descricao: "Planando sem bater as asas.", sinonimos: [planar, voando em circulos, rodando no ceu] }
+      cacando_em_voo: { descricao: "Sai do poleiro, pega algo no ar e volta.", sinonimos: [saiu do galho e voltou, pegando inseto no ar, cacando em voo] }
+      nadando: { descricao: "Nadando na superfície.", sinonimos: [nadou] }
+      mergulhando: { descricao: "Mergulhando.", sinonimos: [mergulho, mergulhou] }
+      balancando_a_cauda: { descricao: "Balançando a cauda.", sinonimos: [abanando o rabo, balancando o rabo, mexendo o rabo] }
+
+  grupo:
+    descricao: Quantas aves estavam juntas.
+    multiplo: true
+    valores:
+      sozinha: { descricao: "Uma ave só.", sinonimos: [sozinho, solitaria, solitario, uma so] }
+      casal: { descricao: "Duas aves juntas.", sinonimos: [par, dupla, casalzinho, duas, dois] }
+      bando: { descricao: "Três ou mais aves juntas.", sinonimos: [grupo, varias, varios, revoada, bandinho] }
+
+  atividade:
+    descricao: Período do dia em que a espécie é ativa.
+    multiplo: true
+    valores:
+      diurna: { descricao: "Ativa de dia.", sinonimos: [de dia, dia, diurno] }
+      crepuscular: { descricao: "Ativa ao amanhecer e ao anoitecer.", sinonimos: [cripuscular, entardecer, amanhecer, anoitecer] }
+      noturna: { descricao: "Ativa à noite.", sinonimos: [de noite, a noite, noite, noturno] }
+
+  iucn:
+    descricao: >-
+      Categoria da Lista Vermelha da IUCN. Não é filtro do chat; está aqui para a
+      validação. Os sinônimos convertem o "estado de conservação" do WikiAves.
+    multiplo: false
+    valores:
+      LC: { descricao: "Pouco preocupante.", sinonimos: [pouco preocupante] }
+      NT: { descricao: "Quase ameaçada.", sinonimos: [quase ameacada] }
+      VU: { descricao: "Vulnerável.", sinonimos: [vulneravel] }
+      EN: { descricao: "Em perigo.", sinonimos: [em perigo] }
+      CR: { descricao: "Criticamente em perigo.", sinonimos: [criticamente em perigo] }
+      EW: { descricao: "Extinta na natureza.", sinonimos: [extinta na natureza] }
+      EX: { descricao: "Extinta.", sinonimos: [extinta] }
+      DD: { descricao: "Dados insuficientes.", sinonimos: [dados insuficientes] }
+      NE: { descricao: "Não avaliada.", sinonimos: [nao avaliada] }
+
+cores_por_parte:
+  descricao: Cor de uma parte do corpo; a cor usa os valores de `cores`.
+  cor: cores
+  partes:
+    cabeca: { descricao: "Alto e lados da cabeça.", sinonimos: [coroa, alto da cabeca, topo da cabeca, nuca] }
+    olho: { descricao: "Olho ou íris.", sinonimos: [olhos, iris] }
+    garganta: { descricao: "Garganta e queixo.", sinonimos: [papo, queixo] }
+    peito: { descricao: "Peito.", sinonimos: [peitoral] }
+    barriga: { descricao: "Barriga e ventre.", sinonimos: [ventre, abdome, abdomen] }
+    dorso: { descricao: "Costas.", sinonimos: [costas, manto, lombo] }
+    asas: { descricao: "Asas.", sinonimos: [asa, remiges, coberteiras] }
+    cauda: { descricao: "Cauda.", sinonimos: [rabo, retrizes] }
+    bico: { descricao: "Bico." }
+    pernas: { descricao: "Pernas e pés.", sinonimos: [perna, pes, pe, patas, pata, tarso] }
+
+# Fonte → vocabulário. `null` = valor da fonte sem correspondência (não preenche).
+# Toda categoria que existe na fonte precisa estar listada (tests/test_vocabulario.py).
+mapeamentos:
+  avonet.habitat:
+    origem: AVONET, aba AVONET1_BirdLife, coluna Habitat
+    destino: ambiente
+    valores:
+      Forest: [mata]
+      Woodland: [mata, borda_de_mata] # PROPOSTA
+      Shrubland: [cerrado_campo] # PROPOSTA
+      Grassland: [cerrado_campo]
+      Wetland: [brejo]
+      Riverine: [beira_de_agua]
+      Coastal: [beira_de_agua] # PROPOSTA
+      Human Modified: [area_urbana, pasto_plantacao] # PROPOSTA
+      Marine: null
+      Rock: null
+      Desert: null
+
+  avonet.primary_lifestyle:
+    origem: AVONET, aba AVONET1_BirdLife, coluna Primary.Lifestyle
+    destino: onde_estava
+    valores:
+      Terrestrial: [chao]
+      Aerial: [no_ar]
+      Aquatic: [na_agua]
+      Insessorial: [meio_da_arvore, copa] # PROPOSTA
+      Generalist: null
+
+  birdbase.social:
+    origem: BIRDBASE, aba Data, colunas Social_1 a Social_6 (1 = verdadeiro)
+    destino: grupo
+    valores:
+      Social_1: [bando] # colonial
+      Social_2: [bando] # social: bandos grandes, mistos ou sazonais
+      Social_3: [casal] # pares e grupos familiares — PROPOSTA
+      Social_4: [sozinha, casal] # sozinha e pares
+      Social_5: [sozinha] # solitária
+      Social_6: null # lek

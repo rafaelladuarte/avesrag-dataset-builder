@@ -1,5 +1,4 @@
 import time
-import unicodedata
 from pathlib import Path
 from typing import Optional
 
@@ -12,6 +11,7 @@ from tqdm import tqdm
 
 from avesrag_builder.core.logging import get_logger
 from avesrag_builder.core.settings import get_settings
+from avesrag_builder.core.texto import normalize
 
 # ---------------------------------------------------------------------------
 # Configuração
@@ -40,15 +40,6 @@ log = get_logger(__name__)
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-
-
-def normalize(text: str) -> str:
-    """Lowercase, remove acentos e apóstrofos para comparação."""
-    text = text.strip().lower()
-    text = unicodedata.normalize("NFD", text)
-    text = "".join(c for c in text if unicodedata.category(c) != "Mn")
-    text = text.replace("'", "").replace("`", "")
-    return text
 
 
 def ebird_get(path: str, params: Optional[dict] = None) -> list | dict:
