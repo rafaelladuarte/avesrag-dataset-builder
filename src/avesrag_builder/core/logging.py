@@ -2,15 +2,31 @@ import logging
 import os
 import sys
 
+PREFIXO = "BuilderAvesRAG"
+_nivel = logging.INFO
+
+
+def set_level(level: str | int) -> None:
+    """Muda o nível de todos os loggers do builder, inclusive os já criados."""
+    global _nivel
+    nivel = logging.getLevelName(level.upper()) if isinstance(level, str) else level
+    if not isinstance(nivel, int):
+        raise ValueError(f"nível de log inválido: {level!r}")
+    _nivel = nivel
+    for nome, logger in logging.root.manager.loggerDict.items():
+        if nome == PREFIXO or nome.startswith(PREFIXO + "."):
+            if isinstance(logger, logging.Logger):
+                logger.setLevel(_nivel)
+
 
 def get_logger(name: str) -> logging.Logger:
     """Retorna um logger configurado de forma centralizada."""
-    full_name = f"BuilderAvesRAG.{name}" if name != "__main__" else "BuilderAvesRAG"
+    full_name = f"{PREFIXO}.{name}" if name != "__main__" else PREFIXO
     logger = logging.getLogger(full_name)
 
     # Se o logger já tem handlers, evitamos duplicação
     if not logger.handlers:
-        logger.setLevel(logging.INFO)
+        logger.setLevel(_nivel)
 
         formatter = logging.Formatter(
             fmt="%(asctime)s [%(levelname)s] [%(name)s] %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
