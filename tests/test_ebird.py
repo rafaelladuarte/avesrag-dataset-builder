@@ -1,6 +1,6 @@
-"""Testes para avesrag_builder.ingest.ebird — função normalize."""
+"""Testes para avesrag_builder.ingest.ebird e a normalização de nomes."""
 
-from avesrag_builder.ingest.ebird import normalize
+from avesrag_builder.core.texto import normalize
 
 
 class TestNormalize:
@@ -81,3 +81,10 @@ def test_registro_municipio():
     assert id_ == "municipio:3170206"
     assert dados["especies"] == ["grekis"]
     assert dados["ebird_code"] == "BR-MG-825"
+
+
+def test_taxonomia_ordena_listas_de_codigos():
+    a = registros_taxonomia([{"speciesCode": "x1", "comNameCodes": ["WBNO", "SPNO"]}])
+    b = registros_taxonomia([{"speciesCode": "x1", "comNameCodes": ["SPNO", "WBNO"]}])
+    assert a == b
+    assert a[0][1]["comNameCodes"] == ["SPNO", "WBNO"]

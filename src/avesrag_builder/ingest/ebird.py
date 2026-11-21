@@ -137,8 +137,20 @@ def municipios_ibge(settings: Settings) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 
+# A API devolve estas listas em ordem diferente a cada chamada; o conteúdo é
+# um conjunto de códigos. Ordenar evita que o source_hash mude sem mudança real.
+LISTAS_SEM_ORDEM = ("bandingCodes", "comNameCodes", "sciNameCodes")
+
+
 def registros_taxonomia(taxa: list[dict]) -> list[Registro]:
-    return [(f"{PREFIXO_TAXON}{t['speciesCode']}", t) for t in taxa]
+    registros = []
+    for t in taxa:
+        dados = dict(t)
+        for campo in LISTAS_SEM_ORDEM:
+            if isinstance(dados.get(campo), list):
+                dados[campo] = sorted(dados[campo])
+        registros.append((f"{PREFIXO_TAXON}{t['speciesCode']}", dados))
+    return registros
 
 
 def registro_municipio(municipio: dict, casamento: dict, especies: list[str] | None) -> Registro:
