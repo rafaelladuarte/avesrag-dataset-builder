@@ -1,4 +1,5 @@
 import logging
+import os
 import sys
 
 
@@ -20,10 +21,12 @@ def get_logger(name: str) -> logging.Logger:
         console_handler.setFormatter(formatter)
         logger.addHandler(console_handler)
 
-        # Arquivo local de log
-        file_handler = logging.FileHandler("avesrag.log", encoding="utf-8")
-        file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
+        # Arquivo de log opcional (AVESRAG_LOG_FILE); sem ele, só console
+        log_file = os.environ.get("AVESRAG_LOG_FILE")
+        if log_file:
+            file_handler = logging.FileHandler(log_file, encoding="utf-8")
+            file_handler.setFormatter(formatter)
+            logger.addHandler(file_handler)
 
         # Impede a propagação para o root logger
         logger.propagate = False

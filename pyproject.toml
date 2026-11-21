@@ -30,6 +30,7 @@ pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
+src = ["src", "tests"]
 target-version = "py312"
 
 [tool.ruff.lint]

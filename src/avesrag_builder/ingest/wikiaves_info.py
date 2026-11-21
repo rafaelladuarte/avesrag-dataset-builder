@@ -249,10 +249,11 @@ def extrair_dados_html(html: str) -> dict:
 
 
 def main():
-    csv_path = "data/raw/wikiaves_especies.csv"
-    from avesrag_builder.core.config import settings
+    from avesrag_builder.core.settings import get_settings
 
-    MAX_ESPECIES = settings.MAX_ESPECIES or None  # 0 ou ausente = sem limite
+    settings = get_settings()
+    csv_path = str(settings.WIKIAVES_CSV)
+    MAX_ESPECIES = settings.WIKIAVES_MAX_ESPECIES or None  # 0 ou ausente = sem limite
 
     if not Path(csv_path).exists():
         logger.error(f"Arquivo '{csv_path}' não encontrado.")

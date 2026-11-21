@@ -35,9 +35,9 @@ COLUNAS = {
 class AvonetIngestion(BaseExtractor):
     def __init__(self):
         super().__init__()
-        from avesrag_builder.core.config import settings
+        from avesrag_builder.core.settings import get_settings
 
-        self.csv_path = settings.AVONET_CSV
+        self.csv_path = str(get_settings().AVONET_XLSX)
         self.db_connection = DatabaseConnection()
 
     def extract(self):

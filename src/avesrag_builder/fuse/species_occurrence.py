@@ -1,14 +1,12 @@
 from pymongo import MongoClient, UpdateOne
 
-from avesrag_builder.core.config import settings
 from avesrag_builder.core.logging import get_logger
+from avesrag_builder.core.settings import get_settings
 
 log = get_logger(__name__)
 
 # ─── Configuração ────────────────────────────────────────────────────────────
 
-MONGO_URI = str(settings.MONGODB_URI)
-DATABASE = settings.MONGODB_DATABASE
 SOURCE_COLLECTION = "ebird"
 TARGET_COLLECTION = "ocorrencias_especies"
 
@@ -145,8 +143,9 @@ def criar_indices(target_col) -> None:
 
 
 def main():
-    client = MongoClient(MONGO_URI)
-    db = client[DATABASE]
+    settings = get_settings()
+    client = MongoClient(settings.MONGODB_URI)
+    db = client[settings.MONGODB_DATABASE]
 
     source_col = db[SOURCE_COLLECTION]
     target_col = db[TARGET_COLLECTION]

@@ -10,19 +10,12 @@ from pymongo.errors import BulkWriteError
 from rapidfuzz import fuzz, process
 from tqdm import tqdm
 
-from avesrag_builder.core.config import settings
 from avesrag_builder.core.logging import get_logger
+from avesrag_builder.core.settings import get_settings
 
 # ---------------------------------------------------------------------------
 # Configuração
 # ---------------------------------------------------------------------------
-
-EBIRD_API_KEY: str = settings.EBIRD_API_KEY or ""
-MONGO_URI: str = str(settings.MONGODB_URI)
-MONGO_DB: str = settings.MONGODB_DATABASE
-
-# Caminho para o xlsx do IBGE — ajuste se necessário
-IBGE_XLSX: Path = Path("data/raw/Bioma_Predominante_por_Municipio_2024.xlsx")
 
 # Coluna exata do xlsx (case-sensitive). Ajuste se os cabeçalhos forem diferentes.
 COL_GEOCODIGO = "Geocódigo"
@@ -60,7 +53,8 @@ def normalize(text: str) -> str:
 
 def ebird_get(path: str, params: Optional[dict] = None) -> list | dict:
     """GET autenticado na API eBird com retry e backoff exponencial."""
-    headers = {"X-eBirdApiToken": EBIRD_API_KEY}
+    key = get_settings().EBIRD_API_KEY
+    headers = {"X-eBirdApiToken": key.get_secret_value() if key else ""}
     url = f"{BASE_URL}{path}"
     for attempt in range(4):
         try:
@@ -249,7 +243,7 @@ def fetch_species_for_municipio(ebird_code: str, taxonomy: dict) -> list[dict]:
 
 
 def get_collection(db_name: str, collection_name: str):
-    client = MongoClient(MONGO_URI)
+    client = MongoClient(get_settings().MONGODB_URI)
     db = client[db_name]
     return db[collection_name]
 
@@ -334,7 +328,9 @@ def bulk_save_batch(col, batch: list[tuple[dict, list[dict]]]) -> None:
 def save_unmatched_report(unmatched: list[dict]) -> None:
     if not unmatched:
         return
-    report_path = Path("municipios_sem_match.txt")
+    reports_dir = get_settings().REPORTS_DIR
+    reports_dir.mkdir(parents=True, exist_ok=True)
+    report_path = reports_dir / "municipios_sem_match.tsv"
     with open(report_path, "w", encoding="utf-8") as f:
         f.write("Geocódigo\tNome\tUF\tBioma\n")
         for m in unmatched:
@@ -348,18 +344,15 @@ def save_unmatched_report(unmatched: list[dict]) -> None:
 
 
 def main() -> None:
-    if not EBIRD_API_KEY:
-        raise ValueError(
-            "Variável de ambiente EBIRD_API_KEY não definida. "
-            "Consulte .env.example para configuração."
-        )
+    settings = get_settings()
+    settings.require("EBIRD_API_KEY", "MONGODB_URI")
 
     log.info("=" * 60)
     log.info("eBird × IBGE — início da coleta")
     log.info("=" * 60)
 
     # 1. Ler IBGE
-    ibge = load_ibge(IBGE_XLSX)
+    ibge = load_ibge(settings.IBGE_XLSX)
 
     # 2. Cruzar nomes
     matched, unmatched = crossmatch(ibge)
@@ -369,7 +362,7 @@ def main() -> None:
     taxonomy = fetch_taxonomy()
 
     # 4 & 5. Coletar espécies e persistir em lotes de 500
-    col = get_collection(MONGO_DB, "ebird")
+    col = get_collection(settings.MONGODB_DATABASE, "ebird")
     ensure_indexes(col)
 
     # Checkpoint: carrega geocódigos já coletados para retomar de onde parou
@@ -430,7 +423,7 @@ def main() -> None:
     log.info("Coleta finalizada.")
     log.info(f"  Total no MongoDB: {col.count_documents({})}")
     log.info(f"  Municípios sem match eBird: {len(unmatched)}")
-    log.info(f"  MongoDB: {MONGO_URI} / db={MONGO_DB} / col=municipios")
+    log.info(f"  MongoDB: db={settings.MONGODB_DATABASE} / col=ebird")
     log.info("=" * 60)
 
 

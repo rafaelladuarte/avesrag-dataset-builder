@@ -1,5 +1,15 @@
 import pytest
 
+from avesrag_builder.core.settings import get_settings
+
+
+@pytest.fixture(autouse=True)
+def _settings_limpos():
+    """Garante que cada teste leia os settings do zero."""
+    get_settings.cache_clear()
+    yield
+    get_settings.cache_clear()
+
 
 @pytest.fixture
 def wikiaves_species_html():

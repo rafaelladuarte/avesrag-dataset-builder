@@ -6,8 +6,8 @@ cada etapa do pipeline é responsável pelas suas.
 
 from pymongo import MongoClient
 
-from avesrag_builder.core.config import settings
 from avesrag_builder.core.logging import get_logger
+from avesrag_builder.core.settings import get_settings
 
 logger = get_logger(__name__)
 
@@ -18,7 +18,8 @@ class DatabaseConnection:
     _mongo_client = None
 
     def __init__(self):
-        self.mongo_uri = str(settings.MONGODB_URI)
+        settings = get_settings()
+        self.mongo_uri = settings.MONGODB_URI
         self.mongo_db_name = settings.MONGODB_DATABASE
 
     def get_mongo_db(self):
