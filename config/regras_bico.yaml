@@ -8,7 +8,7 @@
 #
 # Verificado por core/vocabulario.py: todo alvo existe em `bico_tipo` do
 # vocabulário, todo tipo tem perfil e todo perfil usa valores de `dimensoes`.
-# "PROPOSTA" marca escolhas que precisam de revisão.
+# Revisado em 21/11/2026 com os dados do piloto.
 
 versao: "1.0"
 
@@ -23,6 +23,14 @@ por_familia:
   Strigidae: raptorial
   Cathartidae: carniceiro
   Anatidae: filtrador
+  # Acrescentadas em 21/11: o nicho do AVONET erra o bico (Aquatic predator ->
+  # pescador) ou falta (sem Trophic.Niche no piloto).
+  Tytonidae: raptorial # suindara
+  Pandionidae: raptorial # águia-pescadora: bico em gancho
+  Scolopacidae: limicola_sondador # narcejas e maçaricos
+  Threskiornithidae: limicola_sondador # íbis (bico longo e curvo) e colhereiro
+  Rallidae: generalista # saracuras e sanãs: bico médio e pontudo
+  Caprimulgidae: insetivoro # bacuraus
 
 por_dieta:
   avonet.trophic_niche:
@@ -36,15 +44,14 @@ por_dieta:
       Invertivore: insetivoro
       Omnivore: generalista
       Herbivore aquatic: filtrador
-      Aquatic predator: pescador # PROPOSTA: não consta da Especificação
-      Herbivore terrestrial: null # PROPOSTA: sem tipo correspondente
+      Aquatic predator: pescador # garças, martins-pescadores, biguás, mergulhões
+      Herbivore terrestrial: granivoro # bico curto, grosso e cônico (bico-grosso)
   birdbase.primary_diet:
     origem: BIRDBASE, aba Data, coluna Primary Diet
     valores: {} # Marco 5: mapear os códigos da aba Legend
 
 # Valores aceitos em cada dimensão do perfil (os mesmos que o extrator do chat
-# poderá devolver). PROPOSTA: a tradução da tabela do Modelo de Dados para
-# estas dimensões é uma primeira versão.
+# poderá devolver), traduzidos da tabela do Modelo de Dados.
 dimensoes:
   comprimento: [curto, medio, longo, muito_longo]
   espessura: [fino, intermediario, grosso, muito_grosso]
@@ -75,4 +82,4 @@ perfil_visual:
   filtrador:
     { comprimento: [medio], espessura: [intermediario], curvatura: [reto], extra: [largo, achatado], exemplo: "pato, marreca" }
   limicola_sondador:
-    { comprimento: [longo, muito_longo], espessura: [fino], curvatura: [reto, levemente_curvo], exemplo: maçarico }
+    { comprimento: [longo, muito_longo], espessura: [fino], curvatura: [reto, levemente_curvo, curvo], exemplo: "maçarico, narceja, curicaca" }

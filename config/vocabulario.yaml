@@ -15,7 +15,7 @@
 # ("cinza-escuro", "marrom avermelhado") caem no primeiro termo reconhecido.
 #
 # Sinônimos de cor: semeados com os 268 termos do dataset v1 do assistant.
-# "PROPOSTA" marca escolhas que precisam de revisão.
+# Mapeamentos e sinônimos revisados em 21/11/2026 com os dados do piloto.
 
 versao: "1.0"
 
@@ -48,8 +48,9 @@ atributos:
         descricao: Cinza em qualquer tom, inclusive chumbo e prateado.
         sinonimos: [cinzento, cinzenta, acinzentado, acinzentada, acinzentadas, plumbeo, chumbo, ardosia, grafite, prateado, prateada]
       marrom:
-        descricao: Marrom, castanho ou pardo.
-        sinonimos: [marron, castanho, castanha, pardo, parda, acastanhado, acastanhada, amarronzado, amarronzada, pardacento, pardacenta, cor de terra, chocolate, terroso]
+        descricao: Marrom, castanho, pardo ou ferrugem.
+        # Ferrugem, rufo e ruivo ficam em marrom: é como um leigo descreve o joão-de-barro (21/11).
+        sinonimos: [marron, castanho, castanha, pardo, parda, acastanhado, acastanhada, amarronzado, amarronzada, pardacento, pardacenta, cor de terra, chocolate, terroso, ferrugem, ferrugineo, ferruginea, ferruginoso, ferruginosa, ruivo, ruiva, rufo, rufa, cor de tijolo]
       bege:
         descricao: Bege, creme ou ocre.
         sinonimos: [creme, ocre, canela, areia, cor de areia, camurca, palha]
@@ -57,9 +58,8 @@ atributos:
         descricao: Amarelo, inclusive dourado e limão.
         sinonimos: [amarela, amarelado, amarelada, dourado, dourada, limao, sulfureo]
       laranja:
-        descricao: Laranja e ferrugem.
-        # PROPOSTA: ferrugem/ruivo/rufo ficam em laranja, não em marrom.
-        sinonimos: [alaranjado, alaranjada, ferrugem, ferrugineo, ferruginea, ferruginoso, ferruginosa, ruivo, ruiva, rufo, rufa, cor de tijolo]
+        descricao: Laranja.
+        sinonimos: [alaranjado, alaranjada]
       vermelho:
         descricao: Vermelho, inclusive escarlate e vinho.
         sinonimos: [vermelha, avermelhado, avermelhada, escarlate, carmim, rubro, rubra, encarnado, vinho]
@@ -253,13 +253,13 @@ mapeamentos:
     destino: ambiente
     valores:
       Forest: [mata]
-      Woodland: [mata, borda_de_mata] # PROPOSTA
-      Shrubland: [cerrado_campo] # PROPOSTA
+      Woodland: [borda_de_mata, cerrado_campo] # mata aberta / savana arborizada (cerradão)
+      Shrubland: [cerrado_campo] # cerrado e campo sujo
       Grassland: [cerrado_campo]
       Wetland: [brejo]
       Riverine: [beira_de_agua]
-      Coastal: [beira_de_agua] # PROPOSTA
-      Human Modified: [area_urbana, pasto_plantacao] # PROPOSTA
+      Coastal: [beira_de_agua]
+      Human Modified: [area_urbana, parque_jardim, pasto_plantacao]
       Marine: null
       Rock: null
       Desert: null
@@ -271,7 +271,7 @@ mapeamentos:
       Terrestrial: [chao]
       Aerial: [no_ar]
       Aquatic: [na_agua]
-      Insessorial: [meio_da_arvore, copa] # PROPOSTA
+      Insessorial: [meio_da_arvore, copa] # pousa em árvores
       Generalist: null
 
   birdbase.social:
@@ -280,7 +280,7 @@ mapeamentos:
     valores:
       Social_1: [bando] # colonial
       Social_2: [bando] # social: bandos grandes, mistos ou sazonais
-      Social_3: [casal] # pares e grupos familiares — PROPOSTA
+      Social_3: [casal, bando] # pares e grupos familiares (3 ou mais = bando)
       Social_4: [sozinha, casal] # sozinha e pares
       Social_5: [sozinha] # solitária
       Social_6: null # lek

@@ -50,6 +50,12 @@ class TestArquivoReal:
             ("Ramphastidae", "frugivoro"),
             ("Cathartidae", "carniceiro"),
             ("Anatidae", "filtrador"),
+            ("Tytonidae", "raptorial"),
+            ("Pandionidae", "raptorial"),
+            ("Scolopacidae", "limicola_sondador"),
+            ("Threskiornithidae", "limicola_sondador"),
+            ("Rallidae", "generalista"),
+            ("Caprimulgidae", "insetivoro"),
         ],
     )
     def test_regra_por_familia(self, regras, familia, tipo):
@@ -69,6 +75,8 @@ class TestArquivoReal:
             ("Invertivore", "insetivoro"),
             ("Omnivore", "generalista"),
             ("Herbivore aquatic", "filtrador"),
+            ("Aquatic predator", "pescador"),
+            ("Herbivore terrestrial", "granivoro"),
         ],
     )
     def test_dieta_da_especificacao(self, regras, nicho, tipo):
