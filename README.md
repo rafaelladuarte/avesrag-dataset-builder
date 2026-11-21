@@ -60,6 +60,8 @@ MONGODB_PORT=27018 docker compose up -d
 # e no .env: MONGODB_URI=mongodb://localhost:27018/?directConnection=true
 ```
 
+Para desligar, use `docker compose stop`: o `pre_stop` do compose pede ao mongod um desligamento limpo (a imagem ignora o SIGTERM). Evite `docker stop` direto no container.
+
 Para inspecionar os dados, conecte o [MongoDB Compass](https://www.mongodb.com/products/tools/compass) na mesma URI.
 
 ## Variáveis de ambiente
@@ -110,33 +112,18 @@ poetry run pytest -m integration     # precisam do MongoDB de pé (docker compos
 poetry run ruff check src tests && poetry run ruff format --check src tests
 ```
 
-## Migrando dados da v1 (MongoDB 7.0)
+## Dados da v1
 
-A v1 usava a imagem `mongo:7.0` com o volume `avesrag-dataset-builder_mongodb_data`. O compose novo usa outro nome de projeto (`avesrag-builder`) e outros volumes, então **o volume antigo não é tocado** por `docker compose up` ou `down -v`. Os arquivos de dados do 7.0 não devem ser abertos direto pelo 8.x: a migração é por dump e restore.
+A v1 rodava em `mongo:7.0`. Em 20/11/2026 o banco inteiro foi exportado com `mongodump` (`v1_avesrag_mongo7_20261120.archive.gz`, guardado fora do repositório) e o volume antigo foi apagado. As collections caras de recoletar foram restauradas no MongoDB novo como `legado_wikiaves` (1.925 espécies) e `legado_ebird` (5.572 municípios). Elas servem só de reserva: a v2 coleta das fontes pelo `ingest`.
 
-As collections que valem migrar são as caras de recoletar: `wikiaves` (scraping) e `ebird` (milhares de chamadas à API). As demais são regeneradas pelo pipeline. A conversão para o formato `raw_*` é feita pelo `ingest` no Marco 2; aqui elas entram como `legado_*`.
+Para restaurar de novo a partir do arquivo:
 
 ```bash
-# 1. subir o MongoDB antigo (precisa da porta 27017 livre)
-docker start mongodb_avesrag
-
-# 2. exportar (use as credenciais do .env da v1)
-docker exec mongodb_avesrag mongodump -u admin -p '<senha>' --authenticationDatabase admin \
-  --db avesrag --archive=/tmp/v1.archive
-docker cp mongodb_avesrag:/tmp/v1.archive ./v1.archive
-docker stop mongodb_avesrag
-
-# 3. importar só wikiaves e ebird no atlas-local, com prefixo legado_
-docker compose up -d
-docker cp ./v1.archive avesrag-mongodb:/tmp/v1.archive
-docker exec avesrag-mongodb mongorestore --archive=/tmp/v1.archive \
+docker cp v1_avesrag_mongo7_20261120.archive.gz avesrag-mongodb:/tmp/v1.archive.gz
+docker exec avesrag-mongodb mongorestore --gzip --archive=/tmp/v1.archive.gz \
   --nsInclude 'avesrag.wikiaves' --nsInclude 'avesrag.ebird' \
   --nsFrom 'avesrag.$c$' --nsTo 'avesrag.legado_$c$'
 ```
-
-O arquivo `v1.archive` tem o banco inteiro da v1: guarde-o como backup.
-
-Confira as contagens (`db.legado_wikiaves.countDocuments()`) antes de apagar qualquer coisa da v1.
 
 ## Fontes de dados
 

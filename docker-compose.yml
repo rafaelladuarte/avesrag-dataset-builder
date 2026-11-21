@@ -17,6 +17,11 @@ services:
     volumes:
       - atlas_data:/data/db
       - atlas_config:/data/configdb
+    # O processo principal da imagem ignora SIGTERM: sem isto, `docker compose
+    # stop` mata o mongod com SIGKILL. O pre_stop pede o desligamento limpo.
+    pre_stop:
+      - command: ["mongosh", "--quiet", "--eval", "try { db.adminCommand({ shutdown: 1 }) } catch (e) {}"]
+    stop_grace_period: 60s
     healthcheck:
       # mesmo teste da imagem, com intervalo menor
       test: ["CMD", "/usr/local/bin/runner", "healthcheck"]
