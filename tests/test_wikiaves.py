@@ -3,8 +3,8 @@
 import pytest
 from bs4 import BeautifulSoup
 
-from scr.ingestion.wikiaves_especies import extrair_especies
-from scr.ingestion.wikiaves_info import (
+from avesrag_builder.ingest.wikiaves_especies import extrair_especies
+from avesrag_builder.ingest.wikiaves_info import (
     extrair_classificacao_cientifica,
     extrair_dados_html,
     extrair_estado_conservacao,

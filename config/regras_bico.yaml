@@ -1,0 +1,85 @@
+# Regras do tipo de bico (`bico_tipo`). Ver "Modelo de Dados > Bico".
+#
+# 1. Regra por família, para as famílias em que a dieta engana.
+# 2. Dieta como reserva: nicho trófico do AVONET; depois a dieta principal do
+#    BIRDBASE (Marco 5).
+# 3. Perfil visual de cada tipo: o chat extrai do texto do usuário só as
+#    dimensões visuais e compara com estes perfis.
+#
+# Verificado por core/vocabulario.py: todo alvo existe em `bico_tipo` do
+# vocabulário, todo tipo tem perfil e todo perfil usa valores de `dimensoes`.
+# Revisado em 21/11/2026 com os dados do piloto.
+
+versao: "1.0"
+
+por_familia:
+  Trochilidae: nectarivoro
+  Picidae: insetos_em_troncos
+  Ramphastidae: frugivoro
+  Psittacidae: quebrador
+  Columbidae: generalista
+  Accipitridae: raptorial
+  Falconidae: raptorial
+  Strigidae: raptorial
+  Cathartidae: carniceiro
+  Anatidae: filtrador
+  # Acrescentadas em 21/11: o nicho do AVONET erra o bico (Aquatic predator ->
+  # pescador) ou falta (sem Trophic.Niche no piloto).
+  Tytonidae: raptorial # suindara
+  Pandionidae: raptorial # águia-pescadora: bico em gancho
+  Scolopacidae: limicola_sondador # narcejas e maçaricos
+  Threskiornithidae: limicola_sondador # íbis (bico longo e curvo) e colhereiro
+  Rallidae: generalista # saracuras e sanãs: bico médio e pontudo
+  Caprimulgidae: insetivoro # bacuraus
+
+por_dieta:
+  avonet.trophic_niche:
+    origem: AVONET, aba AVONET1_BirdLife, coluna Trophic.Niche
+    valores:
+      Nectarivore: nectarivoro
+      Vertivore: raptorial
+      Scavenger: carniceiro
+      Granivore: granivoro
+      Frugivore: frugivoro
+      Invertivore: insetivoro
+      Omnivore: generalista
+      Herbivore aquatic: filtrador
+      Aquatic predator: pescador # garças, martins-pescadores, biguás, mergulhões
+      Herbivore terrestrial: granivoro # bico curto, grosso e cônico (bico-grosso)
+  birdbase.primary_diet:
+    origem: BIRDBASE, aba Data, coluna Primary Diet
+    valores: {} # Marco 5: mapear os códigos da aba Legend
+
+# Valores aceitos em cada dimensão do perfil (os mesmos que o extrator do chat
+# poderá devolver), traduzidos da tabela do Modelo de Dados.
+dimensoes:
+  comprimento: [curto, medio, longo, muito_longo]
+  espessura: [fino, intermediario, grosso, muito_grosso]
+  curvatura: [reto, levemente_curvo, curvo, gancho]
+  extra: [pontiagudo, conico, largo, achatado, rigido, robusto]
+
+perfil_visual:
+  generalista:
+    { comprimento: [medio], espessura: [intermediario], curvatura: [reto], extra: [pontiagudo], exemplo: bem-te-vi }
+  insetivoro:
+    { comprimento: [curto, medio], espessura: [fino], curvatura: [reto] }
+  granivoro:
+    { comprimento: [curto], espessura: [grosso], curvatura: [reto], extra: [conico], exemplo: tico-tico }
+  quebrador:
+    { comprimento: [curto], espessura: [muito_grosso], curvatura: [gancho], exemplo: "papagaio, arara" }
+  frugivoro:
+    { comprimento: [medio, longo, muito_longo], espessura: [intermediario, grosso], curvatura: [reto], extra: [largo], exemplo: tucano }
+  nectarivoro:
+    { comprimento: [longo], espessura: [fino], curvatura: [reto, curvo], exemplo: beija-flor }
+  insetos_em_troncos:
+    { comprimento: [longo], espessura: [intermediario, grosso], curvatura: [reto], extra: [rigido], exemplo: pica-pau }
+  raptorial:
+    { comprimento: [curto], espessura: [grosso], curvatura: [gancho], extra: [robusto], exemplo: "gavião, coruja" }
+  carniceiro:
+    { comprimento: [medio, longo], espessura: [grosso], curvatura: [curvo], exemplo: urubu }
+  pescador:
+    { comprimento: [longo], espessura: [intermediario, grosso], curvatura: [reto], extra: [pontiagudo], exemplo: "garça, martim-pescador" }
+  filtrador:
+    { comprimento: [medio], espessura: [intermediario], curvatura: [reto], extra: [largo, achatado], exemplo: "pato, marreca" }
+  limicola_sondador:
+    { comprimento: [longo, muito_longo], espessura: [fino], curvatura: [reto, levemente_curvo, curvo], exemplo: "maçarico, narceja, curicaca" }

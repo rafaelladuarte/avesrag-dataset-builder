@@ -1,8 +1,8 @@
-"""Testes para scr.fusion.species_occurrence."""
+"""Testes para avesrag_builder.fuse.species_occurrence."""
 
 from unittest.mock import MagicMock
 
-from scr.fusion.species_occurrence import _add_unique, extrair_e_transformar
+from avesrag_builder.fuse.species_occurrence import _add_unique, extrair_e_transformar
 
 
 class TestAddUnique:

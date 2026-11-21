@@ -1,148 +1,279 @@
 # 🦜 AvesRAG Dataset Builder
 
-Pipeline de dados para a construção de um dataset ornitológico de aves brasileiras. O projeto tem como objetivo alimentar um sistema RAG (Retrieval-Augmented Generation) focado na identificação e conhecimento de espécies de aves.
+Pipeline que monta a base de espécies do [AvesRAG](https://github.com/rafaelladuarte/avesrag-assistant), um assistente open source que identifica aves brasileiras a partir de uma descrição em texto livre.
 
-## Sobre o Projeto
+**O que ele entrega:** para cada espécie, uma ficha validada (`species`) e três documentos de busca com embedding (`species_retrieval_docs`).
 
-O AvesRAG Dataset Builder é um pipeline ETL (Extract, Transform, Load) desenhado para ingerir dados de três fontes principais:
+**O que você precisa:** Docker, Python 3.13, uma chave da OpenAI e uma do eBird.
 
-- **AVONET**: Características morfológicas globais das aves (BirdLife International).
-- **eBird API**: Dados de ocorrência geográfica por município brasileiro (Cornell Lab of Ornithology).
-- **WikiAves**: Descrições textuais e metadados das espécies via web scraping.
+## Estado
 
-O sistema consolida e funde essas informações em documentos canônicos de espécies armazenados no MongoDB, construindo uma base de conhecimento rica e unificada, preparada para um sistema RAG focado em identificação de aves brasileiras.
+A v2 está em construção.
 
-## Arquitetura
+| Marco | Etapa | Situação |
+| --- | --- | --- |
+| 1 | Fundação: CLI, settings, modelos, MongoDB com busca vetorial | ✅ pronto |
+| 2 | Ingestão das seis fontes | ✅ pronto |
+| 3 | Registry de espécies | ✅ pronto |
+| 4 | Extração por LLM | 🟡 implementado; lote do piloto em processamento |
+| 5 | Fusão e validação | ⏳ pendente |
+| 6 | Documentos de busca e índices | ⏳ pendente |
+| 7 | Reprodutibilidade | ⏳ pendente |
 
-A arquitetura baseia-se na ingestão de dados brutos que são armazenados em coleções no MongoDB. Em seguida, os dados passam por um processo de fusão que gera os documentos finais. O sistema também prevê um pipeline futuro de enriquecimento semântico utilizando LLMs (6 etapas — documentado em `docs/dev/arquitetura_prompts.md`).
+---
 
-```mermaid
-graph TD
-    %% Fontes de Dados
-    A["AVONET (Excel)"] -->|Ingestão| D[(MongoDB: avonet)]
-    B["eBird API"] -->|Ingestão| E[(MongoDB: ebird)]
-    C["WikiAves"] -->|Web Scraping| F[(MongoDB: wikiaves)]
-
-    %% Fusão
-    D --> G[Pipeline de Fusão]
-    E --> G
-    F --> G
-
-    %% Dados Tratados
-    G --> H[(MongoDB: canonical_species)]
-    G --> I[(MongoDB: ocorrencias_especies)]
-
-    %% Enriquecimento (Planejado)
-    H -.->|Planejado| J["Pipeline LLM (6 etapas)"]
-    J -.-> K[(Base RAG)]
-```
-
-## Stack Tecnológica
-
-| Tecnologia | Uso |
-|---|---|
-| **Python 3.13** | Linguagem principal |
-| **Poetry** | Gerenciamento de dependências |
-| **MongoDB 7.0** | Banco de dados (via Docker) |
-| **Docker Compose** | Infraestrutura local |
-| **Playwright** | Web scraping (renderização JS) |
-| **BeautifulSoup4** | Parsing HTML |
-| **pandas** | Manipulação de dados tabulares |
-| **RapidFuzz** | Matching fuzzy de nomes de municípios |
-| **tqdm** | Barras de progresso |
-
-## Estrutura do Projeto
-
-```text
-avesrag-dataset-builder/
-├── scr/
-│   ├── core/          # Configuração e modelos de domínio
-│   ├── database/      # Conexões MongoDB e PostGIS
-│   ├── ingestion/     # Pipelines ETL (AVONET, eBird, WikiAves)
-│   └── fusion/        # Fusão de dados e geração de documentos canônicos
-├── data/
-│   ├── raw/           # Dados brutos (Excel, CSV, JSON)
-│   └── treat/         # Dados tratados (JSON)
-├── docs/
-│   ├── dev/           # Documentação de arquitetura e especificações
-│   ├── articles/      # Artigos de referência (PDFs)
-│   └── morfologia/    # Taxonomias controladas (JSON)
-├── prompts/           # Templates de prompts LLM (em construção)
-├── docker-compose.yml # MongoDB 7.0 + Mongo Express
-├── pyproject.toml     # Dependências Poetry
-└── .env.example       # Template de variáveis de ambiente
-```
-
-## Pré-requisitos
-
-- Python 3.13+
-- [Poetry](https://python-poetry.org/docs/#installation)
-- Docker e Docker Compose
-- Chave de API do [eBird](https://ebird.org/api/keygen)
-
-## Instalação e Configuração
+## Início rápido
 
 ```bash
-# 1. Clone o repositório
 git clone https://github.com/rafaelladuarte/avesrag-dataset-builder.git
 cd avesrag-dataset-builder
 
-# 2. Instale as dependências
 poetry install
+poetry run playwright install chromium        # usado no scraping do WikiAves
 
-# 3. Instale o navegador para scraping
-poetry run playwright install chromium
-
-# 4. Configure as variáveis de ambiente
-cp .env.example .env
-# Edite .env com suas credenciais (ver tabela abaixo)
-
-# 5. Inicie o banco de dados
-docker compose up -d
+cp .env.example .env                          # preencha OPENAI_API_KEY e EBIRD_API_KEY
+docker compose up -d                          # sobe o MongoDB
+poetry run avesrag-builder index --verificar  # deve terminar com "OK"
 ```
 
-## Execução das Pipelines
+O `index --verificar` cria uma collection temporária, testa o `$vectorSearch` e o `$search` e apaga tudo. Se aparecer `OK`, o ambiente está pronto.
 
-A ordem de execução garante a integridade e o encadeamento dos dados:
+---
 
-| Etapa | Comando | Descrição |
-|---|---|---|
-| 1 | `poetry run python -m scr.ingestion.wikiaves_especies` | Scraping da lista de espécies WikiAves |
-| 2 | `poetry run python -m scr.ingestion.wikiaves_info` | Scraping detalhado de cada espécie |
-| 3 | `poetry run python -m scr.ingestion.avonet` | Ingestão dados morfológicos AVONET |
-| 4 | `poetry run python -m scr.ingestion.ebird` | Ingestão ocorrências via eBird API |
-| 5 | `poetry run python -m scr.fusion.species_occurrence` | Agregação de ocorrências por espécie |
-| 6 | `poetry run python -m scr.fusion.canonical_specie` | Fusão final → documentos canônicos |
+## Como funciona
 
-## Variáveis de Ambiente
+```text
+fontes ──ingest──► raw_* ──resolve──► species_registry ──extract (LLM)──► species_extractions
+                                                                                 │
+              species_retrieval_docs ◄──docs── species (validada) ◄──fuse/validate┘
+```
 
-| Variável | Descrição | Obrigatório |
-|---|---|---|
-| `MONGO_INITDB_ROOT_USERNAME` | Usuário root do MongoDB | Sim |
-| `MONGO_INITDB_ROOT_PASSWORD` | Senha root do MongoDB | Sim |
-| `MONGO_EXPRESS_USERNAME` | Usuário do Mongo Express (interface web) | Não |
-| `MONGO_EXPRESS_PASSWORD` | Senha do Mongo Express | Não |
-| `MONGODB_URI` | URI de conexão MongoDB | Sim |
-| `POSTGRES_URI` | URI de conexão PostGIS | Sim |
-| `EBIRD_API_KEY` | Chave de API do eBird | Sim |
-| `MAX_ESPECIES` | Limite de espécies no scraping WikiAves (0 = sem limite) | Não |
+O pipeline é uma sequência de comandos. Três regras valem para todos:
 
-## Fontes de Dados
+- **Cada etapa lê só das anteriores** e pode ser rodada sozinha.
+- **Rodar de novo é seguro:** se nada mudou na fonte, nada é gravado.
+- **O LLM aparece só no `extract`.** O resto é determinístico e vem dos arquivos de `config/`.
 
-- **[AVONET](https://doi.org/10.1111/ele.13898)** (BirdLife International) — Banco de dados global com traços morfológicos e ecológicos de aves.
-- **[eBird](https://ebird.org/)** (Cornell Lab of Ornithology) — Maior plataforma de observação de aves do mundo; fonte das ocorrências geográficas.
-- **[WikiAves](https://www.wikiaves.com.br/)** — Enciclopédia colaborativa de aves do Brasil; fonte de descrições textuais e metadados.
-- **[CBRO/Zenodo](https://zenodo.org/)** — Lista Oficial de Aves do Brasil do Comitê Brasileiro de Registros Ornitológicos.
-- **[IBGE](https://www.ibge.gov.br/)** — Malha territorial e biomas predominantes por município.
+| Comando | O que faz | Grava em | Situação |
+| --- | --- | --- | --- |
+| `ingest <fonte>` | baixa ou lê cada fonte | `raw_<fonte>` | ✅ |
+| `resolve` | casa as espécies entre as fontes | `species_registry` | ✅ |
+| `extract` | extrai atributos dos textos com LLM | `species_extractions` | ✅ |
+| `fuse` | junta tudo numa ficha por espécie | `species`, `species_occurrence` | Marco 5 |
+| `validate` | confere a qualidade das fichas | `_meta.dq_status` | Marco 5 |
+| `docs` | gera os documentos de busca | `species_retrieval_docs` | Marco 6 |
+| `index` | cria os índices de busca | — | Marco 6 (`--verificar` já funciona) |
+| `run [--piloto]` | roda do `resolve` ao `index` | — | Marco 6 |
 
-## Documentação
+O **piloto** limita o trabalho às espécies registradas no eBird em Uberlândia (MG), cerca de 440. É o escopo usado no desenvolvimento.
 
-Documentação detalhada de arquitetura disponível em `docs/dev/`:
+---
 
-- [`arquitetura_mongodb.md`](docs/dev/arquitetura_mongodb.md) — Estrutura das collections e princípios de engenharia de dados
-- [`arquitetura_prompts.md`](docs/dev/arquitetura_prompts.md) — Pipeline DAG de enriquecimento semântico via LLMs
-- [`map_fonts.md`](docs/dev/map_fonts.md) — Mapeamento campo-a-campo das fontes de dados
+## Passo a passo
+
+### 1. Ingestão
+
+```bash
+# Planilhas de data/raw/: sem rede, ~1 min no total
+poetry run avesrag-builder ingest cbro
+poetry run avesrag-builder ingest ibge
+poetry run avesrag-builder ingest birdbase
+poetry run avesrag-builder ingest avonet
+
+# APIs e sites
+poetry run avesrag-builder ingest ebird --piloto      # 3 chamadas à API
+poetry run avesrag-builder ingest wikiaves --piloto   # ~1 h (~7 s por página)
+```
+
+**Rode o `wikiaves` por último:** ele usa o eBird para escolher as páginas e o BIRDBASE e o AVONET para casar os nomes.
+
+<details>
+<summary>Mais detalhes</summary>
+
+- Cada fonte vira uma collection `raw_<fonte>` no formato `{_id, dados, ingerido_em, source_hash}`. O `_id` é a chave na fonte e `dados` é o registro como chegou. Um documento só é regravado quando o `source_hash` muda.
+- O que cada fonte traz: CBRO, 1.971 espécies (id = #CBRO); IBGE, 5.572 municípios (id = geocódigo); BIRDBASE, 11.589 espécies (id = IOC 15.1); AVONET, as abas BirdLife e eBird e a correspondência entre elas.
+- Sem `--piloto`, o `ebird` percorre todos os municípios (~1 a 2 h) e o `wikiaves` baixa as 1.975 páginas (~4 h).
+- O `ebird` e o `wikiaves` retomam de onde pararam. Use `--refazer` para baixar tudo de novo e `--limite N` (só no `wikiaves`) para parar depois de N páginas.
+
+</details>
+
+### 2. Registry
+
+```bash
+poetry run avesrag-builder resolve   # ~2 s, sem rede
+```
+
+Cria um documento por espécie do WikiAves (1.975) e anota, para cada fonte, qual registro corresponde a ela.
+
+<details>
+<summary>Mais detalhes</summary>
+
+- O `species_id` é o slug do nome científico, com índice único. O `_id` é o ObjectId do Mongo.
+- Tipos de casamento: `exato`; `ponte`, pela correspondência do AVONET; `genero`, com o mesmo epíteto e a mesma família, mas outro gênero; e `sem_match`.
+- Espécies que saem do WikiAves não são apagadas.
+- Relatórios em `reports/`:
+  - `resolve_sem_match.tsv`: espécies sem casamento, por fonte;
+  - `resolve_piloto.tsv`: espécies do piloto fora do registry ou casadas por aproximação;
+  - `resolve_orfaos.txt`.
+
+</details>
+
+### 3. Extração (LLM)
+
+```bash
+poetry run avesrag-builder extract --piloto --limite 5 --sincrono   # teste: 5 espécies, chamadas diretas
+poetry run avesrag-builder extract --piloto                          # piloto inteiro, pela API de batch
+poetry run avesrag-builder extract --piloto --sem-esperar            # só envia ou coleta o lote e sai
+```
+
+Para cada espécie, três prompts leem os textos do WikiAves:
+
+| Prompt | Lê | Extrai |
+| --- | --- | --- |
+| `b01_aparencia` | Características | cores, marcas, cauda e tamanho |
+| `b02_comportamento` | Hábitos, Alimentação | ambiente, onde estava, o que fazia, grupo e atividade |
+| `b03_textos_busca` | os quatro textos | três textos curtos para a busca |
+
+A resposta segue um JSON Schema estrito, gerado do `config/vocabulario.yaml`. Cada valor vem com um trecho de evidência, e o builder confere esse trecho no texto original. O piloto inteiro custa cerca de US$ 0,30 em batch.
+
+**Pode interromper o script.** O lote roda na OpenAI e fica registrado em `llm_batches`. Na próxima execução, o `extract` coleta o lote em vez de enviar de novo.
+
+<details>
+<summary>Mais detalhes</summary>
+
+- **Cache:** um par espécie × prompt só vai ao LLM se o `input_hash` (modelo + prompt + entrada + schema) ou a `versao` do prompt mudou.
+- **Atenção:** se você mudar os prompts, o vocabulário ou o modelo com um lote em andamento, as respostas desse lote são descartadas e os pedidos são enviados de novo.
+- **Falhas:** uma resposta inválida é refeita uma vez, por chamada direta. Se falhar de novo, fica gravada com `validacao.erro` e é tentada de novo na próxima execução. Espécie sem texto vira `sem_texto`, sem chamada ao LLM.
+- **Relatório:** `reports/extract.tsv`, com uma linha por par. O terminal mostra um resumo com a taxa de respostas válidas, as evidências não encontradas, os tokens e o custo.
+- O texto do WikiAves é tratado como dado, nunca como instrução: ele vai delimitado no prompt.
+
+</details>
+
+---
+
+## Configuração
+
+### Variáveis de ambiente
+
+Só as chaves de API são obrigatórias, e cada uma só é cobrada pelo comando que a usa. O `--help` e os testes rodam sem `.env`.
+
+| Variável | Para quê |
+| --- | --- |
+| `OPENAI_API_KEY` | `extract` e `docs` |
+| `EBIRD_API_KEY` | `ingest ebird` |
+
+<details>
+<summary>Todas as variáveis</summary>
+
+| Variável | Padrão | Uso |
+| --- | --- | --- |
+| `MONGODB_URI` | `mongodb://localhost:27017/?directConnection=true` | conexão |
+| `MONGODB_DATABASE` | `avesrag` | banco |
+| `MONGODB_PORT` | `27017` | porta publicada pelo `docker-compose` |
+| `LLM_PROVIDER` | `openai` | fornecedor do LLM |
+| `LLM_MODEL` | `gpt-6-luna` | modelo do `extract` (o `modelo` do YAML do prompt tem prioridade) |
+| `LLM_PRECO_ENTRADA`, `LLM_PRECO_SAIDA` | `0.05`, `0.25` | US$ por milhão de tokens em batch, para a estimativa de custo |
+| `EMBEDDING_MODEL` | `text-embedding-3-large` | modelo dos embeddings |
+| `PILOTO_MUNICIPIO_IBGE` | `3170206` (Uberlândia, MG) | município do `--piloto` |
+| `WIKIAVES_MAX_ESPECIES` | `0` (sem limite) | limite do scraping |
+| `AVESRAG_LOG_FILE` | — | grava o log também neste arquivo |
+
+</details>
+
+### MongoDB
+
+A imagem `mongodb/mongodb-atlas-local:8.3.17` traz o `mongod` e o `mongot` (o processo que atende `$vectorSearch` e `$search`). Ela roda como replica set de um nó, por isso a URI leva `?directConnection=true`.
+
+- **Desligar:** use `docker compose stop`, não `docker stop`. A imagem ignora o SIGTERM, e é o `pre_stop` do compose que faz o desligamento limpo.
+- **Porta ocupada:** rode `MONGODB_PORT=27018 docker compose up -d` e, no `.env`, use `MONGODB_URI=mongodb://localhost:27018/?directConnection=true`.
+- **Ver os dados:** conecte o [MongoDB Compass](https://www.mongodb.com/products/tools/compass) na mesma URI.
+
+### Vocabulário e regras
+
+- `config/vocabulario.yaml` define os valores aceitos, os sinônimos e os mapeamentos AVONET/BIRDBASE → vocabulário.
+- `config/regras_bico.yaml` define família → tipo de bico, dieta → tipo de bico e o perfil visual de cada tipo.
+
+Os dois se validam ao carregar. Um valor inexistente, um sinônimo ambíguo ou um tipo de bico sem perfil faz o carregamento falhar, indicando onde está o erro.
+
+---
+
+## Testes
+
+```bash
+poetry run pytest                    # unitários: sem .env, sem rede
+poetry run pytest -m slow            # conferem os mapeamentos contra as planilhas de data/raw/
+poetry run pytest -m integration     # precisam do MongoDB de pé
+poetry run ruff check src tests && poetry run ruff format --check src tests
+```
+
+---
+
+## Estrutura
+
+<details>
+<summary>Ver a árvore de pastas</summary>
+
+```text
+config/
+├── vocabulario.yaml      # valores aceitos, sinônimos e mapeamentos
+├── regras_bico.yaml      # tipo de bico e perfil visual
+└── prompts/              # b01_aparencia, b02_comportamento, b03_textos_busca
+src/avesrag_builder/
+├── cli.py                # comando avesrag-builder
+├── core/                 # settings, logging, modelos Pydantic, vocabulário
+├── db/                   # conexão, nomes das collections, verificação da busca
+├── ingest/               # uma ingestão por fonte
+├── resolve/              # species_registry
+├── llm/                  # interface de fornecedor, adaptador OpenAI e leitor dos prompts
+├── extract/              # contratos, evidências e pipeline do extract
+└── fuse/                 # código da v1, a adaptar no Marco 5
+data/raw/                 # planilhas AVONET, BIRDBASE, CBRO, IBGE e lista do WikiAves
+reports/                  # relatórios gerados (fora do git)
+tests/
+docs/legado/              # documentação e dados tratados da v1
+```
+
+</details>
+
+---
+
+## Fontes de dados
+
+| Fonte | Para quê |
+| --- | --- |
+| [WikiAves](https://www.wikiaves.com.br/) | define o universo de espécies; textos em português, nome comum e foto |
+| [CBRO 2021](https://doi.org/10.1007/s43388-021-00058-x) | lista e taxonomia oficiais das aves do Brasil (1.971 espécies) |
+| [AVONET](https://doi.org/10.1111/ele.13898) | medidas morfológicas, habitat, dieta e locomoção |
+| BIRDBASE v2025.1 | nomes em 4 taxonomias (ponte para o eBird), IUCN 2024 e ecologia |
+| [eBird](https://ebird.org/) | taxonomia (`speciesCode`) e espécies registradas por município |
+| [IBGE](https://www.ibge.gov.br/) | bioma predominante de cada município |
+
+A base gerada não é publicada. Cada pessoa a reconstrói com as próprias chaves, porque a redistribuição depende dos termos de cada fonte.
+
+---
+
+## Dados da v1
+
+<details>
+<summary>Backup e restauração</summary>
+
+A v1 rodava em `mongo:7.0`. Em 20/11/2026, o banco inteiro foi exportado com `mongodump` (`v1_avesrag_mongo7_20261120.archive.gz`, guardado fora do repositório) e o volume antigo foi apagado.
+
+As collections mais caras de coletar de novo foram restauradas como `legado_wikiaves` (1.925 espécies) e `legado_ebird` (5.572 municípios). Elas servem só de reserva: a v2 coleta tudo das fontes pelo `ingest`.
+
+Para restaurar a partir do arquivo:
+
+```bash
+docker cp v1_avesrag_mongo7_20261120.archive.gz avesrag-mongodb:/tmp/v1.archive.gz
+docker exec avesrag-mongodb mongorestore --gzip --archive=/tmp/v1.archive.gz \
+  --nsInclude 'avesrag.wikiaves' --nsInclude 'avesrag.ebird' \
+  --nsFrom 'avesrag.$c$' --nsTo 'avesrag.legado_$c$'
+```
+
+</details>
+
+---
 
 ## Licença
 
-A ser definida.
+[MIT](LICENSE).
