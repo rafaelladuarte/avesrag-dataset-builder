@@ -64,7 +64,9 @@ def ingest(
         False, "--piloto", help="ebird e wikiaves: só o município do piloto e as suas espécies."
     ),
     refazer: bool = typer.Option(
-        False, "--refazer", help="wikiaves: baixa de novo as páginas que já estão em raw_wikiaves."
+        False,
+        "--refazer",
+        help="ebird e wikiaves: baixa de novo o que já está em raw_ebird ou raw_wikiaves.",
     ),
     limite: int = typer.Option(
         0, "--limite", min=0, help="wikiaves: no máximo N páginas nesta execução (0 = sem limite)."

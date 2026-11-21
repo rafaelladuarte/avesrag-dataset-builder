@@ -1,422 +1,235 @@
+"""eBird -> raw_ebird.
+
+Dois tipos de documento, separados pelo prefixo do `_id`:
+
+- `taxon:<speciesCode>`: a taxonomia completa do eBird (`/ref/taxonomy/ebird`,
+  nomes comuns em pt_BR), como a API devolve. É a ponte para o `speciesCode`
+  usada pela etapa `resolve`.
+- `municipio:<geocódigo IBGE>`: a região do eBird casada com o município do
+  IBGE (nome exato ou fuzzy) e a lista de espécies já registradas nela
+  (`/product/spplist/<região>`), como a API devolve.
+
+Com `--piloto`, só o município de PILOTO_MUNICIPIO_IBGE (3 chamadas à API).
+Sem ele, todos os 5.572 municípios (cerca de 1 a 2 horas); os já gravados
+são pulados, a menos que `--refazer` seja usado.
+"""
+
+from __future__ import annotations
+
 import time
-from pathlib import Path
-from typing import Optional
+from collections.abc import Callable
+from typing import Any
 
 import requests
-from openpyxl import load_workbook
-from pymongo import MongoClient, UpdateOne
-from pymongo.errors import BulkWriteError
+from pymongo.database import Database
 from rapidfuzz import fuzz, process
-from tqdm import tqdm
 
 from avesrag_builder.core.logging import get_logger
-from avesrag_builder.core.settings import get_settings
-from avesrag_builder.core.texto import normalize
+from avesrag_builder.core.settings import Settings, get_settings
+from avesrag_builder.core.texto import normalizar_termo
+from avesrag_builder.db.collections import RAW_EBIRD
+from avesrag_builder.ingest import ibge
+from avesrag_builder.ingest.base import Registro, ResultadoIngestao, gravar_envelopes
 
-# ---------------------------------------------------------------------------
-# Configuração
-# ---------------------------------------------------------------------------
-
-# Coluna exata do xlsx (case-sensitive). Ajuste se os cabeçalhos forem diferentes.
-COL_GEOCODIGO = "Geocódigo"
-COL_NOME = "Nome do município"
-COL_UF = "Sigla da UF"
-COL_BIOMA = "Bioma predominante"
-
-# Intervalo entre chamadas à API (segundos) — respeite o rate limit do eBird
-SLEEP_BETWEEN_REQUESTS: float = 0.6
-
-# Score mínimo de similaridade para o fuzzy match (0–100)
-FUZZY_THRESHOLD: int = 85
-
-# Locale para nomes populares das espécies
-TAXONOMY_LOCALE: str = "pt"
-
-BASE_URL = "https://api.ebird.org/v2"
-
-# Handler para o arquivo de log (sempre ativo)
 log = get_logger(__name__)
 
+FONTE = "ebird"
+BASE_URL = "https://api.ebird.org/v2"
+LOCALE = "pt_BR"
+PAUSA_ENTRE_CHAMADAS_S = 0.6
+FUZZY_MINIMO = 85
+LOTE_MUNICIPIOS = 100
+
+PREFIXO_TAXON = "taxon:"
+PREFIXO_MUNICIPIO = "municipio:"
+
+
 # ---------------------------------------------------------------------------
-# Helpers
+# API
 # ---------------------------------------------------------------------------
 
 
-def ebird_get(path: str, params: Optional[dict] = None) -> list | dict:
-    """GET autenticado na API eBird com retry e backoff exponencial."""
+def ebird_get(path: str, params: dict | None = None) -> Any:
+    """GET autenticado na API do eBird, com retry e backoff no 429."""
     key = get_settings().EBIRD_API_KEY
     headers = {"X-eBirdApiToken": key.get_secret_value() if key else ""}
     url = f"{BASE_URL}{path}"
-    for attempt in range(4):
+    for tentativa in range(4):
         try:
-            r = requests.get(url, headers=headers, params=params, timeout=30)
+            r = requests.get(url, headers=headers, params=params, timeout=60)
+            if r.status_code == 429:
+                espera = 10 * (2**tentativa)
+                log.warning(
+                    f"Rate limit em {path}; aguardando {espera}s (tentativa {tentativa + 1})"
+                )
+                time.sleep(espera)
+                continue
             r.raise_for_status()
             return r.json()
         except requests.HTTPError:
-            if r.status_code == 429:
-                # Backoff exponencial: 10s → 20s → 40s → 80s
-                wait = 10 * (2**attempt)
-                msg = (
-                    f"Rate limit excedido em {url}. Aguardando {wait}s... (Tentativa {attempt + 1})"
-                )
-                log.warning(msg)
-                time.sleep(wait)
-            else:
-                raise
+            raise
         except requests.RequestException as e:
-            err_msg = f"Erro na requisição {url}: {e}. Tentativa {attempt + 1}/4"
-            log.error(err_msg)
+            log.warning(f"Erro de rede em {path}: {e} (tentativa {tentativa + 1}/4)")
             time.sleep(3)
-    raise RuntimeError(f"Falha ao acessar {url} após 4 tentativas")
+    raise RuntimeError(f"falha ao acessar {path} após 4 tentativas")
+
+
+def baixar_taxonomia() -> list[dict]:
+    return ebird_get("/ref/taxonomy/ebird", params={"fmt": "json", "locale": LOCALE})
+
+
+def baixar_regioes(uf: str) -> list[dict]:
+    """Municípios (subnational2) do eBird numa UF: [{code, name}]."""
+    regioes = ebird_get(f"/ref/region/list/subnational2/BR-{uf}")
+    time.sleep(PAUSA_ENTRE_CHAMADAS_S)
+    return regioes
+
+
+def baixar_especies(codigo_regiao: str) -> list[str]:
+    """speciesCodes já registrados na região, na ordem da API."""
+    codigos = ebird_get(f"/product/spplist/{codigo_regiao}")
+    time.sleep(PAUSA_ENTRE_CHAMADAS_S)
+    return codigos
 
 
 # ---------------------------------------------------------------------------
-# Etapa 1 — Ler base IBGE
+# Casamento IBGE <-> eBird
 # ---------------------------------------------------------------------------
 
 
-def load_ibge(path: Path) -> list[dict]:
-    """Carrega o xlsx do IBGE e retorna lista de dicts."""
-    log.info(f"Lendo {path}…")
-    wb = load_workbook(path, read_only=True, data_only=True)
-    ws = wb.active
+def casar_municipio(municipio: dict, regioes: list[dict]) -> dict:
+    """Casa um município do IBGE com uma região do eBird da mesma UF.
 
-    headers = [
-        str(cell.value).strip() if cell.value else ""
-        for cell in next(ws.iter_rows(min_row=2, max_row=2))
-    ]
-    idx = {h: i for i, h in enumerate(headers)}
-
-    required = [COL_GEOCODIGO, COL_NOME, COL_UF, COL_BIOMA]
-    missing = [c for c in required if c not in idx]
-    if missing:
-        raise ValueError(
-            f"Colunas não encontradas no xlsx: {missing}\nColunas disponíveis: {headers}"
-        )
-
-    municipios = []
-    for row in ws.iter_rows(min_row=3, values_only=True):
-        geocodigo = str(row[idx[COL_GEOCODIGO]]).strip() if row[idx[COL_GEOCODIGO]] else None
-        nome = str(row[idx[COL_NOME]]).strip() if row[idx[COL_NOME]] else None
-        uf = str(row[idx[COL_UF]]).strip() if row[idx[COL_UF]] else None
-        bioma = str(row[idx[COL_BIOMA]]).strip() if row[idx[COL_BIOMA]] else None
-
-        if nome and uf:
-            municipios.append(
-                {
-                    "geocodigo": geocodigo,
-                    "nome": nome,
-                    "uf": uf,
-                    "bioma": bioma,
-                    "nome_norm": normalize(nome),
-                }
-            )
-
-    wb.close()
-    log.info(f"  → {len(municipios)} municípios carregados")
-    return municipios
-
-
-# ---------------------------------------------------------------------------
-# Etapa 2 — Buscar municípios do eBird por UF e cruzar com IBGE
-# ---------------------------------------------------------------------------
-
-
-def fetch_ebird_municipios(uf: str) -> list[dict]:
-    """Retorna lista [{code, name, name_norm}] para a UF dada."""
-    data = ebird_get(f"/ref/region/list/subnational2/BR-{uf}")
-    time.sleep(SLEEP_BETWEEN_REQUESTS)
-    return [{"code": r["code"], "name": r["name"], "name_norm": normalize(r["name"])} for r in data]
-
-
-def crossmatch(ibge_list: list[dict]) -> tuple[list[dict], list[dict]]:
+    Nome normalizado exato (sem acento, caixa, apóstrofo e hífen); senão, fuzzy
+    (token_sort_ratio >= 85).
+    Devolve {ebird_code, ebird_name, match_type}; sem casamento, code None.
     """
-    Cruza ibge_list com eBird município a município.
-    Retorna (matched, unmatched).
-    """
-    ufs = sorted({m["uf"] for m in ibge_list})
-    matched, unmatched = [], []
-
-    log.info("Cruzando municípios IBGE ↔ eBird…")
-    for uf in tqdm(ufs, desc="UFs"):
-        try:
-            ebird_muns = fetch_ebird_municipios(uf)
-        except Exception as e:
-            log.error(f"Erro ao buscar municípios de {uf}: {e}")
-            continue
-
-        ebird_norms = [m["name_norm"] for m in ebird_muns]
-        ebird_by_norm = {m["name_norm"]: m for m in ebird_muns}
-
-        ibge_uf = [m for m in ibge_list if m["uf"] == uf]
-
-        for mun in ibge_uf:
-            norm = mun["nome_norm"]
-
-            # 1. Tentativa exata
-            if norm in ebird_by_norm:
-                mun["ebird_code"] = ebird_by_norm[norm]["code"]
-                mun["ebird_name"] = ebird_by_norm[norm]["name"]
-                mun["match_type"] = "exact"
-                matched.append(mun)
-                continue
-
-            # 2. Fuzzy fallback
-            result = process.extractOne(norm, ebird_norms, scorer=fuzz.token_sort_ratio)
-            if result and result[1] >= FUZZY_THRESHOLD:
-                best_norm = result[0]
-                mun["ebird_code"] = ebird_by_norm[best_norm]["code"]
-                mun["ebird_name"] = ebird_by_norm[best_norm]["name"]
-                mun["match_type"] = f"fuzzy:{result[1]}"
-                matched.append(mun)
-            else:
-                mun["ebird_code"] = None
-                mun["match_type"] = "no_match"
-                unmatched.append(mun)
-
-    log.info(f"  → matched: {len(matched)} | sem match: {len(unmatched)}")
-    return matched, unmatched
-
-
-# ---------------------------------------------------------------------------
-# Etapa 3 — Taxonomia eBird (cache único)
-# ---------------------------------------------------------------------------
-
-
-def fetch_taxonomy(locale: str = TAXONOMY_LOCALE) -> dict[str, dict]:
-    """Baixa a taxonomia completa e retorna dict keyed by speciesCode."""
-    log.info("Baixando taxonomia eBird (cache único)…")
-    data = ebird_get("/ref/taxonomy/ebird", params={"fmt": "json", "locale": locale})
-    taxonomy = {}
-    for t in data:
-        taxonomy[t["speciesCode"]] = {
-            "speciesCode": t["speciesCode"],
-            "comName": t.get("comName", ""),
-            "sciName": t.get("sciName", ""),
-            "order": t.get("order", ""),
-            "familyComName": t.get("familyComName", ""),
-            "familySciName": t.get("familySciName", ""),
-            "category": t.get("category", ""),
+    por_nome = {normalizar_termo(r["name"]): r for r in regioes}
+    nome = normalizar_termo(municipio["nome"])
+    if nome in por_nome:
+        r = por_nome[nome]
+        return {"ebird_code": r["code"], "ebird_name": r["name"], "match_type": "exato"}
+    melhor = process.extractOne(nome, list(por_nome), scorer=fuzz.token_sort_ratio)
+    if melhor and melhor[1] >= FUZZY_MINIMO:
+        r = por_nome[melhor[0]]
+        return {
+            "ebird_code": r["code"],
+            "ebird_name": r["name"],
+            "match_type": f"fuzzy:{round(melhor[1])}",
         }
-    log.info(f"  → {len(taxonomy)} táxons carregados")
-    return taxonomy
+    return {"ebird_code": None, "ebird_name": None, "match_type": "sem_match"}
+
+
+def municipios_ibge(settings: Settings) -> list[dict]:
+    """[{geocodigo, nome, uf}] da planilha do IBGE."""
+    return [
+        {
+            "geocodigo": id_,
+            "nome": dados["Nome do município"],
+            "uf": dados["Sigla da UF"],
+        }
+        for id_, dados in ibge.ler(settings.IBGE_XLSX)
+    ]
 
 
 # ---------------------------------------------------------------------------
-# Etapa 4 — Buscar espécies por município
+# Ingestão
 # ---------------------------------------------------------------------------
 
 
-def fetch_species_for_municipio(ebird_code: str, taxonomy: dict) -> list[dict]:
-    """
-    Chama /product/spplist/{regionCode} e enriquece com taxonomia.
-    Retorna lista de dicts de espécie.
-    """
-    try:
-        codes = ebird_get(f"/product/spplist/{ebird_code}")
-        time.sleep(SLEEP_BETWEEN_REQUESTS)
-    except Exception as e:
-        log.warning(f"  Sem dados para {ebird_code}: {e}")
-        return []
-
-    species = []
-    for code in codes:
-        info = taxonomy.get(code, {"speciesCode": code})
-        # Inclui apenas espécies (exclui híbridos, slash, spuh)
-        if info.get("category", "species") == "species":
-            species.append(info)
-    return species
+def registros_taxonomia(taxa: list[dict]) -> list[Registro]:
+    return [(f"{PREFIXO_TAXON}{t['speciesCode']}", t) for t in taxa]
 
 
-# ---------------------------------------------------------------------------
-# Etapa 5 — Persistência no MongoDB
-# ---------------------------------------------------------------------------
+def registro_municipio(municipio: dict, casamento: dict, especies: list[str] | None) -> Registro:
+    dados = {**municipio, **casamento, "especies": especies}
+    return f"{PREFIXO_MUNICIPIO}{municipio['geocodigo']}", dados
 
 
-def get_collection(db_name: str, collection_name: str):
-    client = MongoClient(get_settings().MONGODB_URI)
-    db = client[db_name]
-    return db[collection_name]
+def _salvar_sem_match(settings: Settings, sem_match: list[dict]) -> None:
+    if not sem_match:
+        return
+    settings.REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    caminho = settings.REPORTS_DIR / "ebird_municipios_sem_match.tsv"
+    with open(caminho, "w", encoding="utf-8") as f:
+        f.write("geocodigo\tnome\tuf\n")
+        for m in sem_match:
+            f.write(f"{m['geocodigo']}\t{m['nome']}\t{m['uf']}\n")
+    log.info(f"{len(sem_match)} municípios sem região no eBird: {caminho}")
 
 
-def save_municipio(col, municipio: dict, species: list[dict]) -> None:
-    """
-    Upsert de um documento de município no MongoDB.
-    Documento:
-    {
-      geocodigo, nome, uf, bioma, ebird_code, ebird_name, match_type,
-      total_especies,
-      especies: [ {speciesCode, comName, sciName, order, familyComName, …} ]
-    }
-    """
-    doc = {
-        "geocodigo": municipio["geocodigo"],
-        "nome": municipio["nome"],
-        "uf": municipio["uf"],
-        "bioma": municipio["bioma"],
-        "ebird_code": municipio.get("ebird_code"),
-        "ebird_name": municipio.get("ebird_name"),
-        "match_type": municipio.get("match_type"),
-        "total_especies": len(species),
-        "especies": species,
-    }
-    col.update_one(
-        {"geocodigo": municipio["geocodigo"]},
-        {"$set": doc},
-        upsert=True,
+def ingerir(
+    db: Database,
+    piloto: bool = False,
+    refazer: bool = False,
+    settings: Settings | None = None,
+    progresso: Callable[[int, int], None] | None = None,
+) -> list[ResultadoIngestao]:
+    settings = settings or get_settings()
+    settings.require("EBIRD_API_KEY")
+    col = db[RAW_EBIRD]
+
+    # 1. Taxonomia (uma chamada)
+    log.info("Baixando a taxonomia do eBird…")
+    taxonomia = gravar_envelopes(
+        col,
+        registros_taxonomia(baixar_taxonomia()),
+        f"{FONTE} (taxonomia)",
+        completo=True,
+        prefixo_completo=PREFIXO_TAXON,
     )
 
-
-def ensure_indexes(col) -> None:
-    col.create_index("geocodigo", unique=True)
-    col.create_index("uf")
-    col.create_index("bioma")
-    col.create_index("ebird_code")
-    col.create_index("especies.speciesCode")
-    log.info("Índices do MongoDB criados/verificados.")
-
-
-def bulk_save_batch(col, batch: list[tuple[dict, list[dict]]]) -> None:
-    """Persiste um lote de (municipio, species) no MongoDB via bulk_write."""
-    if not batch:
-        return
-
-    ops = []
-    for municipio, species in batch:
-        doc = {
-            "geocodigo": municipio["geocodigo"],
-            "nome": municipio["nome"],
-            "uf": municipio["uf"],
-            "bioma": municipio["bioma"],
-            "ebird_code": municipio.get("ebird_code"),
-            "ebird_name": municipio.get("ebird_name"),
-            "match_type": municipio.get("match_type"),
-            "total_especies": len(species),
-            "especies": species,
+    # 2. Municípios
+    municipios = municipios_ibge(settings)
+    if piloto:
+        municipios = [m for m in municipios if m["geocodigo"] == settings.PILOTO_MUNICIPIO_IBGE]
+        if not municipios:
+            raise ValueError(
+                f"PILOTO_MUNICIPIO_IBGE={settings.PILOTO_MUNICIPIO_IBGE} não está no IBGE"
+            )
+    elif not refazer:
+        ja_gravados = {
+            d["_id"].removeprefix(PREFIXO_MUNICIPIO)
+            for d in col.find({"_id": {"$regex": f"^{PREFIXO_MUNICIPIO}"}}, {"_id": 1})
         }
-        ops.append(
-            UpdateOne(
-                {"geocodigo": municipio["geocodigo"]},
-                {"$set": doc},
-                upsert=True,
-            )
-        )
+        municipios = [m for m in municipios if m["geocodigo"] not in ja_gravados]
+        log.info(f"{len(ja_gravados)} municípios já gravados; {len(municipios)} pendentes")
 
-    try:
-        result = col.bulk_write(ops, ordered=False)
-        log.info(
-            f"  Lote persistido: {result.upserted_count} inseridos, {result.modified_count} atualizados"
-        )
-    except BulkWriteError as e:
-        log.error(f"Erro no bulk_write do lote: {e.details}")
+    resultado = ResultadoIngestao(fonte=f"{FONTE} (municípios)", collection=col.name)
+    regioes_por_uf: dict[str, list[dict]] = {}
+    sem_match: list[dict] = []
+    pendentes: list[Registro] = []
 
+    def descarregar() -> None:
+        if pendentes:
+            resultado.somar(gravar_envelopes(col, pendentes, resultado.fonte))
+            pendentes.clear()
 
-# ---------------------------------------------------------------------------
-# Etapa 6 — Salvar relatório de municípios sem match
-# ---------------------------------------------------------------------------
+    for i, municipio in enumerate(municipios, start=1):
+        uf = municipio["uf"]
+        if uf not in regioes_por_uf:
+            try:
+                regioes_por_uf[uf] = baixar_regioes(uf)
+            except (requests.HTTPError, RuntimeError) as e:
+                regioes_por_uf[uf] = []
+                resultado.erros.append(f"regiões de {uf}: {e}")
+        casamento = casar_municipio(municipio, regioes_por_uf[uf])
+        especies = None
+        if casamento["ebird_code"]:
+            try:
+                especies = baixar_especies(casamento["ebird_code"])
+            except (requests.HTTPError, RuntimeError) as e:
+                resultado.erros.append(f"{municipio['geocodigo']} ({casamento['ebird_code']}): {e}")
+                continue  # não grava: uma falha não pode virar "lista vazia"
+        else:
+            sem_match.append(municipio)
+        pendentes.append(registro_municipio(municipio, casamento, especies))
+        if len(pendentes) >= LOTE_MUNICIPIOS:
+            descarregar()
+        if progresso:
+            progresso(i, len(municipios))
+    descarregar()
 
-
-def save_unmatched_report(unmatched: list[dict]) -> None:
-    if not unmatched:
-        return
-    reports_dir = get_settings().REPORTS_DIR
-    reports_dir.mkdir(parents=True, exist_ok=True)
-    report_path = reports_dir / "municipios_sem_match.tsv"
-    with open(report_path, "w", encoding="utf-8") as f:
-        f.write("Geocódigo\tNome\tUF\tBioma\n")
-        for m in unmatched:
-            f.write(f"{m['geocodigo']}\t{m['nome']}\t{m['uf']}\t{m['bioma']}\n")
-    log.info(f"Relatório de sem-match salvo em {report_path} ({len(unmatched)} municípios)")
-
-
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
-
-
-def main() -> None:
-    settings = get_settings()
-    settings.require("EBIRD_API_KEY", "MONGODB_URI")
-
-    log.info("=" * 60)
-    log.info("eBird × IBGE — início da coleta")
-    log.info("=" * 60)
-
-    # 1. Ler IBGE
-    ibge = load_ibge(settings.IBGE_XLSX)
-
-    # 2. Cruzar nomes
-    matched, unmatched = crossmatch(ibge)
-    save_unmatched_report(unmatched)
-
-    # 3. Taxonomia (cache)
-    taxonomy = fetch_taxonomy()
-
-    # 4 & 5. Coletar espécies e persistir em lotes de 500
-    col = get_collection(settings.MONGODB_DATABASE, "ebird")
-    ensure_indexes(col)
-
-    # Checkpoint: carrega geocódigos já coletados para retomar de onde parou
-    log.info("Verificando municípios já coletados no MongoDB…")
-    ja_coletados = {
-        doc["geocodigo"]
-        for doc in col.find(
-            {
-                "total_especies": {"$gt": 0}
-            },  # considera apenas os que realmente tiveram dados coletados
-            {"geocodigo": 1, "_id": 0},
-        )
-    }
-    pendentes = [m for m in matched if m["geocodigo"] not in ja_coletados]
-    log.info(f"  Já coletados: {len(ja_coletados)} | Pendentes: {len(pendentes)}")
-
-    if not pendentes:
-        log.info("Todos os municípios já foram coletados. Nada a fazer.")
-    else:
-        BATCH_SIZE = 500
-        batch: list[tuple[dict, list[dict]]] = []
-        total_processados = 0
-
-        log.info(
-            f"Iniciando coleta de espécies para {len(pendentes)} municípios pendentes (lotes de {BATCH_SIZE})…"
-        )
-        for mun in tqdm(pendentes, desc="Municípios"):
-            species = fetch_species_for_municipio(mun["ebird_code"], taxonomy)
-            batch.append((mun, species))
-
-            if len(batch) >= BATCH_SIZE:
-                tqdm.write(
-                    f"[INFO] Persistindo lote ({total_processados + 1}–{total_processados + len(batch)})…"
-                )
-                log.info(
-                    f"Persistindo lote ({total_processados + 1}–{total_processados + len(batch)})…"
-                )
-                bulk_save_batch(col, batch)
-                total_processados += len(batch)
-                batch = []
-
-        # Persiste o lote final (menor que BATCH_SIZE)
-        if batch:
-            log.info(
-                f"Persistindo lote final ({total_processados + 1}–{total_processados + len(batch)})…"
-            )
-            bulk_save_batch(col, batch)
-            total_processados += len(batch)
-
-        log.info(f"  Municípios processados nesta execução: {total_processados}")
-
-    # Persistir também os sem-match (sem espécies) que ainda não existem
-    sem_match_pendentes = [mun for mun in unmatched if mun["geocodigo"] not in ja_coletados]
-    if sem_match_pendentes:
-        log.info(f"Persistindo {len(sem_match_pendentes)} municípios sem match…")
-        bulk_save_batch(col, [(mun, []) for mun in sem_match_pendentes])
-
-    log.info("Coleta finalizada.")
-    log.info(f"  Total no MongoDB: {col.count_documents({})}")
-    log.info(f"  Municípios sem match eBird: {len(unmatched)}")
-    log.info(f"  MongoDB: db={settings.MONGODB_DATABASE} / col=ebird")
-    log.info("=" * 60)
-
-
-if __name__ == "__main__":
-    main()
+    if not piloto:
+        _salvar_sem_match(settings, sem_match)
+    return [taxonomia, resultado]
