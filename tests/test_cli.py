@@ -56,7 +56,6 @@ def test_ingest_fonte_invalida():
 @pytest.mark.parametrize(
     "args, marco",
     [
-        (["ingest", "cbro"], "Marco 2"),
         (["resolve"], "Marco 3"),
         (["extract", "--piloto"], "Marco 4"),
         (["fuse"], "Marco 5"),
@@ -106,3 +105,9 @@ def test_index_verificar_ok(monkeypatch):
     result = runner.invoke(app, ["index", "--verificar"])
     assert result.exit_code == 0
     assert "MongoDB 8.3.17 aceita" in result.output
+
+
+def test_ingest_rejeita_opcao_que_nao_se_aplica():
+    result = runner.invoke(app, ["ingest", "cbro", "--refazer"])
+    assert result.exit_code == 2
+    assert "--refazer não se aplica a cbro" in result.output

@@ -58,9 +58,53 @@ def principal(
 
 
 @app.command()
-def ingest(fonte: Fonte = typer.Argument(..., help="Fonte a ingerir.")) -> None:
+def ingest(
+    fonte: Fonte = typer.Argument(..., help="Fonte a ingerir."),
+    piloto: bool = typer.Option(
+        False, "--piloto", help="ebird e wikiaves: só o município do piloto e as suas espécies."
+    ),
+    refazer: bool = typer.Option(
+        False, "--refazer", help="wikiaves: baixa de novo as páginas que já estão em raw_wikiaves."
+    ),
+    limite: int = typer.Option(
+        0, "--limite", min=0, help="wikiaves: no máximo N páginas nesta execução (0 = sem limite)."
+    ),
+) -> None:
     """[etapa 1] Lê sites, APIs e planilhas e grava em raw_<fonte> (upsert pelo id da fonte)."""
-    nao_implementado(f"ingest {fonte.value}", "2")
+    import inspect
+    from importlib import import_module
+
+    from bson.errors import InvalidDocument
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.settings import MissingSettingError
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.ingest.base import IdDuplicado
+
+    modulo = import_module(f"avesrag_builder.ingest.{fonte.value}")
+    ingerir = getattr(modulo, "ingerir", None)
+    if ingerir is None:
+        nao_implementado(f"ingest {fonte.value}", "2")
+
+    opcoes = {"piloto": piloto, "refazer": refazer, "limite": limite}
+    aceitas = inspect.signature(ingerir).parameters
+    kwargs = {k: v for k, v in opcoes.items() if k in aceitas}
+    ignoradas = [f"--{k}" for k, v in opcoes.items() if v and k not in aceitas]
+    if ignoradas:
+        raise typer.BadParameter(f"{', '.join(ignoradas)} não se aplica a {fonte.value}")
+
+    try:
+        resultados = ingerir(get_db(), **kwargs)
+    except (MissingSettingError, IdDuplicado, PyMongoError, InvalidDocument) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+
+    for resultado in resultados:
+        typer.echo(resultado.resumo())
+        for erro in resultado.erros[:20]:
+            typer.echo(f"  erro: {erro}", err=True)
+    if any(r.erros for r in resultados):
+        raise typer.Exit(code=1)
 
 
 @app.command()

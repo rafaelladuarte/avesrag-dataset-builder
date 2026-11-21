@@ -11,6 +11,9 @@ services:
   mongodb:
     image: mongodb/mongodb-atlas-local:8.3.17
     container_name: avesrag-mongodb
+    # Hostname fixo: o replica set grava o host na config. Sem isto, recriar o
+    # container muda o hostname e o nó deixa de ser primário.
+    hostname: avesrag-mongodb
     restart: unless-stopped
     ports:
       - "${MONGODB_PORT:-27017}:27017"
