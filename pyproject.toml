@@ -1,27 +1,31 @@
-[tool.poetry]
+[project]
 name = "avesrag-dataset-builder"
-version = "0.1.0"
-description = "Pipeline de construção de dataset para o AvesRAG"
-authors = []
-packages = [{ include = "avesrag_builder", from = "src" }]
+version = "0.2.0"
+description = "Pipeline que monta a base de espécies do AvesRAG"
+authors = [{ name = "Rafaella Duarte" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "pandas",
+    "pymongo",
+    "openpyxl>=3.1.5,<4",
+    "playwright>=1.60.0,<2",
+    "beautifulsoup4>=4.15.0,<5",
+    "rapidfuzz>=3.14.5,<4",
+    "tqdm>=4.68.3,<5",
+    "requests>=2.34.2,<3",
+    "pydantic>=2.13.4,<3",
+    "pydantic-settings>=2.2.1,<3",
+    "pyyaml>=6.0.3,<7",
+    "typer>=0.29.2,<0.30",
+]
 
-[tool.poetry.scripts]
+[project.scripts]
 avesrag-builder = "avesrag_builder.cli:app"
 
-[tool.poetry.dependencies]
-python = "^3.13"
-pandas = "*"
-pymongo = "*"
-openpyxl = "^3.1.5"
-playwright = "^1.60.0"
-beautifulsoup4 = "^4.15.0"
-rapidfuzz = "^3.14.5"
-tqdm = "^4.68.3"
-requests = "^2.34.2"
-pydantic-settings = "^2.2.1"
-pyyaml = "^6.0.3"
-pydantic = "^2.13.4"
-typer = "^0.29.2"
+[tool.poetry]
+packages = [{ include = "avesrag_builder", from = "src" }]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0"
@@ -46,9 +50,9 @@ target-version = "py312"
 select = ["E", "W", "F", "I", "B"]
 ignore = ["E501"]
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
 [tool.ruff.lint.flake8-bugbear]
 extend-immutable-calls = ["typer.Argument", "typer.Option"]
+
+[build-system]
+requires = ["poetry-core>=2.0,<3"]
+build-backend = "poetry.core.masonry.api"
