@@ -16,6 +16,9 @@ SPECIES_OCCURRENCE = "species_occurrence"
 SPECIES = "species"
 SPECIES_RETRIEVAL_DOCS = "species_retrieval_docs"
 
+# Operacional: lotes enviados à API de batch do LLM, para retomar o `extract`.
+LLM_BATCHES = "llm_batches"
+
 RAW_COLLECTIONS = (RAW_WIKIAVES, RAW_AVONET, RAW_BIRDBASE, RAW_CBRO, RAW_EBIRD, RAW_IBGE)
 
 # Escritas pelo builder, na ordem do pipeline.

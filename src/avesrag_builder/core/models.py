@@ -165,8 +165,11 @@ class SpeciesRegistry(MongoModel):
 
 
 class Validacao(MongoModel):
+    # ok mede só o schema; evidências não encontradas não invalidam a resposta
+    # (quem descarta o valor é a fusão). erro: "sem_texto", "invalido: ..." ou "erro_api: ...".
     ok: bool
     evidencias_nao_encontradas: list[str] = Field(default_factory=list)
+    erro: str | None = None
 
 
 class Extraction(MongoModel):
@@ -185,6 +188,21 @@ class Extraction(MongoModel):
         if self.id != f"{self.species_id}:{self.prompt}":
             raise ValueError(f"_id deve ser '{self.species_id}:{self.prompt}'")
         return self
+
+
+LoteStatus = Literal["enviado", "coletado", "falhou"]
+
+
+class LoteLLM(MongoModel):
+    """Um lote da API de batch (`llm_batches`), gravado antes de esperar, para retomar."""
+
+    id: TextoNaoVazio = Field(alias="_id")  # id do lote no fornecedor
+    fornecedor: TextoNaoVazio
+    pedidos: list[TextoNaoVazio] = Field(min_length=1)  # custom_id de cada pedido
+    status: LoteStatus = "enviado"
+    criado_em: datetime
+    atualizado_em: datetime | None = None
+    erro: str | None = None
 
 
 # ---------------------------------------------------------------------------

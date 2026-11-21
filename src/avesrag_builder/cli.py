@@ -129,9 +129,51 @@ def resolve() -> None:
 
 
 @app.command()
-def extract(piloto: bool = OPCAO_PILOTO) -> None:
+def extract(
+    piloto: bool = OPCAO_PILOTO,
+    limite: int = typer.Option(
+        0, "--limite", min=0, help="No máximo N espécies (0 = sem limite); para calibrar."
+    ),
+    sem_esperar: bool = typer.Option(
+        False, "--sem-esperar", help="Só envia o lote; a próxima execução coleta."
+    ),
+    sincrono: bool = typer.Option(
+        False, "--sincrono", help="Chamadas diretas, sem a API de batch (custa o dobro)."
+    ),
+) -> None:
     """[etapa 3] raw_wikiaves + species_registry -> species_extractions (LLM em batch)."""
-    nao_implementado("extract", "4")
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.settings import MissingSettingError, get_settings
+    from avesrag_builder.core.vocabulario import VocabularioInvalido
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.extract.pipeline import executar
+    from avesrag_builder.llm import fornecedor
+    from avesrag_builder.llm.base import ErroFornecedor
+
+    try:
+        settings = get_settings()
+        llm = fornecedor(settings)  # cobra a chave antes de conectar ao banco
+        resultado = executar(
+            get_db(),
+            llm,
+            settings,
+            piloto=piloto,
+            limite=limite,
+            esperar=not sem_esperar,
+            sincrono=sincrono,
+        )
+    except (
+        MissingSettingError,
+        VocabularioInvalido,
+        ErroFornecedor,
+        PyMongoError,
+        ValueError,
+    ) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    for linha in resultado.linhas:
+        typer.echo(linha)
 
 
 @app.command()

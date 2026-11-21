@@ -119,7 +119,7 @@ atributos:
         sinonimos: [listrada, barrado, barrada, riscado, riscada, estriado, estriada, rajado, rajada]
       pintado:
         grupo: corpo
-        descricao: Pintas ou manchas pequenas no corpo.
+        descricao: Várias pintas ou manchas pequenas espalhadas pelo corpo.
         sinonimos: [pintada, pintadinho, pintadinha, manchado, manchada, salpicado, salpicada, pintalgado]
       faixa_na_asa:
         grupo: asas_cauda

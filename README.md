@@ -4,7 +4,7 @@ Pipeline que monta a base de espécies do [AvesRAG](https://github.com/rafaellad
 
 Para cada espécie, o builder entrega uma ficha canônica validada (`species`) e três documentos de busca com embedding (`species_retrieval_docs`). A base é reconstruída do zero com um comando, uma chave da OpenAI e uma do eBird.
 
-> **Estado:** v2 em construção. Prontos: o Marco 1 (estrutura, CLI, settings, modelos, vocabulário e MongoDB com busca vetorial), o Marco 2 (ingestão das seis fontes) e o Marco 3 (registry de espécies). As demais etapas chegam nos marcos seguintes (tabela abaixo).
+> **Estado:** v2 em construção. Prontos: o Marco 1 (estrutura, CLI, settings, modelos, vocabulário e MongoDB com busca vetorial), o Marco 2 (ingestão das seis fontes), o Marco 3 (registry de espécies) e o Marco 4 (extração por LLM; falta rodar o lote completo do piloto). As demais etapas chegam nos marcos seguintes (tabela abaixo).
 
 ## Como funciona
 
@@ -18,7 +18,7 @@ fontes ──ingest──► raw_* ──resolve──► species_registry ─�
 | --- | --- | --- | --- | --- |
 | 1 | `ingest <fonte>` | sites, APIs e planilhas | `raw_wikiaves`, `raw_avonet`, `raw_birdbase`, `raw_cbro`, `raw_ebird`, `raw_ibge` | pronto |
 | 2 | `resolve` | `raw_*` | `species_registry` | pronto |
-| 3 | `extract` | `raw_wikiaves`, `species_registry` | `species_extractions` | 4 |
+| 3 | `extract` | `raw_wikiaves`, `species_registry` | `species_extractions` | pronto |
 | 4 | `fuse` | registry, extractions, `raw_*` | `species`, `species_occurrence` | 5 |
 | 5 | `validate` | `species` | `_meta.dq_status` + relatório em `reports/` | 5 |
 | 6 | `docs` | `species` aptas | `species_retrieval_docs` | 6 |
@@ -54,6 +54,21 @@ poetry run avesrag-builder resolve   # 1.975 espécies, ~2 s, sem rede
 ```
 
 Um documento por espécie do WikiAves em `species_registry`, com `species_id` = slug do nome científico (índice único; o `_id` é o ObjectId do Mongo). Cada fonte guarda a chave do seu `raw_*` (`_id` do doc, ou o `speciesCode` no eBird) e o tipo de casamento: `exato`, `ponte` (correspondência do AVONET), `genero` (mesmo epíteto e família, gênero trocado) ou `sem_match`. Rodar de novo só grava o que mudou; espécies que saem do WikiAves não são apagadas. Relatórios em `reports/`: `resolve_sem_match.tsv` (por fonte), `resolve_piloto.tsv` (espécies do eBird do município do piloto fora do registry ou casadas por aproximação) e `resolve_orfaos.txt`.
+
+### Extração (LLM)
+
+```bash
+poetry run avesrag-builder extract --piloto --limite 5 --sincrono   # calibrar: 15 chamadas diretas
+poetry run avesrag-builder extract --piloto                          # lote completo na API de batch
+poetry run avesrag-builder extract --piloto --sem-esperar            # só envia; a próxima execução coleta
+```
+
+Três prompts por espécie (`config/prompts/b01_aparencia`, `b02_comportamento`, `b03_textos_busca`), com o texto do WikiAves delimitado como dado e a saída em JSON Schema estrito, gerado do `vocabulario.yaml` (valores como `enum`; campo sem informação volta `null`). Cada valor traz um trecho de evidência, conferido contra o texto de entrada.
+
+- **Cache:** o par espécie × prompt só vai ao LLM se o `input_hash` (modelo + prompt renderizado + entrada + schema) ou a `versao` mudou. Rodar de novo sem mudança não chama o LLM.
+- **Retomada:** o lote fica em `llm_batches` antes da espera; se o processo cair, a próxima execução coleta o lote em vez de reenviar.
+- **Falhas:** resposta inválida ou com erro é refeita uma vez por chamada direta; se falhar de novo, a extração é gravada com `validacao.erro` e volta na próxima execução. Espécie sem o texto de entrada vira `sem_texto`, sem chamada.
+- **Relatório:** `reports/extract.tsv` (um par por linha) e o resumo no terminal, com a taxa de respostas válidas, as evidências não encontradas, os tokens e o custo estimado. O piloto inteiro custa cerca de US$ 0,30 em batch.
 
 ## Pré-requisitos
 
@@ -102,7 +117,8 @@ Para inspecionar os dados, conecte o [MongoDB Compass](https://www.mongodb.com/p
 | `MONGODB_DATABASE` | `avesrag` | banco |
 | `MONGODB_PORT` | `27017` | porta publicada pelo `docker-compose` |
 | `LLM_PROVIDER` | `openai` | fornecedor do LLM |
-| `LLM_MODEL` | `gpt-6-luna` | modelo do `extract` |
+| `LLM_MODEL` | `gpt-6-luna` | modelo do `extract` (o `modelo` do YAML do prompt tem prioridade) |
+| `LLM_PRECO_ENTRADA`, `LLM_PRECO_SAIDA` | `0.05`, `0.25` | US$ por milhão de tokens em batch, para a estimativa de custo |
 | `EMBEDDING_MODEL` | `text-embedding-3-large` | modelo dos embeddings |
 | `PILOTO_MUNICIPIO_IBGE` | `3170206` (Uberlândia, MG) | município do `--piloto` |
 | `WIKIAVES_MAX_ESPECIES` | `0` (sem limite) | limite do scraping |
@@ -116,16 +132,17 @@ As chaves só são cobradas pelo comando que as usa: `--help` e os testes funcio
 config/
 ├── vocabulario.yaml      # valores aceitos, sinônimos e mapeamentos AVONET/BIRDBASE → vocabulário
 ├── regras_bico.yaml      # família → tipo de bico, dieta → tipo, perfil visual de cada tipo
-└── prompts/              # b01–b03 (Marco 4)
+└── prompts/              # b01_aparencia, b02_comportamento, b03_textos_busca
 src/avesrag_builder/
 ├── cli.py                # avesrag-builder
 ├── core/                 # settings, logging, modelos Pydantic, vocabulário
 ├── db/                   # conexão, nomes das collections, verificação de busca
 ├── ingest/               # uma ingestão por fonte, no envelope raw_*
 ├── resolve/              # species_registry
-├── fuse/                 # species_occurrence.py da v1, a adaptar no Marco 5
-└── llm/                  # cliente do LLM (Marco 4)
-                          # extract/, validate/ e docs/ chegam nos Marcos 4 a 6
+├── llm/                  # interface de fornecedor, adaptador OpenAI (batch) e leitor dos prompts
+├── extract/              # contratos gerados do vocabulário, evidências e pipeline do extract
+└── fuse/                 # species_occurrence.py da v1, a adaptar no Marco 5
+                          # validate/ e docs/ chegam nos Marcos 5 e 6
 data/raw/                 # planilhas AVONET, BIRDBASE, CBRO, IBGE e lista do WikiAves
 reports/                  # relatórios gerados (fora do git)
 tests/

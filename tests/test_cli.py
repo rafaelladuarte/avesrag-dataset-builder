@@ -56,7 +56,6 @@ def test_ingest_fonte_invalida():
 @pytest.mark.parametrize(
     "args, marco",
     [
-        (["extract", "--piloto"], "Marco 4"),
         (["fuse"], "Marco 5"),
         (["validate"], "Marco 5"),
         (["docs"], "Marco 6"),
@@ -139,3 +138,11 @@ def test_resolve_reporta_falha(monkeypatch):
     result = runner.invoke(app, ["resolve"])
     assert result.exit_code == 1
     assert "Falhou: raw_wikiaves está vazia" in result.output
+
+
+def test_extract_sem_chave_da_openai(monkeypatch):
+    # Vazia no ambiente: vale mais que o .env local, que pode ter a chave real.
+    monkeypatch.setenv("OPENAI_API_KEY", "")
+    result = runner.invoke(app, ["extract", "--piloto"])
+    assert result.exit_code == 1
+    assert "OPENAI_API_KEY" in result.output

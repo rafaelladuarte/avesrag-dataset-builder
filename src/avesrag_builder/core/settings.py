@@ -39,6 +39,10 @@ class Settings(BaseSettings):
     LLM_PROVIDER: Literal["openai"] = "openai"
     LLM_MODEL: str = "gpt-6-luna"
     EMBEDDING_MODEL: str = "text-embedding-3-large"
+    # US$ por milhão de tokens na API de batch (a chamada síncrona custa o dobro).
+    # Só para a estimativa de custo no resumo do `extract`.
+    LLM_PRECO_ENTRADA: float = 0.05
+    LLM_PRECO_SAIDA: float = 0.25
 
     # Piloto e coleta
     PILOTO_MUNICIPIO_IBGE: str = "3170206"
