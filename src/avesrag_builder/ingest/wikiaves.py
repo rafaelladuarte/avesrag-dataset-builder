@@ -78,8 +78,8 @@ def nomes_ebird_do_municipio(db: Database, geocodigo: str) -> list[str]:
 def ponte_birdbase(db: Database) -> dict[str, set[str]]:
     """Nome eBird/Clements -> nomes da mesma espécie nas outras taxonomias do BIRDBASE."""
     ponte: dict[str, set[str]] = {}
-    projecao = {f"dados.{c}": 1 for c in (COLUNA_EBIRD_BIRDBASE, *COLUNAS_NOME_BIRDBASE)}
-    for doc in db[RAW_BIRDBASE].find({}, projecao):
+    # Sem projeção por coluna: os nomes têm ponto ("(v9.1)"), que o Mongo lê como subcampo.
+    for doc in db[RAW_BIRDBASE].find({}, {"dados": 1}):
         dados = doc["dados"]
         nome_ebird = dados.get(COLUNA_EBIRD_BIRDBASE)
         if not nome_ebird:
