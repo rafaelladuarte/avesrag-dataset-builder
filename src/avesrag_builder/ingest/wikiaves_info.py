@@ -289,11 +289,11 @@ def main():
                 if MAX_ESPECIES is not None and i >= MAX_ESPECIES:
                     break
 
-                nome = row.get("nome_cientifico", f"Espécie {i+1}")
+                nome = row.get("nome_cientifico", f"Espécie {i + 1}")
 
                 if nome in especies_existentes:
                     logger.info(
-                        f"[{i+1}/{MAX_ESPECIES}] Espécie '{nome}' já existe no MongoDB. Pulando..."
+                        f"[{i + 1}/{MAX_ESPECIES}] Espécie '{nome}' já existe no MongoDB. Pulando..."
                     )
                     continue
 
@@ -307,7 +307,7 @@ def main():
                     url_path if url_path.startswith("/") else "/" + url_path
                 )
 
-                logger.info(f"[{i+1}/{MAX_ESPECIES}] Acessando {nome}: {full_url}")
+                logger.info(f"[{i + 1}/{MAX_ESPECIES}] Acessando {nome}: {full_url}")
 
                 html = navegar_com_retry(page, full_url)
                 if html is None:

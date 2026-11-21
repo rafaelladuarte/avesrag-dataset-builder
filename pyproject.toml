@@ -29,8 +29,8 @@ packages = [{ include = "avesrag_builder", from = "src" }]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0"
-ruff = "^0.3.0"
-pre-commit = "^3.6.0"
+ruff = "^0.17.6"
+pre-commit = "^4.7.0"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -44,7 +44,7 @@ addopts = "-m 'not slow and not integration'"
 [tool.ruff]
 line-length = 100
 src = ["src", "tests"]
-target-version = "py312"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E", "W", "F", "I", "B"]
