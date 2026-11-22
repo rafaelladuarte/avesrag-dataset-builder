@@ -10,6 +10,7 @@ RAW_CBRO = "raw_cbro"
 RAW_EBIRD = "raw_ebird"
 RAW_IBGE = "raw_ibge"
 RAW_BIRDALBUM = "raw_birdalbum"
+RAW_COMMONS = "raw_commons"
 
 SPECIES_REGISTRY = "species_registry"
 SPECIES_EXTRACTIONS = "species_extractions"
@@ -28,6 +29,7 @@ RAW_COLLECTIONS = (
     RAW_EBIRD,
     RAW_IBGE,
     RAW_BIRDALBUM,
+    RAW_COMMONS,
 )
 
 # Escritas pelo builder, na ordem do pipeline.

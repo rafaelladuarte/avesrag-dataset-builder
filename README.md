@@ -45,8 +45,9 @@ poetry run avesrag-builder ingest birdalbum
 poetry run avesrag-builder ingest ebird --piloto
 poetry run avesrag-builder ingest wikiaves --piloto
 
-# 3. Casamento das espécies entre as fontes
+# 3. Casamento das espécies entre as fontes e fotos com licença aberta (usam o registry)
 poetry run avesrag-builder resolve
+poetry run avesrag-builder ingest commons --piloto
 
 # 4. Extração por LLM: envia um lote à OpenAI e espera o resultado
 poetry run avesrag-builder extract --piloto
@@ -73,6 +74,7 @@ Os passos 3 a 5 também rodam juntos com `poetry run avesrag-builder run --pilot
 | `ingest ebird --piloto` | segundos | — |
 | `ingest wikiaves --piloto` | ~50 min (437 páginas, ~7 s cada) | — |
 | `resolve` | ~2 s | — |
+| `ingest commons --piloto` | ~1 min | — |
 | `extract --piloto` | **até 24 h** de espera do lote (9 h 40 min no desenvolvimento) | ~US$ 0,30 |
 | `fuse`, `validate` | segundos | — |
 | `docs --piloto` | ~1 min | ~US$ 0,01 |
@@ -170,6 +172,14 @@ poetry run avesrag-builder ingest wikiaves --piloto   # ~50 min (~7 s por págin
 ```
 
 **Rode o `wikiaves` por último:** ele usa o eBird para escolher as páginas e o BIRDBASE e o AVONET para casar os nomes.
+
+**Fotos, depois do `resolve`:** as fontes de foto não têm lista própria das aves do Brasil, então a busca parte das espécies do registry, pelo nome científico do eBird e, depois, pelo do WikiAves.
+
+```bash
+poetry run avesrag-builder ingest commons --piloto    # ~1 min: imagem P18 do Wikidata e metadados do Commons
+```
+
+A foto do WikiAves não entra na ficha: o Termo de Uso do site proíbe a reprodução, e cada foto pertence ao seu autor. O app leva à página da espécie no WikiAves por link.
 
 <details>
 <summary>Mais detalhes</summary>
@@ -319,6 +329,7 @@ Só as chaves de API são obrigatórias, e cada uma só é cobrada pelo comando 
 | `PILOTO_MUNICIPIO_IBGE` | `3170206` (Uberlândia, MG) | município do `--piloto` |
 | `WIKIAVES_MAX_ESPECIES` | `0` (sem limite) | limite do scraping |
 | `BIRDALBUM_REPO`, `BIRDALBUM_REF` | `alchaincyf/huashu-bird-sticker`, commit `fb4463b…` | repositório e commit fixo das ilustrações |
+| `HTTP_USER_AGENT` | `avesrag-dataset-builder/0.2 (python-requests)` | User-Agent das APIs públicas (Wikidata, Commons); ponha um contato se quiser se identificar |
 | `AVESRAG_LOG_FILE` | — | grava o log também neste arquivo |
 
 </details>
@@ -397,6 +408,7 @@ docs/legado/              # documentação e dados tratados da v1
 | [IBGE](https://www.ibge.gov.br/geociencias/informacoes-ambientais/vegetacao/15842-biomas.html) | bioma predominante de cada município (2024) | `Bioma_Predominante_por_Municipio_2024.xlsx` | dados abertos ([Decreto nº 8.777/2016](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2016/decreto/d8777.htm)): uso livre, inclusive comercial, citando a fonte |
 | [eBird](https://ebird.org/) | taxonomia (`speciesCode`) e espécies registradas por município | — (API, com a sua chave) | termos de uso da API do eBird |
 | [Bird Album](https://birdalbum.com/) ([repositório](https://github.com/alchaincyf/huashu-bird-sticker)) | ilustração de cada espécie, **gerada por IA** (mídia secundária) | — (baixado do GitHub num commit fixo) | ilustrações [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); dados MIT |
+| [Wikimedia Commons](https://commons.wikimedia.org/) (via [Wikidata](https://www.wikidata.org/), imagem P18) | foto de cada espécie (mídia principal) | — (API) | uma licença por imagem; só entram CC0, domínio público, CC BY e CC BY-SA (`config/regras_midia.yaml`), com o autor e o link de cada foto. Dados do Wikidata: CC0 |
 
 **Citações** (exigidas pela CC BY):
 - Pacheco, J. F. et al. (2021). Annotated checklist of the birds of Brazil by the Brazilian Ornithological Records Committee — second edition. *Ornithology Research* 29. Dados: [10.5281/zenodo.5138368](https://doi.org/10.5281/zenodo.5138368).

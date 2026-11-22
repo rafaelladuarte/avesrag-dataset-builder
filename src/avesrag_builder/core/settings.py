@@ -53,6 +53,9 @@ class Settings(BaseSettings):
     # a lista e as URLs das imagens não mudarem sozinhas. Medido em 22/11/2026.
     BIRDALBUM_REPO: str = "alchaincyf/huashu-bird-sticker"
     BIRDALBUM_REF: str = "fb4463b12e2d93c7dfc4335a1fc92203fb9173df"
+    # User-Agent das APIs públicas (Wikidata, Commons, iNaturalist). Genérico de
+    # propósito: quem quiser se identificar para os operadores põe um contato aqui.
+    HTTP_USER_AGENT: str = "avesrag-dataset-builder/0.2 (python-requests)"
 
     # Caminhos
     CONFIG_DIR: Path = ROOT_DIR / "config"

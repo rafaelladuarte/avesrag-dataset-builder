@@ -30,4 +30,7 @@ def test_registry_sem_o_municipio_do_piloto(db_temporario):
     db[RAW_EBIRD].insert_one({"_id": f"municipio:{PILOTO}", "dados": {"especies": []}})
     e = coletar(db, piloto=False, geocodigo=PILOTO)
     assert (e.escopo, e.escopo_com_pagina) == (1, 1)
-    assert proximo_passo(e) == "extract"
+    assert proximo_passo(e) == "ingest commons"  # as fotos partem do registry
+
+    db["raw_commons"].insert_one({"_id": "wikidata:Q1", "dados": {}})
+    assert proximo_passo(coletar(db, piloto=False, geocodigo=PILOTO)) == "extract"

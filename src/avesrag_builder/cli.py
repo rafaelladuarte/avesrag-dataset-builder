@@ -32,6 +32,7 @@ class Fonte(str, Enum):
     ebird = "ebird"
     ibge = "ibge"
     birdalbum = "birdalbum"
+    commons = "commons"
 
 
 def nao_implementado(comando: str, marco: str) -> None:
@@ -62,7 +63,9 @@ def principal(
 def ingest(
     fonte: Fonte = typer.Argument(..., help="Fonte a ingerir."),
     piloto: bool = typer.Option(
-        False, "--piloto", help="ebird e wikiaves: só o município do piloto e as suas espécies."
+        False,
+        "--piloto",
+        help="ebird, wikiaves e commons: só o município do piloto e as suas espécies.",
     ),
     refazer: bool = typer.Option(
         False,
@@ -84,6 +87,7 @@ def ingest(
     from avesrag_builder.core.settings import MissingSettingError
     from avesrag_builder.db.connection import get_db
     from avesrag_builder.ingest.base import IdDuplicado
+    from avesrag_builder.ingest.escopo import RegistryVazio
 
     modulo = import_module(f"avesrag_builder.ingest.{fonte.value}")
     ingerir = getattr(modulo, "ingerir", None)
@@ -99,7 +103,14 @@ def ingest(
 
     try:
         resultados = ingerir(get_db(), **kwargs)
-    except (MissingSettingError, IdDuplicado, PyMongoError, InvalidDocument, RequestException) as e:
+    except (
+        MissingSettingError,
+        IdDuplicado,
+        RegistryVazio,
+        PyMongoError,
+        InvalidDocument,
+        RequestException,
+    ) as e:
         typer.echo(f"Falhou: {e}", err=True)
         raise typer.Exit(code=1) from e
 
