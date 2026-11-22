@@ -303,6 +303,24 @@ def index(
 
 
 @app.command()
+def status(piloto: bool = OPCAO_PILOTO) -> None:
+    """Mostra o estado de cada etapa e o próximo passo (só lê o banco; sem chave de API)."""
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.settings import get_settings
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.status import coletar, linhas
+
+    try:
+        estado = coletar(get_db(), piloto, get_settings().PILOTO_MUNICIPIO_IBGE)
+    except PyMongoError as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    for linha in linhas(estado):
+        typer.echo(linha)
+
+
+@app.command()
 def run(
     piloto: bool = OPCAO_PILOTO,
     sem_esperar: bool = typer.Option(
