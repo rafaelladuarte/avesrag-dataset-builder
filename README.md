@@ -392,7 +392,7 @@ docs/legado/              # documentação e dados tratados da v1
 | [CBRO 2021](https://doi.org/10.5281/zenodo.5138368) | lista e taxonomia oficiais das aves do Brasil (1.971 espécies) | `2021.07.26 CBRO 2021 Zenodo Release.xlsx` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [AVONET](https://doi.org/10.6084/m9.figshare.16586228) | medidas morfológicas, habitat, dieta e locomoção | `AVONET Supplementary dataset 1.xlsx` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [BIRDBASE v2025.1](https://doi.org/10.6084/m9.figshare.27051040) | nomes em 4 taxonomias (ponte para o eBird), IUCN 2024 e ecologia | `BIRDBASEv2025.1.xlsx` (no Figshare: `BIRDBASE v2025.1 Sekercioglu et al. Final.xlsx`) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| [IBGE](https://www.ibge.gov.br/geociencias/informacoes-ambientais/vegetacao/15842-biomas.html) | bioma predominante de cada município (2024) | `Bioma_Predominante_por_Municipio_2024.xlsx` | dado público do IBGE; termos de reuso a confirmar |
+| [IBGE](https://www.ibge.gov.br/geociencias/informacoes-ambientais/vegetacao/15842-biomas.html) | bioma predominante de cada município (2024) | `Bioma_Predominante_por_Municipio_2024.xlsx` | dados abertos ([Decreto nº 8.777/2016](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2016/decreto/d8777.htm)): uso livre, inclusive comercial, citando a fonte |
 | [eBird](https://ebird.org/) | taxonomia (`speciesCode`) e espécies registradas por município | — (API, com a sua chave) | termos de uso da API do eBird |
 | [Bird Album](https://birdalbum.com/) ([repositório](https://github.com/alchaincyf/huashu-bird-sticker)) | ilustração de cada espécie, **gerada por IA** (mídia secundária) | — (baixado do GitHub num commit fixo) | ilustrações [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); dados MIT |
 
@@ -400,7 +400,7 @@ docs/legado/              # documentação e dados tratados da v1
 - Pacheco, J. F. et al. (2021). Annotated checklist of the birds of Brazil by the Brazilian Ornithological Records Committee — second edition. *Ornithology Research* 29. Dados: [10.5281/zenodo.5138368](https://doi.org/10.5281/zenodo.5138368).
 - Tobias, J. A. et al. (2022). AVONET: morphological, ecological and geographical data for all birds. *Ecology Letters* 25. Dados: [10.6084/m9.figshare.16586228](https://doi.org/10.6084/m9.figshare.16586228).
 - Şekercioğlu, Ç. H. et al. (2025). BIRDBASE: a global dataset of avian biogeography, conservation, ecology and life history traits. *Scientific Data*. Dados: [10.6084/m9.figshare.27051040](https://doi.org/10.6084/m9.figshare.27051040).
-- IBGE (2024). Bioma Predominante por Município para Fins Estatísticos.
+- IBGE (2024). Bioma Predominante por Município para Fins Estatísticos. Os biomas de cada espécie em `species_occurrence` são elaboração própria a partir desses dados, cruzados com os registros do eBird.
 - Ilustrações: "Bird stickers: huashu-bird-sticker by Huashu, CC BY 4.0", <https://github.com/alchaincyf/huashu-bird-sticker>. O crédito vai em cada ficha (`midia.ilustracao.credito` e `.link`).
 
 A base gerada não é publicada: cada pessoa a reconstrói com as próprias chaves, porque ela contém trechos dos textos do WikiAves.
