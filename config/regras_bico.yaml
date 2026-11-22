@@ -2,7 +2,7 @@
 #
 # 1. Regra por família, para as famílias em que a dieta engana.
 # 2. Dieta como reserva: nicho trófico do AVONET; depois a dieta principal do
-#    BIRDBASE (Marco 5).
+#    BIRDBASE (`fuse/regras.py::bico_tipo`).
 # 3. Perfil visual de cada tipo: o chat extrai do texto do usuário só as
 #    dimensões visuais e compara com estes perfis.
 #
@@ -48,7 +48,23 @@ por_dieta:
       Herbivore terrestrial: granivoro # bico curto, grosso e cônico (bico-grosso)
   birdbase.primary_diet:
     origem: BIRDBASE, aba Data, coluna Primary Diet
-    valores: {} # Marco 5: mapear os códigos da aba Legend
+    # A coluna já traz nomes, não códigos. Revisado em 22/11/2026; no piloto, só
+    # 3 espécies chegam a esta reserva (sem família na regra e sem nicho no AVONET).
+    valores:
+      Invertebrate: insetivoro
+      Fruit: frugivoro
+      Omnivore: generalista
+      Seed: granivoro
+      Nectar: nectarivoro
+      Vertebrate: raptorial
+      Carnivore: raptorial
+      Fish: pescador
+      Scavenger: carniceiro
+      Herbivore: granivoro # mesmo critério do Herbivore terrestrial do AVONET
+      Plant: granivoro
+      No Information: null
+      Beeswax: null # indicadores (Indicatoridae): bico sem perfil no vocabulário
+      Ovivore: null
 
 # Valores aceitos em cada dimensão do perfil (os mesmos que o extrator do chat
 # poderá devolver), traduzidos da tabela do Modelo de Dados.

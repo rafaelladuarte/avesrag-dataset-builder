@@ -288,6 +288,29 @@ class Species(MongoModel):
 
 
 # ---------------------------------------------------------------------------
+# Ocorrência (species_occurrence)
+# ---------------------------------------------------------------------------
+
+
+class Municipio(MongoModel):
+    geocodigo: TextoNaoVazio
+    nome: str | None = None
+    uf: str | None = None
+    bioma: str | None = None
+
+
+class SpeciesOccurrence(MongoModel):
+    """Municípios e biomas com registro da espécie no eBird. O `_id` é o ObjectId do
+    Mongo; a chave é o `species_id` (índice único), como em `species`."""
+
+    species_id: SpeciesId
+    municipios: list[Municipio] = Field(min_length=1)
+    biomas: list[TextoNaoVazio] = Field(default_factory=list)
+    n_municipios: int = Field(ge=1)
+    atualizado_em: datetime
+
+
+# ---------------------------------------------------------------------------
 # Busca (species_retrieval_docs)
 # ---------------------------------------------------------------------------
 

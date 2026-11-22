@@ -15,8 +15,8 @@ A v2 está em construção.
 | 1 | Fundação: CLI, settings, modelos, MongoDB com busca vetorial | ✅ pronto |
 | 2 | Ingestão das seis fontes | ✅ pronto |
 | 3 | Registry de espécies | ✅ pronto |
-| 4 | Extração por LLM | 🟡 implementado; lote do piloto em processamento |
-| 5 | Fusão e validação | ⏳ pendente |
+| 4 | Extração por LLM | ✅ pronto |
+| 5 | Fusão e validação | ✅ pronto |
 | 6 | Documentos de busca e índices | ⏳ pendente |
 | 7 | Reprodutibilidade | ⏳ pendente |
 
@@ -59,8 +59,8 @@ O pipeline é uma sequência de comandos. Três regras valem para todos:
 | `ingest <fonte>` | baixa ou lê cada fonte | `raw_<fonte>` | ✅ |
 | `resolve` | casa as espécies entre as fontes | `species_registry` | ✅ |
 | `extract` | extrai atributos dos textos com LLM | `species_extractions` | ✅ |
-| `fuse` | junta tudo numa ficha por espécie | `species`, `species_occurrence` | Marco 5 |
-| `validate` | confere a qualidade das fichas | `_meta.dq_status` | Marco 5 |
+| `fuse` | junta tudo numa ficha por espécie | `species`, `species_occurrence` | ✅ |
+| `validate` | confere a qualidade das fichas | `_meta.dq_status` | ✅ |
 | `docs` | gera os documentos de busca | `species_retrieval_docs` | Marco 6 |
 | `index` | cria os índices de busca | — | Marco 6 (`--verificar` já funciona) |
 | `run [--piloto]` | roda do `resolve` ao `index` | — | Marco 6 |
@@ -192,8 +192,9 @@ A imagem `mongodb/mongodb-atlas-local:8.3.17` traz o `mongod` e o `mongot` (o pr
 
 - `config/vocabulario.yaml` define os valores aceitos, os sinônimos e os mapeamentos AVONET/BIRDBASE → vocabulário.
 - `config/regras_bico.yaml` define família → tipo de bico, dieta → tipo de bico e o perfil visual de cada tipo.
+- `config/regras_fusao.yaml` define os cortes de tamanho (por comprimento e, na falta dele, por massa) e o que uma ficha precisa ter para ser `apta`.
 
-Os dois se validam ao carregar. Um valor inexistente, um sinônimo ambíguo ou um tipo de bico sem perfil faz o carregamento falhar, indicando onde está o erro.
+Os três se validam ao carregar. Um valor inexistente, um sinônimo ambíguo ou um tipo de bico sem perfil faz o carregamento falhar, indicando onde está o erro.
 
 ---
 
@@ -217,16 +218,18 @@ poetry run ruff check src tests && poetry run ruff format --check src tests
 config/
 ├── vocabulario.yaml      # valores aceitos, sinônimos e mapeamentos
 ├── regras_bico.yaml      # tipo de bico e perfil visual
+├── regras_fusao.yaml     # cortes de tamanho e critérios de apta
 └── prompts/              # b01_aparencia, b02_comportamento, b03_textos_busca
 src/avesrag_builder/
 ├── cli.py                # comando avesrag-builder
-├── core/                 # settings, logging, modelos Pydantic, vocabulário
+├── core/                 # settings, logging, modelos Pydantic, vocabulário e regras
 ├── db/                   # conexão, nomes das collections, verificação da busca
 ├── ingest/               # uma ingestão por fonte
 ├── resolve/              # species_registry
 ├── llm/                  # interface de fornecedor, adaptador OpenAI e leitor dos prompts
 ├── extract/              # contratos, evidências e pipeline do extract
-└── fuse/                 # código da v1, a adaptar no Marco 5
+├── fuse/                 # regras por campo, species e species_occurrence
+└── validate/             # validações, dq_status e relatório
 data/raw/                 # planilhas AVONET, BIRDBASE, CBRO, IBGE e lista do WikiAves
 reports/                  # relatórios gerados (fora do git)
 tests/

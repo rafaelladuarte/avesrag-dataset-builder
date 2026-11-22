@@ -56,8 +56,6 @@ def test_ingest_fonte_invalida():
 @pytest.mark.parametrize(
     "args, marco",
     [
-        (["fuse"], "Marco 5"),
-        (["validate"], "Marco 5"),
         (["docs"], "Marco 6"),
         (["run", "--piloto"], "Marco 6"),
     ],

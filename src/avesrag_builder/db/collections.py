@@ -32,7 +32,7 @@ BUILDER_COLLECTIONS = (
 )
 
 # Collections com um doc por espécie: `_id` é ObjectId e o slug fica em `species_id`.
-POR_ESPECIE = (SPECIES_REGISTRY, SPECIES)
+POR_ESPECIE = (SPECIES_REGISTRY, SPECIES_OCCURRENCE, SPECIES)
 
 
 def garantir_indices(db: Database) -> None:

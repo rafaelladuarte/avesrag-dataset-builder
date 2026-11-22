@@ -179,13 +179,39 @@ def extract(
 @app.command()
 def fuse(piloto: bool = OPCAO_PILOTO) -> None:
     """[etapa 4] registry, extractions e raw_* -> species e species_occurrence (sem chamadas externas)."""
-    nao_implementado("fuse", "5")
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.vocabulario import VocabularioInvalido
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.fuse.species import executar
+
+    try:
+        resultado = executar(get_db(), piloto=piloto)
+    except (VocabularioInvalido, PyMongoError, ValueError) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    for linha in resultado.linhas():
+        typer.echo(linha)
+    if resultado.erros:
+        raise typer.Exit(code=1)
 
 
 @app.command()
 def validate(piloto: bool = OPCAO_PILOTO) -> None:
     """[etapa 5] species -> _meta.dq_status (apta, incompleta, bloqueada) e relatório em reports/."""
-    nao_implementado("validate", "5")
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.vocabulario import VocabularioInvalido
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.validate.pipeline import executar
+
+    try:
+        resultado = executar(get_db(), piloto=piloto)
+    except (VocabularioInvalido, PyMongoError, ValueError) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    for linha in resultado.linhas():
+        typer.echo(linha)
 
 
 @app.command()
