@@ -1,6 +1,6 @@
-"""Fornecedor OpenAI: Chat Completions com `json_schema` estrito e a API de batch.
+"""Fornecedor OpenAI: Chat Completions com `json_schema` estrito, a API de batch e embeddings.
 
-Usa HTTP direto (`requests`), sem o SDK: são só quatro endpoints.
+Usa HTTP direto (`requests`), sem o SDK: são só cinco endpoints.
 """
 
 from __future__ import annotations
@@ -10,7 +10,13 @@ from typing import Any
 
 import requests
 
-from avesrag_builder.llm.base import ErroFornecedor, Pedido, Resposta, SituacaoLote
+from avesrag_builder.llm.base import (
+    Embeddings,
+    ErroFornecedor,
+    Pedido,
+    Resposta,
+    SituacaoLote,
+)
 
 URL_BASE = "https://api.openai.com/v1"
 ENDPOINT = "/v1/chat/completions"
@@ -146,3 +152,16 @@ class OpenAIFornecedor:
                 if linha.strip():
                     respostas.append(linha_de_resultado(json.loads(linha)))
         return respostas
+
+    def embeddings(self, textos: list[str], modelo: str) -> Embeddings:
+        """`/embeddings` com vários textos numa chamada; a ordem vem do campo `index`."""
+        if not textos:
+            return Embeddings(vetores=[])
+        body = self._req("POST", "/embeddings", json={"model": modelo, "input": textos}).json()
+        dados = sorted(body.get("data") or [], key=lambda d: d["index"])
+        if len(dados) != len(textos):
+            raise ErroFornecedor(
+                f"/embeddings devolveu {len(dados)} vetores para {len(textos)} textos"
+            )
+        tokens = int((body.get("usage") or {}).get("total_tokens") or 0)
+        return Embeddings(vetores=[d["embedding"] for d in dados], tokens=tokens)

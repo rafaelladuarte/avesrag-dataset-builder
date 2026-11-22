@@ -31,6 +31,7 @@ class Fonte(str, Enum):
     cbro = "cbro"
     ebird = "ebird"
     ibge = "ibge"
+    birdalbum = "birdalbum"
 
 
 def nao_implementado(comando: str, marco: str) -> None:
@@ -78,6 +79,7 @@ def ingest(
 
     from bson.errors import InvalidDocument
     from pymongo.errors import PyMongoError
+    from requests import RequestException
 
     from avesrag_builder.core.settings import MissingSettingError
     from avesrag_builder.db.connection import get_db
@@ -97,7 +99,7 @@ def ingest(
 
     try:
         resultados = ingerir(get_db(), **kwargs)
-    except (MissingSettingError, IdDuplicado, PyMongoError, InvalidDocument) as e:
+    except (MissingSettingError, IdDuplicado, PyMongoError, InvalidDocument, RequestException) as e:
         typer.echo(f"Falhou: {e}", err=True)
         raise typer.Exit(code=1) from e
 
@@ -179,19 +181,60 @@ def extract(
 @app.command()
 def fuse(piloto: bool = OPCAO_PILOTO) -> None:
     """[etapa 4] registry, extractions e raw_* -> species e species_occurrence (sem chamadas externas)."""
-    nao_implementado("fuse", "5")
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.vocabulario import VocabularioInvalido
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.fuse.species import executar
+
+    try:
+        resultado = executar(get_db(), piloto=piloto)
+    except (VocabularioInvalido, PyMongoError, ValueError) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    for linha in resultado.linhas():
+        typer.echo(linha)
+    if resultado.erros:
+        raise typer.Exit(code=1)
 
 
 @app.command()
 def validate(piloto: bool = OPCAO_PILOTO) -> None:
     """[etapa 5] species -> _meta.dq_status (apta, incompleta, bloqueada) e relatório em reports/."""
-    nao_implementado("validate", "5")
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.vocabulario import VocabularioInvalido
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.validate.pipeline import executar
+
+    try:
+        resultado = executar(get_db(), piloto=piloto)
+    except (VocabularioInvalido, PyMongoError, ValueError) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    for linha in resultado.linhas():
+        typer.echo(linha)
 
 
 @app.command()
 def docs(piloto: bool = OPCAO_PILOTO) -> None:
-    """[etapa 6] species aptas -> species_retrieval_docs (3 documentos com embedding por espécie)."""
-    nao_implementado("docs", "6")
+    """[etapa 6] species aptas -> species_retrieval_docs (até 3 documentos com embedding por espécie)."""
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.settings import MissingSettingError, get_settings
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.docs.pipeline import executar
+    from avesrag_builder.llm import embedder
+    from avesrag_builder.llm.base import ErroFornecedor
+
+    settings = get_settings()
+    try:
+        resultado = executar(get_db(), lambda: embedder(settings), piloto=piloto, settings=settings)
+    except (MissingSettingError, ErroFornecedor, PyMongoError, ValueError) as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    for linha in resultado.linhas():
+        typer.echo(linha)
 
 
 @app.command()
@@ -201,29 +244,117 @@ def index(
         "--verificar",
         help="Só confere se o MongoDB aceita índices de busca (collection temporária).",
     ),
+    fumaca: bool = typer.Option(
+        False,
+        "--fumaca",
+        help="Depois dos índices, roda as consultas de config/consultas_fumaca.yaml (pago: embeddings).",
+    ),
 ) -> None:
     """[etapa 7] Cria os índices $vectorSearch e $search em species_retrieval_docs."""
-    if not verificar:
-        nao_implementado("index", "6 (use --verificar para testar o MongoDB)")
-
     from pymongo.errors import PyMongoError
 
     from avesrag_builder.db.busca import BuscaIndisponivel, verificar_busca
     from avesrag_builder.db.connection import get_db
 
-    typer.echo("Verificando $vectorSearch e $search no MongoDB…")
+    if verificar:
+        typer.echo("Verificando $vectorSearch e $search no MongoDB…")
+        try:
+            resultado = verificar_busca(get_db())
+        except (BuscaIndisponivel, PyMongoError) as e:
+            typer.echo(f"Falhou: {e}", err=True)
+            raise typer.Exit(code=1) from e
+        typer.echo(
+            f"OK: MongoDB {resultado.versao_servidor} aceita índices $vectorSearch e $search."
+        )
+        return
+
+    from avesrag_builder.core.settings import MissingSettingError, get_settings
+    from avesrag_builder.core.vocabulario import VocabularioInvalido
+    from avesrag_builder.docs import busca, indices
+    from avesrag_builder.llm import embedder
+    from avesrag_builder.llm.base import ErroFornecedor
+
+    settings = get_settings()
     try:
-        resultado = verificar_busca(get_db())
-    except (BuscaIndisponivel, PyMongoError) as e:
+        db = get_db()
+        for linha in indices.garantir(db).linhas():
+            typer.echo(linha)
+        if not fumaca:
+            return
+        consultas = busca.carregar_consultas(settings.CONFIG_DIR / "consultas_fumaca.yaml")
+        resultado = busca.fumaca(
+            db,
+            embedder(settings),
+            settings.EMBEDDING_MODEL,
+            consultas,
+            relatorio=settings.REPORTS_DIR / "fumaca.tsv",
+        )
+    except (
+        BuscaIndisponivel,
+        MissingSettingError,
+        VocabularioInvalido,
+        ErroFornecedor,
+        PyMongoError,
+    ) as e:
         typer.echo(f"Falhou: {e}", err=True)
         raise typer.Exit(code=1) from e
-    typer.echo(f"OK: MongoDB {resultado.versao_servidor} aceita índices $vectorSearch e $search.")
+    for linha in resultado.linhas():
+        typer.echo(linha)
+    if resultado.falhas:
+        raise typer.Exit(code=1)
 
 
 @app.command()
-def run(piloto: bool = OPCAO_PILOTO) -> None:
-    """Executa as etapas 2 a 7 em sequência (resolve, extract, fuse, validate, docs, index)."""
-    nao_implementado("run", "6")
+def status(piloto: bool = OPCAO_PILOTO) -> None:
+    """Mostra o estado de cada etapa e o próximo passo (só lê o banco; sem chave de API)."""
+    from pymongo.errors import PyMongoError
+
+    from avesrag_builder.core.settings import get_settings
+    from avesrag_builder.db.connection import get_db
+    from avesrag_builder.status import coletar, linhas
+
+    try:
+        estado = coletar(get_db(), piloto, get_settings().PILOTO_MUNICIPIO_IBGE)
+    except PyMongoError as e:
+        typer.echo(f"Falhou: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    for linha in linhas(estado):
+        typer.echo(linha)
+
+
+@app.command()
+def run(
+    piloto: bool = OPCAO_PILOTO,
+    sem_esperar: bool = typer.Option(
+        False,
+        "--sem-esperar",
+        help="Não espera o lote do extract; se houver lote em andamento, para depois do extract.",
+    ),
+) -> None:
+    """Executa as etapas 2 a 7 em sequência (resolve, extract, fuse, validate, docs, index).
+
+    Para na primeira etapa que falhar. Com tudo em cache, não grava nada nem faz
+    chamadas pagas (o `extract` cobra a OPENAI_API_KEY mesmo assim).
+    """
+    typer.echo("== resolve")
+    resolve()
+    typer.echo("== extract")
+    extract(piloto=piloto, limite=0, sem_esperar=sem_esperar, sincrono=False)
+    if sem_esperar:
+        from avesrag_builder.db.collections import LLM_BATCHES
+        from avesrag_builder.db.connection import get_db
+
+        if get_db()[LLM_BATCHES].count_documents({"status": "enviado"}):
+            typer.echo("Lote do extract em andamento: rode `run` de novo quando ele terminar.")
+            raise typer.Exit(code=0)
+    typer.echo("== fuse")
+    fuse(piloto=piloto)
+    typer.echo("== validate")
+    validate(piloto=piloto)
+    typer.echo("== docs")
+    docs(piloto=piloto)
+    typer.echo("== index")
+    index(verificar=False, fumaca=False)
 
 
 if __name__ == "__main__":

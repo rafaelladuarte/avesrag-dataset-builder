@@ -1,0 +1,32 @@
+# Testes unitários e lint em todo push e pull request.
+# Os testes de integração (precisam do mongodb-atlas-local com mongot) e os
+# `slow` (leem as planilhas de data/raw/) rodam só localmente: ver o README.
+name: testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  unitarios:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Instalar o Poetry
+        run: pipx install poetry==2.3.2
+
+      - name: Instalar as dependências
+        run: poetry install --no-interaction
+
+      - name: Lint
+        run: |
+          poetry run ruff check src tests
+          poetry run ruff format --check src tests
+
+      - name: Testes unitários (sem .env, sem rede, sem MongoDB)
+        run: poetry run pytest

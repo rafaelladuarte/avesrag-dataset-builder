@@ -248,9 +248,21 @@ class Ocorrencia(MongoModel):
     n_municipios: int | None = Field(default=None, ge=0)
 
 
+class Ilustracao(MongoModel):
+    """Mídia secundária: ilustração gerada por IA (Bird Album), nunca a que confirma a espécie."""
+
+    url: TextoNaoVazio
+    credito: TextoNaoVazio
+    licenca: TextoNaoVazio
+    link: TextoNaoVazio  # página da fonte, exigida pelo crédito da CC BY
+    gerada_por_ia: bool = True
+    referencia: Literal["foto", "quadro", "descricao"]  # do que a IA partiu
+
+
 class Midia(MongoModel):
     foto: str | None = None
     url_wikiaves: str | None = None
+    ilustracao: Ilustracao | None = None
 
 
 class Prov(MongoModel):
@@ -288,6 +300,29 @@ class Species(MongoModel):
 
 
 # ---------------------------------------------------------------------------
+# Ocorrência (species_occurrence)
+# ---------------------------------------------------------------------------
+
+
+class Municipio(MongoModel):
+    geocodigo: TextoNaoVazio
+    nome: str | None = None
+    uf: str | None = None
+    bioma: str | None = None
+
+
+class SpeciesOccurrence(MongoModel):
+    """Municípios e biomas com registro da espécie no eBird. O `_id` é o ObjectId do
+    Mongo; a chave é o `species_id` (índice único), como em `species`."""
+
+    species_id: SpeciesId
+    municipios: list[Municipio] = Field(min_length=1)
+    biomas: list[TextoNaoVazio] = Field(default_factory=list)
+    n_municipios: int = Field(ge=1)
+    atualizado_em: datetime
+
+
+# ---------------------------------------------------------------------------
 # Busca (species_retrieval_docs)
 # ---------------------------------------------------------------------------
 
@@ -296,8 +331,10 @@ class RetrievalDoc(MongoModel):
     id: TextoNaoVazio = Field(alias="_id")
     species_id: SpeciesId
     dominio: Dominio
-    texto: TextoNaoVazio
+    texto: TextoNaoVazio  # o texto do b03 do domínio; é o que vira embedding
+    nomes: list[TextoNaoVazio] = Field(default_factory=list)  # só para o $search
     embedding: list[float]
+    modelo: TextoNaoVazio  # modelo do embedding; trocar o modelo refaz o vetor
     filtros: dict[str, Any] = Field(default_factory=dict)
     built_at: datetime
 

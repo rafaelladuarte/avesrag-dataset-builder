@@ -125,3 +125,29 @@ def test_todo_nicho_trofico_do_avonet_esta_no_yaml(regras):
     na_fonte = set(avonet["Trophic.Niche"].dropna().unique())
     no_yaml = set(regras.arquivo.por_dieta["avonet.trophic_niche"].valores)
     assert na_fonte <= no_yaml, f"faltam no YAML: {sorted(na_fonte - no_yaml)}"
+
+
+class TestDietaBirdbase:
+    @pytest.mark.parametrize(
+        "dieta, tipo",
+        [
+            ("Invertebrate", "insetivoro"),
+            ("Omnivore", "generalista"),
+            ("Seed", "granivoro"),
+            ("Vertebrate", "raptorial"),
+            ("Fish", "pescador"),
+            ("No Information", None),
+        ],
+    )
+    def test_dieta_principal(self, regras, dieta, tipo):
+        assert regras.tipo_por_dieta("birdbase.primary_diet", dieta) == tipo
+
+
+@pytest.mark.slow
+def test_toda_dieta_principal_do_birdbase_esta_no_yaml(regras):
+    birdbase = pd.read_excel(
+        get_settings().BIRDBASE_XLSX, sheet_name="Data", header=1, usecols=["Primary Diet"]
+    )
+    na_fonte = set(birdbase["Primary Diet"].dropna().unique())
+    no_yaml = set(regras.arquivo.por_dieta["birdbase.primary_diet"].valores)
+    assert na_fonte <= no_yaml, f"faltam no YAML: {sorted(na_fonte - no_yaml)}"

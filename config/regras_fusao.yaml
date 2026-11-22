@@ -1,0 +1,30 @@
+# Regras numéricas da fusão (`fuse`) e da data quality (`validate`).
+# Ver "Especificação > Regras de derivação e fusão" e "> Data quality".
+#
+# Verificado por core/regras_fusao.py ao carregar: as faixas existem em
+# `tamanho` do vocabulário, há uma faixa a mais que cortes, os cortes crescem e
+# todo atributo de `apta.minimos` existe no vocabulário.
+# Calibrado em 22/11/2026 com as 433 espécies do piloto (plano_marco5.md §2).
+
+versao: "1.0"
+
+tamanho:
+  faixas: [pequeno, medio, grande]
+  # Fonte primária: comprimento do b01. A menos de `tolerancia` de um corte
+  # (fração do corte), a espécie recebe as duas faixas: 18–22 cm e 63–77 cm.
+  comprimento_cm: { cortes: [20, 70], tolerancia: 0.10 }
+  # Reserva sem comprimento (Especificação E2): Average Mass do BIRDBASE, depois
+  # Mass do AVONET. Os cortes concordam com a faixa pelo comprimento em 370 de
+  # 405 espécies do piloto (91%); a tolerância maior cobre a massa menos precisa.
+  massa_g: { cortes: [50, 1200], tolerancia: 0.30 }
+
+comprimento_cm:
+  min: 5
+  max: 200
+  arredondamento: 0.5 # média de mínimo e máximo do b01, arredondada a 0,5 cm
+
+apta:
+  # Quantidade mínima de valores em cada atributo para a espécie ser `apta`.
+  minimos: { tamanho: 1, cores: 2, bico_tipo: 1, ambiente: 1 }
+  # Textos do b03 que precisam existir (o texto não fica na ficha).
+  textos_b03: [aparencia]
