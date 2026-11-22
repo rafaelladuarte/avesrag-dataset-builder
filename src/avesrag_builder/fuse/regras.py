@@ -18,13 +18,17 @@ from typing import Any
 from avesrag_builder.core.models import Prov
 from avesrag_builder.core.regras_fusao import RegrasFusao
 from avesrag_builder.core.vocabulario import RegrasBico, Vocabulario
+from avesrag_builder.ingest import birdalbum as ba
 
 B01 = "b01_aparencia"
 B02 = "b02_comportamento"
 B03 = "b03_textos_busca"
 
 # Fontes que entram numa união, na ordem em que aparecem no `_prov.fonte`.
-ORDEM_FONTES = ("avonet", "birdbase", "cbro", "ebird", "ibge", "wikiaves")
+ORDEM_FONTES = ("avonet", "birdalbum", "birdbase", "cbro", "ebird", "ibge", "wikiaves")
+
+# reference_type do Bird Album -> do que a ilustração partiu.
+REFERENCIA_BIRDALBUM = {"photo": "foto", "reference-board": "quadro", "": "descricao"}
 
 
 @dataclass(frozen=True)
@@ -46,6 +50,8 @@ class DadosEspecie:
     birdbase: dict[str, Any] | None = None
     extracoes: dict[str, dict[str, Any]] = field(default_factory=dict)  # prompt -> doc
     ocorrencia: dict[str, Any] | None = None  # doc de species_occurrence
+    birdalbum: dict[str, Any] | None = None  # `dados` do raw_birdalbum
+    birdalbum_por: str | None = None  # como casou: "ebird" ou "nome"
 
     @property
     def pagina(self) -> dict[str, Any]:
@@ -194,6 +200,29 @@ def midia(d: DadosEspecie) -> Campo | None:
     }
     valor = {k: v for k, v in valor.items() if v}
     return Campo(valor, Prov(fonte="wikiaves")) if valor else None
+
+
+def ilustracao(d: DadosEspecie, repo: str, ref: str) -> Campo | None:
+    """Ilustração do Bird Album (mídia secundária): só com arquivo, licença CC BY e
+    o selo de qualidade do próprio projeto."""
+    b = d.birdalbum or {}
+    arquivo = _texto(b.get("sticker_file"))
+    if not arquivo or b.get("sticker_license") != ba.LICENCA_FONTE:
+        return None
+    if str(b.get("meets_quality_bar")).strip().lower() != "true":
+        return None
+    referencia = REFERENCIA_BIRDALBUM.get((b.get("reference_type") or "").strip())
+    if referencia is None:
+        return None
+    valor = {
+        "url": ba.url_raw(repo, ref, arquivo),
+        "credito": ba.CREDITO,
+        "licenca": ba.LICENCA,
+        "link": ba.link_repositorio(repo),
+        "gerada_por_ia": True,
+        "referencia": referencia,
+    }
+    return Campo(valor, Prov(fonte="birdalbum", metodo=d.birdalbum_por))
 
 
 def ocorrencia(d: DadosEspecie) -> Campo | None:

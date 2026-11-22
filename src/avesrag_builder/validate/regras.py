@@ -43,7 +43,13 @@ def _preenchido(valor: Any) -> bool:
 
 
 def campos_preenchidos(doc: dict[str, Any]) -> set[str]:
-    caminhos = {c for c in CAMPOS_TOPO if _preenchido(_valor(doc, c))}
+    caminhos = {c for c in CAMPOS_TOPO if c != "midia" and _preenchido(_valor(doc, c))}
+    # `midia` (WikiAves) e `midia.ilustracao` (Bird Album) têm proveniências separadas.
+    midia = doc.get("midia") or {}
+    if any(_preenchido(v) for k, v in midia.items() if k != "ilustracao"):
+        caminhos.add("midia")
+    if _preenchido(midia.get("ilustracao")):
+        caminhos.add("midia.ilustracao")
     for nome, valor in (doc.get("atributos") or {}).items():
         if _preenchido(valor):
             caminhos.add(f"atributos.{nome}")

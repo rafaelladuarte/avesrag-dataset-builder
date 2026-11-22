@@ -13,6 +13,7 @@ from pymongo.database import Database
 from avesrag_builder.db.collections import (
     LLM_BATCHES,
     RAW_AVONET,
+    RAW_BIRDALBUM,
     RAW_BIRDBASE,
     RAW_CBRO,
     RAW_EBIRD,
@@ -44,6 +45,7 @@ class Estado:
     pares_sem_texto: int = 0
     lotes_abertos: int = 0
     fichas: int = 0
+    com_ilustracao: int = 0
     dq: dict[str, int] = field(default_factory=dict)
     sem_dq: int = 0
     documentos: int = 0
@@ -77,6 +79,8 @@ def proximo_passo(e: Estado) -> str | None:
         return "ingest ebird" + p
     if e.wikiaves_paginas == 0:
         return "ingest wikiaves" + p
+    if not e.raw.get("birdalbum"):
+        return "ingest birdalbum"
     if e.registry == 0:
         return "resolve"
     if e.escopo_com_pagina < e.escopo:
@@ -100,7 +104,8 @@ def linhas(e: Estado) -> list[str]:
     raw = " · ".join(f"{f} {e.raw.get(f, 0)}" for f in PLANILHAS)
     out = [
         f"raw_*: {raw} · ebird {e.ebird_municipios} município(s) · "
-        f"wikiaves {e.raw.get('wikiaves', 0)} ({e.wikiaves_paginas} páginas)",
+        f"wikiaves {e.raw.get('wikiaves', 0)} ({e.wikiaves_paginas} páginas) · "
+        f"birdalbum {e.raw.get('birdalbum', 0)}",
         f"species_registry: {e.registry} espécies"
         + (
             f"; piloto {e.escopo} de {e.piloto_codigos} do eBird "
@@ -112,7 +117,8 @@ def linhas(e: Estado) -> list[str]:
         f"{e.pares_validos} válidas, {e.pares_sem_texto} sem texto; {e.lotes_abertos} lote(s) aberto(s)",
         f"species: {e.fichas} fichas; apta {e.aptas} ({e.pct_aptas:.1f}%), "
         f"incompleta {e.dq.get('incompleta', 0)}, bloqueada {e.dq.get('bloqueada', 0)}"
-        + (f", sem classificação {e.sem_dq}" if e.sem_dq else ""),
+        + (f", sem classificação {e.sem_dq}" if e.sem_dq else "")
+        + f"; {e.com_ilustracao} com ilustração",
         f"species_retrieval_docs: {e.documentos} documentos de {e.especies_com_documento} espécies; "
         + ", ".join(f"{n} {e.indices.get(n, 'ausente')}" for n in (INDICE_VETOR, INDICE_TEXTO)),
     ]
@@ -135,6 +141,7 @@ def coletar(db: Database, piloto: bool, geocodigo: str) -> Estado:
         ("birdbase", RAW_BIRDBASE),
         ("avonet", RAW_AVONET),
         ("wikiaves", RAW_WIKIAVES),
+        ("birdalbum", RAW_BIRDALBUM),
     ):
         e.raw[fonte] = db[col].estimated_document_count()
     e.ebird_municipios = db[RAW_EBIRD].count_documents({"_id": {"$regex": "^municipio:"}})
@@ -168,9 +175,10 @@ def coletar(db: Database, piloto: bool, geocodigo: str) -> Estado:
     e.pares_sem_texto = ext.count_documents({**no_escopo, "validacao.erro": "sem_texto"})
     e.lotes_abertos = db[LLM_BATCHES].count_documents({"status": "enviado"})
 
-    for d in db[SPECIES].find(no_escopo, {"_meta.dq_status": 1}):
+    for d in db[SPECIES].find(no_escopo, {"_meta.dq_status": 1, "midia.ilustracao.url": 1}):
         status = (d.get("_meta") or {}).get("dq_status")
         e.fichas += 1
+        e.com_ilustracao += bool(((d.get("midia") or {}).get("ilustracao") or {}).get("url"))
         if status:
             e.dq[status] = e.dq.get(status, 0) + 1
         else:

@@ -91,3 +91,15 @@ class TestFaltasEClassificacao:
 
     def test_bloqueada_vence_incompleta(self):
         assert v.classificar(["taxonomia: falta genero"], ["cores (1 de 2)"]) == "bloqueada"
+
+
+def test_3_ilustracao_sem_prov(doc, vocab, regras):
+    doc["midia"]["ilustracao"] = {
+        "url": "u",
+        "credito": "c",
+        "licenca": "l",
+        "link": "k",
+        "gerada_por_ia": True,
+        "referencia": "foto",
+    }
+    assert "_prov: falta a entrada de midia.ilustracao" in _erros(doc, vocab, regras)

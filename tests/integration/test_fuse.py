@@ -11,6 +11,7 @@ from avesrag_builder.core.models import Species
 from avesrag_builder.core.settings import get_settings
 from avesrag_builder.db.collections import (
     RAW_AVONET,
+    RAW_BIRDALBUM,
     RAW_BIRDBASE,
     RAW_CBRO,
     RAW_EBIRD,
@@ -111,6 +112,25 @@ def db(db_temporario):
         PILOTO,
         {"Nome do município": "Uberlândia", "Sigla da UF": "MG", "Bioma predominante": "Cerrado"},
     )
+    album = {"sticker_license": "CC-BY-4.0", "meets_quality_bar": "True", "reference_type": "photo"}
+    # bem-te-vi casa pelo código do eBird (nome diferente na AviList); tiziu, pelo nome.
+    _raw(
+        db,
+        RAW_BIRDALBUM,
+        "Pitangus_outro",
+        {
+            **album,
+            "scientific_name": "Pitangus outro",
+            "ebird": "grekis",
+            "sticker_file": "s/a.webp",
+        },
+    )
+    _raw(
+        db,
+        RAW_BIRDALBUM,
+        "Volatinia_jacarina",
+        {**album, "scientific_name": "Volatinia jacarina", "ebird": "", "sticker_file": "s/b.webp"},
+    )
     sid = "sp_pitangus_sulphuratus"
     b01 = dict.fromkeys(["comprimento_cm", "cores", "cores_por_parte", "marcas", "cauda"])
     b01 |= {
@@ -142,6 +162,10 @@ def test_fuse_e_validate_do_piloto(db, settings):
     assert bem_te_vi["atributos"]["tamanho"] == ["medio"]
     assert bem_te_vi["atributos"]["bico_tipo"] == "granivoro"
     assert bem_te_vi["ocorrencia"] == {"biomas": ["Cerrado"], "n_municipios": 1}
+    assert bem_te_vi["midia"]["ilustracao"]["url"].endswith("/s/a.webp")
+    assert bem_te_vi["_prov"]["midia.ilustracao"] == {"fonte": "birdalbum", "metodo": "ebird"}
+    tiziu = fichas["sp_volatinia_jacarina"]
+    assert tiziu["_prov"]["midia.ilustracao"] == {"fonte": "birdalbum", "metodo": "nome"}
     assert (settings.REPORTS_DIR / "fuse.tsv").exists()
 
     # A5: species_occurrence por species_id (o sanhaço não tem registro)

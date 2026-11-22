@@ -41,6 +41,7 @@ poetry run avesrag-builder ingest birdbase
 poetry run avesrag-builder ingest avonet
 
 # 2. APIs e sites (o wikiaves por último: ele usa as três fontes anteriores)
+poetry run avesrag-builder ingest birdalbum
 poetry run avesrag-builder ingest ebird --piloto
 poetry run avesrag-builder ingest wikiaves --piloto
 
@@ -68,6 +69,7 @@ Os passos 3 a 5 também rodam juntos com `poetry run avesrag-builder run --pilot
 | Etapa | Tempo | Custo |
 | --- | --- | --- |
 | `ingest` das 4 planilhas | ~1 min | — |
+| `ingest birdalbum` | segundos (um CSV de 3,6 MB do GitHub) | — |
 | `ingest ebird --piloto` | segundos | — |
 | `ingest wikiaves --piloto` | ~50 min (437 páginas, ~7 s cada) | — |
 | `resolve` | ~2 s | — |
@@ -162,6 +164,7 @@ poetry run avesrag-builder ingest birdbase
 poetry run avesrag-builder ingest avonet
 
 # APIs e sites
+poetry run avesrag-builder ingest birdalbum           # lista das ilustrações (1 download do GitHub)
 poetry run avesrag-builder ingest ebird --piloto      # 3 chamadas à API
 poetry run avesrag-builder ingest wikiaves --piloto   # ~50 min (~7 s por página)
 ```
@@ -172,7 +175,7 @@ poetry run avesrag-builder ingest wikiaves --piloto   # ~50 min (~7 s por págin
 <summary>Mais detalhes</summary>
 
 - Cada fonte vira uma collection `raw_<fonte>` no formato `{_id, dados, ingerido_em, source_hash}`. O `_id` é a chave na fonte e `dados` é o registro como chegou. Um documento só é regravado quando o `source_hash` muda.
-- O que cada fonte traz: CBRO, 1.971 espécies (id = #CBRO); IBGE, 5.572 municípios (id = geocódigo); BIRDBASE, 11.589 espécies (id = IOC 15.1); AVONET, as abas BirdLife e eBird e a correspondência entre elas.
+- O que cada fonte traz: CBRO, 1.971 espécies (id = #CBRO); IBGE, 5.572 municípios (id = geocódigo); BIRDBASE, 11.589 espécies (id = IOC 15.1); AVONET, as abas BirdLife e eBird e a correspondência entre elas; Bird Album, 11.011 espécies com ilustração (id = nome científico da AviList, num commit fixo do repositório: `BIRDALBUM_REF`).
 - O `ebird` e o `wikiaves` retomam de onde pararam. Use `--refazer` para baixar tudo de novo e `--limite N` (só no `wikiaves`) para parar depois de N páginas.
 
 </details>
@@ -245,6 +248,7 @@ O `fuse` monta uma ficha por espécie em `species`: cada campo vem de uma fonte 
 - Valores do `b01`/`b02` cuja evidência não foi encontrada no texto são descartados aqui.
 - Reservas: sem comprimento, o tamanho sai da massa (BIRDBASE, depois AVONET); sem família na regra de bico, a dieta do AVONET e depois a do BIRDBASE; `onde_estava` e `grupo` sem valor no `b02` usam o AVONET e o BIRDBASE.
 - `species_occurrence` guarda os municípios e biomas com registro de cada espécie no eBird.
+- **Mídia:** `midia.foto` é a foto indicada do WikiAves; `midia.ilustracao` é uma ilustração do Bird Album, **gerada por IA**, com crédito e licença (CC BY 4.0). Ela é mídia secundária: serve de ilustração, nunca de confirmação da espécie, e o app deve exibi-la sempre com o rótulo de IA. O casamento é pelo código do eBird e, na falta dele, pelo nome científico.
 - Rodar de novo não grava nada. Uma ficha que muda perde o `dq_status` até o próximo `validate`.
 - Relatórios: `reports/fuse.tsv` (de onde veio cada campo) e `reports/validate.tsv` (o que falta em cada incompleta).
 
@@ -314,6 +318,7 @@ Só as chaves de API são obrigatórias, e cada uma só é cobrada pelo comando 
 | `EMBEDDING_PRECO` | `0.13` | US$ por milhão de tokens de embedding, para a estimativa de custo |
 | `PILOTO_MUNICIPIO_IBGE` | `3170206` (Uberlândia, MG) | município do `--piloto` |
 | `WIKIAVES_MAX_ESPECIES` | `0` (sem limite) | limite do scraping |
+| `BIRDALBUM_REPO`, `BIRDALBUM_REF` | `alchaincyf/huashu-bird-sticker`, commit `fb4463b…` | repositório e commit fixo das ilustrações |
 | `AVESRAG_LOG_FILE` | — | grava o log também neste arquivo |
 
 </details>
@@ -389,12 +394,14 @@ docs/legado/              # documentação e dados tratados da v1
 | [BIRDBASE v2025.1](https://doi.org/10.6084/m9.figshare.27051040) | nomes em 4 taxonomias (ponte para o eBird), IUCN 2024 e ecologia | `BIRDBASEv2025.1.xlsx` (no Figshare: `BIRDBASE v2025.1 Sekercioglu et al. Final.xlsx`) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [IBGE](https://www.ibge.gov.br/geociencias/informacoes-ambientais/vegetacao/15842-biomas.html) | bioma predominante de cada município (2024) | `Bioma_Predominante_por_Municipio_2024.xlsx` | dado público do IBGE; termos de reuso a confirmar |
 | [eBird](https://ebird.org/) | taxonomia (`speciesCode`) e espécies registradas por município | — (API, com a sua chave) | termos de uso da API do eBird |
+| [Bird Album](https://birdalbum.com/) ([repositório](https://github.com/alchaincyf/huashu-bird-sticker)) | ilustração de cada espécie, **gerada por IA** (mídia secundária) | — (baixado do GitHub num commit fixo) | ilustrações [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); dados MIT |
 
 **Citações** (exigidas pela CC BY):
 - Pacheco, J. F. et al. (2021). Annotated checklist of the birds of Brazil by the Brazilian Ornithological Records Committee — second edition. *Ornithology Research* 29. Dados: [10.5281/zenodo.5138368](https://doi.org/10.5281/zenodo.5138368).
 - Tobias, J. A. et al. (2022). AVONET: morphological, ecological and geographical data for all birds. *Ecology Letters* 25. Dados: [10.6084/m9.figshare.16586228](https://doi.org/10.6084/m9.figshare.16586228).
 - Şekercioğlu, Ç. H. et al. (2025). BIRDBASE: a global dataset of avian biogeography, conservation, ecology and life history traits. *Scientific Data*. Dados: [10.6084/m9.figshare.27051040](https://doi.org/10.6084/m9.figshare.27051040).
 - IBGE (2024). Bioma Predominante por Município para Fins Estatísticos.
+- Ilustrações: "Bird stickers: huashu-bird-sticker by Huashu, CC BY 4.0", <https://github.com/alchaincyf/huashu-bird-sticker>. O crédito vai em cada ficha (`midia.ilustracao.credito` e `.link`).
 
 A base gerada não é publicada: cada pessoa a reconstrói com as próprias chaves, porque ela contém trechos dos textos do WikiAves.
 

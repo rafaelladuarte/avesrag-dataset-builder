@@ -9,6 +9,7 @@ RAW_BIRDBASE = "raw_birdbase"
 RAW_CBRO = "raw_cbro"
 RAW_EBIRD = "raw_ebird"
 RAW_IBGE = "raw_ibge"
+RAW_BIRDALBUM = "raw_birdalbum"
 
 SPECIES_REGISTRY = "species_registry"
 SPECIES_EXTRACTIONS = "species_extractions"
@@ -19,7 +20,15 @@ SPECIES_RETRIEVAL_DOCS = "species_retrieval_docs"
 # Operacional: lotes enviados à API de batch do LLM, para retomar o `extract`.
 LLM_BATCHES = "llm_batches"
 
-RAW_COLLECTIONS = (RAW_WIKIAVES, RAW_AVONET, RAW_BIRDBASE, RAW_CBRO, RAW_EBIRD, RAW_IBGE)
+RAW_COLLECTIONS = (
+    RAW_WIKIAVES,
+    RAW_AVONET,
+    RAW_BIRDBASE,
+    RAW_CBRO,
+    RAW_EBIRD,
+    RAW_IBGE,
+    RAW_BIRDALBUM,
+)
 
 # Escritas pelo builder, na ordem do pipeline.
 BUILDER_COLLECTIONS = (

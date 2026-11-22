@@ -31,6 +31,7 @@ class Fonte(str, Enum):
     cbro = "cbro"
     ebird = "ebird"
     ibge = "ibge"
+    birdalbum = "birdalbum"
 
 
 def nao_implementado(comando: str, marco: str) -> None:
@@ -78,6 +79,7 @@ def ingest(
 
     from bson.errors import InvalidDocument
     from pymongo.errors import PyMongoError
+    from requests import RequestException
 
     from avesrag_builder.core.settings import MissingSettingError
     from avesrag_builder.db.connection import get_db
@@ -97,7 +99,7 @@ def ingest(
 
     try:
         resultados = ingerir(get_db(), **kwargs)
-    except (MissingSettingError, IdDuplicado, PyMongoError, InvalidDocument) as e:
+    except (MissingSettingError, IdDuplicado, PyMongoError, InvalidDocument, RequestException) as e:
         typer.echo(f"Falhou: {e}", err=True)
         raise typer.Exit(code=1) from e
 

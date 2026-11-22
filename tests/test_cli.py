@@ -7,7 +7,7 @@ from avesrag_builder import __version__
 from avesrag_builder.cli import app
 
 COMANDOS = ["ingest", "resolve", "extract", "fuse", "validate", "docs", "index", "status", "run"]
-FONTES = ["wikiaves", "avonet", "birdbase", "cbro", "ebird", "ibge"]
+FONTES = ["wikiaves", "avonet", "birdbase", "cbro", "ebird", "ibge", "birdalbum"]
 
 runner = CliRunner()
 

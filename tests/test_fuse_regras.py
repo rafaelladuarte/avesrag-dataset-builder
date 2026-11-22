@@ -322,3 +322,71 @@ class TestMontar:
         doc = montar(bem_te_vi(extracoes={}), vocab, bico, regras).species.to_mongo()
         assert "cores" not in doc["atributos"]
         assert doc["_prov"]["atributos.tamanho"]["metodo"] == "massa"
+
+
+ALBUM = {
+    "id": "Pitangus_sulphuratus",
+    "scientific_name": "Pitangus sulphuratus",
+    "ebird": "grekis",
+    "sticker_file": "stickers/Passeriformes/Tyrannidae/Pitangus_sulphuratus.webp",
+    "sticker_license": "CC-BY-4.0",
+    "meets_quality_bar": "True",
+    "reference_type": "photo",
+}
+REPO, REF = "dono/repo", "abc123"
+
+
+class TestIlustracao:
+    def test_ilustracao_com_credito_e_commit_fixo(self):
+        campo = r.ilustracao(bem_te_vi(birdalbum=ALBUM, birdalbum_por="ebird"), REPO, REF)
+        assert campo.valor == {
+            "url": "https://raw.githubusercontent.com/dono/repo/abc123/"
+            "stickers/Passeriformes/Tyrannidae/Pitangus_sulphuratus.webp",
+            "credito": "Bird stickers: huashu-bird-sticker by Huashu, CC BY 4.0",
+            "licenca": "CC BY 4.0",
+            "link": "https://github.com/dono/repo",
+            "gerada_por_ia": True,
+            "referencia": "foto",
+        }
+        assert (campo.prov.fonte, campo.prov.metodo) == ("birdalbum", "ebird")
+
+    @pytest.mark.parametrize(
+        "mudar, referencia",
+        [({"reference_type": "reference-board"}, "quadro"), ({"reference_type": ""}, "descricao")],
+    )
+    def test_referencia(self, mudar, referencia):
+        d = bem_te_vi(birdalbum={**ALBUM, **mudar})
+        assert r.ilustracao(d, REPO, REF).valor["referencia"] == referencia
+
+    @pytest.mark.parametrize(
+        "mudar",
+        [
+            {"sticker_file": ""},
+            {"sticker_license": "PolyForm-Shield-1.0.0"},
+            {"meets_quality_bar": "False"},
+            {"reference_type": "desconhecido"},
+        ],
+    )
+    def test_sem_ilustracao(self, mudar):
+        assert r.ilustracao(bem_te_vi(birdalbum={**ALBUM, **mudar}), REPO, REF) is None
+
+    def test_sem_registro_no_bird_album(self):
+        assert r.ilustracao(bem_te_vi(), REPO, REF) is None
+
+    def test_ficha_com_ilustracao_tem_prov_separado(self, vocab, bico, regras):
+        d = bem_te_vi(birdalbum=ALBUM, birdalbum_por="nome")
+        doc = montar(d, vocab, bico, regras, birdalbum=(REPO, REF)).species.to_mongo()
+        assert doc["midia"]["ilustracao"]["referencia"] == "foto"
+        assert doc["midia"]["foto"] == "https://exemplo/foto.jpg"
+        assert doc["_prov"]["midia.ilustracao"] == {"fonte": "birdalbum", "metodo": "nome"}
+        assert doc["_prov"]["midia"] == {"fonte": "wikiaves"}
+        assert set(doc["_prov"]) == campos_preenchidos(doc)
+
+    def test_ficha_so_com_a_ilustracao(self, vocab, bico, regras):
+        d = bem_te_vi(
+            birdalbum=ALBUM, birdalbum_por="ebird", wikiaves={"lista": {"nome_comum": "x"}}
+        )
+        doc = montar(d, vocab, bico, regras, birdalbum=(REPO, REF)).species.to_mongo()
+        assert set(doc["midia"]) == {"ilustracao"}
+        assert "midia" not in doc["_prov"]
+        assert set(doc["_prov"]) == campos_preenchidos(doc)

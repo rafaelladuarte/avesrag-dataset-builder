@@ -49,6 +49,10 @@ class Settings(BaseSettings):
     # Piloto e coleta
     PILOTO_MUNICIPIO_IBGE: str = "3170206"
     WIKIAVES_MAX_ESPECIES: int = 0  # 0 = sem limite
+    # Ilustrações do Bird Album (repositório huashu-bird-sticker): commit fixo, para
+    # a lista e as URLs das imagens não mudarem sozinhas. Medido em 22/11/2026.
+    BIRDALBUM_REPO: str = "alchaincyf/huashu-bird-sticker"
+    BIRDALBUM_REF: str = "fb4463b12e2d93c7dfc4335a1fc92203fb9173df"
 
     # Caminhos
     CONFIG_DIR: Path = ROOT_DIR / "config"

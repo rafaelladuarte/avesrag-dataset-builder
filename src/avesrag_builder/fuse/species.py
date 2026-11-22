@@ -38,6 +38,7 @@ from avesrag_builder.core.vocabulario import (
 )
 from avesrag_builder.db.collections import (
     RAW_AVONET,
+    RAW_BIRDALBUM,
     RAW_BIRDBASE,
     RAW_CBRO,
     RAW_WIKIAVES,
@@ -65,6 +66,7 @@ CAMPOS_COM_RESERVA = (
     "atributos.ambiente",
     "atributos.onde_estava",
     "atributos.grupo",
+    "midia.ilustracao",
 )
 
 
@@ -102,9 +104,27 @@ def carregar(
     for doc in db[SPECIES_EXTRACTIONS].find({"species_id": {"$in": ids}}):
         extracoes.setdefault(doc["species_id"], {})[doc["prompt"]] = doc
 
+    # Bird Album: pelo código do eBird (a taxonomia da AviList difere da do WikiAves
+    # em ~3% do piloto) e, sem código, pelo nome científico.
+    codigos = [c.get("ebird") for c in chaves if c.get("ebird")]
+    nomes = [reg["nome_cientifico"] for reg in registros]
+    album_ebird: dict[str, dict[str, Any]] = {}
+    album_nome: dict[str, dict[str, Any]] = {}
+    for doc in db[RAW_BIRDALBUM].find(
+        {"$or": [{"dados.ebird": {"$in": codigos}}, {"dados.scientific_name": {"$in": nomes}}]}
+    ):
+        dados_album = doc["dados"]
+        if dados_album.get("ebird"):
+            album_ebird.setdefault(dados_album["ebird"], dados_album)
+        album_nome.setdefault(dados_album.get("scientific_name"), dados_album)
+
     dados = []
     for reg in sorted(registros, key=lambda x: x["species_id"]):
         sid, ch = reg["species_id"], reg["chaves"]
+        album = album_ebird.get(ch.get("ebird") or "")
+        album_por = "ebird" if album else None
+        if album is None and reg["nome_cientifico"] in album_nome:
+            album, album_por = album_nome[reg["nome_cientifico"]], "nome"
         dados.append(
             r.DadosEspecie(
                 species_id=sid,
@@ -116,6 +136,8 @@ def carregar(
                 birdbase=raw["birdbase"].get(ch.get("birdbase")),
                 extracoes=extracoes.get(sid, {}),
                 ocorrencia=ocorrencias.get(sid),
+                birdalbum=album,
+                birdalbum_por=album_por,
             )
         )
     return dados
@@ -138,8 +160,15 @@ def montar(
     bico: RegrasBico,
     regras: RegrasFusao,
     agora: datetime | None = None,
+    birdalbum: tuple[str, str] | None = None,
 ) -> Ficha:
-    """Ficha de uma espécie. Levanta `ValidationError` se faltar o nome em português."""
+    """Ficha de uma espécie. Levanta `ValidationError` se faltar o nome em português.
+
+    `birdalbum` é (repositório, commit) das ilustrações; sem ele, vale o do settings.
+    """
+    if birdalbum is None:
+        s = get_settings()
+        birdalbum = (s.BIRDALBUM_REPO, s.BIRDALBUM_REF)
     descartes = r.Descartes()
     prov: dict[str, Prov] = {}
     doc: dict[str, Any] = {"species_id": d.species_id, "nome_cientifico": d.nome_cientifico}
@@ -157,7 +186,11 @@ def montar(
     doc["status_ocorrencia"] = usar("status_ocorrencia", r.status_ocorrencia(d))
     doc["iucn"] = usar("iucn", r.iucn(d, vocab))
     doc["ocorrencia"] = usar("ocorrencia", r.ocorrencia(d))
-    doc["midia"] = usar("midia", r.midia(d))
+    midia = usar("midia", r.midia(d)) or {}
+    ilustracao = usar("midia.ilustracao", r.ilustracao(d, *birdalbum))
+    if ilustracao:
+        midia = {**midia, "ilustracao": ilustracao}
+    doc["midia"] = midia or None
 
     comprimento = r.comprimento_cm(d, regras, descartes)
     por_parte = r.cores_por_parte(d, vocab, descartes)
@@ -274,6 +307,7 @@ CAMPOS_COBERTURA = (
     "iucn",
     "ocorrencia",
     "midia",
+    "midia.ilustracao",
     *(f"atributos.{c}" for c in Atributos.model_fields),
 )
 
@@ -344,10 +378,11 @@ def executar(
     por_especie = {sid: occ.to_mongo() for sid, occ in ocorrencias.por_especie.items()}
 
     agora = datetime.now(UTC)
+    birdalbum = (settings.BIRDALBUM_REPO, settings.BIRDALBUM_REF)
     fichas: list[Ficha] = []
     for d in carregar(db, ids, por_especie):
         try:
-            fichas.append(montar(d, vocab, bico, regras, agora))
+            fichas.append(montar(d, vocab, bico, regras, agora, birdalbum))
         except ValidationError as e:
             res.erros.append((d.species_id, str(e).replace("\n", " ")))
     res.species = gravar(db, [f.species for f in fichas])

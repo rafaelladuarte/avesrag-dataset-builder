@@ -8,7 +8,14 @@ from avesrag_builder.status import Estado, linhas, proximo_passo
 
 COMPLETO = Estado(
     piloto=True,
-    raw={"cbro": 1971, "ibge": 5572, "birdbase": 11589, "avonet": 33022, "wikiaves": 1975},
+    raw={
+        "cbro": 1971,
+        "ibge": 5572,
+        "birdbase": 11589,
+        "avonet": 33022,
+        "wikiaves": 1975,
+        "birdalbum": 11011,
+    },
     ebird_municipios=1,
     wikiaves_paginas=437,
     registry=1975,
@@ -37,6 +44,7 @@ def com(**mudar):
         (com(raw={**COMPLETO.raw, "avonet": 0}), "ingest avonet"),
         (com(ebird_municipios=0), "ingest ebird --piloto"),
         (com(wikiaves_paginas=0), "ingest wikiaves --piloto"),
+        (com(raw={**COMPLETO.raw, "birdalbum": 0}), "ingest birdalbum"),
         (com(registry=0), "resolve"),
         (com(escopo_com_pagina=400), "ingest wikiaves --piloto (faltam páginas"),
         (com(lotes_abertos=1), "extract --piloto --sem-esperar"),

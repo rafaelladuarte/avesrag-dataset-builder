@@ -248,9 +248,21 @@ class Ocorrencia(MongoModel):
     n_municipios: int | None = Field(default=None, ge=0)
 
 
+class Ilustracao(MongoModel):
+    """Mídia secundária: ilustração gerada por IA (Bird Album), nunca a que confirma a espécie."""
+
+    url: TextoNaoVazio
+    credito: TextoNaoVazio
+    licenca: TextoNaoVazio
+    link: TextoNaoVazio  # página da fonte, exigida pelo crédito da CC BY
+    gerada_por_ia: bool = True
+    referencia: Literal["foto", "quadro", "descricao"]  # do que a IA partiu
+
+
 class Midia(MongoModel):
     foto: str | None = None
     url_wikiaves: str | None = None
+    ilustracao: Ilustracao | None = None
 
 
 class Prov(MongoModel):
