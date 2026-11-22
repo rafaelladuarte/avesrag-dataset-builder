@@ -332,8 +332,9 @@ A imagem `mongodb/mongodb-atlas-local:8.3.17` traz o `mongod` e o `mongot` (o pr
 - `config/vocabulario.yaml` define os valores aceitos, os sinônimos e os mapeamentos AVONET/BIRDBASE → vocabulário.
 - `config/regras_bico.yaml` define família → tipo de bico, dieta → tipo de bico e o perfil visual de cada tipo.
 - `config/regras_fusao.yaml` define os cortes de tamanho (por comprimento e, na falta dele, por massa) e o que uma ficha precisa ter para ser `apta`.
+- `config/regras_midia.yaml` define a foto de cada espécie: a ordem das fontes (iNaturalist do Brasil, Commons, iNaturalist de fora), as licenças aceitas (CC0, domínio público, CC BY e CC BY-SA; nada NC, ND ou GFDL), o modelo do crédito e como reconhecer, no Commons, uma ilustração ou um autor sem nome.
 
-Os três se validam ao carregar. Um valor inexistente, um sinônimo ambíguo ou um tipo de bico sem perfil faz o carregamento falhar, indicando onde está o erro.
+Os quatro se validam ao carregar. Um valor inexistente, um sinônimo ambíguo ou um tipo de bico sem perfil faz o carregamento falhar, indicando onde está o erro.
 
 ---
 
@@ -360,6 +361,7 @@ config/
 ├── vocabulario.yaml      # valores aceitos, sinônimos e mapeamentos
 ├── regras_bico.yaml      # tipo de bico e perfil visual
 ├── regras_fusao.yaml     # cortes de tamanho e critérios de apta
+├── regras_midia.yaml     # fontes, licenças e crédito da foto
 ├── consultas_fumaca.yaml # consultas de teste da busca (index --fumaca)
 └── prompts/              # b01_aparencia, b02_comportamento, b03_textos_busca
 src/avesrag_builder/

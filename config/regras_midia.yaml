@@ -1,0 +1,93 @@
+# Regras da foto de cada espécie (`midia.foto`), aplicadas no `fuse`.
+# Ver plano_fotos.md (§4 e §5, decisões aprovadas em 22/11/2026).
+#
+# Verificado por core/regras_midia.py ao carregar: as fontes e os métodos da
+# ordem existem e não se repetem; o modelo do crédito cita {autor} e {licenca};
+# toda licença tem URL https e nome único; nenhum apelido aparece em duas
+# licenças; nenhuma licença aceita é NC, ND ou GFDL; as expressões compilam.
+
+versao: "1.0"
+
+# Ordem de escolha: a primeira fonte com foto válida vence.
+# brasil: iNaturalist, observação "research grade" feita no Brasil, a mais votada.
+# p18: imagem P18 do Wikidata no Commons, se for foto (ver `commons.nao_foto`).
+# mundo: iNaturalist, observação de fora do Brasil, a mais votada.
+ordem:
+  - { fonte: inaturalist, metodo: brasil }
+  - { fonte: commons, metodo: p18 }
+  - { fonte: inaturalist, metodo: mundo }
+
+nomes_exibicao:
+  inaturalist: iNaturalist
+  commons: Wikimedia Commons
+
+# Texto que o assistant exibe junto da foto, sem mexer.
+credito: "Foto: {autor} · {licenca} · {fonte}"
+
+# Licenças aceitas (decisão 2): sem NC (uso comercial vedado), sem ND (a
+# miniatura redimensionada pode ser lida como derivada) e sem GFDL sem CC dupla.
+# `inaturalist`: valores de `license_code` na API (as licenças do iNaturalist
+# são as 4.0). `commons`: valores de `LicenseShortName`, comparados sem
+# diferença de maiúsculas e espaços.
+licencas:
+  - nome: CC0 1.0
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+    inaturalist: [cc0]
+    commons: [CC0, CC0 1.0, CC-zero]
+  - nome: Domínio público
+    url: https://creativecommons.org/publicdomain/mark/1.0/
+    commons: [Public domain, PD, Public Domain Mark 1.0]
+  - nome: CC BY 2.0
+    url: https://creativecommons.org/licenses/by/2.0/
+    commons: [CC BY 2.0]
+  - nome: CC BY 2.5
+    url: https://creativecommons.org/licenses/by/2.5/
+    commons: [CC BY 2.5]
+  - nome: CC BY 3.0
+    url: https://creativecommons.org/licenses/by/3.0/
+    commons: [CC BY 3.0]
+  - nome: CC BY 4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+    inaturalist: [cc-by]
+    commons: [CC BY 4.0]
+  - nome: CC BY-SA 2.0
+    url: https://creativecommons.org/licenses/by-sa/2.0/
+    commons: [CC BY-SA 2.0]
+  - nome: CC BY-SA 2.5
+    url: https://creativecommons.org/licenses/by-sa/2.5/
+    commons: [CC BY-SA 2.5]
+  - nome: CC BY-SA 3.0
+    url: https://creativecommons.org/licenses/by-sa/3.0/
+    commons: [CC BY-SA 3.0]
+  - nome: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+    inaturalist: [cc-by-sa]
+    commons: [CC BY-SA 4.0]
+
+commons:
+  # Versões portadas para um país ("CC BY-SA 2.5 ar"): valem como a genérica
+  # da mesma versão; a URL exibida é a que o Commons informar.
+  aceitar_portadas: true
+  # A P18 nem sempre é foto. No piloto (22/11), ~10 eram ilustrações do século
+  # XIX. Uma imagem é descartada se alguma categoria casar com `categorias` ou
+  # se o artista casar com `artistas` (expressões regulares, sem diferença de
+  # maiúsculas; use \b para não pegar nomes parecidos, como Smit e Smith).
+  nao_foto:
+    categorias:
+      - '\b(illustrations?|lithographs?|drawings?|paintings?|plates?|engravings?|watercolou?rs?)\b'
+      - '\b(specimens?|museum|taxidermy|skins)\b'
+      - '\bBiodiversity Heritage Library\b'
+    artistas:
+      - '\bJoseph Smit\b'
+      - '\bJoseph Wolf\b'
+      - '\bJ\.? ?G\.? Keulemans\b'
+      - '\bJohn Gould\b'
+      - '\bJohn James Audubon\b'
+      - '\bEdward Lear\b'
+      - '\bHenrik Gr[øo]nvold\b'
+      - '\bJacques Barraband\b'
+  # Autor sem nome legível: a foto é descartada e a escolha passa à próxima fonte.
+  autor_invalido:
+    - '^\s*$'
+    - 'No machine-readable author'
+    - '^\s*(unknown|desconhecido|anonymous)\s*$'
