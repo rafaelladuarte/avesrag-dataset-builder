@@ -166,9 +166,9 @@ class TestIdentidade:
         campo = r.iucn(bem_te_vi(birdbase=None), vocab)
         assert (campo.valor, campo.prov.fonte) == ("LC", "wikiaves")
 
-    def test_midia(self):
+    def test_midia_so_com_o_link_do_wikiaves(self):
+        # A foto do WikiAves não entra na ficha (Termo de Uso, B8).
         assert r.midia(bem_te_vi()).valor == {
-            "foto": "https://exemplo/foto.jpg",
             "url_wikiaves": "https://www.wikiaves.com.br/wiki/bem-te-vi",
         }
 
@@ -377,7 +377,7 @@ class TestIlustracao:
         d = bem_te_vi(birdalbum=ALBUM, birdalbum_por="nome")
         doc = montar(d, vocab, bico, regras, birdalbum=(REPO, REF)).species.to_mongo()
         assert doc["midia"]["ilustracao"]["referencia"] == "foto"
-        assert doc["midia"]["foto"] == "https://exemplo/foto.jpg"
+        assert "foto" not in doc["midia"]
         assert doc["_prov"]["midia.ilustracao"] == {"fonte": "birdalbum", "metodo": "nome"}
         assert doc["_prov"]["midia"] == {"fonte": "wikiaves"}
         assert set(doc["_prov"]) == campos_preenchidos(doc)

@@ -14,6 +14,7 @@ from pydantic import ValidationError
 
 from avesrag_builder.core.models import (
     Extraction,
+    Foto,
     RawEnvelope,
     RetrievalDoc,
     Species,
@@ -63,7 +64,19 @@ SPECIES = {
         "atividade": ["diurna"],
     },
     "ocorrencia": {"biomas": ["Cerrado", "Mata Atlântica"], "n_municipios": 4210},
-    "midia": {"foto": "https://...", "url_wikiaves": "/wiki/bem-te-vi"},
+    "midia": {
+        "foto": {
+            "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1/medium.jpg",
+            "autor": "Fulano de Tal",
+            "licenca": "CC BY 4.0",
+            "licenca_url": "https://creativecommons.org/licenses/by/4.0/",
+            "fonte": "inaturalist",
+            "link": "https://www.inaturalist.org/photos/1",
+            "credito": "Foto: Fulano de Tal · CC BY 4.0 · iNaturalist",
+            "local": "Uberlândia, MG, Brasil",
+        },
+        "url_wikiaves": "https://www.wikiaves.com.br/wiki/bem-te-vi",
+    },
     "_prov": {
         "atributos.bico_tipo": {"fonte": "regra_familia"},
         "atributos.cores": {"fonte": "wikiaves", "metodo": "llm", "ref": "b01_aparencia@2.0"},
@@ -233,6 +246,53 @@ class TestSpecies:
         data = copy.deepcopy(SPECIES)
         data["taxonomia"] = {"genero": "Pitangus"}
         Species.model_validate(data)
+
+
+class TestFoto:
+    FOTO = SPECIES["midia"]["foto"]
+
+    def test_exemplo(self):
+        foto = Foto.model_validate(self.FOTO)
+        assert foto.fonte == "inaturalist"
+        assert Species.model_validate(SPECIES).to_mongo()["midia"]["foto"] == self.FOTO
+
+    def test_local_e_opcional(self):
+        data = {k: v for k, v in self.FOTO.items() if k != "local"}
+        assert Foto.model_validate(data).local is None
+
+    @pytest.mark.parametrize("campo", ["url", "autor", "licenca", "licenca_url", "link", "credito"])
+    def test_credito_e_link_sao_obrigatorios(self, campo):
+        data = {k: v for k, v in self.FOTO.items() if k != campo}
+        with pytest.raises(ValidationError):
+            Foto.model_validate(data)
+
+    @pytest.mark.parametrize("campo", ["autor", "licenca", "credito"])
+    def test_rejeita_texto_vazio(self, campo):
+        with pytest.raises(ValidationError):
+            Foto.model_validate({**self.FOTO, campo: "  "})
+
+    @pytest.mark.parametrize("campo", ["url", "licenca_url", "link"])
+    @pytest.mark.parametrize("valor", ["http://exemplo/foto.jpg", "/photos/1", "https://"])
+    def test_urls_sao_https(self, campo, valor):
+        with pytest.raises(ValidationError):
+            Foto.model_validate({**self.FOTO, campo: valor})
+
+    def test_fonte_desconhecida(self):
+        with pytest.raises(ValidationError):
+            Foto.model_validate({**self.FOTO, "fonte": "wikiaves"})
+
+    @pytest.mark.parametrize(
+        "credito", ["Foto: Fulano de Tal · iNaturalist", "Foto: CC BY 4.0 · iNaturalist"]
+    )
+    def test_credito_cita_autor_e_licenca(self, credito):
+        with pytest.raises(ValidationError, match="crédito"):
+            Foto.model_validate({**self.FOTO, "credito": credito})
+
+    def test_foto_do_wikiaves_como_texto_e_recusada(self):
+        data = copy.deepcopy(SPECIES)
+        data["midia"]["foto"] = "https://s3.amazonaws.com/media.wikiaves.com.br/images/1/1_a.jpg"
+        with pytest.raises(ValidationError):
+            Species.model_validate(data)
 
 
 class TestExtraction:

@@ -37,6 +37,8 @@ Dominio = Literal["aparencia", "comportamento_ambiente", "voz_habitos"]
 
 SpeciesId = Annotated[str, StringConstraints(pattern=r"^sp_[a-z0-9]+(_[a-z0-9]+)*$")]
 TextoNaoVazio = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
+UrlHttps = Annotated[str, StringConstraints(strip_whitespace=True, pattern=r"^https://\S+$")]
+FonteFoto = Literal["inaturalist", "commons"]
 
 
 # ---------------------------------------------------------------------------
@@ -259,8 +261,32 @@ class Ilustracao(MongoModel):
     referencia: Literal["foto", "quadro", "descricao"]  # do que a IA partiu
 
 
+class Foto(MongoModel):
+    """Mídia principal: foto real com licença aberta (iNaturalist ou Wikimedia Commons).
+
+    A lista de licenças aceitas fica em `config/regras_midia.yaml` e é aplicada no
+    `fuse`; aqui o modelo garante que o crédito exigido pela licença está completo.
+    """
+
+    url: UrlHttps  # a imagem (miniatura ou tamanho médio)
+    autor: TextoNaoVazio
+    licenca: TextoNaoVazio  # nome curto, ex.: "CC BY 4.0"
+    licenca_url: UrlHttps
+    fonte: FonteFoto
+    link: UrlHttps  # página da foto na origem
+    credito: TextoNaoVazio  # pronto para exibir: "Foto: <autor> · <licença> · <fonte>"
+    local: str | None = None  # onde a foto foi feita, quando a fonte informa
+
+    @model_validator(mode="after")
+    def _credito_completo(self) -> Foto:
+        faltam = [c for c in (self.autor, self.licenca) if c not in self.credito]
+        if faltam:
+            raise ValueError(f"o crédito não cita {faltam}: {self.credito!r}")
+        return self
+
+
 class Midia(MongoModel):
-    foto: str | None = None
+    foto: Foto | None = None
     url_wikiaves: str | None = None
     ilustracao: Ilustracao | None = None
 

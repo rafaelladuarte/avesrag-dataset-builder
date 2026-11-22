@@ -194,12 +194,10 @@ def iucn(d: DadosEspecie, vocab: Vocabulario) -> Campo | None:
 
 
 def midia(d: DadosEspecie) -> Campo | None:
-    valor = {
-        "foto": _texto(d.pagina.get("foto_mais_indicada")),
-        "url_wikiaves": _texto(d.pagina.get("url")),
-    }
-    valor = {k: v for k, v in valor.items() if v}
-    return Campo(valor, Prov(fonte="wikiaves")) if valor else None
+    """Só o link para a página do WikiAves. A foto do WikiAves não entra na ficha:
+    o Termo de Uso proíbe a reprodução (B8); a foto vem do iNaturalist ou do Commons."""
+    url = _texto(d.pagina.get("url"))
+    return Campo({"url_wikiaves": url}, Prov(fonte="wikiaves")) if url else None
 
 
 def ilustracao(d: DadosEspecie, repo: str, ref: str) -> Campo | None:
