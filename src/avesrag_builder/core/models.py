@@ -319,8 +319,10 @@ class RetrievalDoc(MongoModel):
     id: TextoNaoVazio = Field(alias="_id")
     species_id: SpeciesId
     dominio: Dominio
-    texto: TextoNaoVazio
+    texto: TextoNaoVazio  # o texto do b03 do domínio; é o que vira embedding
+    nomes: list[TextoNaoVazio] = Field(default_factory=list)  # só para o $search
     embedding: list[float]
+    modelo: TextoNaoVazio  # modelo do embedding; trocar o modelo refaz o vetor
     filtros: dict[str, Any] = Field(default_factory=dict)
     built_at: datetime
 

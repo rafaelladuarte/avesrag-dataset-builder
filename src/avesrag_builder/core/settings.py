@@ -43,6 +43,8 @@ class Settings(BaseSettings):
     # Só para a estimativa de custo no resumo do `extract`.
     LLM_PRECO_ENTRADA: float = 0.05
     LLM_PRECO_SAIDA: float = 0.25
+    # US$ por milhão de tokens do EMBEDDING_MODEL (chamada síncrona); só para o resumo do `docs`.
+    EMBEDDING_PRECO: float = 0.13
 
     # Piloto e coleta
     PILOTO_MUNICIPIO_IBGE: str = "3170206"

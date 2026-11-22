@@ -61,3 +61,19 @@ class Fornecedor(Protocol):
     def resultados_lote(self, lote_id: str) -> list[Resposta]:
         """Respostas de um lote concluído (pedidos sem resposta ficam de fora)."""
         ...
+
+
+@dataclass(frozen=True)
+class Embeddings:
+    """Vetores na mesma ordem dos textos enviados, e os tokens cobrados."""
+
+    vetores: list[list[float]]
+    tokens: int = 0
+
+
+class Embedder(Protocol):
+    nome: str
+
+    def embeddings(self, textos: list[str], modelo: str) -> Embeddings:
+        """Um vetor por texto, na mesma ordem. Falha com `ErroFornecedor`."""
+        ...

@@ -87,8 +87,10 @@ RETRIEVAL = {
     "_id": "sp_pitangus_sulphuratus:aparencia",
     "species_id": "sp_pitangus_sulphuratus",
     "dominio": "aparencia",
-    "texto": "Bem-te-vi. Ave de tamanho médio, barriga amarela, cabeça preta...",
+    "texto": "Ave de tamanho médio, barriga amarela, cabeça preta...",
+    "nomes": ["bem-te-vi", "Pitangus sulphuratus"],
     "embedding": [0.012, -0.034, 0.5],
+    "modelo": "text-embedding-3-large",
     "filtros": {"tamanho": ["medio"], "cores": ["amarelo", "preto"], "bico_tipo": "generalista"},
     "built_at": "2026-11-20T00:00:00Z",
 }

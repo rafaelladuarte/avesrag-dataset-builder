@@ -17,7 +17,7 @@ A v2 está em construção.
 | 3 | Registry de espécies | ✅ pronto |
 | 4 | Extração por LLM | ✅ pronto |
 | 5 | Fusão e validação | ✅ pronto |
-| 6 | Documentos de busca e índices | ⏳ pendente |
+| 6 | Documentos de busca e índices | ✅ pronto |
 | 7 | Reprodutibilidade | ⏳ pendente |
 
 ---
@@ -61,9 +61,9 @@ O pipeline é uma sequência de comandos. Três regras valem para todos:
 | `extract` | extrai atributos dos textos com LLM | `species_extractions` | ✅ |
 | `fuse` | junta tudo numa ficha por espécie | `species`, `species_occurrence` | ✅ |
 | `validate` | confere a qualidade das fichas | `_meta.dq_status` | ✅ |
-| `docs` | gera os documentos de busca | `species_retrieval_docs` | Marco 6 |
-| `index` | cria os índices de busca | — | Marco 6 (`--verificar` já funciona) |
-| `run [--piloto]` | roda do `resolve` ao `index` | — | Marco 6 |
+| `docs` | gera os documentos de busca das espécies aptas | `species_retrieval_docs` | ✅ |
+| `index` | cria os índices de busca (`--fumaca` roda as consultas de teste) | — | ✅ |
+| `run [--piloto]` | roda do `resolve` ao `index` | — | ✅ |
 
 O **piloto** limita o trabalho às espécies registradas no eBird em Uberlândia (MG), cerca de 440. É o escopo usado no desenvolvimento.
 
@@ -159,7 +159,7 @@ Só as chaves de API são obrigatórias, e cada uma só é cobrada pelo comando 
 
 | Variável | Para quê |
 | --- | --- |
-| `OPENAI_API_KEY` | `extract` e `docs` |
+| `OPENAI_API_KEY` | `extract`, `docs` (só quando há embedding a gerar) e `index --fumaca` |
 | `EBIRD_API_KEY` | `ingest ebird` |
 
 <details>
@@ -219,6 +219,7 @@ config/
 ├── vocabulario.yaml      # valores aceitos, sinônimos e mapeamentos
 ├── regras_bico.yaml      # tipo de bico e perfil visual
 ├── regras_fusao.yaml     # cortes de tamanho e critérios de apta
+├── consultas_fumaca.yaml # consultas de teste da busca (index --fumaca)
 └── prompts/              # b01_aparencia, b02_comportamento, b03_textos_busca
 src/avesrag_builder/
 ├── cli.py                # comando avesrag-builder
@@ -229,7 +230,8 @@ src/avesrag_builder/
 ├── llm/                  # interface de fornecedor, adaptador OpenAI e leitor dos prompts
 ├── extract/              # contratos, evidências e pipeline do extract
 ├── fuse/                 # regras por campo, species e species_occurrence
-└── validate/             # validações, dq_status e relatório
+├── validate/             # validações, dq_status e relatório
+└── docs/                 # documentos de busca, índices e consultas de fumaça
 data/raw/                 # planilhas AVONET, BIRDBASE, CBRO, IBGE e lista do WikiAves
 reports/                  # relatórios gerados (fora do git)
 tests/

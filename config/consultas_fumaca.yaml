@@ -1,0 +1,37 @@
+# Consultas de fumaça do Marco 6 (`avesrag-builder index --fumaca`).
+#
+# Cada consulta vira um embedding (chamada paga, ~10 tokens) e passa por um
+# `$vectorSearch` em species_retrieval_docs; cada espécie vale pela maior nota
+# entre os seus documentos, e a esperada precisa ficar entre as 10 primeiras.
+# As duas primeiras são o aceite da Especificação; as outras cobrem os domínios
+# comportamento_ambiente e voz_habitos. Escritas em 22/11/2026 com o piloto.
+#
+# Bem-te-vi (revisto em 22/11): a consulta original, "barriga amarela e máscara
+# preta", não tem apoio na fonte (o WikiAves descreve "sobrancelha branca", sem
+# cabeça preta nem máscara) e só o embedding não separa as 39 aptas de barriga
+# amarela. A consulta nova usa o que a fonte diz e os filtros que o assistant
+# vai extrair da descrição.
+#
+# Campos: consulta, esperada (species_id), dominio (opcional: só documentos
+# desse domínio) e filtros (opcional: filtro do $vectorSearch, ex.
+# {"filtros.cores": {"$in": ["amarelo"]}}).
+
+versao: "1.0"
+top: 10
+
+consultas:
+  - consulta: barriga amarela e sobrancelha branca
+    esperada: sp_pitangus_sulphuratus # bem-te-vi
+    filtros:
+      $and:
+        - { filtros.cores: amarelo }
+        - { filtros.cores: branco }
+        - { filtros.marcas: sobrancelha }
+  - consulta: bico enorme e colorido
+    esperada: sp_ramphastos_toco # tucanuçu
+  - consulta: pia à noite numa árvore perto de casa
+    esperada: sp_megascops_choliba # corujinha-do-mato
+  - consulta: ave enorme que corre no campo e não voa
+    esperada: sp_rhea_americana # ema
+  - consulta: anda pelo chão do jardim e canta em dueto bem alto
+    esperada: sp_furnarius_rufus # joão-de-barro

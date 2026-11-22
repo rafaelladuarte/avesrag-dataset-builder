@@ -53,29 +53,16 @@ def test_ingest_fonte_invalida():
     assert "xpto" in result.output
 
 
-@pytest.mark.parametrize(
-    "args, marco",
-    [
-        (["docs"], "Marco 6"),
-        (["run", "--piloto"], "Marco 6"),
-    ],
-)
-def test_comandos_ainda_nao_implementados(args, marco):
-    result = runner.invoke(app, args)
-    assert result.exit_code == 2
-    assert marco in result.output
-
-
 def test_log_level_invalido():
     result = runner.invoke(app, ["--log-level", "barulhento", "resolve"])
     assert result.exit_code == 2
     assert "nível de log inválido" in result.output
 
 
-def test_index_sem_verificar_ainda_nao_implementado():
-    result = runner.invoke(app, ["index"])
-    assert result.exit_code == 2
-    assert "Marco 6" in result.output
+def test_index_tem_a_opcao_de_fumaca():
+    result = runner.invoke(app, ["index", "--help"])
+    assert "--fumaca" in result.output
+    assert "--verificar" in result.output
 
 
 def test_index_verificar_reporta_falha(monkeypatch):
