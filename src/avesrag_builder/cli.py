@@ -33,6 +33,7 @@ class Fonte(str, Enum):
     ibge = "ibge"
     birdalbum = "birdalbum"
     commons = "commons"
+    inaturalist = "inaturalist"
 
 
 def nao_implementado(comando: str, marco: str) -> None:
@@ -65,12 +66,15 @@ def ingest(
     piloto: bool = typer.Option(
         False,
         "--piloto",
-        help="ebird, wikiaves e commons: só o município do piloto e as suas espécies.",
+        help="ebird, wikiaves, commons e inaturalist: só o município do piloto e as suas espécies.",
     ),
     refazer: bool = typer.Option(
         False,
         "--refazer",
-        help="ebird e wikiaves: baixa de novo o que já está em raw_ebird ou raw_wikiaves.",
+        help=(
+            "ebird, wikiaves e inaturalist: baixa de novo o que já está em raw_ebird, "
+            "raw_wikiaves ou raw_inaturalist."
+        ),
     ),
     limite: int = typer.Option(
         0, "--limite", min=0, help="wikiaves: no máximo N páginas nesta execução (0 = sem limite)."

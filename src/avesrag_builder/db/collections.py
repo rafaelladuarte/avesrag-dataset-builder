@@ -11,6 +11,7 @@ RAW_EBIRD = "raw_ebird"
 RAW_IBGE = "raw_ibge"
 RAW_BIRDALBUM = "raw_birdalbum"
 RAW_COMMONS = "raw_commons"
+RAW_INATURALIST = "raw_inaturalist"
 
 SPECIES_REGISTRY = "species_registry"
 SPECIES_EXTRACTIONS = "species_extractions"
@@ -30,6 +31,7 @@ RAW_COLLECTIONS = (
     RAW_IBGE,
     RAW_BIRDALBUM,
     RAW_COMMONS,
+    RAW_INATURALIST,
 )
 
 # Escritas pelo builder, na ordem do pipeline.

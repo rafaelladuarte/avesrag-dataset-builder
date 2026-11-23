@@ -48,6 +48,7 @@ poetry run avesrag-builder ingest wikiaves --piloto
 # 3. Casamento das espécies entre as fontes e fotos com licença aberta (usam o registry)
 poetry run avesrag-builder resolve
 poetry run avesrag-builder ingest commons --piloto
+poetry run avesrag-builder ingest inaturalist --piloto
 
 # 4. Extração por LLM: envia um lote à OpenAI e espera o resultado
 poetry run avesrag-builder extract --piloto
@@ -75,6 +76,7 @@ Os passos 3 a 5 também rodam juntos com `poetry run avesrag-builder run --pilot
 | `ingest wikiaves --piloto` | ~50 min (437 páginas, ~7 s cada) | — |
 | `resolve` | ~2 s | — |
 | `ingest commons --piloto` | ~1 min | — |
+| `ingest inaturalist --piloto` | ~36 min (3 chamadas por espécie, 1 por segundo) | — |
 | `extract --piloto` | **até 24 h** de espera do lote (9 h 40 min no desenvolvimento) | ~US$ 0,30 |
 | `fuse`, `validate` | segundos | — |
 | `docs --piloto` | ~1 min | ~US$ 0,01 |
@@ -176,8 +178,11 @@ poetry run avesrag-builder ingest wikiaves --piloto   # ~50 min (~7 s por págin
 **Fotos, depois do `resolve`:** as fontes de foto não têm lista própria das aves do Brasil, então a busca parte das espécies do registry, pelo nome científico do eBird e, depois, pelo do WikiAves.
 
 ```bash
-poetry run avesrag-builder ingest commons --piloto    # ~1 min: imagem P18 do Wikidata e metadados do Commons
+poetry run avesrag-builder ingest commons --piloto      # ~1 min: imagem P18 do Wikidata e metadados do Commons
+poetry run avesrag-builder ingest inaturalist --piloto  # ~36 min: até 5 fotos do Brasil e 5 de fora por espécie
 ```
+
+O `inaturalist` pula as espécies já gravadas, e uma execução interrompida retoma de onde parou; `--refazer` baixa tudo de novo (a ordem das fotos segue os votos, que mudam com o tempo).
 
 A foto do WikiAves não entra na ficha: o Termo de Uso do site proíbe a reprodução, e cada foto pertence ao seu autor. O app leva à página da espécie no WikiAves por link.
 
@@ -329,7 +334,7 @@ Só as chaves de API são obrigatórias, e cada uma só é cobrada pelo comando 
 | `PILOTO_MUNICIPIO_IBGE` | `3170206` (Uberlândia, MG) | município do `--piloto` |
 | `WIKIAVES_MAX_ESPECIES` | `0` (sem limite) | limite do scraping |
 | `BIRDALBUM_REPO`, `BIRDALBUM_REF` | `alchaincyf/huashu-bird-sticker`, commit `fb4463b…` | repositório e commit fixo das ilustrações |
-| `HTTP_USER_AGENT` | `avesrag-dataset-builder/0.2 (python-requests)` | User-Agent das APIs públicas (Wikidata, Commons); ponha um contato se quiser se identificar |
+| `HTTP_USER_AGENT` | `avesrag-dataset-builder/0.2 (python-requests)` | User-Agent das APIs públicas (Wikidata, Commons, iNaturalist); ponha um contato se quiser se identificar |
 | `AVESRAG_LOG_FILE` | — | grava o log também neste arquivo |
 
 </details>
@@ -409,6 +414,7 @@ docs/legado/              # documentação e dados tratados da v1
 | [eBird](https://ebird.org/) | taxonomia (`speciesCode`) e espécies registradas por município | — (API, com a sua chave) | termos de uso da API do eBird |
 | [Bird Album](https://birdalbum.com/) ([repositório](https://github.com/alchaincyf/huashu-bird-sticker)) | ilustração de cada espécie, **gerada por IA** (mídia secundária) | — (baixado do GitHub num commit fixo) | ilustrações [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); dados MIT |
 | [Wikimedia Commons](https://commons.wikimedia.org/) (via [Wikidata](https://www.wikidata.org/), imagem P18) | foto de cada espécie (mídia principal) | — (API) | uma licença por imagem; só entram CC0, domínio público, CC BY e CC BY-SA (`config/regras_midia.yaml`), com o autor e o link de cada foto. Dados do Wikidata: CC0 |
+| [iNaturalist](https://www.inaturalist.org/) | foto de cada espécie (mídia principal; a do Brasil tem preferência), de observações "research grade" | — (API, sem chave) | uma licença por foto; só entram CC0, CC BY e CC BY-SA (`config/regras_midia.yaml`), com o autor e o link de cada foto |
 
 **Citações** (exigidas pela CC BY):
 - Pacheco, J. F. et al. (2021). Annotated checklist of the birds of Brazil by the Brazilian Ornithological Records Committee — second edition. *Ornithology Research* 29. Dados: [10.5281/zenodo.5138368](https://doi.org/10.5281/zenodo.5138368).

@@ -1,0 +1,490 @@
+{
+ "taxa_pitangus": {
+  "total_results": 1,
+  "page": 1,
+  "per_page": 100,
+  "results": [
+   {
+    "id": 16956,
+    "name": "Pitangus sulphuratus",
+    "rank": "species",
+    "is_active": true,
+    "matched_term": "Pitangus sulphuratus",
+    "preferred_common_name": "Great Kiskadee"
+   }
+  ]
+ },
+ "taxa_suiriri": {
+  "total_results": 28,
+  "page": 1,
+  "per_page": 100,
+  "results": [
+   {
+    "id": 16787,
+    "name": "Tyrannus melancholicus",
+    "rank": "species",
+    "is_active": true,
+    "matched_term": "Suiriri",
+    "preferred_common_name": "Tropical Kingbird"
+   },
+   {
+    "id": 17289,
+    "name": "Machetornis rixosa",
+    "rank": "species",
+    "is_active": true,
+    "matched_term": "Suiriri-cavaleiro",
+    "preferred_common_name": "Cattle Tyrant"
+   },
+   {
+    "id": 6898,
+    "name": "Dendrocygna viduata",
+    "rank": "species",
+    "is_active": true,
+    "matched_term": "Ype suiriri",
+    "preferred_common_name": "White-faced Whistling-Duck"
+   },
+   {
+    "id": 17345,
+    "name": "Satrapa icterophrys",
+    "rank": "species",
+    "is_active": true,
+    "matched_term": "Suiriri-pequeno",
+    "preferred_common_name": "Yellow-browed Tyrant"
+   },
+   {
+    "id": 17197,
+    "name": "Suiriri suiriri",
+    "rank": "species",
+    "is_active": true,
+    "matched_term": "Suiriri suiriri",
+    "preferred_common_name": "Suiriri Flycatcher"
+   }
+  ]
+ },
+ "observacoes_brasil": {
+  "total_results": 2206,
+  "page": 1,
+  "per_page": 20,
+  "results": [
+   {
+    "id": 18185926,
+    "cached_votes_total": 2,
+    "faves_count": 2,
+    "observed_on": "2018-11-06",
+    "place_guess": "Rive, Alegre - ES, 29500-000, Brasil",
+    "quality_grade": "research",
+    "user": {
+     "login": "michelotto",
+     "name": "Alexandre S. Michelotto"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 27795198,
+      "license_code": "cc-by-sa",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27795198/square.jpeg",
+      "attribution": "(c) Alexandre S. Michelotto, some rights reserved (CC BY-SA)"
+     },
+     {
+      "id": 27795185,
+      "license_code": "cc-by-sa",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27795185/square.jpeg",
+      "attribution": "(c) Alexandre S. Michelotto, some rights reserved (CC BY-SA)"
+     },
+     {
+      "id": 27795191,
+      "license_code": "cc-by-sa",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27795191/square.jpeg",
+      "attribution": "(c) Alexandre S. Michelotto, some rights reserved (CC BY-SA)"
+     }
+    ]
+   },
+   {
+    "id": 392236988,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2026-06-30",
+    "place_guess": "Cantinho do Céu, São Luís - MA, 65066-620, Brasil",
+    "quality_grade": "research",
+    "user": {
+     "login": "zebedeugalinha",
+     "name": "zebedeugalinha"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 718797028,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/718797028/square.jpg",
+      "attribution": "(c) zebedeugalinha, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 62682207,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2014-02-26",
+    "place_guess": "Porto das Dunas, Aquiraz - CE, Brasil",
+    "quality_grade": "research",
+    "user": {
+     "login": "helio-lourencini",
+     "name": "Helio Lourencini"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 100471911,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/100471911/square.jpg",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+     },
+     {
+      "id": 111224476,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111224476/square.jpg",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 62682215,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2014-11-03",
+    "place_guess": "Zona rural de Paudalho - Pernambuco",
+    "quality_grade": "research",
+    "user": {
+     "login": "helio-lourencini",
+     "name": "Helio Lourencini"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 100472249,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/100472249/square.jpeg",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 392219956,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2026-06-29",
+    "place_guess": "Cantinho do Céu, São Luís - MA, 65066-620, Brasil",
+    "quality_grade": "research",
+    "user": {
+     "login": "zebedeugalinha",
+     "name": "zebedeugalinha"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 718762480,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/718762480/square.jpg",
+      "attribution": "(c) zebedeugalinha, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 87482329,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2016-10-29",
+    "place_guess": "Jardim Barbacena, Cotia - SP, Brasil",
+    "quality_grade": "research",
+    "user": {
+     "login": "rodrigo_lazaro",
+     "name": "Rodrigo Paiva Lázaro"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 144237827,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/144237827/square.jpeg",
+      "attribution": "(c) Rodrigo Paiva Lázaro, some rights reserved (CC BY)"
+     },
+     {
+      "id": 144237875,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/144237875/square.jpeg",
+      "attribution": "(c) Rodrigo Paiva Lázaro, some rights reserved (CC BY)"
+     },
+     {
+      "id": 144237896,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/144237896/square.jpeg",
+      "attribution": "(c) Rodrigo Paiva Lázaro, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 62682211,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2014-11-02",
+    "place_guess": "Zona rural de Paudalho - Pernambuco",
+    "quality_grade": "research",
+    "user": {
+     "login": "helio-lourencini",
+     "name": "Helio Lourencini"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 100472105,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/100472105/square.jpeg",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+     },
+     {
+      "id": 111224760,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111224760/square.jpeg",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+     },
+     {
+      "id": 111224892,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111224892/square.jpeg",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 349350598,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2025-11-25",
+    "place_guess": "Arinos, MG, 38680-000, Brasil",
+    "quality_grade": "research",
+    "user": {
+     "login": "francisco_bezerra",
+     "name": "Francisco V. Bezerra Neto"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 637265574,
+      "license_code": "cc-by-sa",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/637265574/square.jpg",
+      "attribution": "(c) Francisco V. Bezerra Neto, some rights reserved (CC BY-SA)"
+     },
+     {
+      "id": 637265641,
+      "license_code": "cc-by-sa",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/637265641/square.jpg",
+      "attribution": "(c) Francisco V. Bezerra Neto, some rights reserved (CC BY-SA)"
+     },
+     {
+      "id": 637265581,
+      "license_code": "cc-by-sa",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/637265581/square.jpg",
+      "attribution": "(c) Francisco V. Bezerra Neto, some rights reserved (CC BY-SA)"
+     }
+    ]
+   }
+  ]
+ },
+ "observacoes_mundo": {
+  "total_results": 7663,
+  "page": 1,
+  "per_page": 20,
+  "results": [
+   {
+    "id": 84098084,
+    "cached_votes_total": 3,
+    "faves_count": 3,
+    "observed_on": "2021-06-08",
+    "place_guess": "Playa del Carmen, Q.R., México",
+    "quality_grade": "research",
+    "user": {
+     "login": "krotalo25",
+     "name": "Luis Mora"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 138182686,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/138182686/square.jpeg",
+      "attribution": "(c) Luis Mora, some rights reserved (CC BY)"
+     },
+     {
+      "id": 138182704,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/138182704/square.jpeg",
+      "attribution": "(c) Luis Mora, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 197406060,
+    "cached_votes_total": 2,
+    "faves_count": 2,
+    "observed_on": "2024-01-02",
+    "place_guess": "Providencia, Quito, Ecuador",
+    "quality_grade": "research",
+    "user": {
+     "login": "frankdietze",
+     "name": "Frank Dietze"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 347677681,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347677681/square.jpg",
+      "attribution": "(c) Frank Dietze, some rights reserved (CC BY)"
+     },
+     {
+      "id": 347677647,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347677647/square.jpg",
+      "attribution": "(c) Frank Dietze, some rights reserved (CC BY)"
+     },
+     {
+      "id": 347677661,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347677661/square.jpg",
+      "attribution": "(c) Frank Dietze, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 141328448,
+    "cached_votes_total": 2,
+    "faves_count": 2,
+    "observed_on": "2022-11-06",
+    "place_guess": "Ushuaia, Tierra del Fuego, Argentina",
+    "quality_grade": "research",
+    "user": {
+     "login": "pablo_jusim",
+     "name": "Pablo"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 242166995,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242166995/square.jpeg",
+      "attribution": "(c) Pablo, some rights reserved (CC BY)"
+     },
+     {
+      "id": 242167055,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242167055/square.jpeg",
+      "attribution": "(c) Pablo, some rights reserved (CC BY)"
+     }
+    ]
+   },
+   {
+    "id": 310913377,
+    "cached_votes_total": 2,
+    "faves_count": 2,
+    "observed_on": "2025-08-08",
+    "place_guess": "Provincia de Guanacaste, Santa Cruz, Costa Rica",
+    "quality_grade": "research",
+    "user": {
+     "login": "rawcomposition",
+     "name": "Adam Jackson"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 561178521,
+      "license_code": "cc0",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/561178521/square.jpg",
+      "attribution": "no rights reserved"
+     }
+    ]
+   },
+   {
+    "id": 121023385,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2008-06-16",
+    "place_guess": "Puerto Madero, CABA, Argentina",
+    "quality_grade": "research",
+    "user": {
+     "login": "hhulsberg",
+     "name": "Hugo Hulsberg"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 204753296,
+      "license_code": "cc0",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/204753296/square.jpg",
+      "attribution": "no rights reserved"
+     }
+    ]
+   },
+   {
+    "id": 132162194,
+    "cached_votes_total": 1,
+    "faves_count": 1,
+    "observed_on": "2022-08-24",
+    "place_guess": "Av. H. Yrigoyen pasando 25 de Mayo, La Merced, Salta, Argentina",
+    "quality_grade": "research",
+    "user": {
+     "login": "soolquipildor",
+     "name": "Sol Quipildor"
+    },
+    "taxon": {
+     "id": 16956
+    },
+    "photos": [
+     {
+      "id": 225023154,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/225023154/square.jpeg",
+      "attribution": "(c) Sol Quipildor, some rights reserved (CC BY)"
+     },
+     {
+      "id": 225023181,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/225023181/square.jpeg",
+      "attribution": "(c) Sol Quipildor, some rights reserved (CC BY)"
+     },
+     {
+      "id": 225023218,
+      "license_code": "cc-by",
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/225023218/square.jpeg",
+      "attribution": "(c) Sol Quipildor, some rights reserved (CC BY)"
+     }
+    ]
+   }
+  ]
+ }
+}

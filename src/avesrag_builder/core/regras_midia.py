@@ -165,6 +165,10 @@ class RegrasMidia:
         """`license_code` da API do iNaturalist -> licença aceita, ou None."""
         return self._por_inat.get(_normalizar(codigo)) if codigo else None
 
+    def codigos_inaturalist(self) -> list[str]:
+        """Os `license_code` aceitos, na ordem do arquivo: o filtro `photo_license` da API."""
+        return [c for lic in self.arquivo.licencas for c in lic.inaturalist]
+
     def licenca_commons(self, nome: str | None) -> Licenca | None:
         """`LicenseShortName` do Commons -> licença aceita, ou None."""
         if not nome:

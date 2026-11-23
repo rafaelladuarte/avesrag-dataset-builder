@@ -33,4 +33,7 @@ def test_registry_sem_o_municipio_do_piloto(db_temporario):
     assert proximo_passo(e) == "ingest commons"  # as fotos partem do registry
 
     db["raw_commons"].insert_one({"_id": "wikidata:Q1", "dados": {}})
+    assert proximo_passo(coletar(db, piloto=False, geocodigo=PILOTO)) == "ingest inaturalist"
+
+    db["raw_inaturalist"].insert_one({"_id": "taxon:1", "dados": {}})
     assert proximo_passo(coletar(db, piloto=False, geocodigo=PILOTO)) == "extract"

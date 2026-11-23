@@ -19,6 +19,7 @@ from avesrag_builder.db.collections import (
     RAW_COMMONS,
     RAW_EBIRD,
     RAW_IBGE,
+    RAW_INATURALIST,
     RAW_WIKIAVES,
     SPECIES,
     SPECIES_EXTRACTIONS,
@@ -88,6 +89,8 @@ def proximo_passo(e: Estado) -> str | None:
         return "ingest wikiaves" + p + " (faltam páginas de espécies do escopo)"
     if not e.raw.get("commons"):
         return "ingest commons" + p  # parte do registry
+    if not e.raw.get("inaturalist"):
+        return "ingest inaturalist" + p  # parte do registry
     if e.lotes_abertos:
         return f"extract{p} --sem-esperar (lote em andamento; rode de novo mais tarde)"
     if e.pares < e.pares_esperados:
@@ -108,7 +111,8 @@ def linhas(e: Estado) -> list[str]:
     out = [
         f"raw_*: {raw} · ebird {e.ebird_municipios} município(s) · "
         f"wikiaves {e.raw.get('wikiaves', 0)} ({e.wikiaves_paginas} páginas) · "
-        f"birdalbum {e.raw.get('birdalbum', 0)} · commons {e.raw.get('commons', 0)}",
+        f"birdalbum {e.raw.get('birdalbum', 0)} · commons {e.raw.get('commons', 0)} · "
+        f"inaturalist {e.raw.get('inaturalist', 0)}",
         f"species_registry: {e.registry} espécies"
         + (
             f"; piloto {e.escopo} de {e.piloto_codigos} do eBird "
@@ -146,6 +150,7 @@ def coletar(db: Database, piloto: bool, geocodigo: str) -> Estado:
         ("wikiaves", RAW_WIKIAVES),
         ("birdalbum", RAW_BIRDALBUM),
         ("commons", RAW_COMMONS),
+        ("inaturalist", RAW_INATURALIST),
     ):
         e.raw[fonte] = db[col].estimated_document_count()
     e.ebird_municipios = db[RAW_EBIRD].count_documents({"_id": {"$regex": "^municipio:"}})
