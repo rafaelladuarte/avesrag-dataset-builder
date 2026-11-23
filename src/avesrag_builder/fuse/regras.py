@@ -17,6 +17,7 @@ from typing import Any
 
 from avesrag_builder.core.models import Prov
 from avesrag_builder.core.regras_fusao import RegrasFusao
+from avesrag_builder.core.regras_midia import RegrasMidia
 from avesrag_builder.core.vocabulario import RegrasBico, Vocabulario
 from avesrag_builder.ingest import birdalbum as ba
 
@@ -52,6 +53,8 @@ class DadosEspecie:
     ocorrencia: dict[str, Any] | None = None  # doc de species_occurrence
     birdalbum: dict[str, Any] | None = None  # `dados` do raw_birdalbum
     birdalbum_por: str | None = None  # como casou: "ebird" ou "nome"
+    inaturalist: dict[str, Any] | None = None  # `dados` do raw_inaturalist
+    commons: dict[str, Any] | None = None  # `dados` do raw_commons
 
     @property
     def pagina(self) -> dict[str, Any]:
@@ -198,6 +201,75 @@ def midia(d: DadosEspecie) -> Campo | None:
     o Termo de Uso proíbe a reprodução (B8); a foto vem do iNaturalist ou do Commons."""
     url = _texto(d.pagina.get("url"))
     return Campo({"url_wikiaves": url}, Prov(fonte="wikiaves")) if url else None
+
+
+INAT_FOTO = "https://www.inaturalist.org/photos/{id}"
+
+
+def _https(url: Any) -> str | None:
+    texto = _texto(url)
+    return texto if texto and texto.startswith("https://") else None
+
+
+def _foto_inaturalist(fotos: list[dict[str, Any]], regras: RegrasMidia) -> dict[str, Any] | None:
+    """A primeira foto válida da lista (licença aceita, autor, URL https)."""
+    for f in fotos:
+        licenca = regras.licenca_inaturalist(f.get("licenca"))
+        autor = _texto(f.get("autor")) or _texto(f.get("login"))
+        url = _https(f.get("url"))
+        if licenca is None or not regras.autor_valido(autor) or url is None:
+            continue
+        valor = {
+            "url": regras.url_inaturalist(url),
+            "autor": autor,
+            "licenca": licenca.nome,
+            "licenca_url": licenca.url,
+            "fonte": "inaturalist",
+            "link": INAT_FOTO.format(id=f["id"]),
+            "credito": regras.credito(autor, licenca.nome, "inaturalist"),
+        }
+        if local := _texto(f.get("local")):
+            valor["local"] = local
+        return valor
+    return None
+
+
+def _foto_commons(c: dict[str, Any], regras: RegrasMidia) -> dict[str, Any] | None:
+    """A P18, se for foto, com licença aceita, autor legível e URLs https."""
+    licenca = regras.licenca_commons(c.get("licenca"))
+    autor = regras.texto_autor_commons(c.get("artista"))
+    url, pagina = _https(c.get("url")), _https(c.get("pagina"))
+    if licenca is None or url is None or pagina is None or not regras.autor_valido(autor):
+        return None
+    if regras.nao_e_foto_commons(c.get("categorias") or [], c.get("artista")):
+        return None
+    return {
+        "url": url,
+        "autor": autor,
+        "licenca": licenca.nome,
+        # Licença portada para um país: vale a URL que o Commons informa.
+        "licenca_url": _https(c.get("licenca_url")) or licenca.url,
+        "fonte": "commons",
+        "link": pagina,
+        "credito": regras.credito(autor, licenca.nome, "commons"),
+    }
+
+
+def foto(d: DadosEspecie, regras: RegrasMidia) -> Campo | None:
+    """Foto principal (`midia.foto`): a primeira fonte da ordem do regras_midia.yaml
+    com uma foto válida. Nunca a do WikiAves (B8)."""
+    for fonte, metodo in regras.ordem:
+        valor = None
+        if fonte == "inaturalist" and d.inaturalist:
+            lista = "fotos_brasil" if metodo == "brasil" else "fotos_mundo"
+            valor = _foto_inaturalist(d.inaturalist.get(lista) or [], regras)
+        elif fonte == "commons" and d.commons:
+            valor = _foto_commons(d.commons, regras)
+        if valor:
+            return Campo(
+                valor, Prov(fonte=fonte, metodo=metodo, ref=f"regras_midia@{regras.versao}")
+            )
+    return None
 
 
 def ilustracao(d: DadosEspecie, repo: str, ref: str) -> Campo | None:

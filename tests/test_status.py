@@ -31,6 +31,8 @@ COMPLETO = Estado(
     dq={"apta": 387, "incompleta": 46},
     documentos=1156,
     especies_com_documento=387,
+    com_foto=433,
+    com_ilustracao=433,
     indices={"vetor_especies": "READY", "texto_especies": "READY"},
 )
 
@@ -78,3 +80,4 @@ def test_linhas_resumem_cada_etapa():
     assert "piloto 433 de 445 do eBird (97.3%)" in texto
     assert "apta 387 (89.4%)" in texto
     assert "1156 documentos de 387 espécies" in texto
+    assert "433 com foto, 433 com ilustração" in texto

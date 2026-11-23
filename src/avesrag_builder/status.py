@@ -48,6 +48,7 @@ class Estado:
     lotes_abertos: int = 0
     fichas: int = 0
     com_ilustracao: int = 0
+    com_foto: int = 0
     dq: dict[str, int] = field(default_factory=dict)
     sem_dq: int = 0
     documentos: int = 0
@@ -125,7 +126,7 @@ def linhas(e: Estado) -> list[str]:
         f"species: {e.fichas} fichas; apta {e.aptas} ({e.pct_aptas:.1f}%), "
         f"incompleta {e.dq.get('incompleta', 0)}, bloqueada {e.dq.get('bloqueada', 0)}"
         + (f", sem classificação {e.sem_dq}" if e.sem_dq else "")
-        + f"; {e.com_ilustracao} com ilustração",
+        + f"; {e.com_foto} com foto, {e.com_ilustracao} com ilustração",
         f"species_retrieval_docs: {e.documentos} documentos de {e.especies_com_documento} espécies; "
         + ", ".join(f"{n} {e.indices.get(n, 'ausente')}" for n in (INDICE_VETOR, INDICE_TEXTO)),
     ]
@@ -184,10 +185,14 @@ def coletar(db: Database, piloto: bool, geocodigo: str) -> Estado:
     e.pares_sem_texto = ext.count_documents({**no_escopo, "validacao.erro": "sem_texto"})
     e.lotes_abertos = db[LLM_BATCHES].count_documents({"status": "enviado"})
 
-    for d in db[SPECIES].find(no_escopo, {"_meta.dq_status": 1, "midia.ilustracao.url": 1}):
+    for d in db[SPECIES].find(
+        no_escopo, {"_meta.dq_status": 1, "midia.ilustracao.url": 1, "midia.foto.url": 1}
+    ):
         status = (d.get("_meta") or {}).get("dq_status")
         e.fichas += 1
-        e.com_ilustracao += bool(((d.get("midia") or {}).get("ilustracao") or {}).get("url"))
+        midia = d.get("midia") or {}
+        e.com_ilustracao += bool((midia.get("ilustracao") or {}).get("url"))
+        e.com_foto += bool((midia.get("foto") or {}).get("url"))
         if status:
             e.dq[status] = e.dq.get(status, 0) + 1
         else:

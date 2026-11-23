@@ -263,9 +263,9 @@ O `fuse` monta uma ficha por espécie em `species`: cada campo vem de uma fonte 
 - Valores do `b01`/`b02` cuja evidência não foi encontrada no texto são descartados aqui.
 - Reservas: sem comprimento, o tamanho sai da massa (BIRDBASE, depois AVONET); sem família na regra de bico, a dieta do AVONET e depois a do BIRDBASE; `onde_estava` e `grupo` sem valor no `b02` usam o AVONET e o BIRDBASE.
 - `species_occurrence` guarda os municípios e biomas com registro de cada espécie no eBird.
-- **Mídia:** `midia.foto` é a foto indicada do WikiAves; `midia.ilustracao` é uma ilustração do Bird Album, **gerada por IA**, com crédito e licença (CC BY 4.0). Ela é mídia secundária: serve de ilustração, nunca de confirmação da espécie, e o app deve exibi-la sempre com o rótulo de IA. O casamento é pelo código do eBird e, na falta dele, pelo nome científico.
+- **Mídia:** `midia.foto` é a foto principal, real e com licença aberta, escolhida pela ordem do `config/regras_midia.yaml`: iNaturalist do Brasil (a primeira foto válida das observações "research grade"), depois a imagem P18 do Commons (se for foto, e não ilustração ou exemplar de museu), depois iNaturalist de fora do Brasil. Cada foto traz `autor`, `licenca`, `licenca_url`, `link` (a página da foto na origem) e `credito`, pronto para exibir ("Foto: Fulano · CC BY 4.0 · iNaturalist"); a origem fica em `_prov["midia.foto"]`. A foto é opcional para `apta`. A foto do WikiAves nunca entra: `midia.url_wikiaves` é só o link para a página da espécie. `midia.ilustracao` é uma ilustração do Bird Album, **gerada por IA**, com crédito e licença (CC BY 4.0). Ela é mídia secundária: serve de ilustração, nunca de confirmação da espécie, e o app deve exibi-la sempre com o rótulo de IA. O casamento é pelo código do eBird e, na falta dele, pelo nome científico.
 - Rodar de novo não grava nada. Uma ficha que muda perde o `dq_status` até o próximo `validate`.
-- Relatórios: `reports/fuse.tsv` (de onde veio cada campo) e `reports/validate.tsv` (o que falta em cada incompleta).
+- Relatórios: `reports/fuse.tsv` (de onde veio cada campo, inclusive a foto, e a coluna `foto_licenca`) e `reports/validate.tsv` (o que falta em cada incompleta).
 
 </details>
 
@@ -348,7 +348,7 @@ A imagem `mongodb/mongodb-atlas-local:8.3.17` traz o `mongod` e o `mongot` (o pr
 - `config/vocabulario.yaml` define os valores aceitos, os sinônimos e os mapeamentos AVONET/BIRDBASE → vocabulário.
 - `config/regras_bico.yaml` define família → tipo de bico, dieta → tipo de bico e o perfil visual de cada tipo.
 - `config/regras_fusao.yaml` define os cortes de tamanho (por comprimento e, na falta dele, por massa) e o que uma ficha precisa ter para ser `apta`.
-- `config/regras_midia.yaml` define a foto de cada espécie: a ordem das fontes (iNaturalist do Brasil, Commons, iNaturalist de fora), as licenças aceitas (CC0, domínio público, CC BY e CC BY-SA; nada NC, ND ou GFDL), o modelo do crédito e como reconhecer, no Commons, uma ilustração ou um autor sem nome.
+- `config/regras_midia.yaml` define a foto de cada espécie: a ordem das fontes (iNaturalist do Brasil, Commons, iNaturalist de fora), as licenças aceitas (CC0, domínio público, CC BY e CC BY-SA; nada NC, ND ou GFDL), o modelo do crédito, o tamanho da foto do iNaturalist (`medium`) e como reconhecer, no Commons, uma ilustração ou um autor sem nome.
 
 Os quatro se validam ao carregar. Um valor inexistente, um sinônimo ambíguo ou um tipo de bico sem perfil faz o carregamento falhar, indicando onde está o erro.
 
@@ -422,6 +422,7 @@ docs/legado/              # documentação e dados tratados da v1
 - Şekercioğlu, Ç. H. et al. (2025). BIRDBASE: a global dataset of avian biogeography, conservation, ecology and life history traits. *Scientific Data*. Dados: [10.6084/m9.figshare.27051040](https://doi.org/10.6084/m9.figshare.27051040).
 - IBGE (2024). Bioma Predominante por Município para Fins Estatísticos. Os biomas de cada espécie em `species_occurrence` são elaboração própria a partir desses dados, cruzados com os registros do eBird.
 - Ilustrações: "Bird stickers: huashu-bird-sticker by Huashu, CC BY 4.0", <https://github.com/alchaincyf/huashu-bird-sticker>. O crédito vai em cada ficha (`midia.ilustracao.credito` e `.link`).
+- Fotos (iNaturalist e Wikimedia Commons): cada uma com o seu autor e a sua licença, em `midia.foto.credito`, `.licenca_url` e `.link`. Quem exibe a foto exibe o crédito junto.
 
 A base gerada não é publicada: cada pessoa a reconstrói com as próprias chaves, porque ela contém trechos dos textos do WikiAves.
 

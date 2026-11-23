@@ -7,11 +7,13 @@ nome. O arquivo se valida ao carregar, no padrão de `core/regras_fusao.py`.
 
 from __future__ import annotations
 
+import html
 import re
 import string
 from collections.abc import Iterable
 from functools import lru_cache
 from pathlib import Path
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
@@ -26,6 +28,9 @@ CAMPOS_CREDITO = {"autor", "licenca", "fonte"}
 _RECUSADA = re.compile(r"(^|[\s-])(nc|nd)([\s-]|$)|gfdl", re.IGNORECASE)
 # Sufixo de jurisdição de uma licença portada: "CC BY-SA 2.5 ar".
 _PORTADA = re.compile(r"^(.*\d\.\d)\s+[a-z]{2,3}$")
+_TAG = re.compile(r"<[^>]*>")
+# Nome do tamanho na URL de uma foto do iNaturalist: ".../photos/123/square.jpg".
+_TAMANHO_INAT = re.compile(r"/(square|small|medium|large|original)\.(?=[a-z]+$)")
 
 
 class _Base(BaseModel):
@@ -55,6 +60,11 @@ class RegrasCommons(_Base):
     autor_invalido: list[str] = Field(default_factory=list)
 
 
+class RegrasInaturalist(_Base):
+    # Tamanhos que o iNaturalist serve para cada foto (o nome do arquivo na URL).
+    tamanho: Literal["square", "small", "medium", "large", "original"] = "medium"
+
+
 class RegrasMidiaArquivo(_Base):
     versao: str
     ordem: list[ItemOrdem] = Field(min_length=1)
@@ -62,6 +72,7 @@ class RegrasMidiaArquivo(_Base):
     credito: str
     licencas: list[Licenca] = Field(min_length=1)
     commons: RegrasCommons = Field(default_factory=RegrasCommons)
+    inaturalist: RegrasInaturalist = Field(default_factory=RegrasInaturalist)
 
 
 def _normalizar(texto: str) -> str:
@@ -165,6 +176,10 @@ class RegrasMidia:
         """`license_code` da API do iNaturalist -> licença aceita, ou None."""
         return self._por_inat.get(_normalizar(codigo)) if codigo else None
 
+    def url_inaturalist(self, url: str) -> str:
+        """A URL gravada (miniatura `square`) no tamanho do arquivo de regras."""
+        return _TAMANHO_INAT.sub(f"/{self.arquivo.inaturalist.tamanho}.", url, count=1)
+
     def codigos_inaturalist(self) -> list[str]:
         """Os `license_code` aceitos, na ordem do arquivo: o filtro `photo_license` da API."""
         return [c for lic in self.arquivo.licencas for c in lic.inaturalist]
@@ -188,6 +203,14 @@ class RegrasMidia:
         if any(p.search(cat) for cat in categorias for p in self._categorias):
             return True
         return bool(artista) and any(p.search(artista) for p in self._artistas)
+
+    @staticmethod
+    def texto_autor_commons(artista: str | None) -> str | None:
+        """O `Artist` do Commons vem em HTML (`<a href=…>Fulano</a>`): só o texto."""
+        if not artista:
+            return None
+        texto = " ".join(html.unescape(_TAG.sub(" ", artista)).split())
+        return texto or None
 
     def autor_valido(self, autor: str | None) -> bool:
         return bool(autor and autor.strip()) and not any(

@@ -44,6 +44,8 @@ class ResultadoValidate:
     erros: Counter[str] = field(default_factory=Counter)
     cobertura: Counter[str] = field(default_factory=Counter)
     sem_match: Counter[str] = field(default_factory=Counter)
+    com_foto: int = 0
+    aptas_com_foto: int = 0
     relatorio: Path | None = None
 
     @property
@@ -62,6 +64,10 @@ class ResultadoValidate:
             f"  apta {self.status['apta']} ({self.pct_aptas:.1f}%), "
             f"incompleta {self.status['incompleta']}, bloqueada {self.status['bloqueada']}",
         ]
+        out.append(
+            f"  com foto: {self.com_foto} de {n}; aptas com foto: "
+            f"{self.aptas_com_foto} de {self.status['apta']}"
+        )
         if self.sem_ficha:
             out.append(f"  {len(self.sem_ficha)} espécies do escopo sem ficha: rode `fuse`")
         if self.faltas:
@@ -144,9 +150,15 @@ def executar(
         res.status[status] += 1
         res.faltas.update(f.split(" ")[0] for f in faltas)
         res.erros.update(_chave_erro(e) for e in erros)
-        for campo in v.campos_preenchidos(doc):
+        preenchidos = v.campos_preenchidos(doc)
+        for campo in preenchidos:
             if campo.startswith("atributos."):
                 res.cobertura[campo.removeprefix("atributos.")] += 1
+        if "midia.foto" in preenchidos:
+            res.com_foto += 1
+            res.aptas_com_foto += status == "apta"
+        elif not erros:
+            faltas = [*faltas, "midia.foto (opcional)"]
         linhas.append([sid, status, "; ".join(faltas), "; ".join(erros)])
 
         if (doc.get("_meta") or {}).get("dq_status") == status:

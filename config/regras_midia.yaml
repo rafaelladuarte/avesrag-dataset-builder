@@ -65,6 +65,11 @@ licencas:
     inaturalist: [cc-by-sa]
     commons: [CC BY-SA 4.0]
 
+inaturalist:
+  # Tamanho da foto exibida: square (75 px), small (240), medium (500), large
+  # (1024) ou original. A ingestão grava a URL da `square`, como a API devolve.
+  tamanho: medium
+
 commons:
   # Versões portadas para um país ("CC BY-SA 2.5 ar"): valem como a genérica
   # da mesma versão; a URL exibida é a que o Commons informar.

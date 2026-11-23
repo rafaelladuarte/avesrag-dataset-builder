@@ -14,8 +14,10 @@ from avesrag_builder.db.collections import (
     RAW_BIRDALBUM,
     RAW_BIRDBASE,
     RAW_CBRO,
+    RAW_COMMONS,
     RAW_EBIRD,
     RAW_IBGE,
+    RAW_INATURALIST,
     RAW_WIKIAVES,
     SPECIES,
     SPECIES_EXTRACTIONS,
@@ -131,6 +133,45 @@ def db(db_temporario):
         "Volatinia_jacarina",
         {**album, "scientific_name": "Volatinia jacarina", "ebird": "", "sticker_file": "s/b.webp"},
     )
+    # Fotos: o bem-te-vi pelo iNaturalist, o tiziu pelo Commons.
+    _raw(
+        db,
+        RAW_INATURALIST,
+        "taxon:16956",
+        {
+            "taxon": {"id": 16956, "nome": "Pitangus sulphuratus", "rank": "species"},
+            "nomes": ["Pitangus sulphuratus"],
+            "fotos_brasil": [
+                {
+                    "id": 5,
+                    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5/square.jpg",
+                    "licenca": "cc0",
+                    "atribuicao": "(c) fulano",
+                    "autor": None,
+                    "login": "fulano",
+                    "observacao_id": 50,
+                    "local": "Uberlândia, MG",
+                    "data": "2024-01-02",
+                }
+            ],
+            "fotos_mundo": [],
+        },
+    )
+    _raw(
+        db,
+        RAW_COMMONS,
+        "wikidata:Q1",
+        {
+            "qid": "Q1",
+            "nomes": ["Volatinia jacarina"],
+            "url": "https://upload.wikimedia.org/tiziu.jpg",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Tiziu.jpg",
+            "licenca": "CC BY 2.0",
+            "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+            "artista": "<a href='x'>Beltrano</a>",
+            "categorias": [],
+        },
+    )
     sid = "sp_pitangus_sulphuratus"
     b01 = dict.fromkeys(["comprimento_cm", "cores", "cores_por_parte", "marcas", "cauda"])
     b01 |= {
@@ -164,9 +205,21 @@ def test_fuse_e_validate_do_piloto(db, settings):
     assert bem_te_vi["ocorrencia"] == {"biomas": ["Cerrado"], "n_municipios": 1}
     assert bem_te_vi["midia"]["ilustracao"]["url"].endswith("/s/a.webp")
     assert bem_te_vi["_prov"]["midia.ilustracao"] == {"fonte": "birdalbum", "metodo": "ebird"}
+    assert bem_te_vi["midia"]["foto"]["url"].endswith("/photos/5/medium.jpg")
+    assert bem_te_vi["midia"]["foto"]["credito"] == "Foto: fulano · CC0 1.0 · iNaturalist"
+    assert bem_te_vi["_prov"]["midia.foto"]["metodo"] == "brasil"
     tiziu = fichas["sp_volatinia_jacarina"]
     assert tiziu["_prov"]["midia.ilustracao"] == {"fonte": "birdalbum", "metodo": "nome"}
-    assert (settings.REPORTS_DIR / "fuse.tsv").exists()
+    assert tiziu["midia"]["foto"]["autor"] == "Beltrano"
+    assert tiziu["_prov"]["midia.foto"]["metodo"] == "p18"
+    assert r1.cobertura["midia.foto"] == 2
+    assert r1.origens["midia.foto"] == {"inaturalist/brasil": 1, "commons/p18": 1}
+    linhas_tsv = (settings.REPORTS_DIR / "fuse.tsv").read_text().splitlines()
+    cabecalho = linhas_tsv[0].split("\t")
+    licencas = {
+        ln.split("\t")[0]: ln.split("\t")[cabecalho.index("foto_licenca")] for ln in linhas_tsv[1:]
+    }
+    assert licencas == {"sp_pitangus_sulphuratus": "CC0 1.0", "sp_volatinia_jacarina": "CC BY 2.0"}
 
     # A5: species_occurrence por species_id (o sanhaço não tem registro)
     occ = {d["species_id"] for d in db[SPECIES_OCCURRENCE].find()}
@@ -175,6 +228,7 @@ def test_fuse_e_validate_do_piloto(db, settings):
     v1 = validate.executar(db, piloto=True, settings=settings)
     assert v1.status == {"apta": 1, "incompleta": 1}
     assert v1.gravados == 2
+    assert (v1.com_foto, v1.aptas_com_foto) == (2, 1)
     status = {d["species_id"]: d["_meta"]["dq_status"] for d in db[SPECIES].find()}
     assert status == {"sp_pitangus_sulphuratus": "apta", "sp_volatinia_jacarina": "incompleta"}
     tsv = (settings.REPORTS_DIR / "validate.tsv").read_text()

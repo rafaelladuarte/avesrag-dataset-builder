@@ -8,7 +8,9 @@ import copy
 
 import pytest
 
+from avesrag_builder.core.models import Prov
 from avesrag_builder.core.regras_fusao import regras_fusao_padrao
+from avesrag_builder.core.regras_midia import regras_midia_padrao
 from avesrag_builder.core.vocabulario import regras_bico_padrao, vocabulario_padrao
 from avesrag_builder.fuse import regras as r
 from avesrag_builder.fuse.species import montar
@@ -389,4 +391,147 @@ class TestIlustracao:
         doc = montar(d, vocab, bico, regras, birdalbum=(REPO, REF)).species.to_mongo()
         assert set(doc["midia"]) == {"ilustracao"}
         assert "midia" not in doc["_prov"]
+        assert set(doc["_prov"]) == campos_preenchidos(doc)
+
+
+# ---------------------------------------------------------------------------
+# Foto principal (midia.foto): iNaturalist do Brasil -> Commons P18 -> iNaturalist de fora
+# ---------------------------------------------------------------------------
+
+
+def foto_inat(id_=1, licenca="cc-by", autor="Fulano", login="fulano", local="Uberlândia, MG"):
+    return {
+        "id": id_,
+        "url": f"https://inaturalist-open-data.s3.amazonaws.com/photos/{id_}/square.jpeg",
+        "licenca": licenca,
+        "atribuicao": f"(c) {autor or login}",
+        "autor": autor,
+        "login": login,
+        "observacao_id": id_ * 10,
+        "local": local,
+        "data": "2024-01-02",
+    }
+
+
+def inat(brasil=(), mundo=()):
+    return {
+        "taxon": {"id": 16956, "nome": "Pitangus sulphuratus", "rank": "species"},
+        "nomes": ["Pitangus sulphuratus"],
+        "fotos_brasil": list(brasil),
+        "fotos_mundo": list(mundo),
+    }
+
+
+COMMONS = {
+    "qid": "Q1",
+    "nomes": ["Pitangus sulphuratus"],
+    "arquivo": "Bem-te-vi.jpg",
+    "url": "https://upload.wikimedia.org/thumb/Bem-te-vi.jpg/960px-Bem-te-vi.jpg",
+    "url_original": "https://upload.wikimedia.org/Bem-te-vi.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Bem-te-vi.jpg",
+    "licenca": "CC BY-SA 4.0",
+    "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artista": '<a href="//commons.wikimedia.org/wiki/User:Bel" title="User:Bel">Beltrano &amp; Cia</a>',
+    "credito": "Obra do próprio",
+    "categorias": ["Category:Pitangus sulphuratus"],
+}
+
+
+@pytest.fixture(scope="module")
+def midia_regras():
+    return regras_midia_padrao()
+
+
+class TestFoto:
+    def test_brasil_vence_e_monta_o_credito(self, midia_regras):
+        d = bem_te_vi(
+            inaturalist=inat(brasil=[foto_inat(7)], mundo=[foto_inat(8)]), commons=COMMONS
+        )
+        campo = r.foto(d, midia_regras)
+        assert campo.valor == {
+            "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7/medium.jpeg",
+            "autor": "Fulano",
+            "licenca": "CC BY 4.0",
+            "licenca_url": "https://creativecommons.org/licenses/by/4.0/",
+            "fonte": "inaturalist",
+            "link": "https://www.inaturalist.org/photos/7",
+            "credito": "Foto: Fulano · CC BY 4.0 · iNaturalist",
+            "local": "Uberlândia, MG",
+        }
+        assert campo.prov == Prov(fonte="inaturalist", metodo="brasil", ref="regras_midia@1.0")
+
+    def test_sem_brasil_vale_o_commons(self, midia_regras):
+        d = bem_te_vi(inaturalist=inat(mundo=[foto_inat(8)]), commons=COMMONS)
+        campo = r.foto(d, midia_regras)
+        assert (campo.prov.fonte, campo.prov.metodo) == ("commons", "p18")
+        assert campo.valor == {
+            "url": COMMONS["url"],
+            "autor": "Beltrano & Cia",
+            "licenca": "CC BY-SA 4.0",
+            "licenca_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "fonte": "commons",
+            "link": COMMONS["pagina"],
+            "credito": "Foto: Beltrano & Cia · CC BY-SA 4.0 · Wikimedia Commons",
+        }
+
+    def test_sem_brasil_nem_commons_vale_a_de_fora(self, midia_regras):
+        d = bem_te_vi(inaturalist=inat(mundo=[foto_inat(8)]))
+        campo = r.foto(d, midia_regras)
+        assert (campo.prov.metodo, campo.valor["link"]) == (
+            "mundo",
+            "https://www.inaturalist.org/photos/8",
+        )
+
+    def test_sem_nenhuma_fonte(self, midia_regras):
+        assert r.foto(bem_te_vi(), midia_regras) is None
+        assert r.foto(bem_te_vi(inaturalist=inat()), midia_regras) is None
+
+    def test_vale_a_primeira_foto_valida_da_lista(self, midia_regras):
+        d = bem_te_vi(inaturalist=inat(brasil=[foto_inat(1, licenca="cc-by-nc"), foto_inat(2)]))
+        assert r.foto(d, midia_regras).valor["link"].endswith("/photos/2")
+
+    def test_sem_nome_o_autor_e_o_login(self, midia_regras):
+        d = bem_te_vi(inaturalist=inat(brasil=[foto_inat(autor=None)]))
+        assert r.foto(d, midia_regras).valor["credito"] == "Foto: fulano · CC BY 4.0 · iNaturalist"
+
+    def test_sem_local_nao_grava_o_campo(self, midia_regras):
+        d = bem_te_vi(inaturalist=inat(brasil=[foto_inat(local=None)]))
+        assert "local" not in r.foto(d, midia_regras).valor
+
+    @pytest.mark.parametrize(
+        "mudar",
+        [
+            {"categorias": ["Category:Birds illustrations"]},
+            {"artista": "Joseph Smit"},
+            {"licenca": "GFDL 1.2"},
+            {"artista": "No machine-readable author provided"},
+            {"artista": ""},
+            {"url": "http://upload.wikimedia.org/x.jpg"},
+        ],
+    )
+    def test_commons_recusado_passa_para_a_de_fora(self, midia_regras, mudar):
+        d = bem_te_vi(inaturalist=inat(mundo=[foto_inat(8)]), commons={**COMMONS, **mudar})
+        assert r.foto(d, midia_regras).prov.metodo == "mundo"
+
+    def test_licenca_url_http_do_commons_cai_na_do_arquivo(self, midia_regras):
+        c = {**COMMONS, "licenca_url": "http://creativecommons.org/licenses/by-sa/4.0"}
+        valor = r.foto(bem_te_vi(commons=c), midia_regras).valor
+        assert valor["licenca_url"] == "https://creativecommons.org/licenses/by-sa/4.0/"
+
+    def test_ficha_com_foto_e_ilustracao_tem_provs_separados(
+        self, vocab, bico, regras, midia_regras
+    ):
+        d = bem_te_vi(
+            inaturalist=inat(brasil=[foto_inat(7)]), birdalbum=ALBUM, birdalbum_por="ebird"
+        )
+        ficha = montar(d, vocab, bico, regras, birdalbum=(REPO, REF), midia_regras=midia_regras)
+        doc = ficha.species.to_mongo()
+        assert set(doc["midia"]) == {"foto", "url_wikiaves", "ilustracao"}
+        assert doc["midia"]["foto"]["fonte"] == "inaturalist"
+        assert doc["_prov"]["midia.foto"] == {
+            "fonte": "inaturalist",
+            "metodo": "brasil",
+            "ref": "regras_midia@1.0",
+        }
+        assert doc["_prov"]["midia"] == {"fonte": "wikiaves"}
         assert set(doc["_prov"]) == campos_preenchidos(doc)

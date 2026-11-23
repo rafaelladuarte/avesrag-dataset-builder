@@ -27,6 +27,8 @@ CAMPOS_TOPO = (
     "midia",
 )
 NIVEIS_TAXONOMIA = ("ordem", "familia", "genero")
+# Partes de `midia` com `_prov` próprio.
+MIDIA_COM_PROV = ("foto", "ilustracao")
 
 
 def _valor(doc: dict[str, Any], caminho: str) -> Any:
@@ -44,12 +46,14 @@ def _preenchido(valor: Any) -> bool:
 
 def campos_preenchidos(doc: dict[str, Any]) -> set[str]:
     caminhos = {c for c in CAMPOS_TOPO if c != "midia" and _preenchido(_valor(doc, c))}
-    # `midia` (WikiAves) e `midia.ilustracao` (Bird Album) têm proveniências separadas.
+    # `midia` (link do WikiAves), `midia.foto` (iNaturalist ou Commons) e
+    # `midia.ilustracao` (Bird Album) têm proveniências separadas.
     midia = doc.get("midia") or {}
-    if any(_preenchido(v) for k, v in midia.items() if k != "ilustracao"):
+    if any(_preenchido(v) for k, v in midia.items() if k not in MIDIA_COM_PROV):
         caminhos.add("midia")
-    if _preenchido(midia.get("ilustracao")):
-        caminhos.add("midia.ilustracao")
+    for chave in MIDIA_COM_PROV:
+        if _preenchido(midia.get(chave)):
+            caminhos.add(f"midia.{chave}")
     for nome, valor in (doc.get("atributos") or {}).items():
         if _preenchido(valor):
             caminhos.add(f"atributos.{nome}")

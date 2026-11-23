@@ -4,7 +4,11 @@ import textwrap
 
 import pytest
 
-from avesrag_builder.core.regras_midia import carregar_regras_midia, regras_midia_padrao
+from avesrag_builder.core.regras_midia import (
+    RegrasMidia,
+    carregar_regras_midia,
+    regras_midia_padrao,
+)
 from avesrag_builder.core.settings import get_settings
 from avesrag_builder.core.vocabulario import VocabularioInvalido
 
@@ -200,3 +204,38 @@ class TestValidacao:
 
     def test_chave_desconhecida(self, tmp_path):
         assert "extra" in _erros(tmp_path, _yaml_real() + "extra: 1\n")
+
+
+class TestFotoInaturalistECommons:
+    @pytest.mark.parametrize(
+        "url, esperada",
+        [
+            (
+                "https://inaturalist-open-data.s3.amazonaws.com/photos/1/square.jpeg",
+                "https://inaturalist-open-data.s3.amazonaws.com/photos/1/medium.jpeg",
+            ),
+            (
+                "https://static.inaturalist.org/photos/2/square.JPG",
+                "https://static.inaturalist.org/photos/2/square.JPG",  # extensão fora do padrão: fica
+            ),
+        ],
+    )
+    def test_url_no_tamanho_do_arquivo(self, regras, url, esperada):
+        assert regras.url_inaturalist(url) == esperada
+
+    def test_tamanho_invalido(self, tmp_path):
+        conteudo = _yaml_real().replace("tamanho: medium", "tamanho: gigante")
+        assert "inaturalist.tamanho" in _erros(tmp_path, conteudo)
+
+    @pytest.mark.parametrize(
+        "artista, texto",
+        [
+            ('<a href="//commons.wikimedia.org/wiki/User:X" title="User:X">X</a>', "X"),
+            ("<bdi>Fulano&nbsp;de\n Tal</bdi>", "Fulano de Tal"),
+            ("Texto puro", "Texto puro"),
+            ("<span></span>", None),
+            (None, None),
+        ],
+    )
+    def test_texto_do_autor_commons(self, artista, texto):
+        assert RegrasMidia.texto_autor_commons(artista) == texto

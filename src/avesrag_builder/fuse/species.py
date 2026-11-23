@@ -29,6 +29,7 @@ from pymongo.database import Database
 from avesrag_builder.core.logging import get_logger
 from avesrag_builder.core.models import Atributos, Meta, Prov, Species
 from avesrag_builder.core.regras_fusao import RegrasFusao, regras_fusao_padrao
+from avesrag_builder.core.regras_midia import RegrasMidia, regras_midia_padrao
 from avesrag_builder.core.settings import Settings, get_settings
 from avesrag_builder.core.vocabulario import (
     RegrasBico,
@@ -41,6 +42,8 @@ from avesrag_builder.db.collections import (
     RAW_BIRDALBUM,
     RAW_BIRDBASE,
     RAW_CBRO,
+    RAW_COMMONS,
+    RAW_INATURALIST,
     RAW_WIKIAVES,
     SPECIES,
     SPECIES_EXTRACTIONS,
@@ -50,6 +53,7 @@ from avesrag_builder.db.collections import (
 from avesrag_builder.fuse import regras as r
 from avesrag_builder.fuse import species_occurrence
 from avesrag_builder.ingest.base import ResultadoIngestao
+from avesrag_builder.ingest.escopo import nomes_por_especie
 from avesrag_builder.resolve.registry import especies_do_piloto
 
 log = get_logger(__name__)
@@ -66,6 +70,7 @@ CAMPOS_COM_RESERVA = (
     "atributos.ambiente",
     "atributos.onde_estava",
     "atributos.grupo",
+    "midia.foto",
     "midia.ilustracao",
 )
 
@@ -118,6 +123,11 @@ def carregar(
             album_ebird.setdefault(dados_album["ebird"], dados_album)
         album_nome.setdefault(dados_album.get("scientific_name"), dados_album)
 
+    # Fotos: pelos mesmos nomes que a ingestão consultou (eBird, depois WikiAves).
+    nomes_foto = nomes_por_especie(db, registros)
+    todos = sorted({n for ns in nomes_foto.values() for n in ns})
+    fotos = {fonte: _por_nome(db, col, todos) for fonte, col in FONTES_FOTO}
+
     dados = []
     for reg in sorted(registros, key=lambda x: x["species_id"]):
         sid, ch = reg["species_id"], reg["chaves"]
@@ -138,9 +148,27 @@ def carregar(
                 ocorrencia=ocorrencias.get(sid),
                 birdalbum=album,
                 birdalbum_por=album_por,
+                inaturalist=_primeiro(fotos["inaturalist"], nomes_foto[sid]),
+                commons=_primeiro(fotos["commons"], nomes_foto[sid]),
             )
         )
     return dados
+
+
+FONTES_FOTO = (("inaturalist", RAW_INATURALIST), ("commons", RAW_COMMONS))
+
+
+def _por_nome(db: Database, collection: str, nomes: list[str]) -> dict[str, dict[str, Any]]:
+    """nome -> `dados` do primeiro documento (menor `_id`) que traz o nome em `dados.nomes`."""
+    out: dict[str, dict[str, Any]] = {}
+    for doc in db[collection].find({"dados.nomes": {"$in": nomes}}).sort("_id", 1):
+        for nome in doc["dados"].get("nomes", []):
+            out.setdefault(nome, doc["dados"])
+    return out
+
+
+def _primeiro(por_nome: dict[str, dict[str, Any]], nomes: tuple[str, ...]) -> dict | None:
+    return next((por_nome[n] for n in nomes if n in por_nome), None)
 
 
 # ---------------------------------------------------------------------------
@@ -161,11 +189,14 @@ def montar(
     regras: RegrasFusao,
     agora: datetime | None = None,
     birdalbum: tuple[str, str] | None = None,
+    midia_regras: RegrasMidia | None = None,
 ) -> Ficha:
     """Ficha de uma espécie. Levanta `ValidationError` se faltar o nome em português.
 
     `birdalbum` é (repositório, commit) das ilustrações; sem ele, vale o do settings.
+    `midia_regras` escolhe a foto; sem ele, vale o `config/regras_midia.yaml`.
     """
+    midia_regras = midia_regras or regras_midia_padrao()
     if birdalbum is None:
         s = get_settings()
         birdalbum = (s.BIRDALBUM_REPO, s.BIRDALBUM_REF)
@@ -187,6 +218,9 @@ def montar(
     doc["iucn"] = usar("iucn", r.iucn(d, vocab))
     doc["ocorrencia"] = usar("ocorrencia", r.ocorrencia(d))
     midia = usar("midia", r.midia(d)) or {}
+    foto = usar("midia.foto", r.foto(d, midia_regras))
+    if foto:
+        midia = {**midia, "foto": foto}
     ilustracao = usar("midia.ilustracao", r.ilustracao(d, *birdalbum))
     if ilustracao:
         midia = {**midia, "ilustracao": ilustracao}
@@ -296,6 +330,11 @@ class ResultadoFuse:
         return out
 
 
+def _licenca_foto(species: Species) -> str:
+    foto = species.midia.foto if species.midia else None
+    return foto.licenca if foto else ""
+
+
 def _origem(p: Prov) -> str:
     return f"{p.fonte}/{p.metodo}" if p.metodo else p.fonte
 
@@ -307,6 +346,7 @@ CAMPOS_COBERTURA = (
     "iucn",
     "ocorrencia",
     "midia",
+    "midia.foto",
     "midia.ilustracao",
     *(f"atributos.{c}" for c in Atributos.model_fields),
 )
@@ -334,6 +374,7 @@ def _relatorio(
                 "species_id",
                 "n_campos",
                 *CAMPOS_COM_RESERVA,
+                "foto_licenca",
                 "descartes_b01",
                 "descartes_b02",
                 "erro",
@@ -346,13 +387,14 @@ def _relatorio(
                     ficha.species.species_id,
                     len(prov),
                     *(_origem(prov[c]) if c in prov else "" for c in CAMPOS_COM_RESERVA),
+                    _licenca_foto(ficha.species),
                     ficha.descartes.por_prompt.get(r.B01, 0),
                     ficha.descartes.por_prompt.get(r.B02, 0),
                     "",
                 ]
             )
         for sid, erro in erros:
-            w.writerow([sid, 0, *([""] * len(CAMPOS_COM_RESERVA)), 0, 0, erro])
+            w.writerow([sid, 0, *([""] * len(CAMPOS_COM_RESERVA)), "", 0, 0, erro])
 
 
 def executar(
@@ -362,8 +404,10 @@ def executar(
     vocab: Vocabulario | None = None,
     bico: RegrasBico | None = None,
     regras: RegrasFusao | None = None,
+    midia_regras: RegrasMidia | None = None,
 ) -> ResultadoFuse:
     settings = settings or get_settings()
+    midia_regras = midia_regras or regras_midia_padrao()
     vocab = vocab or vocabulario_padrao()
     bico = bico or regras_bico_padrao()
     regras = regras or regras_fusao_padrao()
@@ -382,7 +426,7 @@ def executar(
     fichas: list[Ficha] = []
     for d in carregar(db, ids, por_especie):
         try:
-            fichas.append(montar(d, vocab, bico, regras, agora, birdalbum))
+            fichas.append(montar(d, vocab, bico, regras, agora, birdalbum, midia_regras))
         except ValidationError as e:
             res.erros.append((d.species_id, str(e).replace("\n", " ")))
     res.species = gravar(db, [f.species for f in fichas])
