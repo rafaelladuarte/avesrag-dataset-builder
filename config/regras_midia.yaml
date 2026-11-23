@@ -9,7 +9,8 @@
 versao: "1.0"
 
 # Ordem de escolha: a primeira fonte com foto válida vence.
-# brasil: iNaturalist, observação "research grade" feita no Brasil, a mais votada.
+# brasil: iNaturalist, observação "research grade" feita no Brasil, a mais votada
+#   (quase todas têm 0 votos; no empate, a ordem é a da API: ver ingest/inaturalist.py).
 # p18: imagem P18 do Wikidata no Commons, se for foto (ver `commons.nao_foto`).
 # mundo: iNaturalist, observação de fora do Brasil, a mais votada.
 ordem:

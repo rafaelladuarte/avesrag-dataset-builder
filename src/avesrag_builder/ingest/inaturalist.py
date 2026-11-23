@@ -13,9 +13,12 @@ Um documento por táxon:
 
 Uma foto por observação: a primeira com licença aceita. As licenças vêm de
 `config/regras_midia.yaml` e viram o filtro `photo_license` da API. As
-observações são ordenadas pelos votos e, no empate, pelo id, para a ordem não
-mudar de uma execução para outra; a contagem de votos não é gravada, porque
-mudaria o `source_hash` sem a lista mudar. A escolha da foto exibida é do `fuse`.
+observações vêm da API ordenadas pelos votos, e o cliente desempata pelo id; a
+contagem de votos não é gravada, porque mudaria o `source_hash` sem a lista
+mudar. Limitação (23/11): quase todas têm 0 votos, e a API escolhe as 20 que
+devolve com um desempate próprio, que muda com o tempo. Um `--refazer` uma hora
+depois trocou as fotos de 56 de 432 táxons. Trocar para `order_by=id` fica
+para a expansão (C4 do BACKLOGS). A escolha da foto exibida é do `fuse`.
 
 Roda depois do `resolve`. Três chamadas por espécie a 1 por segundo: ~36 min no
 piloto (23/11). As espécies já gravadas são puladas, a menos de `--refazer`; uma
@@ -115,7 +118,7 @@ def baixar_observacoes(
 
 
 def ler_fotos(resposta: dict[str, Any], codigos: list[str]) -> list[dict[str, Any]]:
-    """Até 5 fotos, uma por observação, das mais votadas (empate: menor id primeiro)."""
+    """Até 5 fotos, uma por observação, das mais votadas (empate: menor id entre as recebidas)."""
     aceitas = {_normalizar(c) for c in codigos}
     observacoes = sorted(
         resposta.get("results", []),
