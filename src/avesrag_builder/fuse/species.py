@@ -48,9 +48,13 @@ from avesrag_builder.db.collections import (
     RAW_WIKIAVES,
     SPECIES,
     SPECIES_EXTRACTIONS,
+    SPECIES_OCCURRENCE,
+    SPECIES_OVERRIDES,
     SPECIES_REGISTRY,
+    SPECIES_RETRIEVAL_DOCS,
     garantir_indices,
 )
+from avesrag_builder.fuse import overrides as ov
 from avesrag_builder.fuse import regras as r
 from avesrag_builder.fuse import species_occurrence
 from avesrag_builder.ingest.base import ResultadoIngestao
@@ -60,6 +64,7 @@ from avesrag_builder.resolve.registry import especies_do_piloto
 log = get_logger(__name__)
 
 LOTE = 500
+OVERRIDES = "overrides"  # nome, em `Descartes`, das correções manuais inválidas
 
 # Campos que têm reserva: o relatório mostra de onde cada um veio.
 CAMPOS_COM_RESERVA = (
@@ -113,6 +118,11 @@ def carregar(
     for doc in db[SPECIES_EXTRACTIONS].find({"species_id": {"$in": ids}}):
         extracoes.setdefault(doc["species_id"], {})[doc["prompt"]] = doc
 
+    corrigidas = {
+        d["species_id"]: {ov.caminho_de(k): v for k, v in (d.get("campos") or {}).items()}
+        for d in db[SPECIES_OVERRIDES].find({"species_id": {"$in": ids}})
+    }
+
     # Bird Album: pelo código do eBird (a taxonomia da AviList difere da do WikiAves
     # em ~3% do piloto) e, sem código, pelo nome científico.
     codigos = [c.get("ebird") for c in chaves if c.get("ebird")]
@@ -154,6 +164,7 @@ def carregar(
                 birdalbum_por=album_por,
                 inaturalist=_primeiro(fotos["inaturalist"], nomes_foto[sid]),
                 commons=_primeiro(fotos["commons"], nomes_foto[sid]),
+                overrides=corrigidas.get(sid, {}),
             )
         )
     return dados
@@ -258,6 +269,9 @@ def montar(
         "atividade": r.lista_llm(d, r.B02, "atividade", vocab, descartes),
     }
     doc["atributos"] = {nome: usar(f"atributos.{nome}", c) for nome, c in campos.items()}
+    if d.overrides:  # a curadoria vence todas as fontes
+        res = ov.aplicar(doc, prov, d.overrides, vocab, midia_regras)
+        descartes.somar(OVERRIDES, len(res.erros))
     doc["_prov"] = prov
     doc["_meta"] = Meta(built_at=agora or datetime.now(UTC))
     return Ficha(species=Species.model_validate(doc), descartes=descartes)
@@ -459,3 +473,54 @@ def executar(
     _relatorio(res.relatorio, fichas, res.erros, res)
     log.info(res.species.resumo())
     return res
+
+
+def refundir_uma(
+    db: Database,
+    species_id: str,
+    settings: Settings | None = None,
+    vocab: Vocabulario | None = None,
+    bico: RegrasBico | None = None,
+    regras: RegrasFusao | None = None,
+    midia_regras: RegrasMidia | None = None,
+    ficha_regras: RegrasFicha | None = None,
+) -> Ficha:
+    """Refaz a ficha de uma espécie (com as correções manuais de agora) e a grava.
+
+    Usado pela curadoria: aplicar ou reverter uma correção sem rodar o `fuse` inteiro.
+    Mantém o `dq_status` (só valores do vocabulário mudam) e atualiza os `filtros` dos
+    documentos de busca da espécie, sem tocar nos embeddings. Levanta `ValueError` se a
+    espécie não está no registry.
+    """
+    settings = settings or get_settings()
+    vocab = vocab or vocabulario_padrao()
+    bico = bico or regras_bico_padrao()
+    regras = regras or regras_fusao_padrao()
+    midia_regras = midia_regras or regras_midia_padrao()
+    ficha_regras = ficha_regras or regras_ficha_padrao()
+    ocorrencia = db[SPECIES_OCCURRENCE].find_one({"species_id": species_id}, {"_id": 0})
+    try:
+        d = carregar(db, [species_id], {species_id: ocorrencia} if ocorrencia else {})[0]
+    except IndexError:
+        raise ValueError(f"{species_id!r} não está no registry") from None
+    antiga = db[SPECIES].find_one({"species_id": species_id}, {"_meta.dq_status": 1})
+    status = ((antiga or {}).get("_meta") or {}).get("dq_status")
+    ficha = montar(
+        d,
+        vocab,
+        bico,
+        regras,
+        datetime.now(UTC),
+        (settings.BIRDALBUM_REPO, settings.BIRDALBUM_REF),
+        midia_regras,
+        ficha_regras,
+    )
+    gravar(db, [ficha.species])
+    if status:
+        db[SPECIES].update_one({"species_id": species_id}, {"$set": {"_meta.dq_status": status}})
+    from avesrag_builder.docs.montar import filtros
+
+    db[SPECIES_RETRIEVAL_DOCS].update_many(
+        {"species_id": species_id}, {"$set": {"filtros": filtros(ficha.species.to_mongo())}}
+    )
+    return ficha

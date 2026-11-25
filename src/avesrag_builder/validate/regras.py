@@ -24,6 +24,9 @@ CAMPOS_TOPO = (
     "status_ocorrencia",
     "iucn",
     "ocorrencia",
+    "descricao",
+    "comportamento",
+    "voz",
     "midia",
 )
 NIVEIS_TAXONOMIA = ("ordem", "familia", "genero")

@@ -38,7 +38,7 @@ Dominio = Literal["aparencia", "comportamento_ambiente", "voz_habitos"]
 SpeciesId = Annotated[str, StringConstraints(pattern=r"^sp_[a-z0-9]+(_[a-z0-9]+)*$")]
 TextoNaoVazio = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 UrlHttps = Annotated[str, StringConstraints(strip_whitespace=True, pattern=r"^https://\S+$")]
-FonteFoto = Literal["inaturalist", "commons"]
+FonteFoto = Literal["inaturalist", "commons", "manual"]  # manual: foto indicada na curadoria
 
 
 # ---------------------------------------------------------------------------
@@ -323,6 +323,11 @@ class Species(MongoModel):
     atributos: Atributos = Field(default_factory=Atributos)
     ocorrencia: Ocorrencia | None = None
     perfil: Perfil | None = None
+    # Textos escritos na curadoria (nunca vêm das fontes); sem eles, a página mostra o texto
+    # de busca do `b03`, que não é gravado na ficha.
+    descricao: TextoNaoVazio | None = None
+    comportamento: TextoNaoVazio | None = None
+    voz: TextoNaoVazio | None = None
     midia: Midia | None = None
     prov: dict[str, Prov] = Field(default_factory=dict, alias="_prov")
     meta: Meta = Field(alias="_meta")

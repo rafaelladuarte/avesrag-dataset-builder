@@ -19,6 +19,9 @@ SPECIES_OCCURRENCE = "species_occurrence"
 SPECIES = "species"
 SPECIES_RETRIEVAL_DOCS = "species_retrieval_docs"
 
+# Correções manuais (curadoria) por espécie: o `fuse` as aplica por cima de todas as fontes.
+SPECIES_OVERRIDES = "species_overrides"
+
 # Operacional: lotes enviados à API de batch do LLM, para retomar o `extract`.
 LLM_BATCHES = "llm_batches"
 
@@ -45,7 +48,7 @@ BUILDER_COLLECTIONS = (
 )
 
 # Collections com um doc por espécie: `_id` é ObjectId e o slug fica em `species_id`.
-POR_ESPECIE = (SPECIES_REGISTRY, SPECIES_OCCURRENCE, SPECIES)
+POR_ESPECIE = (SPECIES_REGISTRY, SPECIES_OCCURRENCE, SPECIES, SPECIES_OVERRIDES)
 
 
 def garantir_indices(db: Database) -> None:

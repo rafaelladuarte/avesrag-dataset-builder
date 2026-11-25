@@ -56,6 +56,7 @@ class DadosEspecie:
     birdalbum_por: str | None = None  # como casou: "ebird" ou "nome"
     inaturalist: dict[str, Any] | None = None  # `dados` do raw_inaturalist
     commons: dict[str, Any] | None = None  # `dados` do raw_commons
+    overrides: dict[str, dict[str, Any]] = field(default_factory=dict)  # correções manuais
 
     @property
     def pagina(self) -> dict[str, Any]:
@@ -277,6 +278,26 @@ def foto(d: DadosEspecie, regras: RegrasMidia) -> Campo | None:
                 valor, Prov(fonte=fonte, metodo=metodo, ref=f"regras_midia@{regras.versao}")
             )
     return None
+
+
+def fotos_candidatas(d: DadosEspecie, regras: RegrasMidia) -> list[tuple[str, dict[str, Any]]]:
+    """Todas as fotos válidas que a curadoria pode escolher: (origem, foto), na ordem das
+    regras. Origem: `brasil`, `mundo` (iNaturalist) ou `p18` (Commons). Sem repetir o link."""
+    vistos: set[str] = set()
+    saida: list[tuple[str, dict[str, Any]]] = []
+    for fonte, metodo in regras.ordem:
+        if fonte == "inaturalist" and d.inaturalist:
+            lista = "fotos_brasil" if metodo == "brasil" else "fotos_mundo"
+            achadas = [_uma_foto_inaturalist(f, regras) for f in d.inaturalist.get(lista) or []]
+        elif fonte == "commons" and d.commons:
+            achadas = [_foto_commons(d.commons, regras)]
+        else:
+            continue
+        for foto in achadas:
+            if foto and foto["link"] not in vistos:
+                vistos.add(foto["link"])
+                saida.append((metodo, foto))
+    return saida
 
 
 def galeria(d: DadosEspecie, principal: dict[str, Any] | None, regras: RegrasMidia) -> Campo | None:
