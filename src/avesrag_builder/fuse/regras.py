@@ -16,6 +16,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from avesrag_builder.core.models import Prov
+from avesrag_builder.core.regras_ficha import RegrasFicha
 from avesrag_builder.core.regras_fusao import RegrasFusao
 from avesrag_builder.core.regras_midia import RegrasMidia
 from avesrag_builder.core.vocabulario import RegrasBico, Vocabulario
@@ -211,26 +212,32 @@ def _https(url: Any) -> str | None:
     return texto if texto and texto.startswith("https://") else None
 
 
+def _uma_foto_inaturalist(f: dict[str, Any], regras: RegrasMidia) -> dict[str, Any] | None:
+    """A foto, se tiver licença aceita, autor e URL https."""
+    licenca = regras.licenca_inaturalist(f.get("licenca"))
+    autor = _texto(f.get("autor")) or _texto(f.get("login"))
+    url = _https(f.get("url"))
+    if licenca is None or not regras.autor_valido(autor) or url is None:
+        return None
+    valor = {
+        "url": regras.url_inaturalist(url),
+        "autor": autor,
+        "licenca": licenca.nome,
+        "licenca_url": licenca.url,
+        "fonte": "inaturalist",
+        "link": INAT_FOTO.format(id=f["id"]),
+        "credito": regras.credito(autor, licenca.nome, "inaturalist"),
+    }
+    if local := _texto(f.get("local")):
+        valor["local"] = local
+    return valor
+
+
 def _foto_inaturalist(fotos: list[dict[str, Any]], regras: RegrasMidia) -> dict[str, Any] | None:
     """A primeira foto válida da lista (licença aceita, autor, URL https)."""
     for f in fotos:
-        licenca = regras.licenca_inaturalist(f.get("licenca"))
-        autor = _texto(f.get("autor")) or _texto(f.get("login"))
-        url = _https(f.get("url"))
-        if licenca is None or not regras.autor_valido(autor) or url is None:
-            continue
-        valor = {
-            "url": regras.url_inaturalist(url),
-            "autor": autor,
-            "licenca": licenca.nome,
-            "licenca_url": licenca.url,
-            "fonte": "inaturalist",
-            "link": INAT_FOTO.format(id=f["id"]),
-            "credito": regras.credito(autor, licenca.nome, "inaturalist"),
-        }
-        if local := _texto(f.get("local")):
-            valor["local"] = local
-        return valor
+        if valor := _uma_foto_inaturalist(f, regras):
+            return valor
     return None
 
 
@@ -270,6 +277,25 @@ def foto(d: DadosEspecie, regras: RegrasMidia) -> Campo | None:
                 valor, Prov(fonte=fonte, metodo=metodo, ref=f"regras_midia@{regras.versao}")
             )
     return None
+
+
+def galeria(d: DadosEspecie, principal: dict[str, Any] | None, regras: RegrasMidia) -> Campo | None:
+    """`midia.fotos`: a principal e as outras fotos válidas do iNaturalist do Brasil, até
+    `regras.galeria`. Sem principal não há galeria; só com a principal, também não."""
+    if principal is None or regras.galeria < 2:
+        return None
+    fotos = [principal]
+    for f in (d.inaturalist or {}).get("fotos_brasil") or []:
+        if len(fotos) >= regras.galeria:
+            break
+        valor = _uma_foto_inaturalist(f, regras)
+        if valor and valor["link"] not in {x["link"] for x in fotos}:
+            fotos.append(valor)
+    if len(fotos) < 2:
+        return None
+    return Campo(
+        fotos, Prov(fonte="inaturalist", metodo="galeria", ref=f"regras_midia@{regras.versao}")
+    )
 
 
 def ilustracao(d: DadosEspecie, repo: str, ref: str) -> Campo | None:
@@ -337,6 +363,27 @@ def massa_g(d: DadosEspecie) -> tuple[float, str] | None:
         if massa:
             return massa, fonte
     return None
+
+
+def massa(d: DadosEspecie) -> Campo | None:
+    """`perfil.massa_g`: Average Mass do BIRDBASE; senão, Mass do AVONET (em gramas)."""
+    achada = massa_g(d)
+    if achada is None:
+        return None
+    valor, fonte = achada
+    return Campo(round(valor, 1), Prov(fonte=fonte, metodo="massa"))
+
+
+def dieta(d: DadosEspecie, regras: RegrasFicha) -> Campo | None:
+    """`perfil.dieta`: o texto da dieta pela tabela de `config/regras_ficha.yaml`."""
+    achada = regras.dieta(
+        _texto((d.avonet or {}).get("Trophic.Niche")),
+        _texto((d.birdbase or {}).get("Primary Diet")),
+    )
+    if achada is None:
+        return None
+    texto, fonte = achada
+    return Campo(texto, Prov(fonte=fonte, metodo="dieta", ref=f"regras_ficha@{regras.versao}"))
 
 
 def tamanho(

@@ -287,8 +287,16 @@ class Foto(MongoModel):
 
 class Midia(MongoModel):
     foto: Foto | None = None
+    fotos: list[Foto] | None = None  # a principal e mais algumas, para a galeria da ficha
     url_wikiaves: str | None = None
     ilustracao: Ilustracao | None = None
+
+
+class Perfil(MongoModel):
+    """Campos descritivos, para a pessoa ler; não entram na busca."""
+
+    massa_g: float | None = Field(default=None, gt=0)
+    dieta: TextoNaoVazio | None = None
 
 
 class Prov(MongoModel):
@@ -314,6 +322,7 @@ class Species(MongoModel):
     iucn: str | None = None
     atributos: Atributos = Field(default_factory=Atributos)
     ocorrencia: Ocorrencia | None = None
+    perfil: Perfil | None = None
     midia: Midia | None = None
     prov: dict[str, Prov] = Field(default_factory=dict, alias="_prov")
     meta: Meta = Field(alias="_meta")

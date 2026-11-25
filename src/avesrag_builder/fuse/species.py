@@ -28,6 +28,7 @@ from pymongo.database import Database
 
 from avesrag_builder.core.logging import get_logger
 from avesrag_builder.core.models import Atributos, Meta, Prov, Species
+from avesrag_builder.core.regras_ficha import RegrasFicha, regras_ficha_padrao
 from avesrag_builder.core.regras_fusao import RegrasFusao, regras_fusao_padrao
 from avesrag_builder.core.regras_midia import RegrasMidia, regras_midia_padrao
 from avesrag_builder.core.settings import Settings, get_settings
@@ -71,7 +72,10 @@ CAMPOS_COM_RESERVA = (
     "atributos.onde_estava",
     "atributos.grupo",
     "midia.foto",
+    "midia.fotos",
     "midia.ilustracao",
+    "perfil.massa_g",
+    "perfil.dieta",
 )
 
 
@@ -190,6 +194,7 @@ def montar(
     agora: datetime | None = None,
     birdalbum: tuple[str, str] | None = None,
     midia_regras: RegrasMidia | None = None,
+    ficha_regras: RegrasFicha | None = None,
 ) -> Ficha:
     """Ficha de uma espécie. Levanta `ValidationError` se faltar o nome em português.
 
@@ -197,6 +202,7 @@ def montar(
     `midia_regras` escolhe a foto; sem ele, vale o `config/regras_midia.yaml`.
     """
     midia_regras = midia_regras or regras_midia_padrao()
+    ficha_regras = ficha_regras or regras_ficha_padrao()
     if birdalbum is None:
         s = get_settings()
         birdalbum = (s.BIRDALBUM_REPO, s.BIRDALBUM_REF)
@@ -221,10 +227,18 @@ def montar(
     foto = usar("midia.foto", r.foto(d, midia_regras))
     if foto:
         midia = {**midia, "foto": foto}
+        fotos = usar("midia.fotos", r.galeria(d, foto, midia_regras))
+        if fotos:
+            midia = {**midia, "fotos": fotos}
     ilustracao = usar("midia.ilustracao", r.ilustracao(d, *birdalbum))
     if ilustracao:
         midia = {**midia, "ilustracao": ilustracao}
     doc["midia"] = midia or None
+    perfil = {
+        "massa_g": usar("perfil.massa_g", r.massa(d)),
+        "dieta": usar("perfil.dieta", r.dieta(d, ficha_regras)),
+    }
+    doc["perfil"] = {k: v for k, v in perfil.items() if v is not None} or None
 
     comprimento = r.comprimento_cm(d, regras, descartes)
     por_parte = r.cores_por_parte(d, vocab, descartes)
@@ -405,9 +419,11 @@ def executar(
     bico: RegrasBico | None = None,
     regras: RegrasFusao | None = None,
     midia_regras: RegrasMidia | None = None,
+    ficha_regras: RegrasFicha | None = None,
 ) -> ResultadoFuse:
     settings = settings or get_settings()
     midia_regras = midia_regras or regras_midia_padrao()
+    ficha_regras = ficha_regras or regras_ficha_padrao()
     vocab = vocab or vocabulario_padrao()
     bico = bico or regras_bico_padrao()
     regras = regras or regras_fusao_padrao()
@@ -426,7 +442,9 @@ def executar(
     fichas: list[Ficha] = []
     for d in carregar(db, ids, por_especie):
         try:
-            fichas.append(montar(d, vocab, bico, regras, agora, birdalbum, midia_regras))
+            fichas.append(
+                montar(d, vocab, bico, regras, agora, birdalbum, midia_regras, ficha_regras)
+            )
         except ValidationError as e:
             res.erros.append((d.species_id, str(e).replace("\n", " ")))
     res.species = gravar(db, [f.species for f in fichas])

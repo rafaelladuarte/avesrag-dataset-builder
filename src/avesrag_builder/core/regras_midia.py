@@ -68,6 +68,7 @@ class RegrasInaturalist(_Base):
 class RegrasMidiaArquivo(_Base):
     versao: str
     ordem: list[ItemOrdem] = Field(min_length=1)
+    galeria: int = Field(default=1, ge=1, le=10)
     nomes_exibicao: dict[FonteFoto, str]
     credito: str
     licencas: list[Licenca] = Field(min_length=1)
@@ -96,6 +97,7 @@ class RegrasMidia:
         self.arquivo = arquivo
         self.origem = str(origem)
         self.versao = arquivo.versao
+        self.galeria = arquivo.galeria
         erros: list[str] = []
 
         vistos: set[tuple[str, str]] = set()

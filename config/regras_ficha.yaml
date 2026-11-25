@@ -1,0 +1,36 @@
+# Regras dos campos descritivos da ficha (`perfil.dieta`), aplicadas no `fuse`.
+# A dieta é para ser lida pela pessoa ("onívora", "insetívora"); não entra na
+# busca nem no `bico_tipo` (que tem as suas regras em regras_bico.yaml).
+# Valor `null`: a categoria existe na fonte, mas não vira texto na ficha.
+versao: "1.0"
+
+# Ordem: a primeira fonte que casa com uma categoria da tabela vence.
+ordem_dieta: [avonet, birdbase]
+
+dieta:
+  avonet: # aba AVONET1_BirdLife, coluna Trophic.Niche
+    Nectarivore: nectarívora
+    Vertivore: carnívora
+    Scavenger: necrófaga
+    Granivore: granívora
+    Frugivore: frugívora
+    Invertivore: insetívora
+    Omnivore: onívora
+    Herbivore aquatic: herbívora aquática
+    Aquatic predator: predadora aquática
+    Herbivore terrestrial: herbívora
+  birdbase: # aba Data, coluna Primary Diet
+    Invertebrate: insetívora
+    Fruit: frugívora
+    Omnivore: onívora
+    Seed: granívora
+    Nectar: nectarívora
+    Vertebrate: carnívora
+    Carnivore: carnívora
+    Fish: piscívora
+    Scavenger: necrófaga
+    Herbivore: herbívora
+    Plant: herbívora
+    No Information: null
+    Beeswax: null
+    Ovivore: null

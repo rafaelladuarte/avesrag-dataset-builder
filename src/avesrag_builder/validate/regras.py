@@ -28,7 +28,7 @@ CAMPOS_TOPO = (
 )
 NIVEIS_TAXONOMIA = ("ordem", "familia", "genero")
 # Partes de `midia` com `_prov` próprio.
-MIDIA_COM_PROV = ("foto", "ilustracao")
+MIDIA_COM_PROV = ("foto", "fotos", "ilustracao")
 
 
 def _valor(doc: dict[str, Any], caminho: str) -> Any:
@@ -57,6 +57,9 @@ def campos_preenchidos(doc: dict[str, Any]) -> set[str]:
     for nome, valor in (doc.get("atributos") or {}).items():
         if _preenchido(valor):
             caminhos.add(f"atributos.{nome}")
+    for nome, valor in (doc.get("perfil") or {}).items():
+        if _preenchido(valor):
+            caminhos.add(f"perfil.{nome}")
     return caminhos
 
 

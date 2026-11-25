@@ -458,7 +458,7 @@ class TestFoto:
             "credito": "Foto: Fulano · CC BY 4.0 · iNaturalist",
             "local": "Uberlândia, MG",
         }
-        assert campo.prov == Prov(fonte="inaturalist", metodo="brasil", ref="regras_midia@1.0")
+        assert campo.prov == Prov(fonte="inaturalist", metodo="brasil", ref="regras_midia@1.1")
 
     def test_sem_brasil_vale_o_commons(self, midia_regras):
         d = bem_te_vi(inaturalist=inat(mundo=[foto_inat(8)]), commons=COMMONS)
@@ -531,7 +531,102 @@ class TestFoto:
         assert doc["_prov"]["midia.foto"] == {
             "fonte": "inaturalist",
             "metodo": "brasil",
-            "ref": "regras_midia@1.0",
+            "ref": "regras_midia@1.1",
         }
         assert doc["_prov"]["midia"] == {"fonte": "wikiaves"}
+        assert set(doc["_prov"]) == campos_preenchidos(doc)
+
+
+# ---------------------------------------------------------------------------
+# Perfil (massa e dieta) e galeria de fotos
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture(scope="module")
+def ficha_regras():
+    from avesrag_builder.core.regras_ficha import regras_ficha_padrao
+
+    return regras_ficha_padrao()
+
+
+class TestPerfil:
+    def test_massa_do_birdbase_com_a_origem(self):
+        campo = r.massa(bem_te_vi())
+        assert campo.valor == 61.5
+        assert (campo.prov.fonte, campo.prov.metodo) == ("birdbase", "massa")
+
+    def test_sem_birdbase_vale_o_avonet(self):
+        campo = r.massa(bem_te_vi(birdbase={"Primary Diet": "Omnivore"}))
+        assert (campo.valor, campo.prov.fonte) == (62.9, "avonet")  # 62,85 arredondado
+
+    def test_sem_massa_nao_ha_campo(self):
+        assert r.massa(bem_te_vi(avonet={}, birdbase={})) is None
+
+    def test_dieta_do_avonet_vence(self, ficha_regras):
+        campo = r.dieta(bem_te_vi(), ficha_regras)
+        assert campo.valor == "onívora"
+        assert (campo.prov.fonte, campo.prov.metodo) == ("avonet", "dieta")
+        assert campo.prov.ref == "regras_ficha@1.0"
+
+    def test_sem_avonet_vale_o_birdbase(self, ficha_regras):
+        d = bem_te_vi(avonet={}, birdbase={"Primary Diet": "Fruit"})
+        campo = r.dieta(d, ficha_regras)
+        assert (campo.valor, campo.prov.fonte) == ("frugívora", "birdbase")
+
+    @pytest.mark.parametrize("categoria", ["No Information", "Beeswax", "Desconhecida", None])
+    def test_categoria_sem_texto_nao_vira_campo(self, ficha_regras, categoria):
+        d = bem_te_vi(avonet={}, birdbase={"Primary Diet": categoria})
+        assert r.dieta(d, ficha_regras) is None
+
+    def test_a_ficha_leva_o_perfil_e_o_prov(self, vocab, bico, regras):
+        doc = montar(bem_te_vi(), vocab, bico, regras).species.to_mongo()
+        assert doc["perfil"] == {"massa_g": 61.5, "dieta": "onívora"}
+        assert {"perfil.massa_g", "perfil.dieta"} <= set(doc["_prov"])
+        assert set(doc["_prov"]) == campos_preenchidos(doc)
+
+    def test_sem_massa_nem_dieta_a_ficha_fica_sem_perfil(self, vocab, bico, regras):
+        d = bem_te_vi(avonet={}, birdbase={})
+        doc = montar(d, vocab, bico, regras).species.to_mongo()
+        assert "perfil" not in doc
+
+
+class TestGaleria:
+    def test_principal_e_as_outras_do_brasil_sem_repetir(self, midia_regras):
+        d = bem_te_vi(inaturalist=inat(brasil=[foto_inat(7), foto_inat(8), foto_inat(9)]))
+        principal = r.foto(d, midia_regras).valor
+        campo = r.galeria(d, principal, midia_regras)
+        assert [f["link"].rsplit("/", 1)[1] for f in campo.valor] == ["7", "8", "9"]
+        assert campo.prov == Prov(fonte="inaturalist", metodo="galeria", ref="regras_midia@1.1")
+
+    def test_para_no_limite_da_galeria(self, midia_regras):
+        d = bem_te_vi(inaturalist=inat(brasil=[foto_inat(i) for i in range(1, 9)]))
+        principal = r.foto(d, midia_regras).valor
+        assert len(r.galeria(d, principal, midia_regras).valor) == midia_regras.galeria == 4
+
+    def test_pula_a_foto_de_licenca_recusada(self, midia_regras):
+        ruim = {**foto_inat(8), "licenca": "cc-by-nc"}
+        d = bem_te_vi(inaturalist=inat(brasil=[foto_inat(7), ruim, foto_inat(9)]))
+        principal = r.foto(d, midia_regras).valor
+        links = [f["link"].rsplit("/", 1)[1] for f in r.galeria(d, principal, midia_regras).valor]
+        assert links == ["7", "9"]
+
+    def test_so_com_a_principal_nao_ha_galeria(self, midia_regras):
+        d = bem_te_vi(inaturalist=inat(brasil=[foto_inat(7)]))
+        assert r.galeria(d, r.foto(d, midia_regras).valor, midia_regras) is None
+
+    def test_sem_principal_nao_ha_galeria(self, midia_regras):
+        assert r.galeria(bem_te_vi(), None, midia_regras) is None
+
+    def test_a_principal_do_commons_vem_primeiro(self, midia_regras):
+        d = bem_te_vi(
+            inaturalist=inat(mundo=[foto_inat(8)]) | {"fotos_brasil": []}, commons=COMMONS
+        )
+        assert r.galeria(d, r.foto(d, midia_regras).valor, midia_regras) is None  # sem outras
+
+    def test_a_ficha_guarda_fotos_com_prov(self, vocab, bico, regras):
+        d = bem_te_vi(inaturalist=inat(brasil=[foto_inat(7), foto_inat(8)]))
+        doc = montar(d, vocab, bico, regras).species.to_mongo()
+        assert [f["link"][-1] for f in doc["midia"]["fotos"]] == ["7", "8"]
+        assert doc["midia"]["foto"] == doc["midia"]["fotos"][0]
+        assert doc["_prov"]["midia.fotos"]["metodo"] == "galeria"
         assert set(doc["_prov"]) == campos_preenchidos(doc)

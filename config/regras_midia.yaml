@@ -6,7 +6,7 @@
 # toda licença tem URL https e nome único; nenhum apelido aparece em duas
 # licenças; nenhuma licença aceita é NC, ND ou GFDL; as expressões compilam.
 
-versao: "1.0"
+versao: "1.1" # 1.1: galeria (várias fotos do iNaturalist do Brasil na ficha)
 
 # Ordem de escolha: a primeira fonte com foto válida vence.
 # brasil: iNaturalist, observação "research grade" feita no Brasil, a mais votada
@@ -17,6 +17,10 @@ ordem:
   - { fonte: inaturalist, metodo: brasil }
   - { fonte: commons, metodo: p18 }
   - { fonte: inaturalist, metodo: mundo }
+
+# Quantas fotos a ficha guarda em `midia.fotos`: a principal e as outras observações
+# do iNaturalist do Brasil com licença aceita (a ordem é a da API, como na principal).
+galeria: 4
 
 nomes_exibicao:
   inaturalist: iNaturalist
