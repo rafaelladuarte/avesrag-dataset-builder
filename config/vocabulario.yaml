@@ -101,6 +101,10 @@ atributos:
         grupo: cabeca
         descricao: Anel claro ou colorido em volta do olho.
         sinonimos: [anel ocular, anel em volta do olho, olho de oculos]
+      pele_nua:
+        grupo: cabeca
+        descricao: Pele nua, enrugada ou com protuberâncias carnudas na cabeça ou no pescoço (urubu, tuiuiú, galinha, peru).
+        sinonimos: [carunculas, caruncula, grelo, barbela, pele enrugada, cabeca pelada, cabeca careca, pescoco pelado, cabeca sem penas, pescoco sem penas]
       coleira:
         grupo: pescoco_peito
         descricao: Faixa em volta do pescoço ou no alto do peito.

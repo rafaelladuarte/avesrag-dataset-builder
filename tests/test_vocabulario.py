@@ -21,7 +21,7 @@ ATRIBUTOS_DO_MODELO = {
     "marcas": {
         "mascara", "sobrancelha", "topete", "capuz", "anel_no_olho", "coleira",
         "garganta_contrastante", "mancha_no_peito", "listrado", "pintado",
-        "faixa_na_asa", "cauda_com_branco",
+        "faixa_na_asa", "cauda_com_branco", "pele_nua",
     },
     "bico_tipo": {
         "generalista", "insetivoro", "granivoro", "quebrador", "frugivoro", "nectarivoro",

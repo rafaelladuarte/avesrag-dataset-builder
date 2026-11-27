@@ -182,6 +182,12 @@ poetry run avesrag-builder ingest commons --piloto      # ~1 min: imagem P18 do 
 poetry run avesrag-builder ingest inaturalist --piloto  # ~36 min: até 5 fotos do Brasil e 5 de fora por espécie
 ```
 
+**Textos do WikiAves colados à mão (opcional, depois do `resolve` e antes do `extract`):** quando a página coletada não traz o texto (ou traz pouco), a curadoria cola o texto da página na coleta temporária `revisao_texto_wikiaves` (página de curadoria do assistant), e esta etapa o divide em seções e grava em `raw_texto_manual`. Na extração, cada campo colado vale por cima do da página coletada, e o `raw_wikiaves` não muda. O relatório vai para `reports/texto_manual.tsv`. Esse texto tem trechos do WikiAves e não se publica (veja `planos/plano_texto_manual.md`).
+
+```bash
+poetry run avesrag-builder ingest texto_manual          # segundos: divide e grava; só as espécies coladas
+```
+
 O `inaturalist` pula as espécies já gravadas, e uma execução interrompida retoma de onde parou; `--refazer` baixa tudo de novo. As fotos seguem a ordem dos votos, mas quase todas as observações têm 0 votos, e no empate a ordem é a da API, que pode mudar com o tempo: no piloto, um `--refazer` uma hora depois da coleta trocou as fotos de 56 de 432 espécies.
 
 A foto do WikiAves não entra na ficha: o Termo de Uso do site proíbe a reprodução, e cada foto pertence ao seu autor. O app leva à página da espécie no WikiAves por link.

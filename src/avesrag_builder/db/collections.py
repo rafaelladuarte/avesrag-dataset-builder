@@ -12,6 +12,9 @@ RAW_IBGE = "raw_ibge"
 RAW_BIRDALBUM = "raw_birdalbum"
 RAW_COMMONS = "raw_commons"
 RAW_INATURALIST = "raw_inaturalist"
+# Textos do WikiAves colados à mão pela curadoria (plano_texto_manual.md); vale por cima do
+# `raw_wikiaves`, campo a campo, na extração.
+RAW_TEXTO_MANUAL = "raw_texto_manual"
 
 SPECIES_REGISTRY = "species_registry"
 SPECIES_EXTRACTIONS = "species_extractions"
@@ -21,6 +24,9 @@ SPECIES_RETRIEVAL_DOCS = "species_retrieval_docs"
 
 # Correções manuais (curadoria) por espécie: o `fuse` as aplica por cima de todas as fontes.
 SPECIES_OVERRIDES = "species_overrides"
+
+# Coleta temporária da curadoria (escrita pelo assistant): o texto colado, antes do `ingest texto_manual`.
+REVISAO_TEXTO_WIKIAVES = "revisao_texto_wikiaves"
 
 # Operacional: lotes enviados à API de batch do LLM, para retomar o `extract`.
 LLM_BATCHES = "llm_batches"
@@ -35,6 +41,7 @@ RAW_COLLECTIONS = (
     RAW_BIRDALBUM,
     RAW_COMMONS,
     RAW_INATURALIST,
+    RAW_TEXTO_MANUAL,
 )
 
 # Escritas pelo builder, na ordem do pipeline.

@@ -75,7 +75,7 @@ class TestTamanho:
 
 class TestApta:
     def test_criterios_da_especificacao(self, regras):
-        assert regras.minimos == {"tamanho": 1, "cores": 2, "bico_tipo": 1, "ambiente": 1}
+        assert regras.minimos == {"tamanho": 1, "cores": 1, "bico_tipo": 1, "ambiente": 1}
         assert regras.textos_b03 == ["aparencia"]
 
 

@@ -33,6 +33,7 @@ from avesrag_builder.core.settings import Settings, get_settings
 from avesrag_builder.core.vocabulario import Vocabulario, vocabulario_padrao
 from avesrag_builder.db.collections import (
     LLM_BATCHES,
+    RAW_TEXTO_MANUAL,
     RAW_WIKIAVES,
     SPECIES_EXTRACTIONS,
     SPECIES_REGISTRY,
@@ -142,9 +143,17 @@ def carregar_textos(db: Database, species_ids: Iterable[str]) -> dict[str, dict[
     faltando = sorted(set(ids) - set(chave))
     if faltando:
         raise ValueError(f"species_id fora do species_registry: {', '.join(faltando[:5])}")
-    return {
-        sid: {c: paginas.get(chave[sid], {}).get(c) or "" for c in CAMPOS_WIKIAVES} for sid in ids
+    manuais = {
+        d["_id"]: d.get("dados") or {}
+        for d in db[RAW_TEXTO_MANUAL].find({"_id": {"$in": ids}}, {"dados": 1})
     }
+    return {sid: mesclar_textos(paginas.get(chave[sid], {}), manuais.get(sid, {})) for sid in ids}
+
+
+def mesclar_textos(pagina: dict[str, Any], manual: dict[str, Any]) -> dict[str, str]:
+    """Campo a campo: o texto colado à mão (`raw_texto_manual`) vale quando não é vazio;
+    senão, o da página coletada do WikiAves."""
+    return {c: (manual.get(c) or "").strip() or pagina.get(c) or "" for c in CAMPOS_WIKIAVES}
 
 
 # ---------------------------------------------------------------------------

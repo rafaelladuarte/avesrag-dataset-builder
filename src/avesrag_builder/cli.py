@@ -34,6 +34,7 @@ class Fonte(str, Enum):
     birdalbum = "birdalbum"
     commons = "commons"
     inaturalist = "inaturalist"
+    texto_manual = "texto_manual"
 
 
 def nao_implementado(comando: str, marco: str) -> None:

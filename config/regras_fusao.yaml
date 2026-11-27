@@ -25,6 +25,8 @@ comprimento_cm:
 
 apta:
   # Quantidade mínima de valores em cada atributo para a espécie ser `apta`.
-  minimos: { tamanho: 1, cores: 2, bico_tipo: 1, ambiente: 1 }
+  # cores: 1 desde 27/11 (B20): aves de plumagem uniforme (urubu-preto, anu-preto) têm uma cor só;
+  # as fichas de uma cor ficam na fila de revisão da curadoria, para conferir se falta alguma.
+  minimos: { tamanho: 1, cores: 1, bico_tipo: 1, ambiente: 1 }
   # Textos do b03 que precisam existir (o texto não fica na ficha).
   textos_b03: [aparencia]

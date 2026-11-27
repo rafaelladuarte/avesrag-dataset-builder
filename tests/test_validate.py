@@ -83,14 +83,14 @@ class TestFaltasEClassificacao:
         assert v.classificar([], []) == "apta"
 
     def test_incompleta_com_o_que_falta(self, doc, regras):
-        doc["atributos"]["cores"] = ["amarelo"]
+        doc["atributos"]["cores"] = []
         del doc["atributos"]["bico_tipo"]
         faltas = v.faltas(doc, regras, set())
-        assert faltas == ["cores (1 de 2)", "bico_tipo", "b03.aparencia"]
+        assert faltas == ["cores", "bico_tipo", "b03.aparencia"]
         assert v.classificar([], faltas) == "incompleta"
 
     def test_bloqueada_vence_incompleta(self):
-        assert v.classificar(["taxonomia: falta genero"], ["cores (1 de 2)"]) == "bloqueada"
+        assert v.classificar(["taxonomia: falta genero"], ["cores"]) == "bloqueada"
 
 
 def test_3_ilustracao_sem_prov(doc, vocab, regras):
